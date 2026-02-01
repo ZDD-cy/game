@@ -92,7 +92,7 @@ public class hidetrap : MonoBehaviour
                 trappedEnemy.ApplyBurn(damage / 2, revealDuration);
                 break;
             case TrapType.Freeze:
-                trappedEnemy.ApplySlow(0.7f, revealDuration); // 减速+牵引，控场拉满
+                trappedEnemy.ApplySlow(0.7f, revealDuration);
                 break;
             case TrapType.Spike:
                 break;

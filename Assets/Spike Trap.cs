@@ -9,7 +9,7 @@ public class SpikeTrap : MonoBehaviour
     public bool isContinuousDamage = true; 
     public float damageInterval = 1f;    
     public float trapCD = 0.5f;          
-    public bool hasKnockback = true;     /
+    public bool hasKnockback = true;     
     public float knockbackForce = 5f;    
 
     private float _cdTimer;

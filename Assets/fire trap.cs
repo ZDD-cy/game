@@ -58,7 +58,7 @@ public class firetrap : MonoBehaviour
                 Enemy enemy = col.GetComponent<Enemy>();
                 if (enemy != null)
                 {
-                    enemy.TakeDamage(aoeDamage);
+                    enemy.TakeDamage((int)aoeDamage);
                     enemy.ApplyBurn(burnDamage, burnDuration);
                 }
             }
