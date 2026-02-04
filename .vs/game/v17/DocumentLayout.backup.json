@@ -7,28 +7,32 @@
       "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\trap\\fire trap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|c:\\users\\\u9648\u6631\\desktop\\\u840C\u82BD\\game\\assets\\scenes\\trap\\enemyhiteffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\trap\\enemyhiteffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\scenes\\trap\\boody trap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\trap\\boody trap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\scenes\\trap\\freeze trap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\trap\\freeze trap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|c:\\users\\\u9648\u6631\\desktop\\\u840C\u82BD\\game\\assets\\scenes\\trap\\enemyhiteffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\trap\\enemyhiteffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\scenes\\trap\\hide trap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\trap\\hide trap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\eliteenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\eliteenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\scenes\\trap\\boody trap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\trap\\boody trap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\scenes\\trap\\spike trap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\trap\\spike trap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\scenes\\trap\\freeze trap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\trap\\freeze trap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,29 +42,42 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
+              "Title": "EliteEnemy.cs",
+              "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\EliteEnemy.cs",
+              "RelativeDocumentMoniker": "Assets\\EliteEnemy.cs",
+              "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\EliteEnemy.cs",
+              "RelativeToolTip": "Assets\\EliteEnemy.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAQwCgAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T11:04:10.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Enemy.cs",
               "RelativeDocumentMoniker": "Assets\\Enemy.cs",
               "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Enemy.cs",
               "RelativeToolTip": "Assets\\Enemy.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAQwCgAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAO0AAAAAAAAAAAA3wPMAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T03:15:02.032Z"
+              "WhenOpened": "2026-02-04T03:15:02.032Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "EnemyHitEffect.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\Trap\\EnemyHitEffect.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\Trap\\EnemyHitEffect.cs",
               "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\Trap\\EnemyHitEffect.cs",
               "RelativeToolTip": "Assets\\Scenes\\Trap\\EnemyHitEffect.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAswCUAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAD8BAAAAAAAAAAAwwEUBAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-04T03:10:04.237Z",
               "EditorCaption": ""
@@ -79,19 +96,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "hide trap.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\Trap\\hide trap.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\Trap\\hide trap.cs",
               "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\Trap\\hide trap.cs",
               "RelativeToolTip": "Assets\\Scenes\\Trap\\hide trap.cs",
-              "ViewState": "AgIAAG4AAAAAAAAAAAAAAIIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAMwFsAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T03:02:13.058Z"
+              "WhenOpened": "2026-02-04T03:02:13.058Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Freeze trap.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\Trap\\Freeze trap.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\Trap\\Freeze trap.cs",
@@ -103,13 +121,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "boody trap.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\Trap\\boody trap.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\Trap\\boody trap.cs",
               "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\Trap\\boody trap.cs",
               "RelativeToolTip": "Assets\\Scenes\\Trap\\boody trap.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAuwD0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-04T03:01:57.049Z"
             },
@@ -121,7 +139,7 @@
               "RelativeDocumentMoniker": "Assets\\Scenes\\Trap\\fire trap.cs",
               "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\Trap\\fire trap.cs",
               "RelativeToolTip": "Assets\\Scenes\\Trap\\fire trap.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAcwB4AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAYwAUAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-04T02:59:04.671Z",
               "EditorCaption": ""

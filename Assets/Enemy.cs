@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
+using static firetrap;
 
 public enum EnemyState
 {
@@ -10,8 +11,9 @@ public enum EnemyState
 }
 
 
-public class Enemy: MonoBehaviour
+public class Enemy: MonoBehaviour, IDamageable
 {
+    private EnemyHitEffect _hitEffect;
     // 巡逻相关变量
     public Transform[] patrolPoints;
     private int currentPatrolIndex = 0;
@@ -35,7 +37,7 @@ public class Enemy: MonoBehaviour
         public float hp = 20f;
         public float maxHp = 20f;
         public float currentSpeed;
-        public float normalSpeed = 2f;
+        public float normalSpeed = 3f;
         public int coin = 2;
 
         public void ResetSpeed()
@@ -89,6 +91,27 @@ public class Enemy: MonoBehaviour
         private float idleTurnInterval;
         private bool facingRight;
 
+
+        // 引用敌人身上的受击效果脚本
+        private EnemyHitEffect _hitEffect;
+
+        void Awake()
+        {
+            // 获取敌人身上的 EnemyHitEffect 组件
+            _hitEffect = GetComponent<EnemyHitEffect>();
+  
+        }
+
+        // 转发方法
+        public void ApplyBurn(float burnDamage, float burnDuration)
+        {
+            _hitEffect.ApplyBurn(burnDamage, burnDuration);
+        }
+
+        public void ApplySlow(float slowAmount, float slowDuration)
+        {
+            _hitEffect.ApplySlow(slowAmount, slowDuration);
+        }
         void Start()
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -217,18 +240,32 @@ public class Enemy: MonoBehaviour
         currentHealth -= damage;
     }
 
-   
-
-   
-
     
-
-    
-
    
-       //受击反馈
-  //受伤红闪
-            IEnumerator FlashCoroutine()
+// 实现 IDamageable 接口的 ApplyBurn 方法
+public void ApplyBurn(float burnDamage, float burnDuration)
+    {
+        _hitEffect.ApplyBurn(burnDamage, burnDuration);
+    }
+
+    public void ApplySlow(float slowAmount, float slowDuration)
+    {
+        _hitEffect.ApplySlow(slowAmount, slowDuration);
+    }
+    public void TakeDamage(float damage)
+    {
+       hp-= damage;
+     }
+
+
+
+
+
+
+
+//受击反馈
+//受伤红闪
+IEnumerator FlashCoroutine()
             {
                 sr.color = hitColor;
                 yield return new WaitForSeconds(hitFlashTime);

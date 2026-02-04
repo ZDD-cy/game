@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static firetrap;
 
 public class firetrap : MonoBehaviour
 {
@@ -15,8 +16,22 @@ public class firetrap : MonoBehaviour
 
     private float _cdTimer;
     private bool _isTrapActive = true;
+   
+    //接口
+    public interface IDamageable
 
-    void Update()
+{
+    // 所有可被攻击的对象都必须实现这个方法
+    void TakeDamage(float damage);
+
+    // 所有可以被燃烧的对象都必须实现这个方法
+    void ApplyBurn(float burnDamage, float burnDuration);
+
+    // 所有可以被减速的对象都必须实现这个方法
+    void ApplySlow(float slowAmount, float slowDuration);
+}
+
+void Update()
     {
 
         if (!_isTrapActive)

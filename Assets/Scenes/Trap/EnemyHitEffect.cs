@@ -34,8 +34,8 @@ public class EnemyHitEffect : MonoBehaviour
     private AudioSource audioSource;
     private bool isBurning;          // 灼烧状态标记
     private Coroutine burnCoroutine; // 灼烧协程缓存
+   
 
-    
     void Awake()
     {
         // 获取你原有Enemy组件和必要组件
@@ -307,4 +307,51 @@ public class EnemyHitEffect : MonoBehaviour
         if (burnCoroutine != null) StopCoroutine(burnCoroutine);
         StopAllCoroutines();
     }
+    //补充携程
+    // 这个方法由 Enemy 类调用
+    public void ApplyBurn(float burnDamage, float burnDuration)
+    {
+        // 在这里实现燃烧的逻辑和特效
+        // 1. 播放火焰粒子特效
+        // 2. 启动一个协程来处理持续伤害
+        StartCoroutine(BurnCoroutine(burnDamage, burnDuration));
+    }
+
+    private IEnumerator BurnCoroutine(float damagePerSecond, float duration)
+    {
+        float timer = 0;
+        Enemy enemy = GetComponent<Enemy>();
+        while (timer < duration)
+        {
+            enemy.TakeDamage((int)(damagePerSecond * Time.deltaTime));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    // 这个方法由 Enemy 类调用
+    public void ApplySlow(float slowAmount, float slowDuration)
+    {
+        // 在这里实现减速的逻辑和特效
+        // 1. 播放冰霜粒子特效
+        // 2. 启动一个协程来处理减速效果
+        StartCoroutine(SlowCoroutine(slowAmount, slowDuration));
+    }
+
+    private IEnumerator SlowCoroutine(float slowAmount, float duration)
+    {
+        Enemy enemy = GetComponent<Enemy>();
+
+        // 保存原始速度
+        float originalSpeed = enemy.moveSpeed;
+        // 应用减速
+        enemy.moveSpeed *= (1 - slowAmount);
+
+        yield return new WaitForSeconds(duration);
+
+        // 恢复原始速度
+        enemy.moveSpeed = originalSpeed;
+    }
 }
+
+
