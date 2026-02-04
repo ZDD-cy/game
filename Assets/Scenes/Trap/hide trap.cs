@@ -86,29 +86,19 @@ public class hidetrap : MonoBehaviour
     void ApplyTrapEffect()
     {
         trappedEnemy.TakeDamage(damage);
-        EnemyHitEffect hitEffect = trappedEnemy.GetComponent<EnemyHitEffect>();
         switch (trapType)
         {
+            case TrapType.Fire:
+                trappedEnemy.ApplyBurn(damage / 2, revealDuration);
+                break;
             case TrapType.Freeze:
-                hitEffect.DoFreezeEnter();
-                // 减速逻辑
-                trappedEnemy.currentSpeed = trappedEnemy.moveSpeed * (1 - 0.7f);
-                // 用单独的方法名调用 Invoke
-                Invoke(nameof(ResetEnemySpeed), revealDuration);
+                trappedEnemy.ApplySlow(0.7f, revealDuration);
                 break;
             case TrapType.Spike:
                 break;
         }
     }
-    void ResetEnemySpeed()
-    {
-        if (trappedEnemy != null)
-        {
-            trappedEnemy.ResetSpeed();
-        }
-    }
-
-    //显性需添加粒子效果
+//显性需添加粒子效果
     void RevealTrap()
     {
         if (revealSprite != null) sr.sprite = revealSprite;

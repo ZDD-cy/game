@@ -1,27 +1,37 @@
-.gitignore
-
 # ============= #
-# Unity 项目    #
+# Unity .gitignore #
 # ============= #
 
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-[Ll]ogs/
-[Uu]ser[Ss]ettings/
+# Unity 自动生成目录
+.utmp/
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
 
-# 内存分析器
-[Mm]emoryCaptures/
+# 大型/敏感数据目录
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
 
-# 资源包（包含资源包缓存、下载和临时数据）
-[Aa]ssetStoreTools*
+# Blender 冗余文件（无需版本控制）
+*.blend1
+*.blend1.meta
 
-# Visual Studio/MonoDevelop 生成文件
-[Ee]xported[Oo]bj/
 
-# VS 项目文件
+# 第三方插件（JetBrains Rider）
+/[Aa]ssets/Plugins/Editor/JetBrains*
+*.DotSettings.user
+
+
+# ============= #
+# 编辑器/IDE 缓存  #
+# ============= #
+
+# Visual Studio 缓存
+.vs/
 *.csproj
 *.unityproj
 *.sln
@@ -31,39 +41,88 @@
 *.userprefs
 *.pidb
 *.booproj
-
-# Unity3D 生成的 Visual Studio 文件
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
 *.pidb.meta
+*.pdb.meta
+*.mdb.meta
 
-# Unity3D 生成的 macOS 文件
-*.DS_Store*
+# MonoDevelop/Consulo 缓存
+ExportedObj/
+.consulo/
 
-# Unity3D 生成的 Android 文件
+# JetBrains Rider 缓存
+.idea/
+
+# Gradle 缓存（Android 构建）
+.gradle/
+
+# VS Code 配置（按需忽略，默认忽略所有子项）
+.vscode/*
+
+
+# ============= #
+# 构建产物       #
+# ============= #
+
+# 通用构建文件
 *.apk
 *.aab
-
-# Unity3D 生成的 iOS 文件
+*.unitypackage
+*.unitypackage.meta
+*.app
 *.ipa
 *.p12
 *.mobileprovision
 *.xcent
 
-# 自动生成的 Unity 元文件
-*/[Aa]ssets/[Aa]ssetStoreTools*
+# 崩溃报告与日志
+*.log
+sysinfo.txt
+crashlytics-build.properties
+mono_crash.*
 
-# 第三方插件/库
-*/[Aa]ssets/[Pp]lugins/*.meta
-
-# 项目设置
-[Pp]rojectSettings/PackageManagerSettings.json
 
 # ============= #
-# OS 生成文件   #
+# 测试与自动化生成 #
+# ============= #
+
+# TestRunner 自动生成场景
+InitTestScene*.unity*
+/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# Play Mode Tests 自动生成场景
+/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# Visual Scripting 自动生成文件
+/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db
+/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db.meta
+/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
+/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
+
+
+# ============= #
+# Addressables 忽略 #
+# ============= #
+
+/ServerData
+/[Aa]ssets/StreamingAssets/aa*
+/[Aa]ssets/AddressableAssetsData/link.xml*
+/[Aa]ssets/Addressables_Temp*
+/[Aa]ssets/AddressableAssetsData/*/*.bin*
+
+
+# ============= #
+# 操作系统生成文件 #
 # ============= #
 
 # macOS
 .DS_Store
 ._*
+*.DS_Store*
 
 # Windows
 Thumbs.db
@@ -72,30 +131,38 @@ Thumbs.db
 *~
 
 # ============= #
-# 包管理        #
+# 项目设置与敏感文件 #
 # ============= #
 
-# 内置包缓存
-/[Pp]ackages/
+# 项目特定设置
+[Pp]rojectSettings/PackageManagerSettings.json
+
+# 敏感信息（避免提交）
+*.private
+*.secret
+config.json
+.env
+
 
 # ============= #
-# 编辑器缓存    #
+# 第三方插件/冗余元文件 #
 # ============= #
 
-# Unity 包管理器缓存
-Library/PackageCache/
-Library/StateCache/
-Library/AssetDatabase/
-Library/ShaderCache/
+# Asset Store Tools 相关
+[Aa]ssetStoreTools*
+*/[Aa]ssets/[Aa]ssetStoreTools*
+
+# 插件冗余元文件
+*/[Aa]ssets/[Pp]lugins/*.meta
 
 # ============= #
-# 自动忽略文件  #
+# 强制保留的必要文件（重要！） #
 # ============= #
 
-# 不要忽略 .meta 文件
+# 不要忽略 .meta 文件（Unity 核心依赖）
 !*.meta
 
-# 不要忽略必要的资源文件
+# 不要忽略必要资源文件
 !*.unity
 !*.prefab
 !*.mat
@@ -121,7 +188,7 @@ Library/ShaderCache/
 !*.curves
 !*.curvesNormalized
 
-# 不要忽略必要的脚本文件
+# 不要忽略必要脚本文件
 !*.cs
 !*.js
 !*.shader
@@ -129,26 +196,10 @@ Library/ShaderCache/
 !*.cginc
 !*.hlsl
 
-# 不要忽略必要的配置文件
+# 不要忽略必要配置文件
 !*.json
 !*.xml
 !*.txt
 !*.md
 !*.yaml
 !*.yml
-
-# ============= #
-# 特殊文件      #
-# ============= #
-
-# 不要上传敏感信息
-*.private
-*.secret
-config.json
-.env
-
-# VS Code 配置文件
-.vscode/*
-# Unity Burst 插件大文件
-Library/PackageCache/com.unity.burst@*/Runtime/libburst-llvm-*.dylib
-Library/PackageCache/
