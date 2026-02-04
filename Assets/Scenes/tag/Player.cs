@@ -2,56 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    [Header("移动设置")]
+    [SerializeField] private float moveSpeed = 3f;
 
-    public float speed = 3f;
-    public int currentHealth;
-    public int maxHealth = 20;
+    [Header("属性设置")]
+    [SerializeField] private int maxHealth = 20;
+    private int currentHealth;
+
+    // 组件引用
+    private Rigidbody2D rb;
+    private Vector2 movement;
 
     void Start()
     {
+        // 获取组件
+        rb = GetComponent<Rigidbody2D>();
+
+        // 初始化血量
         currentHealth = maxHealth;
+        Debug.Log("玩家初始化完成，生命值: " + currentHealth + "/" + maxHealth);
     }
 
     void Update()
     {
-        Move();
+        // 获取WASD输入
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.J))
+        // 确保斜向移动速度和正交移动速度一致
+        if (movement.magnitude > 1)
         {
-            Attack();
+            movement.Normalize();
         }
     }
 
-    void Move()
+    void FixedUpdate()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput);
-        transform.Translate(movement * speed * Time.deltaTime);
+        // 应用移动
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
-    void Attack()
-    {
-        Debug.Log("Player attacks!");
-    }
-
+    // 受伤
     public void TakeDamage(int damage)
     {
-        // 减少角色的血量
-        currentHealth -= damage;
-        Debug.Log($"Player takes {damage} damage. Current health: {currentHealth}");
+        currentHealth = Mathf.Max(0, currentHealth - damage);
+        Debug.Log("受到 " + damage + " 点伤害！当前生命值: " + currentHealth + "/" + maxHealth);
 
-        // 检查角色是否死亡
         if (currentHealth <= 0)
         {
             Die();
         }
     }
-    void Die()
+
+    private void Die()
     {
-        Debug.Log("Player died!");
+        Debug.Log("玩家死亡！");
+        gameObject.SetActive(false);
     }
 }

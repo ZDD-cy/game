@@ -14,6 +14,14 @@ public class Attack : MonoBehaviour
     private float lockTimer;
     private bool isLocking = false;
 
+    //开始隐藏射线
+    void Start()
+    {
+        lineRenderer.enabled = false;
+
+    }
+
+    //开始锁定
     public void StartLockOn(Transform enemy)
     {
         targetEnemy = enemy;
@@ -21,10 +29,12 @@ public class Attack : MonoBehaviour
         isLocking = true;
         lineRenderer.enabled = true;
         lineRenderer.material = GameManager.Instance.dashLineMaterial;
+        Debug.Log("锁定状态：" + isLocking + "目标敌人:" + targetEnemy);
     }
 
     void Update()
     {
+       
         if (isLocking && targetEnemy != null)
         {
             lineRenderer.SetPosition(0, firePoint.position);
