@@ -34,10 +34,10 @@ public class Enemy: MonoBehaviour, IDamageable
 
     public bool isInIceTrap = false;
         [Header("µÐÈË»ù´¡ÊôÐÔ")]
-        public float hp = 20f;
-        public float maxHp = 20f;
+        public float hp = 100f;
+        public float maxHp = 100f;
         public float currentSpeed;
-        public float normalSpeed = 3f;
+        public float normalSpeed = 5f;
         public int coin = 2;
 
         public void ResetSpeed()
@@ -81,8 +81,8 @@ public class Enemy: MonoBehaviour, IDamageable
         public float attackRange = 1.5f;    // ¹¥»÷·¶Î§
 
         // Ñ²Âß²ÎÊý
-        public float patrolSpeed = 2f;
-        public float patrolWaitTime = 2f;
+        public float patrolSpeed = 5f;
+        public float patrolWaitTime = 5f;
         private Vector3 patrolTarget;
         private float patrolTimer;
 
@@ -161,6 +161,7 @@ public class Enemy: MonoBehaviour, IDamageable
                 {
                     currentState = EnemyState.Patrol;
                     patrolTimer = 0;
+                    Debug.Log("×´Ì¬ÒÑ¾­ÇÐ»»µ½Ñ²Âß×´Ì¬");
                 }
 
             }
