@@ -80,7 +80,7 @@ public class SnowFlakeBullet : MonoBehaviour
     }
 
     // 设置弹幕飞行方向
-    public void SetDirection(Vector2 dir)
+    public void SetDirection(Vector2 dir, float snowFlakeRange)
     {
         moveDir = dir.normalized;
     }
