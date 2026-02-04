@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\scenes\\the script on the enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|c:\\users\\\u9648\u6631\\desktop\\\u840C\u82BD\\game\\assets\\scenes\\the script on the enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\the script on the enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|c:\\users\\\u9648\u6631\\desktop\\\u840C\u82BD\\game\\assets\\eliteenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\eliteenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\eliteenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -29,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\AnotherAssest\\DamagePopup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scenes\\AnotherAssest\\DamagePopup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\hostcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -86,11 +86,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "EliteEnemy.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\EliteEnemy.cs",
               "RelativeDocumentMoniker": "Assets\\EliteEnemy.cs",
@@ -99,12 +99,11 @@
               "ViewState": "AgIAAD8AAAAAAAAAAAAkwGYAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-04T11:04:10.334Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\The script on the enemy\\Enemy.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\The script on the enemy\\Enemy.cs",
@@ -117,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "FrostBoss.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\tag\\FrostBoss.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\tag\\FrostBoss.cs",
@@ -129,7 +128,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "FrostTrap.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\AnotherAssest\\FrostTrap.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\AnotherAssest\\FrostTrap.cs",
@@ -141,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "SnowFlakeBullet.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\AnotherAssest\\SnowFlakeBullet.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\AnotherAssest\\SnowFlakeBullet.cs",
@@ -153,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "boss1.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\tag\\boss1.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\tag\\boss1.cs",
@@ -176,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "DamagePopup.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\AnotherAssest\\DamagePopup.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\AnotherAssest\\DamagePopup.cs",
@@ -199,15 +198,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "Attack.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Attack.cs",
               "RelativeDocumentMoniker": "Assets\\Attack.cs",
               "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Attack.cs",
               "RelativeToolTip": "Assets\\Attack.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAAwB8AAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-04T12:09:17.076Z"
+              "WhenOpened": "2026-02-04T12:09:17.076Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
