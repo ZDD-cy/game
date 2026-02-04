@@ -149,3 +149,6 @@ config.json
 
 # VS Code 配置文件
 .vscode/*
+# Unity Burst 插件大文件
+Library/PackageCache/com.unity.burst@*/Runtime/libburst-llvm-*.dylib
+Library/PackageCache/
