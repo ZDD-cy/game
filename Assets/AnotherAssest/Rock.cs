@@ -1,6 +1,7 @@
 ﻿using System;
+using UnityEngine;
 
-internal class Rock
+internal class Rock :MonoBehaviour
 {
     public Action OnRockLanded { get; internal set; }
 

@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using TMPro;
+
 public class DamagePopup : MonoBehaviour
 {
- [SerializeField] private TextMeshProUGUI damageText;
+    [SerializeField] private TextMeshPro textMesh;
+
     public void SetDamage(int damage)
-        {
-          damageText.text = damage.ToString();
-        }
+    {
+        textMesh.text = damage.ToString();
+        Destroy(gameObject, 1f);
+    }
 }
