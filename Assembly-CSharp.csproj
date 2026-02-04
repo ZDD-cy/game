@@ -60,21 +60,25 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.62f3c1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scenes\AnotherAssest\EnemyDropSystem.cs" />
     <Compile Include="Assets\Scenes\Trap\Freeze trap.cs" />
-    <Compile Include="Assets\AnotherAssest\Rock.cs" />
     <Compile Include="Assets\Enemy.cs" />
-    <Compile Include="Assets\AnotherAssest\ItemPickup.cs" />
-    <Compile Include="Assets\AnotherAssest\Coin.cs" />
-    <Compile Include="Assets\AnotherAssest\Bullet.cs" />
+    <Compile Include="Assets\Scenes\AnotherAssest\PlayerInventory.cs" />
+    <Compile Include="Assets\Scenes\AnotherAssest\Rock.cs" />
+    <Compile Include="Assets\Scenes\AnotherAssest\Coin.cs" />
     <Compile Include="Assets\Scenes\Trap\boody trap.cs" />
-    <Compile Include="Assets\AnotherAssest\EnemyDropSystem.cs" />
-    <Compile Include="Assets\AnotherAssest\PlayerInventory.cs" />
     <Compile Include="Assets\Scenes\Trap\Spike Trap.cs" />
+    <Compile Include="Assets\Scenes\AnotherAssest\Bullet.cs" />
     <Compile Include="Assets\DamagePopup.cs" />
+    <Compile Include="Assets\EliteEnemy.cs" />
     <Compile Include="Assets\Attack.cs" />
     <Compile Include="Assets\Scenes\Trap\fire trap.cs" />
+    <Compile Include="Assets\Scenes\Trap\EnemyHitEffect.cs" />
     <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\Scenes\Trap\hide trap.cs" />
+    <Compile Include="Assets\Scenes\AnotherAssest\ItemPickup.cs" />
+    <Compile Include="Assets\Scenes\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Raycast2D.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

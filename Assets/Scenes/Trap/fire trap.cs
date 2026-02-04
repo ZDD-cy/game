@@ -29,7 +29,6 @@ public class firetrap : MonoBehaviour
             }
         }
     }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy") && _isTrapActive)
@@ -38,7 +37,8 @@ public class firetrap : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(triggerDamage);
-                enemy.ApplyBurn(burnDamage, burnDuration);
+                // 调用受击脚本的灼烧效果
+                other.GetComponent<EnemyHitEffect>().DoFireBurn(burnDamage, burnDuration);
                 if (hasAOE)
                 {
                     ApplyAOEDamage();
@@ -47,6 +47,7 @@ public class firetrap : MonoBehaviour
             }
         }
     }
+
 
     void ApplyAOEDamage()
     {
@@ -59,7 +60,8 @@ public class firetrap : MonoBehaviour
                 if (enemy != null)
                 {
                     enemy.TakeDamage((int)aoeDamage);
-                    enemy.ApplyBurn(burnDamage, burnDuration);
+                    // 调用受击脚本的灼烧效果
+                    col.GetComponent<EnemyHitEffect>().DoFireBurn(burnDamage, burnDuration);
                 }
             }
         }

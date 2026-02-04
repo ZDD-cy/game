@@ -8,8 +8,9 @@ public class DropItem
 {
     public GameObject itemPrefab;
     public string itemName;
+    public int minCount = 1;      // 最小掉落数量
+    public int maxCount = 3;      // 最大掉落数量
 }
-
 public class EnemyDropSystem : MonoBehaviour
 {
     [Header("掉落物预制体")]
@@ -53,7 +54,7 @@ public class EnemyDropSystem : MonoBehaviour
     }
 
     // 生成掉落物
-    private void SpawnDropItem(GameObject prefab, int count)
+    public void SpawnDropItem(GameObject prefab, int count)
     {
         if (prefab == null) return;
 
