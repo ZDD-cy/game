@@ -63,11 +63,15 @@
     <Compile Include="Assets\Scenes\AnotherAssest\EnemyDropSystem.cs" />
     <Compile Include="Assets\Scenes\Trap\Freeze trap.cs" />
     <Compile Include="Assets\Enemy.cs" />
+    <Compile Include="Assets\HostController.cs" />
     <Compile Include="Assets\Scenes\AnotherAssest\PlayerInventory.cs" />
+    <Compile Include="Assets\LinkManager.cs" />
+    <Compile Include="Assets\playerAttack2.cs" />
     <Compile Include="Assets\Scenes\AnotherAssest\Rock.cs" />
     <Compile Include="Assets\Scenes\AnotherAssest\Coin.cs" />
     <Compile Include="Assets\Scenes\Trap\boody trap.cs" />
     <Compile Include="Assets\Scenes\Trap\Spike Trap.cs" />
+    <Compile Include="Assets\link1.cs" />
     <Compile Include="Assets\Scenes\AnotherAssest\Bullet.cs" />
     <Compile Include="Assets\DamagePopup.cs" />
     <Compile Include="Assets\EliteEnemy.cs" />
@@ -78,6 +82,7 @@
     <Compile Include="Assets\Scenes\Trap\hide trap.cs" />
     <Compile Include="Assets\Scenes\AnotherAssest\ItemPickup.cs" />
     <Compile Include="Assets\Scenes\NewBehaviourScript.cs" />
+    <Compile Include="Assets\LinkVisual.cs" />
     <Compile Include="Assets\Raycast2D.cs" />
   </ItemGroup>
   <ItemGroup>

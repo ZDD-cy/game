@@ -15,8 +15,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Host
+  - Firewall
   - 
   - 
   - 
@@ -42,4 +42,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: walls
+    uniqueID: 2586634957
+    locked: 0
+  - name: background
+    uniqueID: 2218147983
     locked: 0
