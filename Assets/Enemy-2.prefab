@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4339590845184566102}
   - component: {fileID: 7935748970188429679}
+  - component: {fileID: 785590660116769681}
+  - component: {fileID: 3724382928270135767}
   m_Layer: 0
   m_Name: Enemy-2
   m_TagString: Untagged
@@ -84,3 +86,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &785590660116769681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841809098308339903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b130c09e421b91a4a9efb9da9d35810c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 50
+  currentSpeed: 3
+  dropMultiplierRange: {x: 3, y: 5}
+  rageThreshold: 0.3
+  originalSpeed: 0
+  rageSpeedMultiplier: 1.5
+  isUnstoppableWhenEnraged: 1
+  dropSystem: {fileID: 0}
+--- !u!114 &3724382928270135767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841809098308339903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0db3f2b23fb4364a99b9d3fedaa8d31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockTime: 1
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  lineRenderer: {fileID: 4110248383761623374, guid: b42a85f080f95b4428638d2da2b71cf5, type: 3}

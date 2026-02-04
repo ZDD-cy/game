@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5976942948075903674}
   - component: {fileID: 871228540587033388}
   - component: {fileID: 2234507738633100131}
+  - component: {fileID: 2094664474070058322}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -142,4 +143,31 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 512
-  attackPoint: {fileID: 0}
+  attackPoint: {fileID: 3614734535510980040, guid: b42a85f080f95b4428638d2da2b71cf5, type: 3}
+--- !u!50 &2094664474070058322
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6103041402814176385}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

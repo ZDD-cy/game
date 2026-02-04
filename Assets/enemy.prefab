@@ -12,10 +12,14 @@ GameObject:
   - component: {fileID: 5915985038480905317}
   - component: {fileID: 6462946467899611673}
   - component: {fileID: 1866819046562788460}
-  - component: {fileID: 992188645282699130}
+  - component: {fileID: 800285102788979340}
+  - component: {fileID: 6289597180744624390}
+  - component: {fileID: 239766306191963602}
+  - component: {fileID: 8748519092553848723}
+  - component: {fileID: 622719031405476665}
   m_Layer: 8
   m_Name: enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +160,83 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &992188645282699130
+--- !u!50 &800285102788979340
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954939301359306071}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &6289597180744624390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954939301359306071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61498088f261394fa79757e986d2362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin:
+    itemPrefab: {fileID: 0}
+    itemName: 
+    minCount: 1
+    maxCount: 3
+  bead:
+    itemPrefab: {fileID: 0}
+    itemName: 
+    minCount: 1
+    maxCount: 3
+  dropRadius: 1
+  dropForce: 2
+--- !u!114 &239766306191963602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954939301359306071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a674b0ab5df6d4abfa2d0757f1e2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalHitEffect: {fileID: 0}
+  burnEffect: {fileID: 0}
+  freezeEffect: {fileID: 0}
+  knockbackEffect: {fileID: 0}
+  rockHitEffect: {fileID: 0}
+  hitClip: {fileID: 0}
+  burnClip: {fileID: 0}
+  freezeClip: {fileID: 0}
+  knockbackClip: {fileID: 0}
+  rockHitClip: {fileID: 0}
+  hitStunTime: 0.2
+  rockKnockupForce: 6
+  burnEffectInterval: 0.5
+--- !u!114 &8748519092553848723
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,7 +253,7 @@ MonoBehaviour:
   isInIceTrap: 0
   hp: 100
   maxHp: 100
-  currentSpeed: 5
+  currentSpeed: 0
   normalSpeed: 5
   coin: 2
   hitColor: {r: 1, g: 0, b: 0, a: 1}
@@ -182,3 +262,19 @@ MonoBehaviour:
   chaseRange: 8
   attackRange: 3
   idleTurnInterval: 2
+--- !u!114 &622719031405476665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954939301359306071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0db3f2b23fb4364a99b9d3fedaa8d31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockTime: 1
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  lineRenderer: {fileID: 4110248383761623374, guid: b42a85f080f95b4428638d2da2b71cf5, type: 3}
