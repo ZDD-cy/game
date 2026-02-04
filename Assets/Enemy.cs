@@ -206,6 +206,8 @@ private void Patrol1()
             GameManager.Instance?.UpdateEnemyCount(-1);
             // 销毁敌人对象
             Destroy(gameObject, 0.5f);
+            //触发掉落
+            GetComponent<EnemyDropSystem>().OnEnemyDie();
         }
         private void HitFlash()
         {

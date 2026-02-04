@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|c:\\users\\\u9648\u6631\\desktop\\\u840C\u82BD\\game\\assets\\anotherassest\\playerinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\anotherassest\\playerinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|c:\\users\\\u9648\u6631\\desktop\\\u840C\u82BD\\game\\assets\\anotherassest\\itempickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\anotherassest\\itempickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\anotherassest\\enemydropsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\anotherassest\\enemydropsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -37,6 +49,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\AnotherAssest\\ItemAttractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\AnotherAssest\\ItemAttractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,28 +62,77 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PlayerInventory.cs",
+              "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\AnotherAssest\\PlayerInventory.cs",
+              "RelativeDocumentMoniker": "Assets\\AnotherAssest\\PlayerInventory.cs",
+              "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\AnotherAssest\\PlayerInventory.cs",
+              "RelativeToolTip": "Assets\\AnotherAssest\\PlayerInventory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T01:12:03.845Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "ItemPickup.cs",
+              "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\AnotherAssest\\ItemPickup.cs",
+              "RelativeDocumentMoniker": "Assets\\AnotherAssest\\ItemPickup.cs",
+              "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\AnotherAssest\\ItemPickup.cs",
+              "RelativeToolTip": "Assets\\AnotherAssest\\ItemPickup.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAIwA8AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T01:09:35.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ItemAttractor.cs",
+              "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\AnotherAssest\\ItemAttractor.cs",
+              "RelativeDocumentMoniker": "Assets\\AnotherAssest\\ItemAttractor.cs",
+              "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\AnotherAssest\\ItemAttractor.cs",
+              "RelativeToolTip": "Assets\\AnotherAssest\\ItemAttractor.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T01:01:56.336Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EnemyDropSystem.cs",
+              "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\AnotherAssest\\EnemyDropSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\AnotherAssest\\EnemyDropSystem.cs",
+              "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\AnotherAssest\\EnemyDropSystem.cs",
+              "RelativeToolTip": "Assets\\AnotherAssest\\EnemyDropSystem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T00:54:24.755Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Enemy.cs",
               "RelativeDocumentMoniker": "Assets\\Enemy.cs",
               "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Enemy.cs",
               "RelativeToolTip": "Assets\\Enemy.cs",
-              "ViewState": "AgIAAGYBAAAAAAAAAAAYwG0BAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAMQAAAAAAAAAAAAIwNEAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T11:28:39.708Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T11:28:39.708Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Rock.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\Rock.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\Rock.cs",
@@ -78,7 +143,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Spike Trap.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Spike Trap.cs",
               "RelativeDocumentMoniker": "Assets\\Spike Trap.cs",
@@ -90,7 +155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Rock.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Rock.cs",
               "RelativeDocumentMoniker": "Assets\\Rock.cs",
@@ -101,7 +166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\GameManager.cs",
@@ -113,7 +178,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "Bullet.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Bullet.cs",
               "RelativeDocumentMoniker": "Assets\\Bullet.cs",
@@ -125,7 +190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Attack.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Attack.cs",
               "RelativeDocumentMoniker": "Assets\\Attack.cs",
@@ -137,7 +202,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\Enemy.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\Enemy.cs",
@@ -148,7 +213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "boody trap.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\boody trap.cs",
               "RelativeDocumentMoniker": "Assets\\boody trap.cs",

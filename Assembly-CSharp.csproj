@@ -63,8 +63,12 @@
     <Compile Include="Assets\Scenes\Trap\Freeze trap.cs" />
     <Compile Include="Assets\AnotherAssest\Rock.cs" />
     <Compile Include="Assets\Enemy.cs" />
+    <Compile Include="Assets\AnotherAssest\ItemPickup.cs" />
+    <Compile Include="Assets\AnotherAssest\Coin.cs" />
     <Compile Include="Assets\AnotherAssest\Bullet.cs" />
     <Compile Include="Assets\Scenes\Trap\boody trap.cs" />
+    <Compile Include="Assets\AnotherAssest\EnemyDropSystem.cs" />
+    <Compile Include="Assets\AnotherAssest\PlayerInventory.cs" />
     <Compile Include="Assets\Scenes\Trap\Spike Trap.cs" />
     <Compile Include="Assets\DamagePopup.cs" />
     <Compile Include="Assets\Attack.cs" />
