@@ -1,4 +1,4 @@
-.vscode/*
+.gitignore
 
 # ============= #
 # Unity 项目    #
@@ -146,3 +146,6 @@ Library/ShaderCache/
 *.secret
 config.json
 .env
+
+# VS Code 配置文件
+.vscode/*
