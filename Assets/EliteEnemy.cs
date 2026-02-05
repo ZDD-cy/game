@@ -4,9 +4,8 @@ using UnityEngine;
 using static firetrap;
 
 
-public class EliteEnemy : MonoBehaviour, IDamageable
+public class EliteEnemy : MonoBehaviour
 {
-    private EnemyHitEffect _hitEffect;
 
     public float maxHealth = 50f;
     public float currentSpeed = 3f;
@@ -90,15 +89,5 @@ public class EliteEnemy : MonoBehaviour, IDamageable
     private void PlayRageEffect() { /* 狂暴时的特效 */ }
 
 
-    // 实现 IDamageable 接口的 ApplyBurn 方法
-    public void ApplyBurn(float burnDamage, float burnDuration)
-    {
-        _hitEffect.ApplyBurn(burnDamage, burnDuration);
-    }
-
-    public void ApplySlow(float slowAmount, float slowDuration)
-    {
-        _hitEffect.ApplySlow(slowAmount, slowDuration);
-    }
     
 }

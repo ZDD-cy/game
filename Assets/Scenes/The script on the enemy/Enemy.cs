@@ -19,49 +19,7 @@ public class Enemy : MonoBehaviour
     public float hp = 100f;         // 血量
     private float currentHp;
 
-    //陷阱适配
-    public bool isFrozen = false;       // 是否被冻结
-    public bool isInIceTrap = false;    // 是否在冰陷阱里
-    public float currentSpeed;          // 当前移动速度
-   public void ResetSpeed()
-   {
-     currentSpeed = moveSpeed;
-    }
-        // 新增 ApplySlow 方法
-        public void ApplySlow(float slowAmount, float duration)
-        {
-            StartCoroutine(SlowCoroutine(slowAmount, duration));
-        }
-
-        // 减速协程
-        private IEnumerator SlowCoroutine(float slowAmount, float duration)
-        {
-            currentSpeed = moveSpeed * (1 - slowAmount);
-            yield return new WaitForSeconds(duration);
-            currentSpeed = moveSpeed; // 恢复原速度
-        }
-
-        // 新增 ApplyBurn 方法（燃烧持续伤害）
-        public void ApplyBurn(float damagePerSecond, float duration)
-        {
-            StartCoroutine(BurnCoroutine(damagePerSecond, duration));
-        }
-
-        // 燃烧协程
-        private IEnumerator BurnCoroutine(float damagePerSecond, float duration)
-        {
-            float timer = 0f;
-            while (timer < duration)
-            {
-                TakeDamage((int)(damagePerSecond * Time.deltaTime));
-                timer += Time.deltaTime;
-                yield return null;
-            }
-        }
-
-
-
-
+    
     // ============== 巡逻-停留状态配置 ==============
     [Header("巡逻-停留参数")]
     public EnemyState currentState;    // 当前状态（初始设为巡逻）

@@ -36,16 +36,16 @@ public class SpikeTrap : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy") && _isTrapActive)
+        if (other.CompareTag("Player") && _isTrapActive)
         {
-            Enemy enemy = other.GetComponent<Enemy>();
-            if (enemy != null)
+            Player player = other.GetComponent<Player>();
+            if (player != null)
             {
-                enemy.TakeDamage(damage);
+                player.TakeDamage(damage);
                 if (hasKnockback)
                 {
-                    ApplyKnockback(enemy);
-                }
+                    ApplyKnockback(player);
+                                    }
                 if (!isContinuousDamage)
                 {
                     _isTrapActive = false;
@@ -57,23 +57,23 @@ public class SpikeTrap : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (isContinuousDamage && other.CompareTag("Enemy"))
+        if (isContinuousDamage && other.CompareTag("player"))
         {
-            Enemy enemy = other.GetComponent<Enemy>();
-            if (enemy != null && _damageTimer >= damageInterval)
+            Player player = other.GetComponent<Player>();
+            if (player != null && _damageTimer >= damageInterval)
             {
-                enemy.TakeDamage(damage);
+                player.TakeDamage(damage);
                 _damageTimer = 0;
             }
         }
     }
 
-    void ApplyKnockback(Enemy enemy)
+    void ApplyKnockback(Player player)
     {
-        Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            Vector2 knockbackDir = (enemy.transform.position - transform.position).normalized;
+            Vector2 knockbackDir = (player.transform.position - transform.position).normalized;
             rb.AddForce(knockbackDir * knockbackForce, ForceMode2D.Impulse);
         }
     }

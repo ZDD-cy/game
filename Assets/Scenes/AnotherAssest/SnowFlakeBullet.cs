@@ -90,7 +90,7 @@ public class SnowFlakeBullet : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerController>()?.TakeDamage(damage);
+            other.GetComponent<Player>()?.TakeDamage(damage);
             Destroy(gameObject);
         }
     }

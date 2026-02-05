@@ -81,7 +81,7 @@ public class FrostBoss : MonoBehaviour
         pulseTimer = 0;
 
         // 查找玩家
-        player = FindFirstObjectByType<PlayerController>()?.transform;
+        player = FindFirstObjectByType<Player>()?.transform;
 
         // 开始沿路径移动并生成冰霜陷阱
         StartCoroutine(MoveAlongPathAndCreateTrap());
@@ -235,7 +235,7 @@ public class FrostBoss : MonoBehaviour
             // 给玩家施加持续伤害（可替换为玩家受击方法）
             if (Vector2.Distance(transform.position, player.position) < playerCheckRange)
             {
-                player.GetComponent<PlayerController>()?.TakeDamage((int)frostBuff.dotDamage);
+                player.GetComponent<Player>()?.TakeDamage((int)frostBuff.dotDamage);
             }
             yield return new WaitForSeconds(frostBuff.dotInterval);
         }
@@ -282,7 +282,7 @@ public class FrostBoss : MonoBehaviour
         Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(transform.position, iceBlastRange, playerLayer);
         foreach (var hit in hitPlayers)
         {
-            hit.GetComponent<PlayerController>()?.TakeDamage(20); // 可自定义伤害
+            hit.GetComponent<Player>()?.TakeDamage(20); // 可自定义伤害
         }
         AddFrostBuffLayer(); // 攻击叠一层Buff
     }

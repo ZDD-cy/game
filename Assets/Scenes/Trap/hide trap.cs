@@ -23,7 +23,7 @@ public class hidetrap : MonoBehaviour
     private Sprite originalSprite;
     private bool isActive = true;
     private bool isRevealed = false;
-    private Enemy trappedEnemy;        
+    private Player trappedplayer;        
 
     void Start()
     {
@@ -43,56 +43,56 @@ public class hidetrap : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy") && isActive && !isRevealed)
+        if (other.CompareTag("player") && isActive && !isRevealed)
         {
-            trappedEnemy = other.GetComponent<Enemy>();
-            if (trappedEnemy == null) return;
+            trappedplayer = other.GetComponent<Player>();
+            if (trappedplayer == null) return;
 
             isRevealed = true;
             isActive = false;
             RevealTrap();
             ApplyTrapEffect();
-            if (enablePull) StartCoroutine(PullEnemyCoroutine());
+            if (enablePull) StartCoroutine(PullplayerCoroutine());
             Invoke(nameof(ResetTrapLogic), revealDuration);
         }
     }
 
-    IEnumerator PullEnemyCoroutine()
+    IEnumerator PullplayerCoroutine()
     {
-        while (isRevealed && trappedEnemy != null && trappedEnemy.hp > 0)
+        while (isRevealed && trappedplayer != null && trappedplayer.hp > 0)
         {
-            float distance = Vector2.Distance(transform.position, trappedEnemy.transform.position);
+            float distance = Vector2.Distance(transform.position, trappedplayer.transform.position);
             if (distance > pullRadius) break;
 
-            Vector2 pullDir = (transform.position - trappedEnemy.transform.position).normalized;
-            Rigidbody2D enemyRb = trappedEnemy.GetComponent<Rigidbody2D>();
-            if (enemyRb != null)
+            Vector2 pullDir = (transform.position - trappedplayer.transform.position).normalized;
+            Rigidbody2D playerRb = trappedplayer.GetComponent<Rigidbody2D>();
+            if (playerRb != null)
             {
-                enemyRb.velocity = pullDir * pullForce * Time.deltaTime * 100;
+                playerRb.velocity = pullDir * pullForce * Time.deltaTime * 100;
             }
             else
             {
-                trappedEnemy.transform.position = Vector2.MoveTowards(
-                    trappedEnemy.transform.position,
+                trappedplayer.transform.position = Vector2.MoveTowards(
+                    trappedplayer.transform.position,
                     transform.position,
                     pullForce * Time.deltaTime
                 );
             }
             yield return null;
         }
-        if (trappedEnemy != null) trappedEnemy.ResetSpeed();
+        if (trappedplayer != null) trappedplayer.ResetSpeed();
     }
 
     void ApplyTrapEffect()
     {
-        trappedEnemy.TakeDamage(damage);
+        trappedplayer.TakeDamage(damage);
         switch (trapType)
         {
             case TrapType.Fire:
-                trappedEnemy.ApplyBurn(damage / 2, revealDuration);
+                trappedplayer.ApplyBurn(damage / 2, revealDuration);
                 break;
             case TrapType.Freeze:
-                trappedEnemy.ApplySlow(0.7f, revealDuration);
+                trappedplayer.ApplySlow(0.7f, revealDuration);
                 break;
             case TrapType.Spike:
                 break;
@@ -107,11 +107,11 @@ public class hidetrap : MonoBehaviour
 
     void ResetTrapLogic()
     {
-        StopCoroutine(PullEnemyCoroutine());
-        if (trappedEnemy != null)
+        StopCoroutine(PullplayerCoroutine());
+        if (trappedplayer != null)
         {
-            trappedEnemy.ResetSpeed();
-            trappedEnemy = null;
+            trappedplayer.ResetSpeed();
+            trappedplayer = null;
         }
         InitHide();
         isRevealed = false;
