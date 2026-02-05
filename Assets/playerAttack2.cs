@@ -19,7 +19,7 @@ public class PlayerAttackController : MonoBehaviour
 
     // 2. 私有变量：内部使用
     private GameObject currentTarget;        // 当前攻击的目标
-    private bool isAttacking = false;        // 是否正在攻击
+    private bool isAttacking = true;        // 是否正在攻击
     private int currentLinkId = -1;          // 当前连接线的ID
     void Start()
     {
@@ -79,7 +79,7 @@ public class PlayerAttackController : MonoBehaviour
             isAttacking = false;
             return;
         }
-  if (!host.isAlive) // 3. 点中了，但主机已死亡
+            if (!host.isAlive) // 3. 点中了，但主机已死亡
         {
             Debug.LogWarning($"[攻击失败] 目标 {hit.collider.name} 已死亡。");
             isAttacking = false;
@@ -97,7 +97,7 @@ public class PlayerAttackController : MonoBehaviour
         // 所有检查都通过，正式建立攻击
         Debug.Log($"[攻击建立] 所有检查通过，锁定目标: {hit.collider.name}");
         currentTarget = hit.collider.gameObject;
-        isAttacking = true; // FIX: 只有在这里才设置为true
+        isAttacking = true; 
         CreateLinkToTarget();
     }
 
