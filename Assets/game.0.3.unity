@@ -914,6 +914,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7503542601337049075, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
+      propertyPath: hp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -7503542601337049075, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -7503542601337049075, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
+      propertyPath: currentSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1334785714647791731, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.16
@@ -962,7 +974,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7503542601337049075, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1334785714647791731, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
@@ -990,13 +1003,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ec0cd300d73874198a3606a05e5d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSpeed: 0
-  hp: 0
+  currentSpeed: 5
+  hp: 100
   isFrozen: 0
   isInIceTrap: 0
   moveSpeed: 5
-  maxHealth: 20
-  currentHealth: 0
+  maxHealth: 100
+  currentHealth: 100
   rb: {fileID: 0}
   movement: {x: 0, y: 0}
 --- !u!1 &1558768697
@@ -1012,6 +1025,8 @@ GameObject:
   - component: {fileID: 1558768701}
   - component: {fileID: 1558768700}
   - component: {fileID: 1558768702}
+  - component: {fileID: 1558768704}
+  - component: {fileID: 1558768703}
   m_Layer: 0
   m_Name: BOSS-Ice
   m_TagString: Untagged
@@ -1202,6 +1217,35 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1558768703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558768697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e659cc29d320f2e49999d63782837e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 8
+  chaseDuration: 3
+--- !u!114 &1558768704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558768697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3065889244c864d488687fb851766017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  chaseRadius: 8
+  moveSpeed: 3
 --- !u!1 &1562015446
 GameObject:
   m_ObjectHideFlags: 0
