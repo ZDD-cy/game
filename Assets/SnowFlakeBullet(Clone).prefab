@@ -191,4 +191,4 @@ MonoBehaviour:
   scaleSpeed: 1
   fadeOutTime: 2
   fadeDuration: 1
-  damage: 10
+  damage: 3
