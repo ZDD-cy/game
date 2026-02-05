@@ -92,9 +92,9 @@ public class Player : MonoBehaviour
     }
 
     // 受伤
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
-        currentHealth = Mathf.Max(0, currentHealth - damage);
+        currentHealth = (int)Mathf.Max(0, currentHealth - damage);
         Debug.Log("受到 " + damage + " 点伤害！当前生命值: " + currentHealth + "/" + maxHealth);
 
         if (currentHealth <= 0)
