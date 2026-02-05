@@ -4,10 +4,10 @@ using UnityEngine;
 
 /// <summary>
 /// 敌人受击效果处理脚本（专门对接5种陷阱）
-/// 依赖你原有Enemy的字段：hp、moveSpeed、currentSpeed、isFrozen、isInIceTrap
-/// 依赖你原有Enemy的方法：TakeDamage()、ApplyBurn()、ResetSpeed()
+/// 依赖你原有Player的字段：hp、moveSpeed、currentSpeed、isFrozen、isInIceTrap
+/// 依赖你原有Player的方法：TakeDamage()、ApplyBurn()、ResetSpeed()
 /// </summary>
-public class EnemyHitEffect : MonoBehaviour
+public class PlayerHitEffect : MonoBehaviour
 {
     [Header("受击特效配置")]
     public ParticleSystem normalHitEffect;   // 通用受击粒子（尖刺/隐藏/落石通用）
@@ -28,7 +28,7 @@ public class EnemyHitEffect : MonoBehaviour
     public float rockKnockupForce = 6f; // 落石击飞力度
     public float burnEffectInterval = 0.5f; // 灼烧特效间隔
 
-    private Enemy enemy;
+    private Player Player;
     private Rigidbody2D rb;
     private AudioSource audioSource;
     private bool isBurning;          // 灼烧状态标记
@@ -37,8 +37,8 @@ public class EnemyHitEffect : MonoBehaviour
 
     void Awake()
     {
-        // 获取你原有Enemy组件和必要组件
-        enemy = GetComponent<Enemy>();
+        // 获取你原有Player组件和必要组件
+        Player = GetComponent<Player>();
         rb = GetComponent<Rigidbody2D>();
         if (!GetComponent<AudioSource>()) gameObject.AddComponent<AudioSource>();
         audioSource = GetComponent<AudioSource>();
@@ -100,7 +100,7 @@ public class EnemyHitEffect : MonoBehaviour
     /// </summary>
     public void OnNormalHit()
     {
-        if (enemy == null || enemy.hp <= 0) return;
+        if (Player == null || Player.hp <= 0) return;
         // 播放特效+音效
         PlayOneShotParticle(normalHitEffect);
         PlayHitSound(hitClip);
@@ -115,7 +115,7 @@ public class EnemyHitEffect : MonoBehaviour
     /// </summary>
     public void OnSpikeKnockback(Vector2 knockDir, float force)
     {
-        if (enemy == null || enemy.hp <= 0 || rb == null) return;
+        if (Player == null || Player.hp <= 0 || rb == null) return;
         // 播放击退特效+音效
         PlayOneShotParticle(knockbackEffect);
         PlayHitSound(knockbackClip);
@@ -133,7 +133,7 @@ public class EnemyHitEffect : MonoBehaviour
     /// </summary>
     public void OnFireBurn(int burnDmg, float duration)
     {
-        if (enemy == null || enemy.hp <= 0 || isBurning) return;
+        if (Player == null || Player.hp <= 0 || isBurning) return;
         // 标记灼烧状态，播放持续灼烧特效+音效
         isBurning = true;
         PlayLoopParticle(burnEffect);
@@ -149,7 +149,7 @@ public class EnemyHitEffect : MonoBehaviour
     private IEnumerator BurnEffectCoroutine(float duration)
     {
         float timer = 0;
-        while (timer < duration && enemy.hp > 0)
+        while (timer < duration && Player.hp > 0)
         {
             timer += burnEffectInterval;
             // 每间隔播放一次小受击粒子，强化灼烧反馈
@@ -170,11 +170,11 @@ public class EnemyHitEffect : MonoBehaviour
     /// </summary>
     public void OnFreezeEnter()
     {
-        if (enemy == null || enemy.hp <= 0 || enemy.isFrozen) return;
+        if (Player == null || Player.hp <= 0 || Player.isFrozen) return;
         // 播放冰冻特效+音效
         PlayLoopParticle(freezeEffect);
         PlayHitSound(freezeClip);
-        // 冰冻僵直（动画减速视觉反馈，不需要改Enemy核心逻辑）
+        // 冰冻僵直（动画减速视觉反馈，不需要改Player核心逻辑）
         transform.localScale = new Vector3(transform.localScale.x * 1.05f, transform.localScale.y * 1.05f, 1);
     }
 
@@ -183,7 +183,7 @@ public class EnemyHitEffect : MonoBehaviour
     /// </summary>
     public void OnFreezeExit()
     {
-        if (enemy == null) return;
+        if (Player == null) return;
         // 停止冰冻特效，恢复缩放
         StopLoopParticle(freezeEffect);
         transform.localScale = new Vector3(transform.localScale.x / 1.05f, transform.localScale.y / 1.05f, 1);
@@ -194,7 +194,7 @@ public class EnemyHitEffect : MonoBehaviour
     /// </summary>
     public void OnFreezeDamage()
     {
-        if (enemy == null || enemy.hp <= 0) return;
+        if (Player == null || Player.hp <= 0) return;
         PlayOneShotParticle(normalHitEffect); // 冻伤小粒子反馈
     }
     #endregion
@@ -205,7 +205,7 @@ public class EnemyHitEffect : MonoBehaviour
     /// </summary>
     public void OnRockHit()
     {
-        if (enemy == null || enemy.hp <= 0 || rb == null) return;
+        if (Player == null || Player.hp <= 0 || rb == null) return;
         // 播放重击特效+音效
         PlayOneShotParticle(rockHitEffect);
         PlayHitSound(rockHitClip);
@@ -223,7 +223,7 @@ public class EnemyHitEffect : MonoBehaviour
     /// </summary>
     public void OnPullStart()
     {
-        if (enemy == null || enemy.hp <= 0) return;
+        if (Player == null || Player.hp <= 0) return;
         // 播放通用受击特效+音效（隐藏陷阱伤害反馈）
         PlayOneShotParticle(normalHitEffect);
         PlayHitSound(hitClip);
@@ -237,7 +237,7 @@ public class EnemyHitEffect : MonoBehaviour
     public void OnPullEnd()
     {
  
-        enemy.ResetSpeed(); // 调用你Enemy的重置速度方法
+        Player.ResetSpeed(); // 调用你Player的重置速度方法
     }
     #endregion
 
@@ -246,13 +246,13 @@ public class EnemyHitEffect : MonoBehaviour
     private IEnumerator HitStunCoroutine(float stunTime = 0)
     {
         float targetTime = stunTime > 0 ? stunTime : hitStunTime;
-        float originSpeed = enemy.currentSpeed;
-        enemy.currentSpeed = 0; // 僵直时停止移动
+        float originSpeed = Player.currentSpeed;
+        Player.currentSpeed = 0; // 僵直时停止移动
         yield return new WaitForSeconds(targetTime);
         // 僵直结束，恢复速度（排除冰冻状态）
-        if (enemy != null && !enemy.isFrozen)
+        if (Player != null && !Player.isFrozen)
         {
-            enemy.currentSpeed = originSpeed;
+            Player.currentSpeed = originSpeed;
         }
     }
 
@@ -260,10 +260,10 @@ public class EnemyHitEffect : MonoBehaviour
     private IEnumerator PullStunCoroutine()
     {
         float pullStunTime = 1.5f; // 对应隐藏陷阱显形时长
-        float originSpeed = enemy.moveSpeed;
-        enemy.currentSpeed = originSpeed * 0.4f; // 牵引时减速
+        float originSpeed = Player.moveSpeed;
+        Player.currentSpeed = originSpeed * 0.4f; // 牵引时减速
         yield return new WaitForSeconds(pullStunTime);
-        if (enemy != null) enemy.ResetSpeed();
+        if (Player != null) Player.ResetSpeed();
     }
     #endregion
 
@@ -309,7 +309,7 @@ public class EnemyHitEffect : MonoBehaviour
         StopAllCoroutines();
     }
     //补充携程
-    // 这个方法由 Enemy 类调用
+    // 这个方法由 Player 类调用
     public void ApplyBurn(float burnDamage, float burnDuration)
     {
         // 在这里实现燃烧的逻辑和特效
@@ -321,16 +321,16 @@ public class EnemyHitEffect : MonoBehaviour
     private IEnumerator BurnCoroutine(float damagePerSecond, float duration)
     {
         float timer = 0;
-        Enemy enemy = GetComponent<Enemy>();
+        Player Player = GetComponent<Player>();
         while (timer < duration)
         {
-            enemy.TakeDamage((int)(damagePerSecond * Time.deltaTime));
+            Player.TakeDamage((int)(damagePerSecond * Time.deltaTime));
             timer += Time.deltaTime;
             yield return null;
         }
     }
 
-    // 这个方法由 Enemy 类调用
+    // 这个方法由 Player 类调用
     public void ApplySlow(float slowAmount, float slowDuration)
     {
         // 在这里实现减速的逻辑和特效
@@ -341,17 +341,17 @@ public class EnemyHitEffect : MonoBehaviour
 
     private IEnumerator SlowCoroutine(float slowAmount, float duration)
     {
-        Enemy enemy = GetComponent<Enemy>();
+        Player Player = GetComponent<Player>();
 
         // 保存原始速度
-        float originalSpeed = enemy.moveSpeed;
+        float originalSpeed = Player.moveSpeed;
         // 应用减速
-        enemy.moveSpeed *= (1 - slowAmount);
+        Player.moveSpeed *= (1 - slowAmount);
 
         yield return new WaitForSeconds(duration);
 
         // 恢复原始速度
-        enemy.moveSpeed = originalSpeed;
+        Player.moveSpeed = originalSpeed;
     }
 }
 

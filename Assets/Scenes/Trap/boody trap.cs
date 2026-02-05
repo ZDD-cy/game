@@ -19,7 +19,7 @@ public class boodytrap : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy") && !isTriggered)
+        if (other.CompareTag("player") && !isTriggered)
         {
             isTriggered = true;
             Invoke(nameof(SpawnRock), fallDelay);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static firetrap;
 
+
 public class firetrap : MonoBehaviour
 {
     [Header("ª—Êœ›⁄Â≈‰÷√")]
@@ -47,13 +48,13 @@ void Update()
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy") && _isTrapActive)
+        if (other.CompareTag("player") && _isTrapActive)
         {
-            Enemy enemy = other.GetComponent<Enemy>();
-            if (enemy != null)
+            Player player = other.GetComponent<Player>();
+            if (player != null)
             {
-                enemy.TakeDamage(triggerDamage);
-                enemy.ApplyBurn(burnDamage, burnDuration);
+                player.TakeDamage(triggerDamage);
+                player.ApplyBurn(burnDamage, burnDuration);
                 if (hasAOE)
                 {
                     ApplyAOEDamage();
@@ -68,13 +69,13 @@ void Update()
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, aoeRange);
         foreach (Collider2D col in colliders)
         {
-            if (col.CompareTag("Enemy"))
+            if (col.CompareTag("player"))
             {
-                Enemy enemy = col.GetComponent<Enemy>();
-                if (enemy != null)
+                Player player = col.GetComponent<Player>();
+                if (player != null)
                 {
-                    enemy.TakeDamage((int)aoeDamage);
-                    enemy.ApplyBurn(burnDamage, burnDuration);
+                    player.TakeDamage((int)aoeDamage);
+                    player.ApplyBurn(burnDamage, burnDuration);
                 }
             }
         }

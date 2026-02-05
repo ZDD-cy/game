@@ -2,18 +2,65 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
+    //陷阱适配
+    public float currentSpeed;
+    public float hp;
+    public bool isFrozen;
+    public bool isInIceTrap;
+      public void ResetSpeed()
+    {
+        currentSpeed = moveSpeed;
+    }
+
+    // 新增 ApplySlow 方法
+    public void ApplySlow(float slowAmount, float duration)
+    {
+        StartCoroutine(SlowCoroutine(slowAmount, duration));
+    }
+
+    // 减速协程
+    public IEnumerator SlowCoroutine(float slowAmount, float duration)
+    {
+        currentSpeed = moveSpeed * (1 - slowAmount);
+        yield return new WaitForSeconds(duration);
+        currentSpeed = moveSpeed; // 恢复原速度
+    }
+
+    // 新增 ApplyBurn 方法（燃烧持续伤害）
+    public void ApplyBurn(float damagePerSecond, float duration)
+    {
+        StartCoroutine(BurnCoroutine(damagePerSecond, duration));
+    }
+
+    // 燃烧协程
+    public IEnumerator BurnCoroutine(float damagePerSecond, float duration)
+    {
+        float timer = 0f;
+        while (timer < duration)
+        {
+            TakeDamage((int)(damagePerSecond * Time.deltaTime));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+
+
+
+
+
     [Header("移动设置")]
-    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] public float moveSpeed = 3f;
 
     [Header("属性设置")]
-    [SerializeField] private int maxHealth = 20;
-    private int currentHealth;
+    [SerializeField] public int maxHealth = 20;
+    public int currentHealth;
 
     // 组件引用
-    private Rigidbody2D rb;
-    private Vector2 movement;
+    public Rigidbody2D rb;
+    public Vector2 movement;
 
     void Start()
     {
@@ -56,7 +103,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         Debug.Log("玩家死亡！");
         gameObject.SetActive(false);
