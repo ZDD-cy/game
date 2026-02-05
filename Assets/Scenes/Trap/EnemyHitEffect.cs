@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 
 /// <summary>
 /// 敌人受击效果处理脚本（专门对接5种陷阱）
@@ -58,7 +57,8 @@ public class EnemyHitEffect : MonoBehaviour
     {
         if (particle == null) return;
         particle.Stop();
-        particle.loop = false;
+        var mainMoudle = particle.main;
+        mainMoudle.loop= false;
     }
 
     // 播放单次粒子特效（位置跟随敌人）
@@ -74,7 +74,8 @@ public class EnemyHitEffect : MonoBehaviour
     {
         if (particle == null) return;
         particle.transform.position = transform.position;
-        particle.loop = true;
+        var mainMoudle = particle.main;
+        mainMoudle.loop = true;
         particle.Play();
     }
 
