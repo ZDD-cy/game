@@ -4,290 +4,237 @@ using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using static firetrap;
-
 public enum EnemyState
 {
-    Idle, Patrol, Chase, Attack, Dead
+    Patrol, // 巡逻
+    Stay    // 停留原地
 }
 
-
-public class Enemy: MonoBehaviour, IDamageable
+[RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
+public class Enemy : MonoBehaviour
 {
-    private EnemyHitEffect _hitEffect;
-    // 巡逻相关变量
-    public Transform[] patrolPoints;
-    private int currentPatrolIndex = 0;
-    public float moveSpeed = 3f;
+    // ============== 基础配置 ==============
+    [Header("基础属性")]
+    public float moveSpeed = 5f;       // 移速
+    public float hp = 100f;         // 血量
+    private float currentHp;
 
-    // 玩家目标
-    private Transform player;
-    IEnumerator FollowPlayer()
-    {
-        while (player != null)
+    //陷阱适配
+    public bool isFrozen = false;       // 是否被冻结
+    public bool isInIceTrap = false;    // 是否在冰陷阱里
+    public float currentSpeed;          // 当前移动速度
+   public void ResetSpeed()
+   {
+     currentSpeed = moveSpeed;
+    }
+        // 新增 ApplySlow 方法
+        public void ApplySlow(float slowAmount, float duration)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
-            yield return null;
+            StartCoroutine(SlowCoroutine(slowAmount, duration));
         }
-    }
+
+        // 减速协程
+        private IEnumerator SlowCoroutine(float slowAmount, float duration)
+        {
+            currentSpeed = moveSpeed * (1 - slowAmount);
+            yield return new WaitForSeconds(duration);
+            currentSpeed = moveSpeed; // 恢复原速度
+        }
+
+        // 新增 ApplyBurn 方法（燃烧持续伤害）
+        public void ApplyBurn(float damagePerSecond, float duration)
+        {
+            StartCoroutine(BurnCoroutine(damagePerSecond, duration));
+        }
+
+        // 燃烧协程
+        private IEnumerator BurnCoroutine(float damagePerSecond, float duration)
+        {
+            float timer = 0f;
+            while (timer < duration)
+            {
+                TakeDamage((int)(damagePerSecond * Time.deltaTime));
+                timer += Time.deltaTime;
+                yield return null;
+            }
+        }
 
 
 
-    public bool isInIceTrap = false;
-        [Header("敌人基础属性")]
-        public float hp = 100f;
-        public float maxHp = 100f;
-        public float currentSpeed;
-        public float normalSpeed = 5f;
-        public int coin = 2;
 
-        public void ResetSpeed()
-    {
-        currentSpeed = moveSpeed;
-    }
+    // ============== 巡逻-停留状态配置 ==============
+    [Header("巡逻-停留参数")]
+    public EnemyState currentState;    // 当前状态（初始设为巡逻）
+    public float patrolRadius = 8f;    // 扇形巡逻半径
+    public float patrolAngle = 120f;   // 扇形巡逻角度
+    public float patrolDuration = 4f;  // 巡逻持续时长（到时间切换停留）
+    public float stayDuration = 2f;    // 停留持续时长（到时间切换巡逻）
+    private float stateTimer;          // 状态计时器
+    private Vector2 patrolTarget;      // 巡逻目标点
 
-
-    [Header("受击反馈")]
-        public Color hitColor = Color.red;
-        public float hitFlashTime = 0.1f;
-        public GameObject damagePopupPrefab;
-
-       
-        
-        [Header("AI配置")]
-        public float chaseRange = 8f;
-        public float attackRange = 3f;
-        private int currentHealth;
-     private EnemyState currentState;
-     private float currentStateTime;
-     private bool facingRight = true; // 默认朝右
-     public float idleTurnInterval = 2f; // 每隔2秒转头一次
-
-
-    [Header("受击反馈")]
+    // ============== 组件引用 ==============
     private Rigidbody2D rb;
     private SpriteRenderer sr;
-    private Color originalColor;
-    internal bool isFrozen;
+    private Transform player;
+    private DamagePopup damagePopup;
 
+    //void ShowDamagePopup(float damage)
+    //{
+    //    // 如果没有预制体，直接返回
+    //    if (damagePopupPrefab == null) return;
 
-    // 检查玩家是否在视野范围内
-    public class EnemyAI : MonoBehaviour
+    //    // 在敌人位置生成伤害弹出
+    //    GameObject popup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
+    //    popup.GetComponent<DamagePopup>().SetDamage(Mathf.RoundToInt(damage));
+    //    Destroy(popup, 1f);
+    //}
+    void Start()
     {
-        public EnemyState currentState;
+        damagePopup =GetComponent<DamagePopup>();
+        // 初始化
+        rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        currentHp = hp;
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
-        // 视野参数
-        public float sightRange = 5f;       // 视野半径
-        public float sightAngle = 110f;     // 扇形视野角度
-        public float attackRange = 1.5f;    // 攻击范围
-
-        // 巡逻参数
-        public float patrolSpeed = 5f;
-        public float patrolWaitTime = 5f;
-        private Vector3 patrolTarget;
-        private float patrolTimer;
-
-        private Transform player;
-        private float currentStateTime;
-        private float idleTurnInterval;
-        private bool facingRight;
+        // 初始状态设为巡逻，并生成第一个巡逻点
+        currentState = EnemyState.Patrol;
+        GenerateSectorPatrolTarget();
+        stateTimer = 0;
+        Debug.Log("敌人初始状态：巡逻");
+    }
 
 
-        // 引用敌人身上的受击效果脚本
-        private EnemyHitEffect _hitEffect;
-
-        void Awake()
+    void FixedUpdate()
+    {
+        // 状态机核心逻辑：单状态器切换（巡逻→停留→巡逻）
+        switch (currentState)
         {
-            // 获取敌人身上的 EnemyHitEffect 组件
-            _hitEffect = GetComponent<EnemyHitEffect>();
-  
-        }
-
-        // 转发方法
-        public void ApplyBurn(float burnDamage, float burnDuration)
-        {
-            _hitEffect.ApplyBurn(burnDamage, burnDuration);
-        }
-
-        public void ApplySlow(float slowAmount, float slowDuration)
-        {
-            _hitEffect.ApplySlow(slowAmount, slowDuration);
-        }
-        void Start()
-        {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
-            currentState = EnemyState.Idle; // 初始状态
-            SetRandomPatrolTarget();
-        }
-
-        void Update()
-        {
-            switch (currentState)
-            {
-                case EnemyState.Idle:
-                    IdleLogic();
-                    break;
-                case EnemyState.Patrol:
-                    PatrolLogic();
-                    break;
-                case EnemyState.Attack:
-                    AttackLogic();
-                    break;
-            }
-        }
-
-        // 原地
-        void IdleLogic()
-        {
-            // 停止移动
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            if (currentStateTime >= idleTurnInterval)
-            {
-                facingRight = !facingRight;
-                transform.localScale = new Vector3(facingRight ? 1 : -1, 1, 1);
-                currentStateTime = 0;
-            }
-
-
-            // 检测玩家是否在视野内
-            if (IsPlayerInSight() && IsPlayerInAttackRange())
-            {
-                currentState = EnemyState.Attack;
-            }
-            else
-            {
-                // 随机切换到巡逻状态
-                patrolTimer += Time.deltaTime;
-                if (patrolTimer >= patrolWaitTime)
-                {
-                    currentState = EnemyState.Patrol;
-                    patrolTimer = 0;
-                    Debug.Log("状态已经切换到巡逻状态");
-                }
-
-            }
-        }
-
-        // 巡逻逻辑
-        void PatrolLogic()
-        {
-            // 向巡逻目标移动
-            Vector2 direction = (patrolTarget - transform.position).normalized;
-            GetComponent<Rigidbody2D>().velocity = direction * patrolSpeed;
-
-            // 到达目标后切换回Idle
-            if (Vector2.Distance(transform.position, patrolTarget) < 0.2f)
-            {
-                currentState = EnemyState.Idle;
-                SetRandomPatrolTarget();
-            }
-
-            // 检测玩家是否在视野内
-            if (IsPlayerInSight() && IsPlayerInAttackRange())
-            {
-                currentState = EnemyState.Attack;
-            }
-        }
-
-        // 攻击逻辑（你已写好的部分）
-        void AttackLogic()
-        {
-            // 执行攻击动作（你的攻击代码）
-            Debug.Log("攻击玩家！");
-
-            // 检测玩家是否离开攻击范围
-            if (!IsPlayerInSight() || !IsPlayerInAttackRange())
-            {
-                currentState = EnemyState.Idle; // 回到原地待命
-            }
-        }
-
-        // 扇形视野检测
-        bool IsPlayerInSight()
-        {
-            Vector2 directionToPlayer = player.position - transform.position;
-            float angle = Vector2.Angle(transform.right, directionToPlayer.normalized);
-
-            // 角度在扇形范围内 + 距离在视野内 + 无障碍物阻挡
-            if (angle < sightAngle / 2 && directionToPlayer.magnitude < sightRange)
-            {
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer.normalized, sightRange);
-                if (hit.collider != null && hit.collider.CompareTag("Player"))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        // 攻击范围检测
-        bool IsPlayerInAttackRange()
-        {
-            return Vector2.Distance(transform.position, player.position) <= attackRange;
-        }
-
-        // 设置随机巡逻目标
-        void SetRandomPatrolTarget()
-        {
-            patrolTarget = transform.position + new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), 0);
+            case EnemyState.Patrol:
+                RunPatrolLogic();
+                break;
+            case EnemyState.Stay:
+                RunStayLogic();
+                break;
         }
     }
 
 
-   
-
-    // 受伤
-    public void TakeDamage(int damage)
+    // ============== 巡逻状态逻辑 ==============
+    private void RunPatrolLogic()
     {
-        currentHealth -= damage;
+        // 向巡逻点移动
+        Vector2 direction = (patrolTarget - (Vector2)transform.position).normalized;
+        rb.velocity = direction * moveSpeed;
+        FlipToFaceDirection(direction); // 面向移动方向
+
+        // 巡逻计时：到时间切换为停留
+        stateTimer += Time.deltaTime;
+        if (stateTimer >= patrolDuration)
+        {
+            SwitchToState(EnemyState.Stay);
+        }
     }
 
-    
-   
-// 实现 IDamageable 接口的 ApplyBurn 方法
-public void ApplyBurn(float burnDamage, float burnDuration)
+
+    // ============== 停留状态逻辑 ==============
+    private void RunStayLogic()
     {
-        _hitEffect.ApplyBurn(burnDamage, burnDuration);
+        // 停止移动
+        rb.velocity = Vector2.zero;
+
+        // 停留计时：到时间切换为巡逻（生成新巡逻点）
+        stateTimer += Time.deltaTime;
+        if (stateTimer >= stayDuration)
+        {
+            GenerateSectorPatrolTarget(); // 生成新的扇形巡逻点
+            SwitchToState(EnemyState.Patrol);
+        }
     }
 
-    public void ApplySlow(float slowAmount, float slowDuration)
+
+    // ============== 状态切换工具方法 ==============
+    private void SwitchToState(EnemyState newState)
     {
-        _hitEffect.ApplySlow(slowAmount, slowDuration);
+        currentState = newState;
+        stateTimer = 0; // 重置计时器
+        Debug.Log($"敌人状态切换：{newState}");
     }
-    public void TakeDamage(float damage)
+
+
+    // ============== 辅助方法：生成扇形巡逻点 ==============
+    private void GenerateSectorPatrolTarget()
     {
-       hp-= damage;
-     }
+        // 随机生成扇形内的方向（基于敌人当前朝向）
+        float randomAngle = Random.Range(-patrolAngle / 2f, patrolAngle / 2f);
+        Vector2 direction = Quaternion.Euler(0, 0, randomAngle) * transform.right;
+
+        // 随机生成半径内的距离
+        float randomDist = Random.Range(patrolRadius * 0.5f, patrolRadius);
+        patrolTarget = (Vector2)transform.position + direction * randomDist;
+    }
 
 
+    // ============== 辅助方法：面向移动方向 ==============
+    private void FlipToFaceDirection(Vector2 direction)
+    {
+        sr.flipX = direction.x < 0; // 方向向左则翻转Sprite
+    }
 
+        public GameObject damagePopupPrefab; // 伤害数字预制体
 
-
-
-
-//受击反馈
-//受伤红闪
-IEnumerator FlashCoroutine()
+        // 新增 TakeDamage 方法
+        public void TakeDamage(int damage)
+        {
+            // 扣血
+            currentHp -= damage;
+            // 显示伤害数字
+            ShowDamagePopup(damage);
+            // 判断是否死亡
+            if (currentHp <= 0)
             {
-                sr.color = hitColor;
-                yield return new WaitForSeconds(hitFlashTime);
-                sr.color = originalColor;
+                Die();
             }
-  //弹出伤害
-            void ShowDamagePopup(int damage)
+        }
+
+        // 辅助方法：显示伤害数字
+        private void ShowDamagePopup(float damage)
+        {
+            if (damagePopupPrefab != null)
             {
-                if (damagePopupPrefab == null) return;
                 GameObject popup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
-                popup.GetComponent<DamagePopup>().SetDamage(damage);
+                popup.GetComponent<DamagePopup>().SetDamage(Mathf.RoundToInt(damage));
                 Destroy(popup, 1f);
             }
-  //碰撞检测
-            void OnCollisionEnter2D(Collision2D other)
-            {
-                if (other.collider.CompareTag("Wall") || other.collider.CompareTag("Trap"))
-                {
-                    rb.velocity = Vector2.zero;
-                }
-            }
         }
 
-  
+        // 辅助方法：处理死亡逻辑
+        private void Die()
+        {
+            // 可以在这里添加死亡动画、掉落物品等逻辑
+            Destroy(gameObject);
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
