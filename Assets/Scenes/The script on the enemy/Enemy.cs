@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     public float hp = 100f;         // 血量
     private float currentHp;
 
-    
+
     // ============== 巡逻-停留状态配置 ==============
     [Header("巡逻-停留参数")]
     public EnemyState currentState;    // 当前状态（初始设为巡逻）
@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
     //}
     void Start()
     {
-        damagePopup =GetComponent<DamagePopup>();
+        damagePopup = GetComponent<DamagePopup>();
         // 初始化
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
@@ -138,42 +138,10 @@ public class Enemy : MonoBehaviour
     {
         sr.flipX = direction.x < 0; // 方向向左则翻转Sprite
     }
+}
+        
 
-        public GameObject damagePopupPrefab; // 伤害数字预制体
-
-        // 新增 TakeDamage 方法
-        public void TakeDamage(int damage)
-        {
-            // 扣血
-            currentHp -= damage;
-            // 显示伤害数字
-            ShowDamagePopup(damage);
-            // 判断是否死亡
-            if (currentHp <= 0)
-            {
-                Die();
-            }
-        }
-
-        // 辅助方法：显示伤害数字
-        private void ShowDamagePopup(float damage)
-        {
-            if (damagePopupPrefab != null)
-            {
-                GameObject popup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
-                popup.GetComponent<DamagePopup>().SetDamage(Mathf.RoundToInt(damage));
-                Destroy(popup, 1f);
-            }
-        }
-
-        // 辅助方法：处理死亡逻辑
-        private void Die()
-        {
-            // 可以在这里添加死亡动画、掉落物品等逻辑
-            Destroy(gameObject);
-        }
-
-    }
+        
 
 
 
