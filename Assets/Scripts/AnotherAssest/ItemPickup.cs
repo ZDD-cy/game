@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-    [Header("ÎïÆ·»ù´¡ÅäÖÃ")]
-    public ItemType itemType; // Ñ¡ÔñÊÇÓ²±Ò»¹ÊÇÖé×Ó
-    public int value = 1; // Ê°È¡µÄÊıÁ¿
-    public float pickupRange = 1.5f; // ×Ô¶¯Ê°È¡·¶Î§
+    [Header("ç‰©å“åŸºç¡€é…ç½®")]
+    public ItemType itemType; // é€‰æ‹©æ˜¯ç¡¬å¸è¿˜æ˜¯ç å­
+    public int value = 1; // æ‹¾å–çš„æ•°é‡
+    public float pickupRange = 1.5f; // è‡ªåŠ¨æ‹¾å–èŒƒå›´
 
-    [Header("ÊÓ¾õ·´À¡")]
-    public float rotationSpeed = 90f; // Ğı×ª
-    public float floatAmplitude = 0.1f; // Æ¯¸¡
-    public float floatFrequency = 1f; // Æ¯¸¡ÆµÂÊ
+    [Header("è§†è§‰åé¦ˆ")]
+    public float rotationSpeed = 90f; // æ—‹è½¬
+    public float floatAmplitude = 0.1f; // æ¼‚æµ®
+    public float floatFrequency = 1f; // æ¼‚æµ®é¢‘ç‡
 
     private Vector3 startPos;
     private Rigidbody rb;
@@ -26,11 +26,11 @@ public class ItemPickup : MonoBehaviour
 
     void Update()
     {
-        // ×Ô¶¯Ğı×ªºÍÆ¯¸¡Ğ§¹û
+        // è‡ªåŠ¨æ—‹è½¬å’Œæ¼‚æµ®æ•ˆæœ
         transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
         transform.position = startPos + Vector3.up * Mathf.Sin(Time.time * floatFrequency) * floatAmplitude;
 
-        // ¼ì²âÍæ¼Ò½øÈë·¶Î§
+        // æ£€æµ‹ç©å®¶è¿›å…¥èŒƒå›´
         Collider[] colliders = Physics.OverlapSphere(transform.position, pickupRange);
         foreach (var col in colliders)
         {
@@ -44,7 +44,7 @@ public class ItemPickup : MonoBehaviour
 
     void OnPickup(GameObject player)
     {
-        // Í¨ÖªÍæ¼ÒµÄInventoryÌí¼ÓÎïÆ·
+        // é€šçŸ¥ç©å®¶çš„Inventoryæ·»åŠ ç‰©å“
         PlayerInventory playerInventory = player.GetComponent<PlayerInventory>();
         if (playerInventory != null)
         {
@@ -54,13 +54,13 @@ public class ItemPickup : MonoBehaviour
                 playerInventory.AddBeads(value);
         }
 
-        // ²¥·ÅÊ°È¡ÒôĞ§»òÌØĞ§£¨¿ÉÑ¡£©
+        // æ’­æ”¾æ‹¾å–éŸ³æ•ˆæˆ–ç‰¹æ•ˆï¼ˆå¯é€‰ï¼‰
         // AudioSource.PlayClipAtPoint(pickupSound, transform.position);
 
         Destroy(gameObject);
     }
 
-    // GizmosÔÚ±à¼­Æ÷ÀïÏÔÊ¾Ê°È¡·¶Î§
+    // Gizmosåœ¨ç¼–è¾‘å™¨é‡Œæ˜¾ç¤ºæ‹¾å–èŒƒå›´
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

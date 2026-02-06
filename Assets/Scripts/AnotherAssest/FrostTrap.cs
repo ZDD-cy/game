@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class FrostTrap : MonoBehaviour
 {
-    [Header("»ú¹ØÅäÖÃ")]
-    public FrostBoss frostBoss;       // ¹ØÁªµÄº®ËªBOSS
-    public KeyCode activateKey = KeyCode.E; // ¼¤»î°´¼ü
-    public Image uiHint;              // »ú¹Ø¼¤»îÌáÊ¾UI
+    [Header("æœºå…³é…ç½®")]
+    public FrostBoss frostBoss;       // å…³è”çš„å¯’éœœBOSS
+    public KeyCode activateKey = KeyCode.E; // æ¿€æ´»æŒ‰é”®
+    public Image uiHint;              // æœºå…³æ¿€æ´»æç¤ºUI
     private bool isActive = false;
 
     void Start()
@@ -18,7 +18,7 @@ public class FrostTrap : MonoBehaviour
 
     void Update()
     {
-        // Íæ¼Ò¿¿½ü+°´°´¼ü¼¤»î/¹Ø±Õ»ú¹Ø
+        // ç©å®¶é è¿‘+æŒ‰æŒ‰é”®æ¿€æ´»/å…³é—­æœºå…³
         Collider2D[] players = Physics2D.OverlapCircleAll(transform.position, 3f, LayerMask.GetMask("Player"));
         if (players.Length > 0)
         {
@@ -26,9 +26,9 @@ public class FrostTrap : MonoBehaviour
             if (Input.GetKeyDown(activateKey))
             {
                 isActive = !isActive;
-                // Í¬²½»ú¹Ø×´Ì¬¸øBOSS
+                // åŒæ­¥æœºå…³çŠ¶æ€ç»™BOSS
                 frostBoss?.OnTrapStateChange(isActive);
-                // »ú¹ØÊÓ¾õ·´À¡
+                // æœºå…³è§†è§‰åé¦ˆ
                SpriteRenderer sr =GetComponent<SpriteRenderer>();   
                 if (sr != null)
                 {
@@ -42,7 +42,7 @@ public class FrostTrap : MonoBehaviour
         }
     }
 
-    // »ú¹Ø¼ì²â·¶Î§
+    // æœºå…³æ£€æµ‹èŒƒå›´
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
