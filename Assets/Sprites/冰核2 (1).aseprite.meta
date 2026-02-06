@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cbbda255a3c901247a3d966ae94059ba
+guid: e91de39759308314cb29787b7241d6f0
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -124,15 +124,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: "\u51B0\u68382 (1)"
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.48666668, y: -0.041095886}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 83
-      height: 83
+      width: 75
+      height: 73
     spriteID: 189faa05e8749554d9f122490ee3fbac
     spriteBone: []
     spriteOutline: []
@@ -156,14 +156,14 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: "\u51B0\u68382"
+    - name: "\u51B0\u68382 (1)"
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
-        y: 0
-        width: 83
-        height: 83
+        x: 5
+        y: 3
+        width: 75
+        height: 73
       spriteId: 189faa05e8749554d9f122490ee3fbac
     linkedCells: []
     parentIndex: -1
