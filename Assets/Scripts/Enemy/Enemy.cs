@@ -6,31 +6,31 @@ using UnityEngine;
 using static firetrap;
 public enum EnemyState
 {
-    Patrol, // Ñ²Âß
-    Stay    // Í£ÁôÔ­µØ
+    Patrol, // å·¡é€»
+    Stay    // åœç•™åŸåœ°
 }
 
 [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
 public class Enemy : MonoBehaviour
 {
-    // ============== »ù´¡ÅäÖÃ ==============
-    [Header("»ù´¡ÊôĞÔ")]
-    public float moveSpeed = 5f;       // ÒÆËÙ
-    public float hp = 100f;         // ÑªÁ¿
+    // ============== åŸºç¡€é…ç½® ==============
+    [Header("åŸºç¡€å±æ€§")]
+    public float moveSpeed = 5f;       // ç§»é€Ÿ
+    public float hp = 100f;         // è¡€é‡
     private float currentHp;
 
 
-    // ============== Ñ²Âß-Í£Áô×´Ì¬ÅäÖÃ ==============
-    [Header("Ñ²Âß-Í£Áô²ÎÊı")]
-    public EnemyState currentState;    // µ±Ç°×´Ì¬£¨³õÊ¼ÉèÎªÑ²Âß£©
-    public float patrolRadius = 8f;    // ÉÈĞÎÑ²Âß°ë¾¶
-    public float patrolAngle = 120f;   // ÉÈĞÎÑ²Âß½Ç¶È
-    public float patrolDuration = 4f;  // Ñ²Âß³ÖĞøÊ±³¤£¨µ½Ê±¼äÇĞ»»Í£Áô£©
-    public float stayDuration = 2f;    // Í£Áô³ÖĞøÊ±³¤£¨µ½Ê±¼äÇĞ»»Ñ²Âß£©
-    private float stateTimer;          // ×´Ì¬¼ÆÊ±Æ÷
-    private Vector2 patrolTarget;      // Ñ²ÂßÄ¿±êµã
+    // ============== å·¡é€»-åœç•™çŠ¶æ€é…ç½® ==============
+    [Header("å·¡é€»-åœç•™å‚æ•°")]
+    public EnemyState currentState;    // å½“å‰çŠ¶æ€ï¼ˆåˆå§‹è®¾ä¸ºå·¡é€»ï¼‰
+    public float patrolRadius = 8f;    // æ‰‡å½¢å·¡é€»åŠå¾„
+    public float patrolAngle = 120f;   // æ‰‡å½¢å·¡é€»è§’åº¦
+    public float patrolDuration = 4f;  // å·¡é€»æŒç»­æ—¶é•¿ï¼ˆåˆ°æ—¶é—´åˆ‡æ¢åœç•™ï¼‰
+    public float stayDuration = 2f;    // åœç•™æŒç»­æ—¶é•¿ï¼ˆåˆ°æ—¶é—´åˆ‡æ¢å·¡é€»ï¼‰
+    private float stateTimer;          // çŠ¶æ€è®¡æ—¶å™¨
+    private Vector2 patrolTarget;      // å·¡é€»ç›®æ ‡ç‚¹
 
-    // ============== ×é¼şÒıÓÃ ==============
+    // ============== ç»„ä»¶å¼•ç”¨ ==============
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Transform player;
@@ -38,10 +38,10 @@ public class Enemy : MonoBehaviour
 
     //void ShowDamagePopup(float damage)
     //{
-    //    // Èç¹ûÃ»ÓĞÔ¤ÖÆÌå£¬Ö±½Ó·µ»Ø
+    //    // å¦‚æœæ²¡æœ‰é¢„åˆ¶ä½“ï¼Œç›´æ¥è¿”å›
     //    if (damagePopupPrefab == null) return;
 
-    //    // ÔÚµĞÈËÎ»ÖÃÉú³ÉÉËº¦µ¯³ö
+    //    // åœ¨æ•Œäººä½ç½®ç”Ÿæˆä¼¤å®³å¼¹å‡º
     //    GameObject popup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
     //    popup.GetComponent<DamagePopup>().SetDamage(Mathf.RoundToInt(damage));
     //    Destroy(popup, 1f);
@@ -49,23 +49,23 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         damagePopup = GetComponent<DamagePopup>();
-        // ³õÊ¼»¯
+        // åˆå§‹åŒ–
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         currentHp = hp;
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
-        // ³õÊ¼×´Ì¬ÉèÎªÑ²Âß£¬²¢Éú³ÉµÚÒ»¸öÑ²Âßµã
+        // åˆå§‹çŠ¶æ€è®¾ä¸ºå·¡é€»ï¼Œå¹¶ç”Ÿæˆç¬¬ä¸€ä¸ªå·¡é€»ç‚¹
         currentState = EnemyState.Patrol;
         GenerateSectorPatrolTarget();
         stateTimer = 0;
-        Debug.Log("µĞÈË³õÊ¼×´Ì¬£ºÑ²Âß");
+        Debug.Log("æ•Œäººåˆå§‹çŠ¶æ€ï¼šå·¡é€»");
     }
 
 
     void FixedUpdate()
     {
-        // ×´Ì¬»úºËĞÄÂß¼­£ºµ¥×´Ì¬Æ÷ÇĞ»»£¨Ñ²Âß¡úÍ£Áô¡úÑ²Âß£©
+        // çŠ¶æ€æœºæ ¸å¿ƒé€»è¾‘ï¼šå•çŠ¶æ€å™¨åˆ‡æ¢ï¼ˆå·¡é€»â†’åœç•™â†’å·¡é€»ï¼‰
         switch (currentState)
         {
             case EnemyState.Patrol:
@@ -78,15 +78,15 @@ public class Enemy : MonoBehaviour
     }
 
 
-    // ============== Ñ²Âß×´Ì¬Âß¼­ ==============
+    // ============== å·¡é€»çŠ¶æ€é€»è¾‘ ==============
     private void RunPatrolLogic()
     {
-        // ÏòÑ²ÂßµãÒÆ¶¯
+        // å‘å·¡é€»ç‚¹ç§»åŠ¨
         Vector2 direction = (patrolTarget - (Vector2)transform.position).normalized;
         rb.velocity = direction * moveSpeed;
-        FlipToFaceDirection(direction); // ÃæÏòÒÆ¶¯·½Ïò
+        FlipToFaceDirection(direction); // é¢å‘ç§»åŠ¨æ–¹å‘
 
-        // Ñ²Âß¼ÆÊ±£ºµ½Ê±¼äÇĞ»»ÎªÍ£Áô
+        // å·¡é€»è®¡æ—¶ï¼šåˆ°æ—¶é—´åˆ‡æ¢ä¸ºåœç•™
         stateTimer += Time.deltaTime;
         if (stateTimer >= patrolDuration)
         {
@@ -95,48 +95,48 @@ public class Enemy : MonoBehaviour
     }
 
 
-    // ============== Í£Áô×´Ì¬Âß¼­ ==============
+    // ============== åœç•™çŠ¶æ€é€»è¾‘ ==============
     private void RunStayLogic()
     {
-        // Í£Ö¹ÒÆ¶¯
+        // åœæ­¢ç§»åŠ¨
         rb.velocity = Vector2.zero;
 
-        // Í£Áô¼ÆÊ±£ºµ½Ê±¼äÇĞ»»ÎªÑ²Âß£¨Éú³ÉĞÂÑ²Âßµã£©
+        // åœç•™è®¡æ—¶ï¼šåˆ°æ—¶é—´åˆ‡æ¢ä¸ºå·¡é€»ï¼ˆç”Ÿæˆæ–°å·¡é€»ç‚¹ï¼‰
         stateTimer += Time.deltaTime;
         if (stateTimer >= stayDuration)
         {
-            GenerateSectorPatrolTarget(); // Éú³ÉĞÂµÄÉÈĞÎÑ²Âßµã
+            GenerateSectorPatrolTarget(); // ç”Ÿæˆæ–°çš„æ‰‡å½¢å·¡é€»ç‚¹
             SwitchToState(EnemyState.Patrol);
         }
     }
 
 
-    // ============== ×´Ì¬ÇĞ»»¹¤¾ß·½·¨ ==============
+    // ============== çŠ¶æ€åˆ‡æ¢å·¥å…·æ–¹æ³• ==============
     private void SwitchToState(EnemyState newState)
     {
         currentState = newState;
-        stateTimer = 0; // ÖØÖÃ¼ÆÊ±Æ÷
-        Debug.Log($"µĞÈË×´Ì¬ÇĞ»»£º{newState}");
+        stateTimer = 0; // é‡ç½®è®¡æ—¶å™¨
+        Debug.Log($"æ•ŒäººçŠ¶æ€åˆ‡æ¢ï¼š{newState}");
     }
 
 
-    // ============== ¸¨Öú·½·¨£ºÉú³ÉÉÈĞÎÑ²Âßµã ==============
+    // ============== è¾…åŠ©æ–¹æ³•ï¼šç”Ÿæˆæ‰‡å½¢å·¡é€»ç‚¹ ==============
     private void GenerateSectorPatrolTarget()
     {
-        // Ëæ»úÉú³ÉÉÈĞÎÄÚµÄ·½Ïò£¨»ùÓÚµĞÈËµ±Ç°³¯Ïò£©
+        // éšæœºç”Ÿæˆæ‰‡å½¢å†…çš„æ–¹å‘ï¼ˆåŸºäºæ•Œäººå½“å‰æœå‘ï¼‰
         float randomAngle = Random.Range(-patrolAngle / 2f, patrolAngle / 2f);
         Vector2 direction = Quaternion.Euler(0, 0, randomAngle) * transform.right;
 
-        // Ëæ»úÉú³É°ë¾¶ÄÚµÄ¾àÀë
+        // éšæœºç”ŸæˆåŠå¾„å†…çš„è·ç¦»
         float randomDist = Random.Range(patrolRadius * 0.5f, patrolRadius);
         patrolTarget = (Vector2)transform.position + direction * randomDist;
     }
 
 
-    // ============== ¸¨Öú·½·¨£ºÃæÏòÒÆ¶¯·½Ïò ==============
+    // ============== è¾…åŠ©æ–¹æ³•ï¼šé¢å‘ç§»åŠ¨æ–¹å‘ ==============
     private void FlipToFaceDirection(Vector2 direction)
     {
-        sr.flipX = direction.x < 0; // ·½ÏòÏò×óÔò·­×ªSprite
+        sr.flipX = direction.x < 0; // æ–¹å‘å‘å·¦åˆ™ç¿»è½¬Sprite
     }
 }
         

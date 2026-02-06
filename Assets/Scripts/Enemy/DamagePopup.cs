@@ -5,28 +5,28 @@ using TMPro;
 
 public class DamagePopup : MonoBehaviour
 {
-    [Tooltip("ÉËº¦Êı×ÖµÄÎÄ±¾×é¼ş")]
+    [Tooltip("ä¼¤å®³æ•°å­—çš„æ–‡æœ¬ç»„ä»¶")]
     [SerializeField] private TextMeshPro damageText;
 
-    [Tooltip("ÉËº¦Êı×Öµ¯³öºóÉÏÉıµÄËÙ¶È")]
+    [Tooltip("ä¼¤å®³æ•°å­—å¼¹å‡ºåä¸Šå‡çš„é€Ÿåº¦")]
     [SerializeField] private float moveSpeed = 2f;
 
-    [Tooltip("ÉËº¦Êı×Ö´æÔÚµÄÊ±¼ä£¨Ãë£©")]
+    [Tooltip("ä¼¤å®³æ•°å­—å­˜åœ¨çš„æ—¶é—´ï¼ˆç§’ï¼‰")]
     [SerializeField] private float lifetime = 1f;
 
-    [Tooltip("ÉËº¦Êı×ÖÉÏÉıÊ±µÄĞı×ª½Ç¶È£¨¶È/Ãë£©")]
+    [Tooltip("ä¼¤å®³æ•°å­—ä¸Šå‡æ—¶çš„æ—‹è½¬è§’åº¦ï¼ˆåº¦/ç§’ï¼‰")]
     [SerializeField] private float rotateSpeed = 360f;
 
     private float timer;
 
     void Update()
     {
-        // ÈÃÉËº¦Êı×ÖÏòÉÏÒÆ¶¯
+        // è®©ä¼¤å®³æ•°å­—å‘ä¸Šç§»åŠ¨
         transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
-        // ÈÃÉËº¦Êı×ÖĞı×ª
+        // è®©ä¼¤å®³æ•°å­—æ—‹è½¬
         transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
 
-        // ¼ÆÊ±£¬Ê±¼äµ½ÁË¾ÍÏú»Ù
+        // è®¡æ—¶ï¼Œæ—¶é—´åˆ°äº†å°±é”€æ¯
         timer += Time.deltaTime;
         if (timer >= lifetime)
         {
@@ -34,7 +34,7 @@ public class DamagePopup : MonoBehaviour
         }
     }
 
-    // ÉèÖÃÒªÏÔÊ¾µÄÉËº¦Öµ
+    // è®¾ç½®è¦æ˜¾ç¤ºçš„ä¼¤å®³å€¼
     public void SetDamage(int damage)
     {
         damageText.text = damage.ToString();

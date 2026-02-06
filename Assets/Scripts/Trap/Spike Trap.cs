@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpikeTrap : MonoBehaviour
 {
-    [Header("¼â´ÌÏİÚåÅäÖÃ")]
+    [Header("å°–åˆºé™·é˜±é…ç½®")]
     public int damage = 3;              
     public bool isContinuousDamage = true; 
     public float damageInterval = 1f;    

@@ -6,7 +6,7 @@ using static firetrap;
 
 public class firetrap : MonoBehaviour
 {
-    [Header("»ğÑæÏİÚåÅäÖÃ")]
+    [Header("ç«ç„°é™·é˜±é…ç½®")]
     public int triggerDamage = 2;
     public int burnDamage = 1;          
     public float burnDuration = 3f;     
@@ -18,17 +18,17 @@ public class firetrap : MonoBehaviour
     private float _cdTimer;
     private bool _isTrapActive = true;
    
-    //½Ó¿Ú
+    //æ¥å£
     public interface IDamageable
 
 {
-    // ËùÓĞ¿É±»¹¥»÷µÄ¶ÔÏó¶¼±ØĞëÊµÏÖÕâ¸ö·½·¨
+    // æ‰€æœ‰å¯è¢«æ”»å‡»çš„å¯¹è±¡éƒ½å¿…é¡»å®ç°è¿™ä¸ªæ–¹æ³•
     void TakeDamage(float damage);
 
-    // ËùÓĞ¿ÉÒÔ±»È¼ÉÕµÄ¶ÔÏó¶¼±ØĞëÊµÏÖÕâ¸ö·½·¨
+    // æ‰€æœ‰å¯ä»¥è¢«ç‡ƒçƒ§çš„å¯¹è±¡éƒ½å¿…é¡»å®ç°è¿™ä¸ªæ–¹æ³•
     void ApplyBurn(float burnDamage, float burnDuration);
 
-    // ËùÓĞ¿ÉÒÔ±»¼õËÙµÄ¶ÔÏó¶¼±ØĞëÊµÏÖÕâ¸ö·½·¨
+    // æ‰€æœ‰å¯ä»¥è¢«å‡é€Ÿçš„å¯¹è±¡éƒ½å¿…é¡»å®ç°è¿™ä¸ªæ–¹æ³•
     void ApplySlow(float slowAmount, float slowDuration);
 }
 

@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class PlayerLockEnemy : MonoBehaviour
 {
-    [Header("ËøµĞÉèÖÃ")]
+    [Header("é”æ•Œè®¾ç½®")]
     public float lockRange = 5f;
     public LayerMask enemyLayer;
     public KeyCode switchTargetKey = KeyCode.Tab;
 
-    // µ±Ç°Ñ¡ÖĞµÄ¹¥»÷Ä¿±ê£¬¹©Íâ²¿¹¥»÷½Å±¾µ÷ÓÃ
+    // å½“å‰é€‰ä¸­çš„æ”»å‡»ç›®æ ‡ï¼Œä¾›å¤–éƒ¨æ”»å‡»è„šæœ¬è°ƒç”¨
     public Transform currentAttackTarget { get; private set; }
     private List<Transform> allLockedEnemies = new List<Transform>();
     private int currentTargetIndex = -1;
@@ -19,7 +19,7 @@ public class PlayerLockEnemy : MonoBehaviour
     {
         if (enemyLayer == 0)
         {
-            Debug.LogWarning("Î´ÉèÖÃµĞÈË²ã£¡ÇëÔÚInspectorÃæ°åÑ¡ÔñEnemy²ã", this);
+            Debug.LogWarning("æœªè®¾ç½®æ•Œäººå±‚ï¼è¯·åœ¨Inspectoré¢æ¿é€‰æ‹©Enemyå±‚", this);
             enemyLayer = LayerMask.GetMask("Enemy");
         }
     }
@@ -40,7 +40,7 @@ public class PlayerLockEnemy : MonoBehaviour
                 allLockedEnemies.Add(col.transform);
         }
 
-        // Ä¿±êÏûÊ§Ê±Çå¿ÕÑ¡ÖĞ×´Ì¬
+        // ç›®æ ‡æ¶ˆå¤±æ—¶æ¸…ç©ºé€‰ä¸­çŠ¶æ€
         if (currentAttackTarget != null && !allLockedEnemies.Contains(currentAttackTarget))
         {
             currentAttackTarget = null;
@@ -60,13 +60,13 @@ public class PlayerLockEnemy : MonoBehaviour
     {
         currentTargetIndex = (currentTargetIndex + 1) % allLockedEnemies.Count;
         currentAttackTarget = allLockedEnemies[currentTargetIndex];
-        Debug.Log($"ÒÑÇĞ»»Ä¿±ê£º{currentAttackTarget.name}");
+        Debug.Log($"å·²åˆ‡æ¢ç›®æ ‡ï¼š{currentAttackTarget.name}");
     }
 
-    // Íâ²¿µ÷ÓÃ£º»ñÈ¡µ±Ç°ËùÓĞËø¶¨µÄµĞÈË
+    // å¤–éƒ¨è°ƒç”¨ï¼šè·å–å½“å‰æ‰€æœ‰é”å®šçš„æ•Œäºº
     public List<Transform> GetAllLockedEnemies() => allLockedEnemies;
 
-    // Gizmosµ÷ÊÔ
+    // Gizmosè°ƒè¯•
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

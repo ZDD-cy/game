@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class boodytrap : MonoBehaviour
 { 
-    [Header("ÂäÊ¯ÏİÚåÅäÖÃ")]
+    [Header("è½çŸ³é™·é˜±é…ç½®")]
     public GameObject rockPrefab;       
     public Transform spawnPoint;        
     public float fallDelay = 0.5f;     

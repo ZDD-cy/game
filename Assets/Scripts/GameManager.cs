@@ -6,12 +6,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [Header("Ëø¶¨¹¥»÷×ÊÔ´ÅäÖÃ")]
+    [Header("é”å®šæ”»å‡»èµ„æºé…ç½®")]
     public Material dashLineMaterial;  
     public Material solidLineMaterial;  
     public GameObject bulletPrefab;    
 
-    [Header("ÓÎÏ·È«¾Ö×´Ì¬")]
+    [Header("æ¸¸æˆå…¨å±€çŠ¶æ€")]
     public bool isGameActive = true;
     public int enemyCount = 0;
 
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     void OnAllEnemiesDefeated()
     {
         isGameActive = false;
-        Debug.Log("ËùÓĞµĞÈËÒÑÏûÃğ£¬¹Ø¿¨Ê¤Àû£¡");
+        Debug.Log("æ‰€æœ‰æ•Œäººå·²æ¶ˆç­ï¼Œå…³å¡èƒœåˆ©ï¼");
 
     }
 }
