@@ -3,32 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Freezetrap : MonoBehaviour
+public class IceTrap : MonoBehaviour
 {
-    [SerializeField]
-    [Header("冰冻陷阱配置")]
-    public float slowDownRate = 0.6f;
-    public float damagePerSec = 2f;
-    public float freezeDuration = 3f;
-    public float trapCD = 1f;
+    [Header("陷阱设置")]
+    [Tooltip("减速比例（0~1，0.5表示减速50%）")]
+    public float slowDownRate = 0.5f; // 默认减速50%
 
-    private float _cdTimer;
+    [Tooltip("减速与伤害持续时间（秒）")]
+    public float effectDuration = 3f;
+
+    [Tooltip("陷阱冷却时间（秒，0表示一次性陷阱）")]
+    public float trapCooldown = 5f;
+
+    [Tooltip("每秒造成的伤害值")]
+    public float damagePerSecond = 1f;
+
     private bool _isTrapActive = true;
 
-    void Update()
+    void Start()
     {
-        if (!_isTrapActive)
-        {
-            _cdTimer += Time.deltaTime;
-            if (_cdTimer >= trapCD)
-            {
-                _isTrapActive = true;
-                _cdTimer = 0;
-            }
-        }
+        _isTrapActive = true;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("陷阱触发检测：进入 OnTriggerEnter2D 方法");
         if (other.CompareTag("player") && _isTrapActive)
@@ -38,99 +35,67 @@ public class Freezetrap : MonoBehaviour
             if (player != null && !player.isFrozen)
             {
                 Debug.Log("陷阱触发：成功获取 Player 组件，开始施加冰冻效果");
+                // 标记玩家状态
                 player.isInIceTrap = true;
                 player.isFrozen = true;
-                player.currentSpeed = player.moveSpeed * (1 - slowDownRate);
 
-                StartCoroutine(playerTakeDamage(player));
-                _isTrapActive = false;
+                // 应用减速效果
+                player.ApplySlow(slowDownRate, effectDuration);
+
+                // 启动持续伤害协程
+                StartCoroutine(PlayerTakeDamage(player));
+                if (player.currentHealth > 0)
+                {
+                    player.isInIceTrap = false;
+                    player.isFrozen = false;
+                }
+
             }
             else
             {
                 if (player == null)
                 {
-                    Debug.LogError("陷阱触发：未找到 Player 组件");
+                    Debug.LogWarning("陷阱触发：未找到 Player 组件！");
                 }
-                if (player != null && player.isFrozen)
+                else if (player.isFrozen)
                 {
-                    Debug.Log("陷阱触发：玩家已处于冻结状态，无法重复触发");
+                    Debug.Log("陷阱触发：玩家已处于冰冻状态，跳过");
                 }
             }
         }
-        else
-        {
-            if (!other.CompareTag("player"))
-            {
-                Debug.Log("陷阱触发：触发对象标签不是 player，标签为：" + other.tag);
-            }
-            if (!_isTrapActive)
-            {
-                Debug.Log("陷阱触发：陷阱处于冷却状态，无法触发");
-            }
-        }
     }
 
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag("player"))
-        {
-            Player player = other.GetComponent<Player>();
-            if (player != null)
-            {
-                Debug.Log("陷阱持续触发：保持玩家冻结和减速状态");
-                player.isFrozen = true;
-                player.currentSpeed = player.moveSpeed * (1 - slowDownRate);
-            }
-        }
-    }
 
-    void OnTriggerExit2D(Collider2D other)
+    IEnumerator PlayerTakeDamage(Player player)
     {
-        if (other.CompareTag("player"))
-        {
-            Player player = other.GetComponent<Player>();
-            if (player != null)
-            {
-                Debug.Log("陷阱触发结束：玩家离开陷阱，开始恢复计时");
-                player.isInIceTrap = false;
-                Invoke(nameof(RecoverplayerSpeed), freezeDuration);
-            }
-        }
-    }
+        float elapsedTime = 0f;
 
-    void RecoverplayerSpeed()
-    {
-        Player player = GameObject.FindGameObjectWithTag("player")?.GetComponent<Player>();
-        if (player != null && !player.isInIceTrap)
+        // 持续整个效果时间，并且只在玩家存活时执行
+        while (elapsedTime < effectDuration && player.currentHealth > 0)
         {
-            Debug.Log("陷阱效果恢复：玩家状态恢复正常");
+            // 每秒造成1点伤害
+            player.TakeDamage(1f);
+            Debug.Log($"受到 1 点伤害！当前生命值: {player.currentHealth}");
+
+            // 等待1秒，再进行下一次伤害
+            yield return new WaitForSeconds(1f);
+            elapsedTime += 1f;
+        }
+
+        // 效果结束后，恢复玩家状态（仅当玩家存活时）
+        if (player.currentHealth > 0)
+        {
+            player.isInIceTrap = false;
             player.isFrozen = false;
-            player.currentSpeed = player.moveSpeed;
         }
-    }
 
-    IEnumerator playerTakeDamage(Player player)
-    {
-        Debug.Log("陷阱伤害开始：启动持续掉血协程");
-        float damageTimer = 0;
-        while (player.isInIceTrap || player.isFrozen)
+        // 如果陷阱可以重复使用，就重置它
+        if (trapCooldown > 0)
         {
-            damageTimer += Time.deltaTime;
-            if (damageTimer >= 1f)
-            {
-                player.hp -= damagePerSec;
-                Debug.Log("陷阱伤害：玩家当前生命值为 " + player.hp);
-                damageTimer = 0;
-                if (player.hp <= 0)
-                {
-                    Debug.Log("陷阱伤害：玩家生命值耗尽，解除冻结");
-                    player.isFrozen = false;
-                    player.currentSpeed = player.moveSpeed;
-                    yield break;
-                }
-            }
-            yield return null;
+            yield return new WaitForSeconds(trapCooldown);
+            _isTrapActive = true;
+            gameObject.SetActive(true);
         }
-        Debug.Log("陷阱伤害结束：协程退出");
     }
 }
+    

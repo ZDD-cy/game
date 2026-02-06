@@ -28,12 +28,13 @@ public class FrostBuffData
 
 public class FrostBoss : MonoBehaviour
 {
+    public Transform playerTransform;
     [Header("BOSS基础配置")]
-    public float moveSpeed = 5f;               // BOSS基础移速
+    public float moveSpeed = 8f;               // BOSS基础移速
     public List<Transform> movePathPoints;     // BOSS移动路径点（一次性冰霜陷阱）
     public Transform frostTrapPrefab;          // 冰霜陷阱预制体（路径残留）
     public LayerMask playerLayer;              // 玩家图层
-    public float playerCheckRange = 20f;       // 检测玩家范围
+    public float playerCheckRange = 10f;       // 检测玩家范围
 
     [Header("冰霜Buff配置")]
     public FrostBuffData frostBuff;            // 冰霜Buff数据
@@ -45,6 +46,7 @@ public class FrostBoss : MonoBehaviour
     private float iceBlastTimer;
     private float snowFlakeTimer;
     private float pulseTimer;
+    public bool isFightActive = false;
 
     [Header("技能范围配置")]
     public float iceBlastRange = 3f;           // 冰爆3×3范围
@@ -63,8 +65,12 @@ public class FrostBoss : MonoBehaviour
     private Coroutine dotCoroutine;            // 7层持续伤害协程
     private int currentPathIndex = 0;          // 当前移动路径索引
 
+   
+
     void Start()
     {
+        
+
         // 初始化组件
         rb = GetComponent<Rigidbody2D>();
         if (rb == null) rb = gameObject.AddComponent<Rigidbody2D>();
@@ -86,13 +92,37 @@ public class FrostBoss : MonoBehaviour
         // 开始沿路径移动并生成冰霜陷阱
         StartCoroutine(MoveAlongPathAndCreateTrap());
     }
+    // 玩家进入房间触发战斗
+   
 
     void Update()
     {
+        if (isFightActive)
+        {
+            snowFlakeTimer += Time.deltaTime;
+            iceBlastTimer += Time.deltaTime;
+            pulseTimer += Time.deltaTime;
+            CheckAndCastSkills();
+        }
+        if (Vector2.Distance(transform.position, player.position) <= playerCheckRange)
+        {
+            Debug.Log("检测到玩家，开始追逐");
+        }
         if (player == null) return;
-
-        // 技能冷却计时
-        UpdateSkillTimers();
+        // 计算与玩家的距离
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        // 360度检测：只要在范围内就视为检测到
+        if (distanceToPlayer <= playerCheckRange)
+        {
+            Debug.Log("玩家在360度范围内！");
+            // 计算精确角度（可选，用于方向判断）
+            Vector2 directionToPlayer = player.position - transform.position;
+            float signedAngle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
+            Debug.Log($"玩家相对于Boss的角度：{signedAngle:F1}°");
+        }
+    
+    // 技能冷却计时
+    UpdateSkillTimers();
         // 检测并释放技能
         CheckAndCastSkills();
         // 更新冰霜Buff（层数/时长/效果）
@@ -291,6 +321,7 @@ public class FrostBoss : MonoBehaviour
     IEnumerator CastSnowFlake()
     {
         yield return new WaitForSeconds(2f); // 起手2s
+        Debug.Log("雪花技能触发，开始生成");
         // 计算扇形角度范围
         float startAngle = transform.eulerAngles.z - snowFlakeAngle / 2;
         float angleStep = 5f; // 弹幕间隔角度
