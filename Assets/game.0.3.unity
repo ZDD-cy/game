@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gizmoColor: {r: 0, g: 0, b: 1, a: 1}
-  frostBoss: {fileID: 0}
+  frostBoss: {fileID: 1558768705}
 --- !u!4 &177377120
 Transform:
   m_ObjectHideFlags: 0
@@ -248,6 +248,11 @@ MonoBehaviour:
 --- !u!4 &1427845232 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6328880103538656971, guid: a1190497243929e4097763d090a0e50c, type: 3}
+  m_PrefabInstance: {fileID: 5538733526327199128}
+  m_PrefabAsset: {fileID: 0}
+--- !u!120 &1427845237 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 7403297627799283369, guid: a1190497243929e4097763d090a0e50c, type: 3}
   m_PrefabInstance: {fileID: 5538733526327199128}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1558768697
@@ -4279,6 +4284,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5638988817079870374, guid: bb0e41205f1c08e45b2e9b9336d323ad, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8534624425665986687, guid: a29738366f28d394ca60daa00ea0b0ed, type: 3}
+    - target: {fileID: 5638988817079870374, guid: bb0e41205f1c08e45b2e9b9336d323ad, type: 3}
       propertyPath: m_Color.b
       value: 0.5767919
       objectReference: {fileID: 0}
@@ -4377,6 +4386,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 5335048231080871043, guid: a1190497243929e4097763d090a0e50c, type: 3}
+      propertyPath: attackLine
+      value: 
+      objectReference: {fileID: 1427845237}
+    - target: {fileID: 5335048231080871043, guid: a1190497243929e4097763d090a0e50c, type: 3}
+      propertyPath: solidLineMaterial
+      value: 
+      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 5335048231080871043, guid: a1190497243929e4097763d090a0e50c, type: 3}
+      propertyPath: dashedLineMaterial
+      value: 
+      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 6328880103538656971, guid: a1190497243929e4097763d090a0e50c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.16
