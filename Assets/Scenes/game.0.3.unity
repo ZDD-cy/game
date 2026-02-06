@@ -422,8 +422,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 177377120}
-  - component: {fileID: 177377119}
   - component: {fileID: 177377118}
+  - component: {fileID: 177377121}
+  - component: {fileID: 177377122}
   m_Layer: 0
   m_Name: Bossroom
   m_TagString: Untagged
@@ -476,18 +477,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.0001, y: 0.001}
   m_EdgeRadius: 0
---- !u!114 &177377119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177377117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fba69a46ed7c9e4f80906df65e39126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &177377120
 Transform:
   m_ObjectHideFlags: 0
@@ -497,12 +486,38 @@ Transform:
   m_GameObject: {fileID: 177377117}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 78.38, y: 1.35, z: -0.09116458}
+  m_LocalPosition: {x: 77.86, y: 1.86, z: -0.09116458}
   m_LocalScale: {x: 337646.6, y: 43554.68, z: 165926.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &177377121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177377117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86407f5db113d2646ba569a038cd49bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fightActive: {fileID: 177377122}
+--- !u!114 &177377122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177377117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469dcbdb1b3400444aa18014ae3998c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFightActive: 1
 --- !u!4 &541062579 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2327097458569638218, guid: a29507bce124ba244b87499c4167e786, type: 3}
@@ -604,6 +619,7 @@ GameObject:
   - component: {fileID: 1558768703}
   - component: {fileID: 1558768705}
   - component: {fileID: 1558768706}
+  - component: {fileID: 1558768707}
   m_Layer: 8
   m_Name: BOSS-Ice
   m_TagString: Enemy
@@ -662,7 +678,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!4 &1558768699
 Transform:
   m_ObjectHideFlags: 0
@@ -672,7 +688,7 @@ Transform:
   m_GameObject: {fileID: 1558768697}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 78.88, y: 3.1, z: 0}
+  m_LocalPosition: {x: 79.95, y: -0.3, z: 0}
   m_LocalScale: {x: 5.141535, y: 4.927287, z: 5.141535}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -747,7 +763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23991df418848d140a9e2628bb103544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightActive: {fileID: 0}
+  fightActive: {fileID: 1558768707}
   playerTransform: {fileID: 1427845232}
   moveSpeed: 8
   movePathPoints: []
@@ -815,6 +831,19 @@ CircleCollider2D:
   m_Offset: {x: 0.00999999, y: 0.39499998}
   serializedVersion: 2
   m_Radius: 0.375
+--- !u!114 &1558768707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558768697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469dcbdb1b3400444aa18014ae3998c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFightActive: 1
 --- !u!1 &1562015446
 GameObject:
   m_ObjectHideFlags: 0

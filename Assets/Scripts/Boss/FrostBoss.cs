@@ -1,4 +1,4 @@
-
+﻿
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -100,30 +100,39 @@ public class FrostBoss : MonoBehaviour
         StartCoroutine(MoveAlongPathAndCreateTrap());
     }
 
+
     void Update()
     {
-     
-        if (Vector2.Distance(transform.position, player.position) <= playerCheckRange)
+        if (player == null || rb == null) return;
+
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        // 1. 玩家在检测范围内，且在最大追踪距离内 → 开始追逐
+        if (distanceToPlayer <= playerCheckRange && distanceToPlayer <= playerCheckRange)
         {
             Debug.Log("检测到玩家，开始追逐");
-        }
-        if (player == null) return;
-        // 计算与玩家的距离
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        // 360度检测：只要在范围内就视为检测到
-        if (distanceToPlayer <= playerCheckRange)
-        {
             if (fightActive != null)
             {
                 fightActive.isFightActive = true;
             }
-            Vector2 directionToPlayer = player.position - transform.position;
-            float signedAngle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
-            Debug.Log($"玩家相对于Boss的角度：{signedAngle:F1}°");
-        }
 
+            // 计算方向并移动
+            Vector2 direction = (player.position - transform.position).normalized;
+            rb.velocity = direction * moveSpeed;
+        }
+        // 2. 玩家超出了最大追踪距离，或者不在检测范围内 → 停止追逐
+        else
+        {
+            rb.velocity = Vector2.zero;
+            // 可以在这里添加战斗状态结束的逻辑
+            if (fightActive != null)
+            {
+                fightActive.isFightActive = false;
+            }
+        }
+    
         // 技能冷却计时
-        if (fightActive.isFightActive)
+        if (fightActive != null && fightActive.isFightActive)
         {
             UpdateSkillTimers();
             // 检测并释放技能
