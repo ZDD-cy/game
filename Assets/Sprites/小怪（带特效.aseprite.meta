@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 030b277b31e569543a16b19266c6dc40
+guid: 011782d7a7cf4f444b4f8053e6c9b01f
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639060190705161786
+  platformSettingsDirtyTick: 639060190458980095
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,18 +122,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: "\u89D2\u82721 (1)"
+  - name: Frame_0
     originalName: 
-    pivot: {x: 0.49206352, y: -0.0862069}
+    pivot: {x: 0.46296296, y: -0.0862069}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 63
+      width: 54
       height: 58
-    spriteID: e7b592f02082d7f4da2ebbbaad97ba59
+    spriteID: e2aff730bc2785c45a2d839d32fa892d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,29 +142,116 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Frame_1
+    originalName: 
+    pivot: {x: 0.46296296, y: -0.0862069}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 70
+      width: 54
+      height: 58
+    spriteID: 63babaa6101d46d4f9e04dcc9e5d632c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 70}
+  - name: Frame_2
+    originalName: 
+    pivot: {x: 0.46296296, y: -0.0862069}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 136
+      width: 54
+      height: 58
+    spriteID: e93fdfe02d3cbfe4d95200bbfc97e58d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 136}
+  - name: Frame_3
+    originalName: 
+    pivot: {x: 0.46296296, y: -0.0862069}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 66
+      y: 4
+      width: 54
+      height: 58
+    spriteID: 5067233d800d5894d9ef007d5d8b3bb4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 66, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 3193360517
+      value0: 232392544
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: "\u89D2\u82721 (1)"
+    name: "\u5C0F\u602A\uFF08\u5E26\u7279\u6548"
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: "\u89D2\u82721 (1)"
+    - name: Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 1
+        x: 7
         y: 5
-        width: 63
+        width: 54
         height: 58
-      spriteId: e7b592f02082d7f4da2ebbbaad97ba59
+      spriteId: e2aff730bc2785c45a2d839d32fa892d
+    - name: Frame_1
+      frameIndex: 1
+      additiveSortOrder: 0
+      cellRect:
+        x: 7
+        y: 5
+        width: 54
+        height: 58
+      spriteId: 63babaa6101d46d4f9e04dcc9e5d632c
+    - name: Frame_2
+      frameIndex: 2
+      additiveSortOrder: 0
+      cellRect:
+        x: 7
+        y: 5
+        width: 54
+        height: 58
+      spriteId: e93fdfe02d3cbfe4d95200bbfc97e58d
+    - name: Frame_3
+      frameIndex: 3
+      additiveSortOrder: 0
+      cellRect:
+        x: 7
+        y: 5
+        width: 54
+        height: 58
+      spriteId: 5067233d800d5894d9ef007d5d8b3bb4
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -208,4 +295,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 64, y: 64}
-  previousTextureSize: {x: 128, y: 128}
+  previousTextureSize: {x: 128, y: 256}

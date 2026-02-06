@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: -728413303
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 5854671787345212599, guid: 030b277b31e569543a16b19266c6dc40, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,9 +123,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.9}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.8
 --- !u!114 &2234507738633100131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +196,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: bff95f1b7232a304a9d459356d675859, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -313,8 +313,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ec0cd300d73874198a3606a05e5d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentSpeed: 0
+  hp: 0
+  isFrozen: 0
+  isInIceTrap: 0
   moveSpeed: 5
   maxHealth: 20
+  currentHealth: 0
+  rb: {fileID: 0}
+  movement: {x: 0, y: 0}
 --- !u!114 &2089428114345452693
 MonoBehaviour:
   m_ObjectHideFlags: 0

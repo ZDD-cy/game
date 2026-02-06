@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 9115158576419096362}
   - component: {fileID: 5915985038480905317}
   - component: {fileID: 6462946467899611673}
-  - component: {fileID: 1866819046562788460}
   - component: {fileID: 800285102788979340}
   - component: {fileID: 6289597180744624390}
   - component: {fileID: 239766306191963602}
   - component: {fileID: 8748519092553848723}
   - component: {fileID: 622719031405476665}
   - component: {fileID: 2892612501161207078}
+  - component: {fileID: 5685010868885255250}
   m_Layer: 8
   m_Name: enemy
   m_TagString: Enemy
@@ -81,8 +81,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.23367335, g: 0.49003056, b: 0.8742138, a: 1}
+  m_Sprite: {fileID: -960248618445064866, guid: 011782d7a7cf4f444b4f8053e6c9b01f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -116,51 +116,6 @@ MonoBehaviour:
   criticalColor: {r: 1, g: 0, b: 0, a: 1}
   computePowerReward: 10
   dataFragmentReward: 5
---- !u!61 &1866819046562788460
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954939301359306071}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!50 &800285102788979340
 Rigidbody2D:
   serializedVersion: 4
@@ -249,20 +204,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cdf8eff9a38d5d46ad68e49251a112f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolPoints: []
   moveSpeed: 3
-  isInIceTrap: 0
   hp: 100
-  maxHp: 100
-  currentSpeed: 0
-  normalSpeed: 5
-  coin: 2
-  hitColor: {r: 1, g: 0, b: 0, a: 1}
-  hitFlashTime: 0.1
-  damagePopupPrefab: {fileID: 0}
-  chaseRange: 8
-  attackRange: 3
-  idleTurnInterval: 2
+  currentState: 0
+  patrolRadius: 8
+  patrolAngle: 120
+  patrolDuration: 4
+  stayDuration: 2
 --- !u!114 &622719031405476665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,3 +331,38 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!58 &5685010868885255250
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954939301359306071}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.05, y: 0.9}
+  serializedVersion: 2
+  m_Radius: 0.74
