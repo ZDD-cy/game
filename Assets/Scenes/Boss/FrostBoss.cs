@@ -24,10 +24,13 @@ public class FrostBuffData
     // Buff效果标记
     public bool isDashForbidden = false; //是否封禁冲刺
     public bool isMaxLayer = false;      //是否达到7层（满层）
+
+    
 }
 
 public class FrostBoss : MonoBehaviour
 {
+    public FightActive fightActive;
     public Transform playerTransform;
     [Header("BOSS基础配置")]
     public float moveSpeed = 8f;               // BOSS基础移速
@@ -46,7 +49,7 @@ public class FrostBoss : MonoBehaviour
     private float iceBlastTimer;
     private float snowFlakeTimer;
     private float pulseTimer;
-    public bool isFightActive = false;
+
 
     [Header("技能范围配置")]
     public float iceBlastRange = 3f;           // 冰爆3×3范围
@@ -65,12 +68,16 @@ public class FrostBoss : MonoBehaviour
     private Coroutine dotCoroutine;            // 7层持续伤害协程
     private int currentPathIndex = 0;          // 当前移动路径索引
 
-   
 
+    
+    
+        
+    
     void Start()
     {
-        
-
+       //添加携程
+        StartCoroutine(CastSnowFlake());
+        StartCoroutine(MoveAlongPathAndCreateTrap());
         // 初始化组件
         rb = GetComponent<Rigidbody2D>();
         if (rb == null) rb = gameObject.AddComponent<Rigidbody2D>();
@@ -92,18 +99,10 @@ public class FrostBoss : MonoBehaviour
         // 开始沿路径移动并生成冰霜陷阱
         StartCoroutine(MoveAlongPathAndCreateTrap());
     }
-    // 玩家进入房间触发战斗
-   
 
     void Update()
     {
-        if (isFightActive)
-        {
-            snowFlakeTimer += Time.deltaTime;
-            iceBlastTimer += Time.deltaTime;
-            pulseTimer += Time.deltaTime;
-            CheckAndCastSkills();
-        }
+     
         if (Vector2.Distance(transform.position, player.position) <= playerCheckRange)
         {
             Debug.Log("检测到玩家，开始追逐");
@@ -114,75 +113,79 @@ public class FrostBoss : MonoBehaviour
         // 360度检测：只要在范围内就视为检测到
         if (distanceToPlayer <= playerCheckRange)
         {
-            Debug.Log("玩家在360度范围内！");
-            // 计算精确角度（可选，用于方向判断）
+            if (fightActive != null)
+            {
+                fightActive.isFightActive = true;
+            }
             Vector2 directionToPlayer = player.position - transform.position;
             float signedAngle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
             Debug.Log($"玩家相对于Boss的角度：{signedAngle:F1}°");
         }
-    
-    // 技能冷却计时
-    UpdateSkillTimers();
-        // 检测并释放技能
-        CheckAndCastSkills();
-        // 更新冰霜Buff（层数/时长/效果）
-        UpdateFrostBuff();
-        // 机关激活时刷新Buff消散速度
-        UpdateBuffDissipateSpeed();
-    }
 
-    #region 路径移动+冰霜陷阱生成
-    // 沿路径移动，每到一个点生成冰霜陷阱（路径一次性）
-    IEnumerator MoveAlongPathAndCreateTrap()
-    {
-        if (movePathPoints == null || movePathPoints.Count == 0) yield break;
-
-        while (currentPathIndex < movePathPoints.Count)
+        // 技能冷却计时
+        if (fightActive.isFightActive)
         {
-            Transform targetPoint = movePathPoints[currentPathIndex];
-            // 移动到目标点
-            while (Vector2.Distance(transform.position, targetPoint.position) > 0.1f)
+            UpdateSkillTimers();
+            // 检测并释放技能
+            CheckAndCastSkills();
+            // 更新冰霜Buff（层数/时长/效果）
+            UpdateFrostBuff();
+            // 机关激活时刷新Buff消散速度
+            UpdateBuffDissipateSpeed();
+        }
+
+        #region 路径移动+冰霜陷阱生成
+        // 沿路径移动，每到一个点生成冰霜陷阱（路径一次性）
+        IEnumerator MoveAlongPathAndCreateTrap()
+        {
+            if (movePathPoints == null || movePathPoints.Count == 0) yield break;
+
+            while (currentPathIndex < movePathPoints.Count)
             {
-                transform.position = Vector2.MoveTowards(transform.position, targetPoint.position, moveSpeed * Time.deltaTime * (1 - GetCurrentSlowRate()));
-                yield return null;
+                Transform targetPoint = movePathPoints[currentPathIndex];
+                // 移动到目标点
+                while (Vector2.Distance(transform.position, targetPoint.position) > 0.1f)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, targetPoint.position, moveSpeed * Time.deltaTime * (1 - GetCurrentSlowRate()));
+                    yield return null;
+                }
+                // 生成冰霜陷阱
+                Instantiate(frostTrapPrefab, targetPoint.position, Quaternion.identity);
+                currentPathIndex++;
             }
-            // 生成冰霜陷阱
-            Instantiate(frostTrapPrefab, targetPoint.position, Quaternion.identity);
-            currentPathIndex++;
+            // 路径走完后，转向追击玩家
+            yield return null;
         }
-        // 路径走完后，转向追击玩家
-        yield return null;
-    }
-    #endregion
+        #endregion
 
-    #region 冰霜Buff核心逻辑（叠加/刷新/消散/分层效果）
-    void UpdateFrostBuff()
-    {
-        if (frostBuff.currentLayer <= 0)
+        #region 冰霜Buff核心逻辑（叠加/刷新/消散/分层效果）
+        void UpdateFrostBuff()
         {
-            // 无Buff时重置所有效果
-            ResetFrostBuffEffect();
-            return;
+            if (frostBuff.currentLayer <= 0)
+            {
+                // 无Buff时重置所有效果
+                ResetFrostBuffEffect();
+                return;
+            }
+
+            // Buff倒计时（消散速度由机关决定）
+            frostBuff.buffTimer -= Time.deltaTime * frostBuff.currentDissipateSpeed;
+            if (frostBuff.buffTimer <= 0)
+            {
+                // 计时结束减一层，刷新倒计时
+                frostBuff.currentLayer--;
+                frostBuff.buffTimer = frostBuff.buffDuration;
+                // 层数变化更新效果
+                UpdateFrostBuffEffect();
+            }
         }
 
-        // Buff倒计时（消散速度由机关决定）
-        frostBuff.buffTimer -= Time.deltaTime * frostBuff.currentDissipateSpeed;
-        if (frostBuff.buffTimer <= 0)
+        // 更新Buff消散速度（有机关激活则一倍加速）
+        void UpdateBuffDissipateSpeed()
         {
-            // 计时结束减一层，刷新倒计时
-            frostBuff.currentLayer--;
-            frostBuff.buffTimer = frostBuff.buffDuration;
-            // 层数变化更新效果
-            UpdateFrostBuffEffect();
+            frostBuff.currentDissipateSpeed = isAnyTrapActive ? frostBuff.trapDissipateSpeed : frostBuff.normalDissipateSpeed;
         }
     }
-
-    // 更新Buff消散速度（有机关激活则一倍加速）
-    void UpdateBuffDissipateSpeed()
-    {
-        frostBuff.currentDissipateSpeed = isAnyTrapActive ? frostBuff.trapDissipateSpeed : frostBuff.normalDissipateSpeed;
-    }
-
     // 叠加Buff（BOSS每次攻击调用，刷新时长+层数+1）
     public void AddFrostBuffLayer()
     {
@@ -316,24 +319,54 @@ public class FrostBoss : MonoBehaviour
         }
         AddFrostBuffLayer(); // 攻击叠一层Buff
     }
-
-    // 2.雪花：起手2s → 90度扇形弹幕 → 叠Buff
+    //2.雪花
     IEnumerator CastSnowFlake()
     {
-        yield return new WaitForSeconds(2f); // 起手2s
+        // 保险：如果战斗未激活，直接退出协程
+        if (fightActive == null || !fightActive.isFightActive)
+        {
+            Debug.LogWarning("战斗未激活，取消雪花技能释放");
+            yield break;
+        }
+
+        // 保险：如果玩家或生成点未设置，直接退出
+        if (player == null || bulletSpawnPoint == null)
+        {
+            Debug.LogError("玩家或子弹生成点未设置！");
+            yield break;
+        }
+
+        Debug.Log("CastSnowFlake 协程开始执行");
+        yield return new WaitForSeconds(2f);
         Debug.Log("雪花技能触发，开始生成");
-        // 计算扇形角度范围
-        float startAngle = transform.eulerAngles.z - snowFlakeAngle / 2;
-        float angleStep = 5f; // 弹幕间隔角度
+
+        // 1. 计算从生成点指向玩家的方向和角度
+        Vector2 dirToPlayer = (player.position - bulletSpawnPoint.position).normalized;
+        float angleToPlayer = Mathf.Atan2(dirToPlayer.y, dirToPlayer.x) * Mathf.Rad2Deg;
+
+        // 2. 以玩家方向为中心，计算扇形的起始和结束角度
+        float startAngle = angleToPlayer - snowFlakeAngle / 2;
+        float angleStep = 5f;
+
+        // 3. 生成扇形弹幕
         for (float angle = startAngle; angle <= startAngle + snowFlakeAngle; angle += angleStep)
         {
-            // 计算弹幕方向
-            Vector2 dir = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
-            // 生成弹幕
+            float radian = angle * Mathf.Deg2Rad;
+            Vector2 dir = new Vector2(Mathf.Cos(radian), Mathf.Sin(radian));
+
             GameObject bullet = Instantiate(snowFlakeBullet, bulletSpawnPoint.position, Quaternion.Euler(0, 0, angle));
-            bullet.GetComponent<SnowFlakeBullet>()?.SetDirection(dir, snowFlakeRange);
+            if (bullet != null)
+            {
+                Debug.Log("子弹已生成");
+                bullet.GetComponent<SnowFlakeBullet>()?.SetDirection(dir, snowFlakeRange);
+                Debug.Log($"子弹生成位置: {bullet.transform.position}");
+            }
+            else
+            {
+                Debug.LogError("子弹生成失败");
+            }
         }
-        AddFrostBuffLayer(); // 攻击叠一层Buff
+             AddFrostBuffLayer();
     }
 
     // 3.脉冲：全屏打击 → 0伤害 → 强制叠Buff
@@ -346,6 +379,18 @@ public class FrostBoss : MonoBehaviour
             AddFrostBuffLayer(); // 脉冲叠一层Buff
         }
     }
+      // 路径携程
+    IEnumerator MoveAlongPathAndCreateTrap()
+    {
+        // 在这里编写沿路径移动并生成陷阱的逻辑
+        Debug.Log("开始沿路径移动并生成陷阱");
+
+        // 示例逻辑：等待2秒
+        yield return new WaitForSeconds(2f);
+
+        // 你的具体实现...
+    }
+
     #endregion
 
     #region 机关交互接口（供角落机关脚本调用）
