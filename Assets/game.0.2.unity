@@ -1288,9 +1288,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowDownRate: 0.6
-  damagePerSec: 2
-  freezeDuration: 3
-  trapCD: 1
+  effectDuration: 3
+  trapCooldown: 5
+  damagePerSecond: 1
 --- !u!4 &69948797 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9115158576419096362, guid: 26b42c521e1e6ee4c96af160aa797779, type: 3}
@@ -1457,7 +1457,6 @@ MonoBehaviour:
   patrolAngle: 120
   patrolDuration: 4
   stayDuration: 2
-  damagePopupPrefab: {fileID: 0}
 --- !u!4 &273948563 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9115158576419096362, guid: 26b42c521e1e6ee4c96af160aa797779, type: 3}
@@ -7789,7 +7788,6 @@ MonoBehaviour:
   patrolAngle: 120
   patrolDuration: 4
   stayDuration: 2
-  damagePopupPrefab: {fileID: 0}
 --- !u!4 &934653975 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9115158576419096362, guid: 26b42c521e1e6ee4c96af160aa797779, type: 3}
@@ -7805,6 +7803,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9115158576419096362, guid: 26b42c521e1e6ee4c96af160aa797779, type: 3}
   m_PrefabInstance: {fileID: 1649031590}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1070538164
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4405517221957866929, guid: 1e141526eddac4849aaa88150496c182, type: 3}
+      propertyPath: m_Name
+      value: LineDrawer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470196049616510604, guid: 1e141526eddac4849aaa88150496c182, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2104488794}
+    - target: {fileID: 5749969682678339437, guid: 1e141526eddac4849aaa88150496c182, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749969682678339437, guid: 1e141526eddac4849aaa88150496c182, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749969682678339437, guid: 1e141526eddac4849aaa88150496c182, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749969682678339437, guid: 1e141526eddac4849aaa88150496c182, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749969682678339437, guid: 1e141526eddac4849aaa88150496c182, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749969682678339437, guid: 1e141526eddac4849aaa88150496c182, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749969682678339437, guid: 1e141526eddac4849aaa88150496c182, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749969682678339437, guid: 1e141526eddac4849aaa88150496c182, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749969682678339437, guid: 1e141526eddac4849aaa88150496c182, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749969682678339437, guid: 1e141526eddac4849aaa88150496c182, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e141526eddac4849aaa88150496c182, type: 3}
 --- !u!1001 &1070616009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8557,7 +8616,6 @@ MonoBehaviour:
   patrolAngle: 120
   patrolDuration: 4
   stayDuration: 2
-  damagePopupPrefab: {fileID: 0}
 --- !u!114 &1484996818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8577,7 +8635,6 @@ MonoBehaviour:
   patrolAngle: 120
   patrolDuration: 4
   stayDuration: 2
-  damagePopupPrefab: {fileID: 0}
 --- !u!114 &1484996819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8597,7 +8654,6 @@ MonoBehaviour:
   patrolAngle: 120
   patrolDuration: 4
   stayDuration: 2
-  damagePopupPrefab: {fileID: 0}
 --- !u!4 &1484996829 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9115158576419096362, guid: 26b42c521e1e6ee4c96af160aa797779, type: 3}
@@ -8632,7 +8688,6 @@ MonoBehaviour:
   patrolAngle: 270
   patrolDuration: 4
   stayDuration: 2
-  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1649031590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9173,3 +9228,4 @@ SceneRoots:
   - {fileID: 2104488793}
   - {fileID: 915751369}
   - {fileID: 1089224840}
+  - {fileID: 1070538164}
