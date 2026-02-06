@@ -28,6 +28,7 @@ public class FrostBuffData
 
 public class FrostBoss : MonoBehaviour
 {
+    public Transform playerTransform;
     [Header("BOSS基础配置")]
     public float moveSpeed = 8f;               // BOSS基础移速
     public List<Transform> movePathPoints;     // BOSS移动路径点（一次性冰霜陷阱）
@@ -45,6 +46,7 @@ public class FrostBoss : MonoBehaviour
     private float iceBlastTimer;
     private float snowFlakeTimer;
     private float pulseTimer;
+    public bool isFightActive = false;
 
     [Header("技能范围配置")]
     public float iceBlastRange = 3f;           // 冰爆3×3范围
@@ -62,6 +64,8 @@ public class FrostBoss : MonoBehaviour
     private Rigidbody2D rb;
     private Coroutine dotCoroutine;            // 7层持续伤害协程
     private int currentPathIndex = 0;          // 当前移动路径索引
+
+   
 
     void Start()
     {
@@ -88,10 +92,18 @@ public class FrostBoss : MonoBehaviour
         // 开始沿路径移动并生成冰霜陷阱
         StartCoroutine(MoveAlongPathAndCreateTrap());
     }
+    // 玩家进入房间触发战斗
+   
 
     void Update()
     {
-
+        if (isFightActive)
+        {
+            snowFlakeTimer += Time.deltaTime;
+            iceBlastTimer += Time.deltaTime;
+            pulseTimer += Time.deltaTime;
+            CheckAndCastSkills();
+        }
         if (Vector2.Distance(transform.position, player.position) <= playerCheckRange)
         {
             Debug.Log("检测到玩家，开始追逐");
@@ -309,6 +321,7 @@ public class FrostBoss : MonoBehaviour
     IEnumerator CastSnowFlake()
     {
         yield return new WaitForSeconds(2f); // 起手2s
+        Debug.Log("雪花技能触发，开始生成");
         // 计算扇形角度范围
         float startAngle = transform.eulerAngles.z - snowFlakeAngle / 2;
         float angleStep = 5f; // 弹幕间隔角度

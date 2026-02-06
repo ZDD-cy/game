@@ -26,6 +26,7 @@ public class SnowFlakeBullet : MonoBehaviour
     private float scaleOffset;
     private float timer;
 
+    
     void Start()
     {
         // 初始化组件
@@ -83,6 +84,7 @@ public class SnowFlakeBullet : MonoBehaviour
     public void SetDirection(Vector2 dir, float snowFlakeRange)
     {
         moveDir = dir.normalized;
+        maxRange = snowFlakeRange;
     }
 
     // 碰撞玩家

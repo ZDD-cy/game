@@ -122,11 +122,129 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &177377117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 177377120}
+  - component: {fileID: 177377119}
+  - component: {fileID: 177377118}
+  m_Layer: 0
+  m_Name: Bossroom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &177377118
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177377117}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.0001, y: 0.001}
+  m_EdgeRadius: 0
+--- !u!114 &177377119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177377117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fba69a46ed7c9e4f80906df65e39126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gizmoColor: {r: 0, g: 0, b: 1, a: 1}
+  frostBoss: {fileID: 0}
+--- !u!4 &177377120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177377117}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 78.38, y: 1.35, z: -0.09116458}
+  m_LocalScale: {x: 337646.6, y: 43554.68, z: 165926.4}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &541062579 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2327097458569638218, guid: a29507bce124ba244b87499c4167e786, type: 3}
   m_PrefabInstance: {fileID: 853411303126446670}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1311332790 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8548271064370800426, guid: bb0e41205f1c08e45b2e9b9336d323ad, type: 3}
+  m_PrefabInstance: {fileID: 797888184665443936}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1311332797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311332790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff8ab024e20e09546bd1c5cbf8e7fd80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 8
+  maxRange: 15
+  rotateSpeed: 90
+  minScale: 0.8
+  maxScale: 1.2
+  scaleSpeed: 1
+  fadeOutTime: 2
+  fadeDuration: 1
+  damage: 10
 --- !u!4 &1427845232 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6328880103538656971, guid: a1190497243929e4097763d090a0e50c, type: 3}
@@ -335,6 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23991df418848d140a9e2628bb103544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTransform: {fileID: 0}
   moveSpeed: 8
   movePathPoints: []
   frostTrapPrefab: {fileID: 0}
@@ -359,11 +478,12 @@ MonoBehaviour:
   iceBlastCD: 10
   snowFlakeCD: 6
   pulseCD: 40
+  isFightActive: 0
   iceBlastRange: 3
   snowFlakeAngle: 90
   snowFlakeRange: 15
-  snowFlakeBullet: {fileID: 0}
-  bulletSpawnPoint: {fileID: 0}
+  snowFlakeBullet: {fileID: 1311332790}
+  bulletSpawnPoint: {fileID: 1562015447}
   isAnyTrapActive: 0
   activeTrapCount: 0
 --- !u!1 &1562015446
@@ -4158,14 +4278,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5638988817079870374, guid: bb0e41205f1c08e45b2e9b9336d323ad, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5767919
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638988817079870374, guid: bb0e41205f1c08e45b2e9b9336d323ad, type: 3}
+      propertyPath: m_Color.g
+      value: 0.10537542
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638988817079870374, guid: bb0e41205f1c08e45b2e9b9336d323ad, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9056604
+      objectReference: {fileID: 0}
     - target: {fileID: 8548271064370800426, guid: bb0e41205f1c08e45b2e9b9336d323ad, type: 3}
       propertyPath: m_Name
       value: SnowFlakeBullet
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7203532178324776628, guid: bb0e41205f1c08e45b2e9b9336d323ad, type: 3}
+    - {fileID: 3330877997054299207, guid: bb0e41205f1c08e45b2e9b9336d323ad, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8548271064370800426, guid: bb0e41205f1c08e45b2e9b9336d323ad, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1311332797}
   m_SourcePrefab: {fileID: 100100000, guid: bb0e41205f1c08e45b2e9b9336d323ad, type: 3}
 --- !u!1001 &853411303126446670
 PrefabInstance:
@@ -4280,6 +4417,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7403297627799283369, guid: a1190497243929e4097763d090a0e50c, type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4295,3 +4436,4 @@ SceneRoots:
   - {fileID: 1558768699}
   - {fileID: 1752326300}
   - {fileID: 797888184665443936}
+  - {fileID: 177377120}
