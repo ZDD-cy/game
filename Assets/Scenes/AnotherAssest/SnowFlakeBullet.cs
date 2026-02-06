@@ -1,14 +1,14 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SnowFlakeBullet : MonoBehaviour
 {
-    [Header("»ù´¡·ÉĞĞÉèÖÃ")]
+    [Header("åŸºç¡€é£è¡Œè®¾ç½®")]
     public float moveSpeed = 8f;
     public float maxRange = 15f;
 
-    [Header("ÊÓ¾õĞ§¹ûÉèÖÃ")]
+    [Header("è§†è§‰æ•ˆæœè®¾ç½®")]
     public float rotateSpeed = 90f;
     public float minScale = 0.8f;
     public float maxScale = 1.2f;
@@ -16,7 +16,7 @@ public class SnowFlakeBullet : MonoBehaviour
     public float fadeOutTime = 2f;
     public float fadeDuration = 1f;
 
-    [Header("ÉËº¦ÉèÖÃ")]
+    [Header("ä¼¤å®³è®¾ç½®")]
     public int damage = 10;
 
     private Rigidbody2D rb;
@@ -27,44 +27,59 @@ public class SnowFlakeBullet : MonoBehaviour
     private float timer;
 
     
+
+    void OnDestroy()
+    {
+        Debug.Log($"å­å¼¹ {gameObject.name} è¢«é”€æ¯ï¼Œå½“å‰åœºæ™¯æ—¶é—´: {Time.time}");
+    }
+
     void Start()
     {
-        // ³õÊ¼»¯×é¼ş
+        // åˆå§‹åŒ–ç»„ä»¶
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         if (rb == null) rb = gameObject.AddComponent<Rigidbody2D>();
         rb.gravityScale = 0;
 
-        // Ëæ»úËõ·ÅÆ«ÒÆ£¬ÈÃÃ¿¸öÑ©»¨Ğ§¹û²»Í¬
+        // éšæœºç¼©æ”¾åç§»ï¼Œè®©æ¯ä¸ªé›ªèŠ±æ•ˆæœä¸åŒ
         scaleOffset = Random.Range(0f, Mathf.PI * 2f);
         timer = 0;
         travelDistance = 0;
 
-        // ³¬Ê±×Ô¶¯Ïú»Ù
-        Destroy(gameObject, 5f);
+        // è¶…æ—¶è‡ªåŠ¨å›æ”¶
+        StartCoroutine(RecoverAfterTime(5f));
+        // æ–°å¢è¶…æ—¶å›æ”¶åç¨‹
+        IEnumerator RecoverAfterTime(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            // è¶…æ—¶åæ‰§è¡Œå›æ”¶
+            travelDistance = 0;
+            gameObject.SetActive(false);
+        }
     }
 
     void Update()
     {
-        // ·ÉĞĞÂß¼­
+        // é£è¡Œé€»è¾‘
         Vector2 moveStep = moveDir * moveSpeed * Time.deltaTime;
         rb.velocity = moveStep;
         travelDistance += moveStep.magnitude;
 
-        // ³¬³öÉä³ÌÏú»Ù
+        // è¶…å‡ºå°„ç¨‹å›æ”¶
         if (travelDistance >= maxRange)
         {
-            Destroy(gameObject);
+            travelDistance = 0;
+            gameObject.SetActive(false);    
         }
 
-        // Ğı×ªĞ§¹û
+        // æ—‹è½¬æ•ˆæœ
         transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
 
-        // ºôÎüÊ½Ëõ·Å
+        // å‘¼å¸å¼ç¼©æ”¾
         float scale = Mathf.Lerp(minScale, maxScale, Mathf.Sin(Time.time * scaleSpeed + scaleOffset) * 0.5f + 0.5f);
         transform.localScale = Vector3.one * scale;
 
-        // Í¸Ã÷¶È½¥±ä
+        // é€æ˜åº¦æ¸å˜
         timer += Time.deltaTime;
         if (timer >= fadeOutTime && sr != null)
         {
@@ -75,25 +90,51 @@ public class SnowFlakeBullet : MonoBehaviour
 
             if (alpha <= 0)
             {
-                Destroy(gameObject);
+
+                //  æ”¹ä¸ºéšè—ï¼Œä»¥ä¾¿å¯¹è±¡æ± å¤ç”¨
+                gameObject.SetActive(false);
+
+                // é‡ç½®é€æ˜åº¦ï¼Œä¸‹æ¬¡æ¿€æ´»æ—¶èƒ½æ­£å¸¸æ˜¾ç¤º
+                if (sr != null)
+                {
+                    color = sr.color;
+                    color.a = 1f;
+                    sr.color = color;
+                }
+                // é‡ç½®è®¡æ—¶å™¨
+                timer = 0f;
             }
         }
     }
 
-    // ÉèÖÃµ¯Ä»·ÉĞĞ·½Ïò
+    // è®¾ç½®å¼¹å¹•é£è¡Œæ–¹å‘
     public void SetDirection(Vector2 dir, float snowFlakeRange)
     {
+
+        // é‡ç½®é£è¡Œè·ç¦»
+        travelDistance = 0;
+        moveDir = dir;
+
+        // æ¢å¤ç¢°æ’ä½“å’Œæ¸²æŸ“
+        Collider2D collider = GetComponent<Collider2D>();
+        if (collider != null)
+            collider.enabled = true;
+
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+        if (renderer != null)
+            renderer.enabled = true; Debug.Log($"å­å¼¹ {gameObject.name} å¼€å§‹é£è¡Œï¼Œæ–¹å‘: {dir}ï¼Œå°„ç¨‹: {maxRange}");
         moveDir = dir.normalized;
         maxRange = snowFlakeRange;
     }
 
-    // Åö×²Íæ¼Ò
+    // ç¢°æ’ç©å®¶
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             other.GetComponent<Player>()?.TakeDamage(damage);
-            Destroy(gameObject);
+            travelDistance = 0;
+            gameObject.SetActive(false);
         }
     }
 }

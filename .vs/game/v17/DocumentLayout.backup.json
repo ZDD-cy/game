@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\gizmos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\gizmos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|c:\\users\\\u9648\u6631\\desktop\\\u840C\u82BD\\game\\assets\\scenes\\tag\\playerdebuffattrack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\tag\\playerdebuffattrack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|c:\\users\\\u9648\u6631\\desktop\\\u840C\u82BD\\game\\assets\\scenes\\boss\\frostboss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\boss\\frostboss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\scenes\\anotherassest\\snowflakebullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\anotherassest\\snowflakebullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Gizmos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Gizmos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\scenes\\boss\\fightactive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\boss\\fightactive.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\scenes\\boss\\roomtrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\boss\\roomtrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\scenes\\tag\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\tag\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\scenes\\boss\\enemychase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\scenes\\trap\\freeze trap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\trap\\freeze trap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\scenes\\tag\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|solutionrelative:assets\\scenes\\tag\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}|Assembly-CSharp.csproj|C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\assets\\scenes\\tag\\playerlockenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,7 +62,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "EnemyChase.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\Boss\\EnemyChase.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\Boss\\EnemyChase.cs",
@@ -55,21 +71,68 @@
               "ViewState": "AgIAAAYAAAAAAAAAAAAcwBsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-05T16:15:29.722Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "PlayerDebuffAttrack.cs",
+              "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\tag\\PlayerDebuffAttrack.cs",
+              "RelativeDocumentMoniker": "Assets\\Scenes\\tag\\PlayerDebuffAttrack.cs",
+              "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\tag\\PlayerDebuffAttrack.cs",
+              "RelativeToolTip": "Assets\\Scenes\\tag\\PlayerDebuffAttrack.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAjwJcAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T06:57:14.852Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SnowFlakeBullet.cs",
+              "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\AnotherAssest\\SnowFlakeBullet.cs",
+              "RelativeDocumentMoniker": "Assets\\Scenes\\AnotherAssest\\SnowFlakeBullet.cs",
+              "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\AnotherAssest\\SnowFlakeBullet.cs",
+              "RelativeToolTip": "Assets\\Scenes\\AnotherAssest\\SnowFlakeBullet.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAADwvx0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T06:48:18.876Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Gizmos.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Gizmos.cs",
               "RelativeDocumentMoniker": "Assets\\Gizmos.cs",
               "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Gizmos.cs",
               "RelativeToolTip": "Assets\\Gizmos.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-06T01:52:08.871Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-06T06:43:12.156Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RoomTrigger.cs",
+              "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\Boss\\RoomTrigger.cs",
+              "RelativeDocumentMoniker": "Assets\\Scenes\\Boss\\RoomTrigger.cs",
+              "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\Boss\\RoomTrigger.cs",
+              "RelativeToolTip": "Assets\\Scenes\\Boss\\RoomTrigger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T06:23:44.383Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FightActive.cs",
+              "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\Boss\\FightActive.cs",
+              "RelativeDocumentMoniker": "Assets\\Scenes\\Boss\\FightActive.cs",
+              "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\Boss\\FightActive.cs",
+              "RelativeToolTip": "Assets\\Scenes\\Boss\\FightActive.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAqwDwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T06:20:27.702Z"
             },
             {
               "$type": "Document",
@@ -79,26 +142,26 @@
               "RelativeDocumentMoniker": "Assets\\Scenes\\Boss\\FrostBoss.cs",
               "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\Boss\\FrostBoss.cs",
               "RelativeToolTip": "Assets\\Scenes\\Boss\\FrostBoss.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAiwDAAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAF4BAAAAAAAAAABQwGEBAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-05T17:19:47.882Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\tag\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\tag\\Player.cs",
               "ToolTip": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\tag\\Player.cs",
               "RelativeToolTip": "Assets\\Scenes\\tag\\Player.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAiwGQAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAcwGQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-05T16:50:54.977Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "Freeze trap.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\Trap\\Freeze trap.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\Trap\\Freeze trap.cs",
@@ -110,7 +173,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "PlayerLockEnemy.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\tag\\PlayerLockEnemy.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\tag\\PlayerLockEnemy.cs",
@@ -122,7 +185,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "EnemyTakeDamage.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\The script on the enemy\\EnemyTakeDamage.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\The script on the enemy\\EnemyTakeDamage.cs",
@@ -134,7 +197,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\\u9648\u6631\\Desktop\\\u840C\u82BD\\game\\Assets\\Scenes\\The script on the enemy\\Enemy.cs",
               "RelativeDocumentMoniker": "Assets\\Scenes\\The script on the enemy\\Enemy.cs",
