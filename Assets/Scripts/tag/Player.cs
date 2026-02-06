@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    //ÏİÚåÊÊÅä
+    //é™·é˜±é€‚é…
     public float currentSpeed;
     public float hp;
     public bool isFrozen;
@@ -14,27 +14,27 @@ public class Player : MonoBehaviour
         currentSpeed = moveSpeed;
     }
 
-    // ĞÂÔö ApplySlow ·½·¨
+    // æ–°å¢ ApplySlow æ–¹æ³•
     public void ApplySlow(float slowAmount, float duration)
     {
         StartCoroutine(SlowCoroutine(slowAmount, duration));
     }
 
-    // ¼õËÙĞ­³Ì
+    // å‡é€Ÿåç¨‹
     public IEnumerator SlowCoroutine(float slowAmount, float duration)
     {
         currentSpeed = moveSpeed * (1 - slowAmount);
         yield return new WaitForSeconds(duration);
-        currentSpeed = moveSpeed; // »Ö¸´Ô­ËÙ¶È
+        currentSpeed = moveSpeed; // æ¢å¤åŸé€Ÿåº¦
     }
 
-    // ĞÂÔö ApplyBurn ·½·¨£¨È¼ÉÕ³ÖĞøÉËº¦£©
+    // æ–°å¢ ApplyBurn æ–¹æ³•ï¼ˆç‡ƒçƒ§æŒç»­ä¼¤å®³ï¼‰
     public void ApplyBurn(float damagePerSecond, float duration)
     {
         StartCoroutine(BurnCoroutine(damagePerSecond, duration));
     }
 
-    // È¼ÉÕĞ­³Ì
+    // ç‡ƒçƒ§åç¨‹
     public IEnumerator BurnCoroutine(float damagePerSecond, float duration)
     {
         float timer = 0f;
@@ -51,34 +51,34 @@ public class Player : MonoBehaviour
 
 
 
-    [Header("ÒÆ¶¯ÉèÖÃ")]
+    [Header("ç§»åŠ¨è®¾ç½®")]
     [SerializeField] public float moveSpeed = 3f;
 
-    [Header("ÊôĞÔÉèÖÃ")]
+    [Header("å±æ€§è®¾ç½®")]
     [SerializeField] public int maxHealth = 20;
     public int currentHealth;
 
-    // ×é¼şÒıÓÃ
+    // ç»„ä»¶å¼•ç”¨
     public Rigidbody2D rb;
     public Vector2 movement;
 
     void Start()
     {
-        // »ñÈ¡×é¼ş
+        // è·å–ç»„ä»¶
         rb = GetComponent<Rigidbody2D>();
 
-        // ³õÊ¼»¯ÑªÁ¿
+        // åˆå§‹åŒ–è¡€é‡
         currentHealth = maxHealth;
-        Debug.Log("Íæ¼Ò³õÊ¼»¯Íê³É£¬ÉúÃüÖµ: " + currentHealth + "/" + maxHealth);
+        Debug.Log("ç©å®¶åˆå§‹åŒ–å®Œæˆï¼Œç”Ÿå‘½å€¼: " + currentHealth + "/" + maxHealth);
     }
 
     void Update()
     {
-        // »ñÈ¡WASDÊäÈë
+        // è·å–WASDè¾“å…¥
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        // È·±£Ğ±ÏòÒÆ¶¯ËÙ¶ÈºÍÕı½»ÒÆ¶¯ËÙ¶ÈÒ»ÖÂ
+        // ç¡®ä¿æ–œå‘ç§»åŠ¨é€Ÿåº¦å’Œæ­£äº¤ç§»åŠ¨é€Ÿåº¦ä¸€è‡´
         if (movement.magnitude > 1)
         {
             movement.Normalize();
@@ -87,15 +87,15 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Ó¦ÓÃÒÆ¶¯
+        // åº”ç”¨ç§»åŠ¨
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
-    // ÊÜÉË
+    // å—ä¼¤
     public void TakeDamage(float damage)
     {
         currentHealth = (int)Mathf.Max(0, currentHealth - damage);
-        Debug.Log("ÊÜµ½ " + damage + " µãÉËº¦£¡µ±Ç°ÉúÃüÖµ: " + currentHealth + "/" + maxHealth);
+        Debug.Log("å—åˆ° " + damage + " ç‚¹ä¼¤å®³ï¼å½“å‰ç”Ÿå‘½å€¼: " + currentHealth + "/" + maxHealth);
 
         if (currentHealth <= 0)
         {
@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("Íæ¼ÒËÀÍö£¡");
+        Debug.Log("ç©å®¶æ­»äº¡ï¼");
         gameObject.SetActive(false);
     }
 }

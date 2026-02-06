@@ -11,13 +11,13 @@ public class PlayerInventory : MonoBehaviour
     public void AddCoins(int amount)
     {
         coins += amount;
-        Debug.Log($"获得 {amount} 个硬币，当前总数: {coins}");
+        Debug.Log($"鑾峰緱 {amount} 涓‖甯侊紝褰撳墠鎬绘暟: {coins}");
     }
 
     public void AddBeads(int amount)
     {
         beads += amount;
-        Debug.Log($"获得 {amount} 个珠子，当前总数: {beads}");
+        Debug.Log($"鑾峰緱 {amount} 涓彔瀛愶紝褰撳墠鎬绘暟: {beads}");
     }
 
     public int GetCoinCount() => coins;

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerDebuffAttack : MonoBehaviour
 {
-    [Header("¹¥»÷ÉèÖÃ")]
-    public float attackDelay = 2f;      // µÚÒ»´Î¹¥»÷ÑÓ³Ù£¨Ä¬ÈÏ2Ãë£©
-    public float debuffDamagePerSec = 1f; // DebuffÃ¿ÃëÉËº¦
-    public float debuffDuration = 4f;   // Debuff³ÖĞøÊ±¼ä
+    [Header("æ”»å‡»è®¾ç½®")]
+    public float attackDelay = 2f;      // ç¬¬ä¸€æ¬¡æ”»å‡»å»¶è¿Ÿï¼ˆé»˜è®¤2ç§’ï¼‰
+    public float debuffDamagePerSec = 1f; // Debuffæ¯ç§’ä¼¤å®³
+    public float debuffDuration = 4f;   // DebuffæŒç»­æ—¶é—´
     public KeyCode attackKey = KeyCode.J;
 
-    [Header("Á¬ÏßÏÔÊ¾")]
+    [Header("è¿çº¿æ˜¾ç¤º")]
     public LineRenderer attackLine;
     public Material dashedLineMaterial;
     public Material solidLineMaterial;
@@ -23,16 +23,16 @@ public class PlayerDebuffAttack : MonoBehaviour
 
     void Start()
     {
-        // »ñÈ¡ËøµĞ½Å±¾ÒıÓÃ
+        // è·å–é”æ•Œè„šæœ¬å¼•ç”¨
         lockEnemyScript = GetComponent<PlayerLockEnemy>();
         if (lockEnemyScript == null)
         {
-            Debug.LogError("Î´ÕÒµ½ PlayerLockEnemy ½Å±¾£¬ÇëÈ·±£ÒÑ¹ÒÔØ£¡", this);
+            Debug.LogError("æœªæ‰¾åˆ° PlayerLockEnemy è„šæœ¬ï¼Œè¯·ç¡®ä¿å·²æŒ‚è½½ï¼", this);
             enabled = false;
             return;
         }
 
-        // ³õÊ¼»¯Á¬Ïß
+        // åˆå§‹åŒ–è¿çº¿
         if (attackLine != null)
         {
             attackLine.positionCount = 2;
@@ -40,13 +40,13 @@ public class PlayerDebuffAttack : MonoBehaviour
         }
         else
         {
-            Debug.LogError("ÇëÔÚ Inspector ÖĞÖ¸¶¨ LineRenderer£¡", this);
+            Debug.LogError("è¯·åœ¨ Inspector ä¸­æŒ‡å®š LineRendererï¼", this);
         }
     }
 
     void Update()
     {
-        // ¼ì²â¹¥»÷ÊäÈë
+        // æ£€æµ‹æ”»å‡»è¾“å…¥
         if (Input.GetKeyDown(attackKey) && !isAttacking)
         {
             currentTarget = lockEnemyScript.currentAttackTarget;
@@ -56,11 +56,11 @@ public class PlayerDebuffAttack : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("Ã»ÓĞÑ¡ÖĞÈÎºÎµĞÈË£¡");
+                Debug.LogWarning("æ²¡æœ‰é€‰ä¸­ä»»ä½•æ•Œäººï¼");
             }
         }
 
-        // ¹¥»÷¼ÆÊ±Óë×´Ì¬¸üĞÂ
+        // æ”»å‡»è®¡æ—¶ä¸çŠ¶æ€æ›´æ–°
         if (isAttacking)
         {
             UpdateAttackSequence();
@@ -74,24 +74,24 @@ public class PlayerDebuffAttack : MonoBehaviour
         attackTimer = 0f;
         debuffTimer = 0f;
 
-        // ³õÊ¼»¯Á¬ÏßÎªĞéÏß
+        // åˆå§‹åŒ–è¿çº¿ä¸ºè™šçº¿
         if (attackLine != null)
         {
             attackLine.enabled = true;
             attackLine.material = dashedLineMaterial;
         }
-        Debug.Log($"¿ªÊ¼¶Ô {currentTarget.name} Ê©¼ÓDebuff¹¥»÷...");
+        Debug.Log($"å¼€å§‹å¯¹ {currentTarget.name} æ–½åŠ Debuffæ”»å‡»...");
     }
 
     void UpdateAttackSequence()
     {
-        // µÚÒ»½×¶Î£º¹¥»÷ÑÓ³Ù£¨2Ãë£©
+        // ç¬¬ä¸€é˜¶æ®µï¼šæ”»å‡»å»¶è¿Ÿï¼ˆ2ç§’ï¼‰
         if (attackTimer < attackDelay)
         {
             attackTimer += Time.deltaTime;
             if (attackTimer >= attackDelay)
             {
-                // ÑÓ³Ù½áÊø£¬Ê©¼ÓDebuff²¢ÇĞ»»ÎªÊµÏß
+                // å»¶è¿Ÿç»“æŸï¼Œæ–½åŠ Debuffå¹¶åˆ‡æ¢ä¸ºå®çº¿
                 ApplyDebuff();
                 if (attackLine != null)
                 {
@@ -99,11 +99,11 @@ public class PlayerDebuffAttack : MonoBehaviour
                 }
             }
         }
-        // µÚ¶ş½×¶Î£ºDebuff³ÖĞø£¨4Ãë£©
+        // ç¬¬äºŒé˜¶æ®µï¼šDebuffæŒç»­ï¼ˆ4ç§’ï¼‰
         else if (debuffTimer < debuffDuration)
         {
             debuffTimer += Time.deltaTime;
-            // Ã¿ÃëÔì³ÉÒ»´ÎÉËº¦
+            // æ¯ç§’é€ æˆä¸€æ¬¡ä¼¤å®³
             if (Mathf.Floor(debuffTimer) > Mathf.Floor(debuffTimer - Time.deltaTime))
             {
                 if (currentTarget.TryGetComponent(out EnemyTakeDamage enemyHp))
@@ -112,7 +112,7 @@ public class PlayerDebuffAttack : MonoBehaviour
                 }
             }
         }
-        // µÚÈı½×¶Î£º¹¥»÷½áÊø
+        // ç¬¬ä¸‰é˜¶æ®µï¼šæ”»å‡»ç»“æŸ
         else
         {
             EndAttack();
@@ -121,19 +121,19 @@ public class PlayerDebuffAttack : MonoBehaviour
 
     void ApplyDebuff()
     {
-        Debug.Log($"¶Ô {currentTarget.name} Ê©¼ÓDebuff£¬³ÖĞø {debuffDuration} Ãë");
+        Debug.Log($"å¯¹ {currentTarget.name} æ–½åŠ Debuffï¼ŒæŒç»­ {debuffDuration} ç§’");
     }
 
     void EndAttack()
     {
         isAttacking = false;
         currentTarget = null;
-        // Òş²ØÁ¬Ïß
+        // éšè—è¿çº¿
         if (attackLine != null)
         {
             attackLine.enabled = false;
         }
-        Debug.Log("¹¥»÷½áÊø£¬DebuffÒÑÒÆ³ı");
+        Debug.Log("æ”»å‡»ç»“æŸï¼ŒDebuffå·²ç§»é™¤");
     }
 
     void UpdateAttackLine()
@@ -147,7 +147,7 @@ public class PlayerDebuffAttack : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        // »æÖÆ¹¥»÷·¶Î§£¨¿ÉÑ¡µ÷ÊÔÓÃ£©
+        // ç»˜åˆ¶æ”»å‡»èŒƒå›´ï¼ˆå¯é€‰è°ƒè¯•ç”¨ï¼‰
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, lockEnemyScript.lockRange);
     }

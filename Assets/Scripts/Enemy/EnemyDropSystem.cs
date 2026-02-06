@@ -8,52 +8,52 @@ public class DropItem
 {
     public GameObject itemPrefab;
     public string itemName;
-    public int minCount = 1;      // ×îĞ¡µôÂäÊıÁ¿
-    public int maxCount = 3;      // ×î´óµôÂäÊıÁ¿
+    public int minCount = 1;      // æœ€å°æ‰è½æ•°é‡
+    public int maxCount = 3;      // æœ€å¤§æ‰è½æ•°é‡
 }
 public class EnemyDropSystem : MonoBehaviour
 {
-    [Header("µôÂäÎïÔ¤ÖÆÌå")]
+    [Header("æ‰è½ç‰©é¢„åˆ¶ä½“")]
     public DropItem coin;
     public DropItem bead;
 
-    [Header("µôÂä²ÎÊı")]
+    [Header("æ‰è½å‚æ•°")]
     public float dropRadius = 1f;
     public float dropForce = 2f;
 
-    // µĞÈËËÀÍöÊ±µ÷ÓÃ´Ë·½·¨´¥·¢µôÂä
+    // æ•Œäººæ­»äº¡æ—¶è°ƒç”¨æ­¤æ–¹æ³•è§¦å‘æ‰è½
     public void OnEnemyDie()
     {
-        // 1. ±Øµô1¸öÓ²±Ò
+        // 1. å¿…æ‰1ä¸ªç¡¬å¸
         SpawnDropItem(coin.itemPrefab, 1);
 
-        // 2. ´¦Àí¶îÍâµôÂä¸ÅÂÊ
+        // 2. å¤„ç†é¢å¤–æ‰è½æ¦‚ç‡
         float randomValue = Random.value;
 
-        // 30%¸ÅÂÊ¶îÍâµôÂä1¸öÓ²±Ò£¨×Ü¹²2¸ö£©
+        // 30%æ¦‚ç‡é¢å¤–æ‰è½1ä¸ªç¡¬å¸ï¼ˆæ€»å…±2ä¸ªï¼‰
         if (randomValue <= 0.3f)
         {
             SpawnDropItem(coin.itemPrefab, 1);
         }
-        // 10%¸ÅÂÊ¶îÍâµôÂä2¸öÓ²±Ò£¨×Ü¹²3¸ö£©
+        // 10%æ¦‚ç‡é¢å¤–æ‰è½2ä¸ªç¡¬å¸ï¼ˆæ€»å…±3ä¸ªï¼‰
         else if (randomValue <= 0.4f)
         {
             SpawnDropItem(coin.itemPrefab, 2);
         }
-        // 30%¸ÅÂÊµôÂä1¸öÖé×Ó
+        // 30%æ¦‚ç‡æ‰è½1ä¸ªç å­
         else if (randomValue <= 0.7f)
         {
             SpawnDropItem(bead.itemPrefab, 1);
         }
-        // 10%¸ÅÂÊµôÂä2¸öÖé×Ó
+        // 10%æ¦‚ç‡æ‰è½2ä¸ªç å­
         else if (randomValue <= 0.8f)
         {
             SpawnDropItem(bead.itemPrefab, 2);
         }
-        // Ê£Óà20%¸ÅÂÊÎŞ¶îÍâµôÂä
+        // å‰©ä½™20%æ¦‚ç‡æ— é¢å¤–æ‰è½
     }
 
-    // Éú³ÉµôÂäÎï
+    // ç”Ÿæˆæ‰è½ç‰©
     public void SpawnDropItem(GameObject prefab, int count)
     {
         if (prefab == null) return;
@@ -61,7 +61,7 @@ public class EnemyDropSystem : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Vector3 randomOffset = Random.insideUnitSphere * dropRadius;
-            randomOffset.y = Mathf.Abs(randomOffset.y); // È·±£ÏòÉÏÆ«ÒÆ
+            randomOffset.y = Mathf.Abs(randomOffset.y); // ç¡®ä¿å‘ä¸Šåç§»
             Vector3 spawnPos = transform.position + randomOffset;
 
             GameObject dropItem = Instantiate(prefab, spawnPos, Quaternion.identity);

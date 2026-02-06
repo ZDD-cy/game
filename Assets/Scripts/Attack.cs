@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    [Header("¹¥»÷ÅäÖÃ")]
+    [Header("æ”»å‡»é…ç½®")]
     public float lockTime = 1f;         
     public GameObject bulletPrefab;     
     public Transform firePoint;        
@@ -14,14 +14,14 @@ public class Attack : MonoBehaviour
     private float lockTimer;
     private bool isLocking = false;
 
-    //¿ªÊ¼Òş²ØÉäÏß
+    //å¼€å§‹éšè—å°„çº¿
     void Start()
     {
         lineRenderer.enabled = false;
 
     }
 
-    //¿ªÊ¼Ëø¶¨
+    //å¼€å§‹é”å®š
     public void StartLockOn(Transform enemy)
     {
         targetEnemy = enemy;
@@ -29,7 +29,7 @@ public class Attack : MonoBehaviour
         isLocking = true;
         lineRenderer.enabled = true;
         lineRenderer.material = GameManager.Instance.dashLineMaterial;
-        Debug.Log("Ëø¶¨×´Ì¬£º" + isLocking + "Ä¿±êµĞÈË:" + targetEnemy);
+        Debug.Log("é”å®šçŠ¶æ€ï¼š" + isLocking + "ç›®æ ‡æ•Œäºº:" + targetEnemy);
     }
 
     void Update()

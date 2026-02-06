@@ -3,47 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// µĞÈËÊÜ»÷Ğ§¹û´¦Àí½Å±¾£¨×¨ÃÅ¶Ô½Ó5ÖÖÏİÚå£©
-/// ÒÀÀµÄãÔ­ÓĞPlayerµÄ×Ö¶Î£ºhp¡¢moveSpeed¡¢currentSpeed¡¢isFrozen¡¢isInIceTrap
-/// ÒÀÀµÄãÔ­ÓĞPlayerµÄ·½·¨£ºTakeDamage()¡¢ApplyBurn()¡¢ResetSpeed()
+/// æ•Œäººå—å‡»æ•ˆæœå¤„ç†è„šæœ¬ï¼ˆä¸“é—¨å¯¹æ¥5ç§é™·é˜±ï¼‰
+/// ä¾èµ–ä½ åŸæœ‰Playerçš„å­—æ®µï¼šhpã€moveSpeedã€currentSpeedã€isFrozenã€isInIceTrap
+/// ä¾èµ–ä½ åŸæœ‰Playerçš„æ–¹æ³•ï¼šTakeDamage()ã€ApplyBurn()ã€ResetSpeed()
 /// </summary>
 public class PlayerHitEffect : MonoBehaviour
 {
-    [Header("ÊÜ»÷ÌØĞ§ÅäÖÃ")]
-    public ParticleSystem normalHitEffect;   // Í¨ÓÃÊÜ»÷Á£×Ó£¨¼â´Ì/Òş²Ø/ÂäÊ¯Í¨ÓÃ£©
-    public ParticleSystem burnEffect;        // ×ÆÉÕÌØĞ§£¨»ğÑæÏİÚå×¨Êô£©
-    public ParticleSystem freezeEffect;      // ±ù¶³ÌØĞ§£¨±ù¶³ÏİÚå×¨Êô£©
-    public ParticleSystem knockbackEffect;   // »÷ÍËÌØĞ§£¨¼â´ÌÏİÚå×¨Êô£©
-    public ParticleSystem rockHitEffect;     // ÖØ»÷»÷·ÉÌØĞ§£¨ÂäÊ¯ÏİÚå×¨Êô£©
+    [Header("å—å‡»ç‰¹æ•ˆé…ç½®")]
+    public ParticleSystem normalHitEffect;   // é€šç”¨å—å‡»ç²’å­ï¼ˆå°–åˆº/éšè—/è½çŸ³é€šç”¨ï¼‰
+    public ParticleSystem burnEffect;        // ç¼çƒ§ç‰¹æ•ˆï¼ˆç«ç„°é™·é˜±ä¸“å±ï¼‰
+    public ParticleSystem freezeEffect;      // å†°å†»ç‰¹æ•ˆï¼ˆå†°å†»é™·é˜±ä¸“å±ï¼‰
+    public ParticleSystem knockbackEffect;   // å‡»é€€ç‰¹æ•ˆï¼ˆå°–åˆºé™·é˜±ä¸“å±ï¼‰
+    public ParticleSystem rockHitEffect;     // é‡å‡»å‡»é£ç‰¹æ•ˆï¼ˆè½çŸ³é™·é˜±ä¸“å±ï¼‰
 
-    [Header("ÊÜ»÷ÒôĞ§ÅäÖÃ")]
-    public AudioClip hitClip;        // Í¨ÓÃÊÜ»÷ÒôĞ§
-    public AudioClip burnClip;       // ×ÆÉÕÒôĞ§
-    public AudioClip freezeClip;     // ±ù¶³ÒôĞ§
-    public AudioClip knockbackClip;  // »÷ÍËÒôĞ§
-    public AudioClip rockHitClip;    // ÂäÊ¯ÖØ»÷ÒôĞ§
+    [Header("å—å‡»éŸ³æ•ˆé…ç½®")]
+    public AudioClip hitClip;        // é€šç”¨å—å‡»éŸ³æ•ˆ
+    public AudioClip burnClip;       // ç¼çƒ§éŸ³æ•ˆ
+    public AudioClip freezeClip;     // å†°å†»éŸ³æ•ˆ
+    public AudioClip knockbackClip;  // å‡»é€€éŸ³æ•ˆ
+    public AudioClip rockHitClip;    // è½çŸ³é‡å‡»éŸ³æ•ˆ
 
-    [Header("ÊÜ»÷²ÎÊıÅäÖÃ")]
-    public float hitStunTime = 0.2f; // ÊÜ»÷½©Ö±Ê±¼ä
-    public float rockKnockupForce = 6f; // ÂäÊ¯»÷·ÉÁ¦¶È
-    public float burnEffectInterval = 0.5f; // ×ÆÉÕÌØĞ§¼ä¸ô
+    [Header("å—å‡»å‚æ•°é…ç½®")]
+    public float hitStunTime = 0.2f; // å—å‡»åƒµç›´æ—¶é—´
+    public float rockKnockupForce = 6f; // è½çŸ³å‡»é£åŠ›åº¦
+    public float burnEffectInterval = 0.5f; // ç¼çƒ§ç‰¹æ•ˆé—´éš”
 
     private Player Player;
     private Rigidbody2D rb;
     private AudioSource audioSource;
-    private bool isBurning;          // ×ÆÉÕ×´Ì¬±ê¼Ç
-    private Coroutine burnCoroutine; // ×ÆÉÕĞ­³Ì»º´æ
+    private bool isBurning;          // ç¼çƒ§çŠ¶æ€æ ‡è®°
+    private Coroutine burnCoroutine; // ç¼çƒ§åç¨‹ç¼“å­˜
    
 
     void Awake()
     {
-        // »ñÈ¡ÄãÔ­ÓĞPlayer×é¼şºÍ±ØÒª×é¼ş
+        // è·å–ä½ åŸæœ‰Playerç»„ä»¶å’Œå¿…è¦ç»„ä»¶
         Player = GetComponent<Player>();
         rb = GetComponent<Rigidbody2D>();
         if (!GetComponent<AudioSource>()) gameObject.AddComponent<AudioSource>();
         audioSource = GetComponent<AudioSource>();
 
-        // ³õÊ¼»¯ÌØĞ§£¨·ÀÖ¹¿ÕÒıÓÃ±¨´í£©
+        // åˆå§‹åŒ–ç‰¹æ•ˆï¼ˆé˜²æ­¢ç©ºå¼•ç”¨æŠ¥é”™ï¼‰
         InitParticle(normalHitEffect);
         InitParticle(burnEffect);
         InitParticle(freezeEffect);
@@ -51,8 +51,8 @@ public class PlayerHitEffect : MonoBehaviour
         InitParticle(rockHitEffect);
     }
 
-    #region Í¨ÓÃ¹¤¾ß·½·¨£¨ÌØĞ§+ÒôĞ§²¥·Å£©
-    // ³õÊ¼»¯Á£×Ó£¨Í£Ö¹³õÊ¼²¥·Å£©
+    #region é€šç”¨å·¥å…·æ–¹æ³•ï¼ˆç‰¹æ•ˆ+éŸ³æ•ˆæ’­æ”¾ï¼‰
+    // åˆå§‹åŒ–ç²’å­ï¼ˆåœæ­¢åˆå§‹æ’­æ”¾ï¼‰
     private void InitParticle(ParticleSystem particle)
     {
         if (particle == null) return;
@@ -61,7 +61,7 @@ public class PlayerHitEffect : MonoBehaviour
         mainMoudle.loop= false;
     }
 
-    // ²¥·Åµ¥´ÎÁ£×ÓÌØĞ§£¨Î»ÖÃ¸úËæµĞÈË£©
+    // æ’­æ”¾å•æ¬¡ç²’å­ç‰¹æ•ˆï¼ˆä½ç½®è·Ÿéšæ•Œäººï¼‰
     private void PlayOneShotParticle(ParticleSystem particle)
     {
         if (particle == null) return;
@@ -69,7 +69,7 @@ public class PlayerHitEffect : MonoBehaviour
         particle.Play();
     }
 
-    // ²¥·Å³ÖĞøÁ£×ÓÌØĞ§£¨Ñ­»·²¥·Å£©
+    // æ’­æ”¾æŒç»­ç²’å­ç‰¹æ•ˆï¼ˆå¾ªç¯æ’­æ”¾ï¼‰
     private void PlayLoopParticle(ParticleSystem particle)
     {
         if (particle == null) return;
@@ -79,14 +79,14 @@ public class PlayerHitEffect : MonoBehaviour
         particle.Play();
     }
 
-    // Í£Ö¹³ÖĞøÁ£×ÓÌØĞ§
+    // åœæ­¢æŒç»­ç²’å­ç‰¹æ•ˆ
     private void StopLoopParticle(ParticleSystem particle)
     {
         if (particle == null) return;
         particle.Stop();
     }
 
-    // ²¥·ÅÒôĞ§
+    // æ’­æ”¾éŸ³æ•ˆ
     private void PlayHitSound(AudioClip clip)
     {
         if (audioSource == null || clip == null) return;
@@ -94,57 +94,57 @@ public class PlayerHitEffect : MonoBehaviour
     }
     #endregion
 
-    #region 1. Í¨ÓÃÊÜ»÷Ğ§¹û£¨ËùÓĞÏİÚå»ù´¡ÉËº¦¶¼µ÷ÓÃÕâ¸ö£©
+    #region 1. é€šç”¨å—å‡»æ•ˆæœï¼ˆæ‰€æœ‰é™·é˜±åŸºç¡€ä¼¤å®³éƒ½è°ƒç”¨è¿™ä¸ªï¼‰
     /// <summary>
-    /// »ù´¡ÊÜ»÷·´À¡£¨¼â´Ì/Òş²Ø/»ğÑæ´¥·¢ÉËº¦Ê±µ÷ÓÃ£©
+    /// åŸºç¡€å—å‡»åé¦ˆï¼ˆå°–åˆº/éšè—/ç«ç„°è§¦å‘ä¼¤å®³æ—¶è°ƒç”¨ï¼‰
     /// </summary>
     public void OnNormalHit()
     {
         if (Player == null || Player.hp <= 0) return;
-        // ²¥·ÅÌØĞ§+ÒôĞ§
+        // æ’­æ”¾ç‰¹æ•ˆ+éŸ³æ•ˆ
         PlayOneShotParticle(normalHitEffect);
         PlayHitSound(hitClip);
-        // ÊÜ»÷½©Ö±£¨ÔİÊ±Í£ÒÆ£©
+        // å—å‡»åƒµç›´ï¼ˆæš‚æ—¶åœç§»ï¼‰
         StartCoroutine(HitStunCoroutine());
     }
     #endregion
 
-    #region 2. ¼â´ÌÏİÚå×¨ÊôÊÜ»÷Ğ§¹û£¨»÷ÍË+½©Ö±£©
+    #region 2. å°–åˆºé™·é˜±ä¸“å±å—å‡»æ•ˆæœï¼ˆå‡»é€€+åƒµç›´ï¼‰
     /// <summary>
-    /// ¼â´ÌÏİÚå»÷ÍËĞ§¹û£¨ÏİÚå´«Èë»÷ÍË·½ÏòºÍÁ¦¶È£©
+    /// å°–åˆºé™·é˜±å‡»é€€æ•ˆæœï¼ˆé™·é˜±ä¼ å…¥å‡»é€€æ–¹å‘å’ŒåŠ›åº¦ï¼‰
     /// </summary>
     public void OnSpikeKnockback(Vector2 knockDir, float force)
     {
         if (Player == null || Player.hp <= 0 || rb == null) return;
-        // ²¥·Å»÷ÍËÌØĞ§+ÒôĞ§
+        // æ’­æ”¾å‡»é€€ç‰¹æ•ˆ+éŸ³æ•ˆ
         PlayOneShotParticle(knockbackEffect);
         PlayHitSound(knockbackClip);
-        // Ö´ĞĞ»÷ÍËÂß¼­£¨Çå¿ÕÔ­ÓĞËÙ¶È£¬Ìí¼Ó»÷ÍËÁ¦£©
+        // æ‰§è¡Œå‡»é€€é€»è¾‘ï¼ˆæ¸…ç©ºåŸæœ‰é€Ÿåº¦ï¼Œæ·»åŠ å‡»é€€åŠ›ï¼‰
         rb.velocity = Vector2.zero;
         rb.AddForce(knockDir * force, ForceMode2D.Impulse);
-        // »÷ÍË½©Ö±
+        // å‡»é€€åƒµç›´
         StartCoroutine(HitStunCoroutine());
     }
     #endregion
 
-    #region 3. »ğÑæÏİÚå×¨ÊôÊÜ»÷Ğ§¹û£¨×ÆÉÕ+³ÖĞøÌØĞ§£©
+    #region 3. ç«ç„°é™·é˜±ä¸“å±å—å‡»æ•ˆæœï¼ˆç¼çƒ§+æŒç»­ç‰¹æ•ˆï¼‰
     /// <summary>
-    /// »ğÑæÏİÚå×ÆÉÕĞ§¹û£¨ÏİÚå´«Èë×ÆÉÕÉËº¦ºÍÊ±³¤£©
+    /// ç«ç„°é™·é˜±ç¼çƒ§æ•ˆæœï¼ˆé™·é˜±ä¼ å…¥ç¼çƒ§ä¼¤å®³å’Œæ—¶é•¿ï¼‰
     /// </summary>
     public void OnFireBurn(int burnDmg, float duration)
     {
         if (Player == null || Player.hp <= 0 || isBurning) return;
-        // ±ê¼Ç×ÆÉÕ×´Ì¬£¬²¥·Å³ÖĞø×ÆÉÕÌØĞ§+ÒôĞ§
+        // æ ‡è®°ç¼çƒ§çŠ¶æ€ï¼Œæ’­æ”¾æŒç»­ç¼çƒ§ç‰¹æ•ˆ+éŸ³æ•ˆ
         isBurning = true;
         PlayLoopParticle(burnEffect);
         PlayHitSound(burnClip);
-        // Æô¶¯×ÆÉÕÌØĞ§Ñ­»·Ğ­³Ì£¨Í¬²½ÉËº¦½Ú×à£©
+        // å¯åŠ¨ç¼çƒ§ç‰¹æ•ˆå¾ªç¯åç¨‹ï¼ˆåŒæ­¥ä¼¤å®³èŠ‚å¥ï¼‰
         if (burnCoroutine != null) StopCoroutine(burnCoroutine);
         burnCoroutine = StartCoroutine(BurnEffectCoroutine(duration));
     }
 
     /// <summary>
-    /// ×ÆÉÕÌØĞ§Ñ­»·£¨ºÍ×ÆÉÕÉËº¦Í¬²½·´À¡£©
+    /// ç¼çƒ§ç‰¹æ•ˆå¾ªç¯ï¼ˆå’Œç¼çƒ§ä¼¤å®³åŒæ­¥åé¦ˆï¼‰
     /// </summary>
     private IEnumerator BurnEffectCoroutine(float duration)
     {
@@ -152,169 +152,169 @@ public class PlayerHitEffect : MonoBehaviour
         while (timer < duration && Player.hp > 0)
         {
             timer += burnEffectInterval;
-            // Ã¿¼ä¸ô²¥·ÅÒ»´ÎĞ¡ÊÜ»÷Á£×Ó£¬Ç¿»¯×ÆÉÕ·´À¡
+            // æ¯é—´éš”æ’­æ”¾ä¸€æ¬¡å°å—å‡»ç²’å­ï¼Œå¼ºåŒ–ç¼çƒ§åé¦ˆ
             PlayOneShotParticle(normalHitEffect);
             PlayHitSound(burnClip);
             yield return new WaitForSeconds(burnEffectInterval);
         }
-        // ×ÆÉÕ½áÊø£¬Í£Ö¹ÌØĞ§£¬ÖØÖÃ×´Ì¬
+        // ç¼çƒ§ç»“æŸï¼Œåœæ­¢ç‰¹æ•ˆï¼Œé‡ç½®çŠ¶æ€
         isBurning = false;
         StopLoopParticle(burnEffect);
         burnCoroutine = null;
     }
     #endregion
 
-    #region 4. ±ù¶³ÏİÚå×¨ÊôÊÜ»÷Ğ§¹û£¨±ù¶³ÌØĞ§+¼õËÙ·´À¡£©
+    #region 4. å†°å†»é™·é˜±ä¸“å±å—å‡»æ•ˆæœï¼ˆå†°å†»ç‰¹æ•ˆ+å‡é€Ÿåé¦ˆï¼‰
     /// <summary>
-    /// ±ù¶³ÏİÚå´¥·¢Ğ§¹û£¨½øÈëÏİÚåÊ±µ÷ÓÃ£©
+    /// å†°å†»é™·é˜±è§¦å‘æ•ˆæœï¼ˆè¿›å…¥é™·é˜±æ—¶è°ƒç”¨ï¼‰
     /// </summary>
     public void OnFreezeEnter()
     {
         if (Player == null || Player.hp <= 0 || Player.isFrozen) return;
-        // ²¥·Å±ù¶³ÌØĞ§+ÒôĞ§
+        // æ’­æ”¾å†°å†»ç‰¹æ•ˆ+éŸ³æ•ˆ
         PlayLoopParticle(freezeEffect);
         PlayHitSound(freezeClip);
-        // ±ù¶³½©Ö±£¨¶¯»­¼õËÙÊÓ¾õ·´À¡£¬²»ĞèÒª¸ÄPlayerºËĞÄÂß¼­£©
+        // å†°å†»åƒµç›´ï¼ˆåŠ¨ç”»å‡é€Ÿè§†è§‰åé¦ˆï¼Œä¸éœ€è¦æ”¹Playeræ ¸å¿ƒé€»è¾‘ï¼‰
         transform.localScale = new Vector3(transform.localScale.x * 1.05f, transform.localScale.y * 1.05f, 1);
     }
 
     /// <summary>
-    /// ±ù¶³ÏİÚåÍË³öĞ§¹û£¨Àë¿ªÏİÚåÊ±µ÷ÓÃ£©
+    /// å†°å†»é™·é˜±é€€å‡ºæ•ˆæœï¼ˆç¦»å¼€é™·é˜±æ—¶è°ƒç”¨ï¼‰
     /// </summary>
     public void OnFreezeExit()
     {
         if (Player == null) return;
-        // Í£Ö¹±ù¶³ÌØĞ§£¬»Ö¸´Ëõ·Å
+        // åœæ­¢å†°å†»ç‰¹æ•ˆï¼Œæ¢å¤ç¼©æ”¾
         StopLoopParticle(freezeEffect);
         transform.localScale = new Vector3(transform.localScale.x / 1.05f, transform.localScale.y / 1.05f, 1);
     }
 
     /// <summary>
-    /// ±ù¶³³ÖĞø¶³ÉË·´À¡£¨Ã¿Ãë´¥·¢Ò»´Î£©
+    /// å†°å†»æŒç»­å†»ä¼¤åé¦ˆï¼ˆæ¯ç§’è§¦å‘ä¸€æ¬¡ï¼‰
     /// </summary>
     public void OnFreezeDamage()
     {
         if (Player == null || Player.hp <= 0) return;
-        PlayOneShotParticle(normalHitEffect); // ¶³ÉËĞ¡Á£×Ó·´À¡
+        PlayOneShotParticle(normalHitEffect); // å†»ä¼¤å°ç²’å­åé¦ˆ
     }
     #endregion
 
-    #region 5. ÂäÊ¯ÏİÚå×¨ÊôÊÜ»÷Ğ§¹û£¨ÖØ»÷»÷·É+¸ß¶îÉËº¦·´À¡£©
+    #region 5. è½çŸ³é™·é˜±ä¸“å±å—å‡»æ•ˆæœï¼ˆé‡å‡»å‡»é£+é«˜é¢ä¼¤å®³åé¦ˆï¼‰
     /// <summary>
-    /// ÂäÊ¯ÏİÚåÖØ»÷Ğ§¹û£¨ÂäÊ¯ÂäµØÃüÖĞÊ±µ÷ÓÃ£©
+    /// è½çŸ³é™·é˜±é‡å‡»æ•ˆæœï¼ˆè½çŸ³è½åœ°å‘½ä¸­æ—¶è°ƒç”¨ï¼‰
     /// </summary>
     public void OnRockHit()
     {
         if (Player == null || Player.hp <= 0 || rb == null) return;
-        // ²¥·ÅÖØ»÷ÌØĞ§+ÒôĞ§
+        // æ’­æ”¾é‡å‡»ç‰¹æ•ˆ+éŸ³æ•ˆ
         PlayOneShotParticle(rockHitEffect);
         PlayHitSound(rockHitClip);
-        // ÏòÉÏ»÷·ÉĞ§¹û£¨ÂäÊ¯×¨Êô£©
+        // å‘ä¸Šå‡»é£æ•ˆæœï¼ˆè½çŸ³ä¸“å±ï¼‰
         rb.velocity = Vector2.zero;
         rb.AddForce(Vector2.up * rockKnockupForce, ForceMode2D.Impulse);
-        // ÖØ»÷½©Ö±£¨±ÈÆÕÍ¨ÊÜ»÷¾ÃÒ»µã£©
+        // é‡å‡»åƒµç›´ï¼ˆæ¯”æ™®é€šå—å‡»ä¹…ä¸€ç‚¹ï¼‰
         StartCoroutine(HitStunCoroutine(hitStunTime * 2));
     }
     #endregion
 
-    #region 6. Òş²ØÏİÚå×¨ÊôÊÜ»÷Ğ§¹û£¨Ç£Òı½©Ö±+ÏÔĞÎÉËº¦·´À¡£©
+    #region 6. éšè—é™·é˜±ä¸“å±å—å‡»æ•ˆæœï¼ˆç‰µå¼•åƒµç›´+æ˜¾å½¢ä¼¤å®³åé¦ˆï¼‰
     /// <summary>
-    /// Òş²ØÏİÚåÇ£ÒıĞ§¹û£¨´¥·¢Ç£ÒıÊ±µ÷ÓÃ£©
+    /// éšè—é™·é˜±ç‰µå¼•æ•ˆæœï¼ˆè§¦å‘ç‰µå¼•æ—¶è°ƒç”¨ï¼‰
     /// </summary>
     public void OnPullStart()
     {
         if (Player == null || Player.hp <= 0) return;
-        // ²¥·ÅÍ¨ÓÃÊÜ»÷ÌØĞ§+ÒôĞ§£¨Òş²ØÏİÚåÉËº¦·´À¡£©
+        // æ’­æ”¾é€šç”¨å—å‡»ç‰¹æ•ˆ+éŸ³æ•ˆï¼ˆéšè—é™·é˜±ä¼¤å®³åé¦ˆï¼‰
         PlayOneShotParticle(normalHitEffect);
         PlayHitSound(hitClip);
-        // Ç£Òı½©Ö±£¨¼õËÙÊÓ¾õ·´À¡£©
+        // ç‰µå¼•åƒµç›´ï¼ˆå‡é€Ÿè§†è§‰åé¦ˆï¼‰
         StartCoroutine(PullStunCoroutine());
     }
 
     /// <summary>
-    /// Òş²ØÏİÚåÇ£Òı½áÊøĞ§¹û
+    /// éšè—é™·é˜±ç‰µå¼•ç»“æŸæ•ˆæœ
     /// </summary>
     public void OnPullEnd()
     {
  
-        Player.ResetSpeed(); // µ÷ÓÃÄãPlayerµÄÖØÖÃËÙ¶È·½·¨
+        Player.ResetSpeed(); // è°ƒç”¨ä½ Playerçš„é‡ç½®é€Ÿåº¦æ–¹æ³•
     }
     #endregion
 
-    #region ×´Ì¬Ğ­³Ì£¨½©Ö±+Ç£ÒıÂß¼­£©
-    // Í¨ÓÃÊÜ»÷½©Ö±
+    #region çŠ¶æ€åç¨‹ï¼ˆåƒµç›´+ç‰µå¼•é€»è¾‘ï¼‰
+    // é€šç”¨å—å‡»åƒµç›´
     private IEnumerator HitStunCoroutine(float stunTime = 0)
     {
         float targetTime = stunTime > 0 ? stunTime : hitStunTime;
         float originSpeed = Player.currentSpeed;
-        Player.currentSpeed = 0; // ½©Ö±Ê±Í£Ö¹ÒÆ¶¯
+        Player.currentSpeed = 0; // åƒµç›´æ—¶åœæ­¢ç§»åŠ¨
         yield return new WaitForSeconds(targetTime);
-        // ½©Ö±½áÊø£¬»Ö¸´ËÙ¶È£¨ÅÅ³ı±ù¶³×´Ì¬£©
+        // åƒµç›´ç»“æŸï¼Œæ¢å¤é€Ÿåº¦ï¼ˆæ’é™¤å†°å†»çŠ¶æ€ï¼‰
         if (Player != null && !Player.isFrozen)
         {
             Player.currentSpeed = originSpeed;
         }
     }
 
-    // Òş²ØÏİÚåÇ£Òı½©Ö±
+    // éšè—é™·é˜±ç‰µå¼•åƒµç›´
     private IEnumerator PullStunCoroutine()
     {
-        float pullStunTime = 1.5f; // ¶ÔÓ¦Òş²ØÏİÚåÏÔĞÎÊ±³¤
+        float pullStunTime = 1.5f; // å¯¹åº”éšè—é™·é˜±æ˜¾å½¢æ—¶é•¿
         float originSpeed = Player.moveSpeed;
-        Player.currentSpeed = originSpeed * 0.4f; // Ç£ÒıÊ±¼õËÙ
+        Player.currentSpeed = originSpeed * 0.4f; // ç‰µå¼•æ—¶å‡é€Ÿ
         yield return new WaitForSeconds(pullStunTime);
         if (Player != null) Player.ResetSpeed();
     }
     #endregion
 
-    #region Íâ²¿µ÷ÓÃ½Ó¿Ú£¨¸øÏİÚå½Å±¾µ÷ÓÃµÄ·½·¨£¬ÖØµã£¡£©
+    #region å¤–éƒ¨è°ƒç”¨æ¥å£ï¼ˆç»™é™·é˜±è„šæœ¬è°ƒç”¨çš„æ–¹æ³•ï¼Œé‡ç‚¹ï¼ï¼‰
     /// <summary>
-    /// ÏİÚåÍ¨ÓÃÉËº¦µ÷ÓÃÈë¿Ú£¨¶Ô½ÓTakeDamage£©
+    /// é™·é˜±é€šç”¨ä¼¤å®³è°ƒç”¨å…¥å£ï¼ˆå¯¹æ¥TakeDamageï¼‰
     /// </summary>
     public void DoHit() => OnNormalHit();
 
     /// <summary>
-    /// ¼â´Ì»÷ÍËµ÷ÓÃÈë¿Ú
+    /// å°–åˆºå‡»é€€è°ƒç”¨å…¥å£
     /// </summary>
     public void DoSpikeKnockback(Vector2 dir, float force) => OnSpikeKnockback(dir, force);
 
     /// <summary>
-    /// »ğÑæ×ÆÉÕµ÷ÓÃÈë¿Ú£¨¶Ô½ÓApplyBurn£©
+    /// ç«ç„°ç¼çƒ§è°ƒç”¨å…¥å£ï¼ˆå¯¹æ¥ApplyBurnï¼‰
     /// </summary>
     public void DoFireBurn(int dmg, float duration) => OnFireBurn(dmg, duration);
 
     /// <summary>
-    /// ±ù¶³½øÈë/ÍË³öµ÷ÓÃÈë¿Ú
+    /// å†°å†»è¿›å…¥/é€€å‡ºè°ƒç”¨å…¥å£
     /// </summary>
     public void DoFreezeEnter() => OnFreezeEnter();
     public void DoFreezeExit() => OnFreezeExit();
     public void DoFreezeDamage() => OnFreezeDamage();
 
     /// <summary>
-    /// ÂäÊ¯ÖØ»÷µ÷ÓÃÈë¿Ú
+    /// è½çŸ³é‡å‡»è°ƒç”¨å…¥å£
     /// </summary>
     public void DoRockHit() => OnRockHit();
 
     /// <summary>
-    /// Òş²ØÏİÚåÇ£Òıµ÷ÓÃÈë¿Ú
+    /// éšè—é™·é˜±ç‰µå¼•è°ƒç”¨å…¥å£
     /// </summary>
     public void DoPullStart() => OnPullStart();
     public void DoPullEnd() => OnPullEnd();
     #endregion
 
-    // ·ÀÖ¹Ğ­³ÌĞ¹Â©
+    // é˜²æ­¢åç¨‹æ³„æ¼
     void OnDestroy()
     {
         if (burnCoroutine != null) StopCoroutine(burnCoroutine);
         StopAllCoroutines();
     }
-    //²¹³äĞ¯³Ì
-    // Õâ¸ö·½·¨ÓÉ Player Ààµ÷ÓÃ
+    //è¡¥å……æºç¨‹
+    // è¿™ä¸ªæ–¹æ³•ç”± Player ç±»è°ƒç”¨
     public void ApplyBurn(float burnDamage, float burnDuration)
     {
-        // ÔÚÕâÀïÊµÏÖÈ¼ÉÕµÄÂß¼­ºÍÌØĞ§
-        // 1. ²¥·Å»ğÑæÁ£×ÓÌØĞ§
-        // 2. Æô¶¯Ò»¸öĞ­³ÌÀ´´¦Àí³ÖĞøÉËº¦
+        // åœ¨è¿™é‡Œå®ç°ç‡ƒçƒ§çš„é€»è¾‘å’Œç‰¹æ•ˆ
+        // 1. æ’­æ”¾ç«ç„°ç²’å­ç‰¹æ•ˆ
+        // 2. å¯åŠ¨ä¸€ä¸ªåç¨‹æ¥å¤„ç†æŒç»­ä¼¤å®³
         StartCoroutine(BurnCoroutine(burnDamage, burnDuration));
     }
 
@@ -330,12 +330,12 @@ public class PlayerHitEffect : MonoBehaviour
         }
     }
 
-    // Õâ¸ö·½·¨ÓÉ Player Ààµ÷ÓÃ
+    // è¿™ä¸ªæ–¹æ³•ç”± Player ç±»è°ƒç”¨
     public void ApplySlow(float slowAmount, float slowDuration)
     {
-        // ÔÚÕâÀïÊµÏÖ¼õËÙµÄÂß¼­ºÍÌØĞ§
-        // 1. ²¥·Å±ùËªÁ£×ÓÌØĞ§
-        // 2. Æô¶¯Ò»¸öĞ­³ÌÀ´´¦Àí¼õËÙĞ§¹û
+        // åœ¨è¿™é‡Œå®ç°å‡é€Ÿçš„é€»è¾‘å’Œç‰¹æ•ˆ
+        // 1. æ’­æ”¾å†°éœœç²’å­ç‰¹æ•ˆ
+        // 2. å¯åŠ¨ä¸€ä¸ªåç¨‹æ¥å¤„ç†å‡é€Ÿæ•ˆæœ
         StartCoroutine(SlowCoroutine(slowAmount, slowDuration));
     }
 
@@ -343,14 +343,14 @@ public class PlayerHitEffect : MonoBehaviour
     {
         Player Player = GetComponent<Player>();
 
-        // ±£´æÔ­Ê¼ËÙ¶È
+        // ä¿å­˜åŸå§‹é€Ÿåº¦
         float originalSpeed = Player.moveSpeed;
-        // Ó¦ÓÃ¼õËÙ
+        // åº”ç”¨å‡é€Ÿ
         Player.moveSpeed *= (1 - slowAmount);
 
         yield return new WaitForSeconds(duration);
 
-        // »Ö¸´Ô­Ê¼ËÙ¶È
+        // æ¢å¤åŸå§‹é€Ÿåº¦
         Player.moveSpeed = originalSpeed;
     }
 }

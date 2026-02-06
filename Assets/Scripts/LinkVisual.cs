@@ -49,41 +49,47 @@ public class LinkVisual : MonoBehaviour
         lineRenderer.endWidth = 0.08f;    // 结束宽度（调小，保持一致）
         lineRenderer.widthMultiplier = 1f;
         
-// ====== 3. 材质设置 ======
-// 创建或获取材质
-if (lineMaterial == null)
-{
-    // 优先使用UI/Default，它几乎在所有项目中都可用
-    Shader lineShader = Shader.Find("UI/Default");
-    
-    // 如果找不到，尝试其他可能的名字
-    if (lineShader == null)
-    {
-        lineShader = Shader.Find("Sprites/Default");
-    }
-    if (lineShader == null)
-    {
-        lineShader = Shader.Find("Unlit/Color");
-    }
-    if (lineShader == null)
-    {
-        // 最后尝试Standard
-        lineShader = Shader.Find("Standard");
-        Debug.LogWarning("使用Standard着色器作为后备方案");
-    }
-    
-    if (lineShader != null)
-    {
-        lineMaterial = new Material(lineShader);
-        lineMaterial.name = "DynamicDashMaterial";
-    }
-    else
-    {
-        // 如果真的找不到任何Shader，创建一个空材质并记录错误
-        Debug.LogError("无法找到任何可用的着色器！线条可能无法正确显示");
-        lineMaterial = new Material(Shader.Find("Hidden/InternalErrorShader"));
-    }
-}
+        // ====== 3. 材质设置 ======
+        // 创建或获取材质
+        if (lineMaterial == null)
+        {
+            // 优先使用UI/Default，它几乎在所有项目中都可用
+            Shader lineShader = Shader.Find("UI/Default");
+            
+            // 如果找不到，尝试其他可能的名字
+            if (lineShader == null)
+            {
+                lineShader = Shader.Find("Sprites/Default");
+            }
+            if (lineShader == null)
+            {
+                lineShader = Shader.Find("Unlit/Color");
+            }
+            if (lineShader == null)
+            {
+                // 最后尝试Standard
+                lineShader = Shader.Find("Standard");
+                Debug.LogWarning("使用Standard着色器作为后备方案");
+            }
+            
+            if (lineShader != null)
+            {
+                lineMaterial = new Material(lineShader);
+                lineMaterial.name = "DynamicDashMaterial";
+            }
+            else
+            {
+                // 如果真的找不到任何Shader，创建一个空材质并记录错误
+                Debug.LogError("无法找到任何可用的着色器！线条可能无法正确显示");
+                lineMaterial = new Material(Shader.Find("Hidden/InternalErrorShader"));
+            }
+        }
+
+        // ✅ 关键：把材质赋给 LineRenderer
+        lineRenderer.material = lineMaterial;
+
+        // ✅ 关键：配置虚线材质
+        ConfigureDashMaterial();
         
         // ====== 4. 其他优化设置 ======
         lineRenderer.useWorldSpace = true;      // 使用世界坐标
@@ -91,6 +97,8 @@ if (lineMaterial == null)
         lineRenderer.textureMode = LineTextureMode.Tile; // 纹理平铺模式
         lineRenderer.numCapVertices = 4;        // 端点圆滑度
         lineRenderer.numCornerVertices = 4;     // 拐角圆滑度
+        lineRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        lineRenderer.receiveShadows = false;
         
         // ====== 5. 初始颜色 ======
         SetState(LinkState.Neutral);

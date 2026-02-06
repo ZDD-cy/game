@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class BossRangeChase : MonoBehaviour
 {
-    // Íæ¼Ò£¨µĞÈË£©µÄ Transform ÒıÓÃ
+    // ç©å®¶ï¼ˆæ•Œäººï¼‰çš„ Transform å¼•ç”¨
     public Transform target;
-    // ×·»÷°ë¾¶£¨8 ¸öµ¥Î»£©
+    // è¿½å‡»åŠå¾„ï¼ˆ8 ä¸ªå•ä½ï¼‰
     public float chaseRadius = 8f;
-    // Boss ÒÆ¶¯ËÙ¶È
+    // Boss ç§»åŠ¨é€Ÿåº¦
     public float moveSpeed = 3f;
-    // ³õÊ¼Î»ÖÃ
+    // åˆå§‹ä½ç½®
     private Vector3 originalPosition;
 
     void Start()
     {
-        // ¼ÇÂ¼ Boss µÄ³õÊ¼Î»ÖÃ
+        // è®°å½• Boss çš„åˆå§‹ä½ç½®
         originalPosition = transform.position;
     }
 
@@ -23,18 +23,18 @@ public class BossRangeChase : MonoBehaviour
     {
         if (target != null)
         {
-            // ¼ÆËã Boss ÓëÄ¿±êµÄ¾àÀë
+            // è®¡ç®— Boss ä¸ç›®æ ‡çš„è·ç¦»
             float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
             if (distanceToTarget <= chaseRadius)
             {
-                // ÔÚ×·»÷·¶Î§ÄÚ£¬¼ÆËã·½Ïò²¢ÒÆ¶¯
+                // åœ¨è¿½å‡»èŒƒå›´å†…ï¼Œè®¡ç®—æ–¹å‘å¹¶ç§»åŠ¨
                 Vector3 direction = (target.position - transform.position).normalized;
                 transform.Translate(direction * moveSpeed * Time.deltaTime);
             }
             else
             {
-                // ³¬³ö·¶Î§£¬·µ»Ø³õÊ¼Î»ÖÃ
+                // è¶…å‡ºèŒƒå›´ï¼Œè¿”å›åˆå§‹ä½ç½®
                 transform.position = Vector3.MoveTowards(transform.position, originalPosition, moveSpeed * Time.deltaTime);
             }
         }

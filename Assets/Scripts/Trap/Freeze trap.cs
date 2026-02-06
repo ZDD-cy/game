@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class IceTrap : MonoBehaviour
 {
-    [Header("ÏİÚåÉèÖÃ")]
-    [Tooltip("¼õËÙ±ÈÀı£¨0~1£¬0.5±íÊ¾¼õËÙ50%£©")]
-    public float slowDownRate = 0.5f; // Ä¬ÈÏ¼õËÙ50%
+    [Header("é™·é˜±è®¾ç½®")]
+    [Tooltip("å‡é€Ÿæ¯”ä¾‹ï¼ˆ0~1ï¼Œ0.5è¡¨ç¤ºå‡é€Ÿ50%ï¼‰")]
+    public float slowDownRate = 0.5f; // é»˜è®¤å‡é€Ÿ50%
 
-    [Tooltip("¼õËÙÓëÉËº¦³ÖĞøÊ±¼ä£¨Ãë£©")]
+    [Tooltip("å‡é€Ÿä¸ä¼¤å®³æŒç»­æ—¶é—´ï¼ˆç§’ï¼‰")]
     public float effectDuration = 3f;
 
-    [Tooltip("ÏİÚåÀäÈ´Ê±¼ä£¨Ãë£¬0±íÊ¾Ò»´ÎĞÔÏİÚå£©")]
+    [Tooltip("é™·é˜±å†·å´æ—¶é—´ï¼ˆç§’ï¼Œ0è¡¨ç¤ºä¸€æ¬¡æ€§é™·é˜±ï¼‰")]
     public float trapCooldown = 5f;
 
-    [Tooltip("Ã¿ÃëÔì³ÉµÄÉËº¦Öµ")]
+    [Tooltip("æ¯ç§’é€ æˆçš„ä¼¤å®³å€¼")]
     public float damagePerSecond = 1f;
 
     private bool _isTrapActive = true;
@@ -27,22 +27,22 @@ public class IceTrap : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("ÏİÚå´¥·¢¼ì²â£º½øÈë OnTriggerEnter2D ·½·¨");
+        Debug.Log("é™·é˜±è§¦å‘æ£€æµ‹ï¼šè¿›å…¥ OnTriggerEnter2D æ–¹æ³•");
         if (other.CompareTag("player") && _isTrapActive)
         {
-            Debug.Log("ÏİÚå´¥·¢£º¼ì²âµ½ Player ±êÇ©£¬ÇÒÏİÚå´¦ÓÚ¼¤»î×´Ì¬");
+            Debug.Log("é™·é˜±è§¦å‘ï¼šæ£€æµ‹åˆ° Player æ ‡ç­¾ï¼Œä¸”é™·é˜±å¤„äºæ¿€æ´»çŠ¶æ€");
             Player player = other.GetComponent<Player>();
             if (player != null && !player.isFrozen)
             {
-                Debug.Log("ÏİÚå´¥·¢£º³É¹¦»ñÈ¡ Player ×é¼ş£¬¿ªÊ¼Ê©¼Ó±ù¶³Ğ§¹û");
-                // ±ê¼ÇÍæ¼Ò×´Ì¬
+                Debug.Log("é™·é˜±è§¦å‘ï¼šæˆåŠŸè·å– Player ç»„ä»¶ï¼Œå¼€å§‹æ–½åŠ å†°å†»æ•ˆæœ");
+                // æ ‡è®°ç©å®¶çŠ¶æ€
                 player.isInIceTrap = true;
                 player.isFrozen = true;
 
-                // Ó¦ÓÃ¼õËÙĞ§¹û
+                // åº”ç”¨å‡é€Ÿæ•ˆæœ
                 player.ApplySlow(slowDownRate, effectDuration);
 
-                // Æô¶¯³ÖĞøÉËº¦Ğ­³Ì
+                // å¯åŠ¨æŒç»­ä¼¤å®³åç¨‹
                 StartCoroutine(PlayerTakeDamage(player));
                 if (player.currentHealth > 0)
                 {
@@ -55,11 +55,11 @@ public class IceTrap : MonoBehaviour
             {
                 if (player == null)
                 {
-                    Debug.LogWarning("ÏİÚå´¥·¢£ºÎ´ÕÒµ½ Player ×é¼ş£¡");
+                    Debug.LogWarning("é™·é˜±è§¦å‘ï¼šæœªæ‰¾åˆ° Player ç»„ä»¶ï¼");
                 }
                 else if (player.isFrozen)
                 {
-                    Debug.Log("ÏİÚå´¥·¢£ºÍæ¼ÒÒÑ´¦ÓÚ±ù¶³×´Ì¬£¬Ìø¹ı");
+                    Debug.Log("é™·é˜±è§¦å‘ï¼šç©å®¶å·²å¤„äºå†°å†»çŠ¶æ€ï¼Œè·³è¿‡");
                 }
             }
         }
@@ -70,26 +70,26 @@ public class IceTrap : MonoBehaviour
     {
         float elapsedTime = 0f;
 
-        // ³ÖĞøÕû¸öĞ§¹ûÊ±¼ä£¬²¢ÇÒÖ»ÔÚÍæ¼Ò´æ»îÊ±Ö´ĞĞ
+        // æŒç»­æ•´ä¸ªæ•ˆæœæ—¶é—´ï¼Œå¹¶ä¸”åªåœ¨ç©å®¶å­˜æ´»æ—¶æ‰§è¡Œ
         while (elapsedTime < effectDuration && player.currentHealth > 0)
         {
-            // Ã¿ÃëÔì³É1µãÉËº¦
+            // æ¯ç§’é€ æˆ1ç‚¹ä¼¤å®³
             player.TakeDamage(1f);
-            Debug.Log($"ÊÜµ½ 1 µãÉËº¦£¡µ±Ç°ÉúÃüÖµ: {player.currentHealth}");
+            Debug.Log($"å—åˆ° 1 ç‚¹ä¼¤å®³ï¼å½“å‰ç”Ÿå‘½å€¼: {player.currentHealth}");
 
-            // µÈ´ı1Ãë£¬ÔÙ½øĞĞÏÂÒ»´ÎÉËº¦
+            // ç­‰å¾…1ç§’ï¼Œå†è¿›è¡Œä¸‹ä¸€æ¬¡ä¼¤å®³
             yield return new WaitForSeconds(1f);
             elapsedTime += 1f;
         }
 
-        // Ğ§¹û½áÊøºó£¬»Ö¸´Íæ¼Ò×´Ì¬£¨½öµ±Íæ¼Ò´æ»îÊ±£©
+        // æ•ˆæœç»“æŸåï¼Œæ¢å¤ç©å®¶çŠ¶æ€ï¼ˆä»…å½“ç©å®¶å­˜æ´»æ—¶ï¼‰
         if (player.currentHealth > 0)
         {
             player.isInIceTrap = false;
             player.isFrozen = false;
         }
 
-        // Èç¹ûÏİÚå¿ÉÒÔÖØ¸´Ê¹ÓÃ£¬¾ÍÖØÖÃËü
+        // å¦‚æœé™·é˜±å¯ä»¥é‡å¤ä½¿ç”¨ï¼Œå°±é‡ç½®å®ƒ
         if (trapCooldown > 0)
         {
             yield return new WaitForSeconds(trapCooldown);

@@ -5,7 +5,7 @@ using UnityEngine;
 public class hidetrap : MonoBehaviour
 
 {
-    [Header("基础陷阱配置")]
+    [Header("鍩虹闄烽槺閰嶇疆")]
     public TrapType trapType = TrapType.Spike;
     public int damage = 3;
     public float revealDuration = 1.5f; 
@@ -13,7 +13,7 @@ public class hidetrap : MonoBehaviour
     public bool isReusable = true;
     public Sprite revealSprite;
 
-    [Header("牵引效果配置")]
+    [Header("鐗靛紩鏁堟灉閰嶇疆")]
     public bool enablePull = true;      
     public float pullForce = 8f;        
     public float pullRadius = 1.5f;     
@@ -98,7 +98,7 @@ public class hidetrap : MonoBehaviour
                 break;
         }
     }
-//显性需添加粒子效果
+//鏄炬�ч渶娣诲姞绮掑瓙鏁堟灉
     void RevealTrap()
     {
         if (revealSprite != null) sr.sprite = revealSprite;

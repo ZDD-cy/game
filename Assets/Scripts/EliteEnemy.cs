@@ -10,19 +10,19 @@ public class EliteEnemy : MonoBehaviour
     public float maxHealth = 50f;
     public float currentSpeed = 3f;
 
-    [Tooltip("ÆÕÍ¨µĞÈËµôÂäÎïµÄ±¶Êı·¶Î§£¨3-5±¶£©")]
+    [Tooltip("æ™®é€šæ•Œäººæ‰è½ç‰©çš„å€æ•°èŒƒå›´ï¼ˆ3-5å€ï¼‰")]
     public Vector2 dropMultiplierRange = new Vector2(3, 5);
 
-    [Header("¿ñ±©×´Ì¬ÅäÖÃ")]
-    public float rageThreshold = 0.3f; // 30%ÑªÁ¿ÒÔÏÂ´¥·¢
+    [Header("ç‹‚æš´çŠ¶æ€é…ç½®")]
+    public float rageThreshold = 0.3f; // 30%è¡€é‡ä»¥ä¸‹è§¦å‘
     public float originalSpeed;
-    public float rageSpeedMultiplier = 1.5f; // ¹¥ËÙÒÆËÙÌáÉı50%
-    public bool isUnstoppableWhenEnraged = true; // ¿ñ±©Ê±°ÔÌå
+    public float rageSpeedMultiplier = 1.5f; // æ”»é€Ÿç§»é€Ÿæå‡50%
+    public bool isUnstoppableWhenEnraged = true; // ç‹‚æš´æ—¶éœ¸ä½“
 
-    [Header("ÒıÓÃ")]
-    public EnemyDropSystem dropSystem; // ÒıÓÃÄãµÄµôÂäÏµÍ³ 
+    [Header("å¼•ç”¨")]
+    public EnemyDropSystem dropSystem; // å¼•ç”¨ä½ çš„æ‰è½ç³»ç»Ÿ 
 
-    //ÄÚ²¿×´Ì¬±äÁ¿
+    //å†…éƒ¨çŠ¶æ€å˜é‡
     private float currentHealth;
     private bool isEnraged = false;
 
@@ -33,7 +33,7 @@ public class EliteEnemy : MonoBehaviour
 
     void Update()
     {
-        // ¼ì²âÊÇ·ñ½øÈë¿ñ±©×´Ì¬
+        // æ£€æµ‹æ˜¯å¦è¿›å…¥ç‹‚æš´çŠ¶æ€
         if (!isEnraged && currentHealth / maxHealth <= rageThreshold)
         {
             EnterRageMode();
@@ -44,7 +44,7 @@ public class EliteEnemy : MonoBehaviour
     {
         if (isEnraged && isUnstoppableWhenEnraged)
         {
-            // °ÔÌå×´Ì¬ÏÂÃâÒß¿ØÖÆ£¬µ«ÈÔÈ»»áµôÑª
+            // éœ¸ä½“çŠ¶æ€ä¸‹å…ç–«æ§åˆ¶ï¼Œä½†ä»ç„¶ä¼šæ‰è¡€
         }
         currentHealth -= damage;
         if (currentHealth <= 0)
@@ -68,25 +68,25 @@ public class EliteEnemy : MonoBehaviour
 
     private void DropLoot()
     {
-        // ¼ÆËã3-5±¶µÄµôÂäÊıÁ¿
+        // è®¡ç®—3-5å€çš„æ‰è½æ•°é‡
         float dropMultiplier = Random.Range(dropMultiplierRange.x, dropMultiplierRange.y);
 
-        // µôÂäÓ²±Ò£¨µ÷ÓÃÄãÏÖÓĞµÄµôÂäÏµÍ³£©
+        // æ‰è½ç¡¬å¸ï¼ˆè°ƒç”¨ä½ ç°æœ‰çš„æ‰è½ç³»ç»Ÿï¼‰
         int coinCount = Mathf.RoundToInt(dropSystem.coin.minCount * dropMultiplier);
         dropSystem.SpawnDropItem(dropSystem.coin.itemPrefab, coinCount);
 
-        // µôÂäÖé×Ó£¨µ÷ÓÃÄãÏÖÓĞµÄµôÂäÏµÍ³£©
-        if (Random.value <= 0.4f) // ±£³ÖºÍÆÕÍ¨µĞÈËÒ»ÑùµÄÖé×ÓµôÂä¸ÅÂÊ
+        // æ‰è½ç å­ï¼ˆè°ƒç”¨ä½ ç°æœ‰çš„æ‰è½ç³»ç»Ÿï¼‰
+        if (Random.value <= 0.4f) // ä¿æŒå’Œæ™®é€šæ•Œäººä¸€æ ·çš„ç å­æ‰è½æ¦‚ç‡
         {
             int beadCount = Mathf.RoundToInt(dropSystem.bead.minCount * dropMultiplier);
             dropSystem.SpawnDropItem(dropSystem.bead.itemPrefab, beadCount);
         }
     }
 
-    // ÌØĞ§²¥·Å·½·¨£¨ĞèÒªÄã×Ô¼ºÊµÏÖ£©
-    private void PlaySpawnEffect() { /* Éú³ÉÊ±µÄÌØĞ§ */ }
-    private void PlayDeathEffect() { /* ËÀÍöÊ±µÄÌØĞ§ */ }
-    private void PlayRageEffect() { /* ¿ñ±©Ê±µÄÌØĞ§ */ }
+    // ç‰¹æ•ˆæ’­æ”¾æ–¹æ³•ï¼ˆéœ€è¦ä½ è‡ªå·±å®ç°ï¼‰
+    private void PlaySpawnEffect() { /* ç”Ÿæˆæ—¶çš„ç‰¹æ•ˆ */ }
+    private void PlayDeathEffect() { /* æ­»äº¡æ—¶çš„ç‰¹æ•ˆ */ }
+    private void PlayRageEffect() { /* ç‹‚æš´æ—¶çš„ç‰¹æ•ˆ */ }
 
 
     

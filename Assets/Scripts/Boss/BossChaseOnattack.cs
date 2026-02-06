@@ -4,44 +4,44 @@ using UnityEngine;
 
 public class BossChaseOnAttack : MonoBehaviour
 {
-    // Boss ÒÆ¶¯ËÙ¶È
+    // Boss ç§»åŠ¨é€Ÿåº¦
     public float moveSpeed = 4f;
-    // ×·»÷³ÖĞøÊ±¼ä£¨3 Ãë£©
+    // è¿½å‡»æŒç»­æ—¶é—´ï¼ˆ3 ç§’ï¼‰
     public float chaseDuration = 3f;
-    // µ±Ç°³ğºŞÄ¿±ê
+    // å½“å‰ä»‡æ¨ç›®æ ‡
     private Transform currentTarget;
-    // ×·»÷¼ÆÊ±Æ÷
+    // è¿½å‡»è®¡æ—¶å™¨
     private float chaseTimer;
-    // ³õÊ¼Î»ÖÃ
+    // åˆå§‹ä½ç½®
     private Vector3 originalPosition;
 
     void Start()
     {
-        // ¼ÇÂ¼ Boss ³õÊ¼Î»ÖÃ
+        // è®°å½• Boss åˆå§‹ä½ç½®
         originalPosition = transform.position;
     }
 
     void Update()
     {
-        // Èç¹ûÓĞ³ğºŞÄ¿±êÇÒ¼ÆÊ±Æ÷Î´½áÊø
+        // å¦‚æœæœ‰ä»‡æ¨ç›®æ ‡ä¸”è®¡æ—¶å™¨æœªç»“æŸ
         if (currentTarget != null && chaseTimer > 0)
         {
             chaseTimer -= Time.deltaTime;
-            // ¼ÆËã·½Ïò²¢ÒÆ¶¯
+            // è®¡ç®—æ–¹å‘å¹¶ç§»åŠ¨
             Vector3 direction = (currentTarget.position - transform.position).normalized;
             transform.Translate(direction * moveSpeed * Time.deltaTime);
         }
         else if (chaseTimer <= 0 && currentTarget != null)
         {
-            // ×·»÷½áÊø£¬Çå³ıÄ¿±ê
+            // è¿½å‡»ç»“æŸï¼Œæ¸…é™¤ç›®æ ‡
             currentTarget = null;
         }
     }
 
-    // ±»¹¥»÷Ê±µ÷ÓÃ´Ë·½·¨£¬´«Èë¹¥»÷Õß
+    // è¢«æ”»å‡»æ—¶è°ƒç”¨æ­¤æ–¹æ³•ï¼Œä¼ å…¥æ”»å‡»è€…
     public void OnTakeDamage(Transform attacker)
     {
-        // ¸üĞÂ³ğºŞÄ¿±êºÍ¼ÆÊ±Æ÷
+        // æ›´æ–°ä»‡æ¨ç›®æ ‡å’Œè®¡æ—¶å™¨
         currentTarget = attacker;
         chaseTimer = chaseDuration;
     }

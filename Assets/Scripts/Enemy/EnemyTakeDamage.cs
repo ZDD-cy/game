@@ -3,41 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
-// ¹ÒÔØÔÚËùÓĞµĞÈËÉíÉÏµÄÊÜÉË+ÊôĞÔ½Å±¾
+// æŒ‚è½½åœ¨æ‰€æœ‰æ•Œäººèº«ä¸Šçš„å—ä¼¤+å±æ€§è„šæœ¬
 public class EnemyTakeDamage : MonoBehaviour
 {
-    [Header("µĞÈË»ù´¡ÊôĞÔ")]
-    public float maxHp = 50f;    // ×î´óÑªÁ¿£¨¹«¹²£¬¿ÉÍâ²¿µ÷ÓÃ£©
-    public float currentHp;      // µ±Ç°ÑªÁ¿£¨¹«¹²£¬¿ÉÍâ²¿µ÷ÓÃ£©
-    public string enemyName = "ÆÕÍ¨µĞÈË"; // ¿ÉÑ¡£ºµĞÈËÃû³Æ
-    public float defense = 2f;   // ¿ÉÑ¡£º·ÀÓù£¨¼õÉËÓÃ£©
-    public GameObject damagePopupPrefab;      //ÉùÃ÷ÉËº¦Ô¤ÖÆÌå                          // ÉùÃ÷ÉËº¦µ¯³öÔ¤ÖÆÌå±äÁ¿
+    [Header("æ•ŒäººåŸºç¡€å±æ€§")]
+    public float maxHp = 50f;    // æœ€å¤§è¡€é‡ï¼ˆå…¬å…±ï¼Œå¯å¤–éƒ¨è°ƒç”¨ï¼‰
+    public float currentHp;      // å½“å‰è¡€é‡ï¼ˆå…¬å…±ï¼Œå¯å¤–éƒ¨è°ƒç”¨ï¼‰
+    public string enemyName = "æ™®é€šæ•Œäºº"; // å¯é€‰ï¼šæ•Œäººåç§°
+    public float defense = 2f;   // å¯é€‰ï¼šé˜²å¾¡ï¼ˆå‡ä¼¤ç”¨ï¼‰
+    public GameObject damagePopupPrefab;      //å£°æ˜ä¼¤å®³é¢„åˆ¶ä½“                          // å£°æ˜ä¼¤å®³å¼¹å‡ºé¢„åˆ¶ä½“å˜é‡
 
 
     void Start()
     {
-        currentHp = maxHp; // ³õÊ¼»¯µ±Ç°ÑªÁ¿
+        currentHp = maxHp; // åˆå§‹åŒ–å½“å‰è¡€é‡
     }
 
-    // ÊÜÉË·½·¨£¨Íâ²¿¹¥»÷½Å±¾µ÷ÓÃ£©
+    // å—ä¼¤æ–¹æ³•ï¼ˆå¤–éƒ¨æ”»å‡»è„šæœ¬è°ƒç”¨ï¼‰
     public void TakeDamage(float damage)
     {
 
         ShowDamagePopup(damage);
         float finalDamage = Mathf.Max(damage - defense, 0);
         currentHp -= finalDamage;
-        Debug.Log($"{enemyName}ÊÜµ½{finalDamage}ÉËº¦£¬Ê£ÓàÑªÁ¿£º{currentHp:F1}");
+        Debug.Log($"{enemyName}å—åˆ°{finalDamage}ä¼¤å®³ï¼Œå‰©ä½™è¡€é‡ï¼š{currentHp:F1}");
 
         if (currentHp <= 0) Die();
 
     }
 
-    // µĞÈËËÀÍö
+    // æ•Œäººæ­»äº¡
     void Die()
     {
         Destroy(gameObject);
     }
-    // ¸¨Öú·½·¨£ºÏÔÊ¾ÉËº¦Êı×Ö
+    // è¾…åŠ©æ–¹æ³•ï¼šæ˜¾ç¤ºä¼¤å®³æ•°å­—
     private void ShowDamagePopup(float damage)
     {
         if (damagePopupPrefab != null)
