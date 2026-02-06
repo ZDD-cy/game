@@ -61,7 +61,7 @@ ExportedObj/
 .gradle/
 
 # VS Code 配置（按需忽略，默认忽略所有子项）
-.vscode/*
+.vscode/
 
 
 # ============= #
