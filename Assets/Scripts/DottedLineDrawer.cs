@@ -27,11 +27,14 @@ public class AntLineDrawer : MonoBehaviour
         {
             lr.enabled = true;
 
-            Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mouseWorld.z = 0f;
+            if (Camera.main != null)
+            {
+                Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mouseWorld.z = 0f;
 
-            lr.SetPosition(0, player.position);
-            lr.SetPosition(1, mouseWorld);
+                lr.SetPosition(0, player.position);
+                lr.SetPosition(1, mouseWorld);
+            }
 
             // 蚂蚁线滚动效果
             float offset = Time.time * textureScrollSpeed;

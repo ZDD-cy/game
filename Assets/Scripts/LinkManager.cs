@@ -27,18 +27,24 @@ public class LinkManager : MonoBehaviour
     public int CreateLink(Vector3 start, Vector3 end, Transform parent = null)
     {
         GameObject linkObj;
-        if (linkVisualPrefab != null)
-        {
+        //if (linkVisualPrefab != null)
+        //{
             linkObj = Instantiate(linkVisualPrefab, parent);
-        }
-        else
-        {
+        //}
+        //else
+        //{
             linkObj = new GameObject("DynamicLink");
             if (parent != null) linkObj.transform.SetParent(parent);
-            linkObj.AddComponent<LinkVisual>();
+        //}
+
+        // ✅ 确保有 LinkVisual
+        LinkVisual visual = linkObj.GetComponent<LinkVisual>();
+        if (visual == null)
+        {
+            visual = linkObj.AddComponent<LinkVisual>();
+            Debug.LogWarning("LinkVisualPrefab 上缺少 LinkVisual，已自动补充。");
         }
 
-        LinkVisual visual = linkObj.GetComponent<LinkVisual>();
         visual.Initialize(start, end, parent);
 
         int linkId = nextLinkId++;
