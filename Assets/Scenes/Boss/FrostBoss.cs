@@ -3,27 +3,27 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-// ±ùËªBuffÊý¾ÝÀà
+// ï¿½ï¿½ËªBuffï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 [System.Serializable]
 public class FrostBuffData
 {
-    public int currentLayer = 0;       // µ±Ç°Buff²ãÊý
-    public float buffDuration = 8f;    // Ã¿²ã³ÖÐøÊ±¼ä
-    public float buffTimer = 0f;       // Buffµ¹¼ÆÊ±
-    public float normalDissipateSpeed = 1f; // Õý³£ÏûÉ¢ËÙ¶È
-    public float trapDissipateSpeed = 2f;   // »ú¹Ø¼¤»îºóÏûÉ¢ËÙ¶È£¨Ò»±¶¼ÓËÙ£©
-    public float currentDissipateSpeed;     // µ±Ç°Êµ¼ÊÏûÉ¢ËÙ¶È
+    public int currentLayer = 0;       // ï¿½ï¿½Ç°Buffï¿½ï¿½ï¿½ï¿½
+    public float buffDuration = 8f;    // Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+    public float buffTimer = 0f;       // Buffï¿½ï¿½ï¿½ï¿½Ê±
+    public float normalDissipateSpeed = 1f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¢ï¿½Ù¶ï¿½
+    public float trapDissipateSpeed = 2f;   // ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¢ï¿½Ù¶È£ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ù£ï¿½
+    public float currentDissipateSpeed;     // ï¿½ï¿½Ç°Êµï¿½ï¿½ï¿½ï¿½É¢ï¿½Ù¶ï¿½
 
-    // ¼õËÙ/ÊôÐÔÏ÷¼õÅäÖÃ
-    public float slowPerLayer = 0.15f; // 1-3²ãÃ¿²ã15%¼õËÙ
-    public float attrReducePerLayer = 0.15f; //4-6²ãÃ¿²ã15%È«ÊôÐÔÏ÷¼õ
-    public float maxAttrReduce = 1f;   //7²ã100%È«ÊôÐÔÏ÷¼õ
-    public float dotDamage = 5f;       //7²ã³ÖÐøÉËº¦£¨Ã¿Ãë£©
-    public float dotInterval = 1f;     //³ÖÐøÉËº¦¼ä¸ô
+    // ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public float slowPerLayer = 0.15f; // 1-3ï¿½ï¿½Ã¿ï¿½ï¿½15%ï¿½ï¿½ï¿½ï¿½
+    public float attrReducePerLayer = 0.15f; //4-6ï¿½ï¿½Ã¿ï¿½ï¿½15%È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public float maxAttrReduce = 1f;   //7ï¿½ï¿½100%È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public float dotDamage = 5f;       //7ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½Ã¿ï¿½ë£©
+    public float dotInterval = 1f;     //ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½
 
-    // BuffÐ§¹û±ê¼Ç
-    public bool isDashForbidden = false; //ÊÇ·ñ·â½û³å´Ì
-    public bool isMaxLayer = false;      //ÊÇ·ñ´ïµ½7²ã£¨Âú²ã£©
+    // BuffÐ§ï¿½ï¿½ï¿½ï¿½ï¿½
+    public bool isDashForbidden = false; //ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public bool isMaxLayer = false;      //ï¿½Ç·ï¿½ïµ½7ï¿½ã£¨ï¿½ï¿½ï¿½ã£©
 
     
 }
@@ -32,41 +32,41 @@ public class FrostBoss : MonoBehaviour
 {
     public FightActive fightActive;
     public Transform playerTransform;
-    [Header("BOSS»ù´¡ÅäÖÃ")]
-    public float moveSpeed = 8f;               // BOSS»ù´¡ÒÆËÙ
-    public List<Transform> movePathPoints;     // BOSSÒÆ¶¯Â·¾¶µã£¨Ò»´ÎÐÔ±ùËªÏÝÚå£©
-    public Transform frostTrapPrefab;          // ±ùËªÏÝÚåÔ¤ÖÆÌå£¨Â·¾¶²ÐÁô£©
-    public LayerMask playerLayer;              // Íæ¼ÒÍ¼²ã
-    public float playerCheckRange = 10f;       // ¼ì²âÍæ¼Ò·¶Î§
+    [Header("BOSSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
+    public float moveSpeed = 8f;               // BOSSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public List<Transform> movePathPoints;     // BOSSï¿½Æ¶ï¿½Â·ï¿½ï¿½ï¿½ã£¨Ò»ï¿½ï¿½ï¿½Ô±ï¿½Ëªï¿½ï¿½ï¿½å£©
+    public Transform frostTrapPrefab;          // ï¿½ï¿½Ëªï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½å£¨Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public LayerMask playerLayer;              // ï¿½ï¿½ï¿½Í¼ï¿½ï¿½
+    public float playerCheckRange = 10f;       // ï¿½ï¿½ï¿½ï¿½ï¿½Ò·ï¿½Î§
 
-    [Header("±ùËªBuffÅäÖÃ")]
-    public FrostBuffData frostBuff;            // ±ùËªBuffÊý¾Ý
+    [Header("ï¿½ï¿½ËªBuffï¿½ï¿½ï¿½ï¿½")]
+    public FrostBuffData frostBuff;            // ï¿½ï¿½ËªBuffï¿½ï¿½ï¿½ï¿½
 
-    [Header("¼¼ÄÜÀäÈ´ÅäÖÃ")]
-    public float iceBlastCD = 10f;             // ±ù±¬ÀäÈ´
-    public float snowFlakeCD = 6f;             // Ñ©»¨ÀäÈ´
-    public float pulseCD = 40f;                // Âö³åÀäÈ´
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½")]
+    public float iceBlastCD = 10f;             // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´
+    public float snowFlakeCD = 6f;             // Ñ©ï¿½ï¿½ï¿½ï¿½È´
+    public float pulseCD = 40f;                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´
     private float iceBlastTimer;
     private float snowFlakeTimer;
     private float pulseTimer;
 
 
-    [Header("¼¼ÄÜ·¶Î§ÅäÖÃ")]
-    public float iceBlastRange = 3f;           // ±ù±¬3¡Á3·¶Î§
-    public float snowFlakeAngle = 90f;         // Ñ©»¨90¶ÈÉÈÐÎ
-    public float snowFlakeRange = 15f;         // Ñ©»¨ÉÈÐÎÉä³Ì
-    public GameObject snowFlakeBullet;         // Ñ©»¨µ¯Ä»Ô¤ÖÆÌå
-    public Transform bulletSpawnPoint;         // µ¯Ä»Éú³Éµã
+    [Header("ï¿½ï¿½ï¿½Ü·ï¿½Î§ï¿½ï¿½ï¿½ï¿½")]
+    public float iceBlastRange = 3f;           // ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½3ï¿½ï¿½Î§
+    public float snowFlakeAngle = 90f;         // Ñ©ï¿½ï¿½90ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public float snowFlakeRange = 15f;         // Ñ©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public GameObject snowFlakeBullet;         // Ñ©ï¿½ï¿½ï¿½ï¿½Ä»Ô¤ï¿½ï¿½ï¿½ï¿½
+    public Transform bulletSpawnPoint;         // ï¿½ï¿½Ä»ï¿½ï¿½ï¿½Éµï¿½
 
-    [Header("»ú¹Ø½»»¥")]
-    public bool isAnyTrapActive = false;       // ÊÇ·ñÓÐ½ÇÂä»ú¹Ø¼¤»î
-    public int activeTrapCount = 0;            // ¼¤»îµÄ»ú¹ØÊýÁ¿£¨×î¶à4¸ö£©
+    [Header("ï¿½ï¿½ï¿½Ø½ï¿½ï¿½ï¿½")]
+    public bool isAnyTrapActive = false;       // ï¿½Ç·ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½
+    public int activeTrapCount = 0;            // ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4ï¿½ï¿½ï¿½ï¿½
 
-    // ×é¼þ/Ä¿±êÒýÓÃ
+    // ï¿½ï¿½ï¿½/Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private Transform player;
     private Rigidbody2D rb;
-    private Coroutine dotCoroutine;            // 7²ã³ÖÐøÉËº¦Ð­³Ì
-    private int currentPathIndex = 0;          // µ±Ç°ÒÆ¶¯Â·¾¶Ë÷Òý
+    private Coroutine dotCoroutine;            // 7ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½Ð­ï¿½ï¿½
+    private int currentPathIndex = 0;          // ï¿½ï¿½Ç°ï¿½Æ¶ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
     
@@ -75,42 +75,42 @@ public class FrostBoss : MonoBehaviour
     
     void Start()
     {
-       //Ìí¼ÓÐ¯³Ì
+       //ï¿½ï¿½ï¿½ï¿½Ð¯ï¿½ï¿½
         StartCoroutine(CastSnowFlake());
         StartCoroutine(MoveAlongPathAndCreateTrap());
-        // ³õÊ¼»¯×é¼þ
+        // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½
         rb = GetComponent<Rigidbody2D>();
         if (rb == null) rb = gameObject.AddComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         rb.bodyType = RigidbodyType2D.Dynamic;
 
-        // ³õÊ¼»¯Buff
+        // ï¿½ï¿½Ê¼ï¿½ï¿½Buff
         frostBuff.currentDissipateSpeed = frostBuff.normalDissipateSpeed;
         frostBuff.buffTimer = frostBuff.buffDuration;
 
-        // ³õÊ¼»¯¼¼ÄÜ¼ÆÊ±Æ÷
+        // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Ü¼ï¿½Ê±ï¿½ï¿½
         iceBlastTimer = 0;
         snowFlakeTimer = 0;
         pulseTimer = 0;
 
-        // ²éÕÒÍæ¼Ò
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         player = FindFirstObjectByType<Player>()?.transform;
 
-        // ¿ªÊ¼ÑØÂ·¾¶ÒÆ¶¯²¢Éú³É±ùËªÏÝÚå
+        // ï¿½ï¿½Ê¼ï¿½ï¿½Â·ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É±ï¿½Ëªï¿½ï¿½ï¿½ï¿½
         StartCoroutine(MoveAlongPathAndCreateTrap());
     }
 
     void Update()
     {
-     
+        if (player == null || fightActive == null) return;
         if (Vector2.Distance(transform.position, player.position) <= playerCheckRange)
         {
-            Debug.Log("¼ì²âµ½Íæ¼Ò£¬¿ªÊ¼×·Öð");
+            Debug.Log("ï¿½ï¿½âµ½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½Ê¼×·ï¿½ï¿½");
         }
         if (player == null) return;
-        // ¼ÆËãÓëÍæ¼ÒµÄ¾àÀë
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒµÄ¾ï¿½ï¿½ï¿½
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        // 360¶È¼ì²â£ºÖ»ÒªÔÚ·¶Î§ÄÚ¾ÍÊÓÎª¼ì²âµ½
+        // 360ï¿½È¼ï¿½â£ºÖ»Òªï¿½Ú·ï¿½Î§ï¿½Ú¾ï¿½ï¿½ï¿½Îªï¿½ï¿½âµ½
         if (distanceToPlayer <= playerCheckRange)
         {
             if (fightActive != null)
@@ -119,23 +119,23 @@ public class FrostBoss : MonoBehaviour
             }
             Vector2 directionToPlayer = player.position - transform.position;
             float signedAngle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
-            Debug.Log($"Íæ¼ÒÏà¶ÔÓÚBossµÄ½Ç¶È£º{signedAngle:F1}¡ã");
+            Debug.Log($"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Bossï¿½Ä½Ç¶È£ï¿½{signedAngle:F1}ï¿½ï¿½");
         }
 
-        // ¼¼ÄÜÀäÈ´¼ÆÊ±
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½Ê±
         if (fightActive.isFightActive)
         {
             UpdateSkillTimers();
-            // ¼ì²â²¢ÊÍ·Å¼¼ÄÜ
+            // ï¿½ï¿½â²¢ï¿½Í·Å¼ï¿½ï¿½ï¿½
             CheckAndCastSkills();
-            // ¸üÐÂ±ùËªBuff£¨²ãÊý/Ê±³¤/Ð§¹û£©
+            // ï¿½ï¿½ï¿½Â±ï¿½ËªBuffï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/Ê±ï¿½ï¿½/Ð§ï¿½ï¿½ï¿½ï¿½
             UpdateFrostBuff();
-            // »ú¹Ø¼¤»îÊ±Ë¢ÐÂBuffÏûÉ¢ËÙ¶È
+            // ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½Ê±Ë¢ï¿½ï¿½Buffï¿½ï¿½É¢ï¿½Ù¶ï¿½
             UpdateBuffDissipateSpeed();
         }
 
-        #region Â·¾¶ÒÆ¶¯+±ùËªÏÝÚåÉú³É
-        // ÑØÂ·¾¶ÒÆ¶¯£¬Ã¿µ½Ò»¸öµãÉú³É±ùËªÏÝÚå£¨Â·¾¶Ò»´ÎÐÔ£©
+        #region Â·ï¿½ï¿½ï¿½Æ¶ï¿½+ï¿½ï¿½Ëªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        // ï¿½ï¿½Â·ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É±ï¿½Ëªï¿½ï¿½ï¿½å£¨Â·ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ô£ï¿½
         IEnumerator MoveAlongPathAndCreateTrap()
         {
             if (movePathPoints == null || movePathPoints.Count == 0) yield break;
@@ -143,84 +143,84 @@ public class FrostBoss : MonoBehaviour
             while (currentPathIndex < movePathPoints.Count)
             {
                 Transform targetPoint = movePathPoints[currentPathIndex];
-                // ÒÆ¶¯µ½Ä¿±êµã
+                // ï¿½Æ¶ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½
                 while (Vector2.Distance(transform.position, targetPoint.position) > 0.1f)
                 {
                     transform.position = Vector2.MoveTowards(transform.position, targetPoint.position, moveSpeed * Time.deltaTime * (1 - GetCurrentSlowRate()));
                     yield return null;
                 }
-                // Éú³É±ùËªÏÝÚå
+                // ï¿½ï¿½ï¿½É±ï¿½Ëªï¿½ï¿½ï¿½ï¿½
                 Instantiate(frostTrapPrefab, targetPoint.position, Quaternion.identity);
                 currentPathIndex++;
             }
-            // Â·¾¶×ßÍêºó£¬×ªÏò×·»÷Íæ¼Ò
+            // Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½×·ï¿½ï¿½ï¿½ï¿½ï¿½
             yield return null;
         }
         #endregion
 
-        #region ±ùËªBuffºËÐÄÂß¼­£¨µþ¼Ó/Ë¢ÐÂ/ÏûÉ¢/·Ö²ãÐ§¹û£©
+        #region ï¿½ï¿½ËªBuffï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/Ë¢ï¿½ï¿½/ï¿½ï¿½É¢/ï¿½Ö²ï¿½Ð§ï¿½ï¿½ï¿½ï¿½
         void UpdateFrostBuff()
         {
             if (frostBuff.currentLayer <= 0)
             {
-                // ÎÞBuffÊ±ÖØÖÃËùÓÐÐ§¹û
+                // ï¿½ï¿½BuffÊ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
                 ResetFrostBuffEffect();
                 return;
             }
 
-            // Buffµ¹¼ÆÊ±£¨ÏûÉ¢ËÙ¶ÈÓÉ»ú¹Ø¾ö¶¨£©
+            // Buffï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½É¢ï¿½Ù¶ï¿½ï¿½É»ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½ï¿½ï¿½
             frostBuff.buffTimer -= Time.deltaTime * frostBuff.currentDissipateSpeed;
             if (frostBuff.buffTimer <= 0)
             {
-                // ¼ÆÊ±½áÊø¼õÒ»²ã£¬Ë¢ÐÂµ¹¼ÆÊ±
+                // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ã£¬Ë¢ï¿½Âµï¿½ï¿½ï¿½Ê±
                 frostBuff.currentLayer--;
                 frostBuff.buffTimer = frostBuff.buffDuration;
-                // ²ãÊý±ä»¯¸üÐÂÐ§¹û
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ä»¯ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
                 UpdateFrostBuffEffect();
             }
         }
 
-        // ¸üÐÂBuffÏûÉ¢ËÙ¶È£¨ÓÐ»ú¹Ø¼¤»îÔòÒ»±¶¼ÓËÙ£©
+        // ï¿½ï¿½ï¿½ï¿½Buffï¿½ï¿½É¢ï¿½Ù¶È£ï¿½ï¿½Ð»ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ù£ï¿½
         void UpdateBuffDissipateSpeed()
         {
             frostBuff.currentDissipateSpeed = isAnyTrapActive ? frostBuff.trapDissipateSpeed : frostBuff.normalDissipateSpeed;
         }
     }
-    // µþ¼ÓBuff£¨BOSSÃ¿´Î¹¥»÷µ÷ÓÃ£¬Ë¢ÐÂÊ±³¤+²ãÊý+1£©
+    // ï¿½ï¿½ï¿½ï¿½Buffï¿½ï¿½BOSSÃ¿ï¿½Î¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½Ë¢ï¿½ï¿½Ê±ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½+1ï¿½ï¿½
     public void AddFrostBuffLayer()
     {
-        frostBuff.currentLayer = Mathf.Min(frostBuff.currentLayer + 1, 7); // ×î¶à7²ã
-        frostBuff.buffTimer = frostBuff.buffDuration; // Ë¢ÐÂ³ÖÐøÊ±¼ä
-        UpdateFrostBuffEffect(); // ¸üÐÂ·Ö²ãÐ§¹û
+        frostBuff.currentLayer = Mathf.Min(frostBuff.currentLayer + 1, 7); // ï¿½ï¿½ï¿½7ï¿½ï¿½
+        frostBuff.buffTimer = frostBuff.buffDuration; // Ë¢ï¿½Â³ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+        UpdateFrostBuffEffect(); // ï¿½ï¿½ï¿½Â·Ö²ï¿½Ð§ï¿½ï¿½
     }
 
-    // ¸üÐÂBuff·Ö²ãÐ§¹û
+    // ï¿½ï¿½ï¿½ï¿½Buffï¿½Ö²ï¿½Ð§ï¿½ï¿½
     void UpdateFrostBuffEffect()
     {
-        // ÖØÖÃËùÓÐÐ§¹û£¬ÔÙ¸ù¾Ýµ±Ç°²ãÊýÖØÐÂ¸³Öµ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½ï¿½Ù¸ï¿½ï¿½Ýµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¸ï¿½Öµ
         frostBuff.isDashForbidden = false;
         frostBuff.isMaxLayer = false;
         StopDOTCoroutine();
 
         if (frostBuff.currentLayer >= 1 && frostBuff.currentLayer <= 3)
         {
-            // 1-3²ã£ºÃ¿²ã15%¼õËÙ£¬ÎÞÆäËûÐ§¹û
+            // 1-3ï¿½ã£ºÃ¿ï¿½ï¿½15%ï¿½ï¿½ï¿½Ù£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
         }
         else if (frostBuff.currentLayer >= 4 && frostBuff.currentLayer <= 6)
         {
-            // 4-6²ã£º¼õËÙ+Ã¿²ã15%È«ÊôÐÔÏ÷¼õ+·â½û³å´Ì
+            // 4-6ï¿½ã£ºï¿½ï¿½ï¿½ï¿½+Ã¿ï¿½ï¿½15%È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             frostBuff.isDashForbidden = true;
         }
         else if (frostBuff.currentLayer >= 7)
         {
-            // 7²ã£º100%È«ÊôÐÔÏ÷¼õ+·â½û³å´Ì+³ÖÐøÉËº¦
+            // 7ï¿½ã£º100%È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½
             frostBuff.isDashForbidden = true;
             frostBuff.isMaxLayer = true;
             StartDOTCoroutine();
         }
     }
 
-    // ÖØÖÃBuffÐ§¹û
+    // ï¿½ï¿½ï¿½ï¿½BuffÐ§ï¿½ï¿½
     void ResetFrostBuffEffect()
     {
         frostBuff.isDashForbidden = false;
@@ -228,13 +228,13 @@ public class FrostBoss : MonoBehaviour
         StopDOTCoroutine();
     }
 
-    // »ñÈ¡µ±Ç°¼õËÙ±ÈÀý£¨¹©ÒÆ¶¯/¼¼ÄÜÊ¹ÓÃ£©
+    // ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½/ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã£ï¿½
     public float GetCurrentSlowRate()
     {
         return Mathf.Clamp01(frostBuff.currentLayer * frostBuff.slowPerLayer);
     }
 
-    // »ñÈ¡µ±Ç°ÊôÐÔÏ÷¼õ±ÈÀý
+    // ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public float GetCurrentAttrReduceRate()
     {
         if (frostBuff.currentLayer <= 3) return 0;
@@ -243,7 +243,7 @@ public class FrostBoss : MonoBehaviour
     }
     #endregion
 
-    #region 7²ã³ÖÐøÉËº¦£¨DOT£©
+    #region 7ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½DOTï¿½ï¿½
     void StartDOTCoroutine()
     {
         if (dotCoroutine == null)
@@ -265,7 +265,7 @@ public class FrostBoss : MonoBehaviour
     {
         while (frostBuff.isMaxLayer)
         {
-            // ¸øÍæ¼ÒÊ©¼Ó³ÖÐøÉËº¦£¨¿ÉÌæ»»ÎªÍæ¼ÒÊÜ»÷·½·¨£©
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Ê©ï¿½Ó³ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ»»Îªï¿½ï¿½ï¿½ï¿½Ü»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (Vector2.Distance(transform.position, player.position) < playerCheckRange)
             {
                 player.GetComponent<Player>()?.TakeDamage((int)frostBuff.dotDamage);
@@ -275,7 +275,7 @@ public class FrostBoss : MonoBehaviour
     }
     #endregion
 
-    #region ¼¼ÄÜ×éÂß¼­£¨±ù±¬+Ñ©»¨+Âö³å£©
+    #region ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+Ñ©ï¿½ï¿½+ï¿½ï¿½ï¿½å£©
     void UpdateSkillTimers()
     {
         iceBlastTimer += Time.deltaTime;
@@ -285,21 +285,21 @@ public class FrostBoss : MonoBehaviour
 
     void CheckAndCastSkills()
     {
-        // ±ù±¬£º3¡Á3·¶Î§ÉËº¦£¬ÀäÈ´10s£¬ÆðÊÖ2s
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½3ï¿½ï¿½Î§ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½È´10sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2s
         if (iceBlastTimer >= iceBlastCD)
         {
             StartCoroutine(CastIceBlast());
             iceBlastTimer = 0;
         }
 
-        // Ñ©»¨£º90¶ÈÉÈÐÎµ¯Ä»£¬ÀäÈ´6s£¬ÆðÊÖ2s
+        // Ñ©ï¿½ï¿½ï¿½ï¿½90ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½Ä»ï¿½ï¿½ï¿½ï¿½È´6sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2s
         if (snowFlakeTimer >= snowFlakeCD)
         {
             StartCoroutine(CastSnowFlake());
             snowFlakeTimer = 0;
         }
 
-        // Âö³å£ºÈ«ÆÁ0ÉËº¦£¬µþBuff£¬ÀäÈ´40s£¬ÎÞÆðÊÖ
+        // ï¿½ï¿½ï¿½å£ºÈ«ï¿½ï¿½0ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½Buffï¿½ï¿½ï¿½ï¿½È´40sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (pulseTimer >= pulseCD)
         {
             CastPulse();
@@ -307,48 +307,48 @@ public class FrostBoss : MonoBehaviour
         }
     }
 
-    // 1.±ù±¬£ºÆðÊÖ2s ¡ú 3¡Á3·¶Î§ÉËº¦ ¡ú µþBuff
+    // 1.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2s ï¿½ï¿½ 3ï¿½ï¿½3ï¿½ï¿½Î§ï¿½Ëºï¿½ ï¿½ï¿½ ï¿½ï¿½Buff
     IEnumerator CastIceBlast()
     {
-        yield return new WaitForSeconds(2f); // ÆðÊÖ2s
-        // ¼ì²â3¡Á3·¶Î§ÄÚµÄÍæ¼Ò
+        yield return new WaitForSeconds(2f); // ï¿½ï¿½ï¿½ï¿½2s
+        // ï¿½ï¿½ï¿½3ï¿½ï¿½3ï¿½ï¿½Î§ï¿½Úµï¿½ï¿½ï¿½ï¿½
         Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(transform.position, iceBlastRange, playerLayer);
         foreach (var hit in hitPlayers)
         {
-            hit.GetComponent<Player>()?.TakeDamage(20); // ¿É×Ô¶¨ÒåÉËº¦
+            hit.GetComponent<Player>()?.TakeDamage(20); // ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Ëºï¿½
         }
-        AddFrostBuffLayer(); // ¹¥»÷µþÒ»²ãBuff
+        AddFrostBuffLayer(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Buff
     }
-    //2.Ñ©»¨
+    //2.Ñ©ï¿½ï¿½
     IEnumerator CastSnowFlake()
     {
-        // ±£ÏÕ£ºÈç¹ûÕ½¶·Î´¼¤»î£¬Ö±½ÓÍË³öÐ­³Ì
+        // ï¿½ï¿½ï¿½Õ£ï¿½ï¿½ï¿½ï¿½Õ½ï¿½ï¿½Î´ï¿½ï¿½ï¿½î£¬Ö±ï¿½ï¿½ï¿½Ë³ï¿½Ð­ï¿½ï¿½
         if (fightActive == null || !fightActive.isFightActive)
         {
-            Debug.LogWarning("Õ½¶·Î´¼¤»î£¬È¡ÏûÑ©»¨¼¼ÄÜÊÍ·Å");
+            Debug.LogWarning("Õ½ï¿½ï¿½Î´ï¿½ï¿½ï¿½î£¬È¡ï¿½ï¿½Ñ©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½");
             yield break;
         }
 
-        // ±£ÏÕ£ºÈç¹ûÍæ¼Ò»òÉú³ÉµãÎ´ÉèÖÃ£¬Ö±½ÓÍË³ö
+        // ï¿½ï¿½ï¿½Õ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Éµï¿½Î´ï¿½ï¿½ï¿½Ã£ï¿½Ö±ï¿½ï¿½ï¿½Ë³ï¿½
         if (player == null || bulletSpawnPoint == null)
         {
-            Debug.LogError("Íæ¼Ò»ò×Óµ¯Éú³ÉµãÎ´ÉèÖÃ£¡");
+            Debug.LogError("ï¿½ï¿½Ò»ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½Éµï¿½Î´ï¿½ï¿½ï¿½Ã£ï¿½");
             yield break;
         }
 
-        Debug.Log("CastSnowFlake Ð­³Ì¿ªÊ¼Ö´ÐÐ");
+        Debug.Log("CastSnowFlake Ð­ï¿½Ì¿ï¿½Ê¼Ö´ï¿½ï¿½");
         yield return new WaitForSeconds(2f);
-        Debug.Log("Ñ©»¨¼¼ÄÜ´¥·¢£¬¿ªÊ¼Éú³É");
+        Debug.Log("Ñ©ï¿½ï¿½ï¿½ï¿½ï¿½Ü´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½");
 
-        // 1. ¼ÆËã´ÓÉú³ÉµãÖ¸ÏòÍæ¼ÒµÄ·½ÏòºÍ½Ç¶È
+        // 1. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ÒµÄ·ï¿½ï¿½ï¿½Í½Ç¶ï¿½
         Vector2 dirToPlayer = (player.position - bulletSpawnPoint.position).normalized;
         float angleToPlayer = Mathf.Atan2(dirToPlayer.y, dirToPlayer.x) * Mathf.Rad2Deg;
 
-        // 2. ÒÔÍæ¼Ò·½ÏòÎªÖÐÐÄ£¬¼ÆËãÉÈÐÎµÄÆðÊ¼ºÍ½áÊø½Ç¶È
+        // 2. ï¿½ï¿½ï¿½ï¿½Ò·ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½Ê¼ï¿½Í½ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½
         float startAngle = angleToPlayer - snowFlakeAngle / 2;
         float angleStep = 5f;
 
-        // 3. Éú³ÉÉÈÐÎµ¯Ä»
+        // 3. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½Ä»
         for (float angle = startAngle; angle <= startAngle + snowFlakeAngle; angle += angleStep)
         {
             float radian = angle * Mathf.Deg2Rad;
@@ -357,44 +357,44 @@ public class FrostBoss : MonoBehaviour
             GameObject bullet = Instantiate(snowFlakeBullet, bulletSpawnPoint.position, Quaternion.Euler(0, 0, angle));
             if (bullet != null)
             {
-                Debug.Log("×Óµ¯ÒÑÉú³É");
+                Debug.Log("ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                 bullet.GetComponent<SnowFlakeBullet>()?.SetDirection(dir, snowFlakeRange);
-                Debug.Log($"×Óµ¯Éú³ÉÎ»ÖÃ: {bullet.transform.position}");
+                Debug.Log($"ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½: {bullet.transform.position}");
             }
             else
             {
-                Debug.LogError("×Óµ¯Éú³ÉÊ§°Ü");
+                Debug.LogError("ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½");
             }
         }
              AddFrostBuffLayer();
     }
 
-    // 3.Âö³å£ºÈ«ÆÁ´ò»÷ ¡ú 0ÉËº¦ ¡ú Ç¿ÖÆµþBuff
+    // 3.ï¿½ï¿½ï¿½å£ºÈ«ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 0ï¿½Ëºï¿½ ï¿½ï¿½ Ç¿ï¿½Æµï¿½Buff
     void CastPulse()
     {
-        // È«ÆÁ¼ì²âÍæ¼Ò£¨ÎÞÉËº¦£¬½öµþBuff£©
+        // È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Buffï¿½ï¿½
         Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(transform.position, Mathf.Infinity, playerLayer);
         foreach (var hit in hitPlayers)
         {
-            AddFrostBuffLayer(); // Âö³åµþÒ»²ãBuff
+            AddFrostBuffLayer(); // ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Buff
         }
     }
-      // Â·¾¶Ð¯³Ì
+      // Â·ï¿½ï¿½Ð¯ï¿½ï¿½
     IEnumerator MoveAlongPathAndCreateTrap()
     {
-        // ÔÚÕâÀï±àÐ´ÑØÂ·¾¶ÒÆ¶¯²¢Éú³ÉÏÝÚåµÄÂß¼­
-        Debug.Log("¿ªÊ¼ÑØÂ·¾¶ÒÆ¶¯²¢Éú³ÉÏÝÚå");
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Â·ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½
+        Debug.Log("ï¿½ï¿½Ê¼ï¿½ï¿½Â·ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 
-        // Ê¾ÀýÂß¼­£ºµÈ´ý2Ãë
+        // Ê¾ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½È´ï¿½2ï¿½ï¿½
         yield return new WaitForSeconds(2f);
 
-        // ÄãµÄ¾ßÌåÊµÏÖ...
+        // ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½Êµï¿½ï¿½...
     }
 
     #endregion
 
-    #region »ú¹Ø½»»¥½Ó¿Ú£¨¹©½ÇÂä»ú¹Ø½Å±¾µ÷ÓÃ£©
-    // »ú¹Ø¼¤»î/¹Ø±ÕÊ±µ÷ÓÃ£¨´«Èëtrue=¼¤»î£¬false=¹Ø±Õ£©
+    #region ï¿½ï¿½ï¿½Ø½ï¿½ï¿½ï¿½ï¿½Ó¿Ú£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø½Å±ï¿½ï¿½ï¿½ï¿½Ã£ï¿½
+    // ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½/ï¿½Ø±ï¿½Ê±ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½true=ï¿½ï¿½ï¿½î£¬false=ï¿½Ø±Õ£ï¿½
     public void OnTrapStateChange(bool isActive)
     {
         if (isActive)
@@ -405,23 +405,23 @@ public class FrostBoss : MonoBehaviour
         {
             activeTrapCount = Mathf.Max(activeTrapCount - 1, 0);
         }
-        // Ö»ÒªÓÐÒ»¸ö»ú¹Ø¼¤»î£¬¾Í¿ªÆô¼ÓËÙÏûÉ¢
+        // Ö»Òªï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½î£¬ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¢
         isAnyTrapActive = activeTrapCount > 0;
     }
     #endregion
 
-    // ¼¼ÄÜ·¶Î§
+    // ï¿½ï¿½ï¿½Ü·ï¿½Î§
     void OnDrawGizmosSelected()
     {
-        // ±ù±¬·¶Î§
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, iceBlastRange);
-        // Ñ©»¨ÉÈÐÎ·¶Î§
+        // Ñ©ï¿½ï¿½ï¿½ï¿½ï¿½Î·ï¿½Î§
         Gizmos.color = Color.white;
         DrawFanShape(bulletSpawnPoint != null ? bulletSpawnPoint.position : transform.position, snowFlakeRange, snowFlakeAngle);
     }
 
-    // »æÖÆÉÈÐÎGizmos£¨µ÷ÊÔÑ©»¨¼¼ÄÜ£©
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Gizmosï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ©ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½
     void DrawFanShape(Vector3 center, float radius, float angle)
     {
         float startAngle = transform.eulerAngles.z - angle / 2;
