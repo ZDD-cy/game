@@ -367,4 +367,4 @@ MonoBehaviour:
   currentHp: 0
   enemyName: "\u666E\u901A\u654C\u4EBA"
   defense: 2
-  damagePopupPrefab: {fileID: 0}
+  damagePopupPrefab: {fileID: 4937998890138807307, guid: a715d07ca71ac9946bb9a9413ac71c2d, type: 3}
