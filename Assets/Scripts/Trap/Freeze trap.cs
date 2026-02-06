@@ -1,4 +1,4 @@
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,10 +38,8 @@ public class IceTrap : MonoBehaviour
                 // 标记玩家状态
                 player.isInIceTrap = true;
                 player.isFrozen = true;
-
-                // 应用减速效果
-                player.ApplySlow(slowDownRate, effectDuration);
-
+                player.ApplySlow(slowDownRate,effectDuration);
+               
                 // 启动持续伤害协程
                 StartCoroutine(PlayerTakeDamage(player));
                 if (player.currentHealth > 0)
@@ -64,7 +62,7 @@ public class IceTrap : MonoBehaviour
             }
         }
     }
-
+    
 
     IEnumerator PlayerTakeDamage(Player player)
     {
@@ -89,7 +87,7 @@ public class IceTrap : MonoBehaviour
             player.isFrozen = false;
         }
 
-        // 如果陷阱可以重复使用，就重置它
+        // 陷阱可以重复使用重置
         if (trapCooldown > 0)
         {
             yield return new WaitForSeconds(trapCooldown);

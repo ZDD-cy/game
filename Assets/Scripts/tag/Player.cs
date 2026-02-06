@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     // 新增 ApplySlow 方法
     public void ApplySlow(float slowAmount, float duration)
     {
+        Debug.Log($"减速效果被调用：速率{slowAmount},持续{duration}秒");
         StartCoroutine(SlowCoroutine(slowAmount, duration));
     }
 
@@ -88,7 +89,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         // 应用移动
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * currentSpeed * Time.fixedDeltaTime);
     }
 
     // 受伤
