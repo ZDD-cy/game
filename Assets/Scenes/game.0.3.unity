@@ -821,6 +821,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frostDuration: 5
+--- !u!114 &1427845253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871973024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde54e3e58d21f5479aad86b708f23d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRightClickSelect: 1
+  isAutoFindNearest: 0
+  autoFindRange: 10
+  attackInterval: 2
+  dashLineColor: {r: 1, g: 1, b: 1, a: 1}
+  solidLineColor: {r: 1, g: 0, b: 0, a: 1}
+  lineWidth: 0.1
+  dashLineGap: 0.2
+  rayDamage: 5
+  rayRange: 15
 --- !u!1 &1533771387
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,10 +909,8 @@ GameObject:
   - component: {fileID: 1558768703}
   - component: {fileID: 1558768705}
   - component: {fileID: 1558768706}
-  - component: {fileID: 1558768708}
-  - component: {fileID: 1558768707}
   - component: {fileID: 1558768709}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BOSS-Ice
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -958,7 +978,7 @@ Transform:
   m_GameObject: {fileID: 1558768697}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 79.26, y: -0.4, z: 0}
+  m_LocalPosition: {x: 79.74, y: -0.66, z: 0}
   m_LocalScale: {x: 5.141535, y: 4.927287, z: 5.141535}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1101,39 +1121,6 @@ CircleCollider2D:
   m_Offset: {x: 0.00999999, y: 0.39499998}
   serializedVersion: 2
   m_Radius: 0.375
---- !u!114 &1558768707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1558768697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e29e966ec48ebf42a08e0a22009f59b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageText: {fileID: 0}
-  moveSpeed: 2
-  lifetime: 1
-  rotateSpeed: 360
---- !u!114 &1558768708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1558768697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79278d6775a0312459b6646a76d9749a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHp: 500
-  currentHp: 500
-  enemyName: boss-ice
-  defense: 0
-  damagePopupPrefab: {fileID: 0}
 --- !u!114 &1558768709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,6 +1134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 500
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
 --- !u!1 &1562015446
@@ -1158,7 +1147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1562015447}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BulletSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5913,6 +5902,10 @@ PrefabInstance:
       propertyPath: rb
       value: 
       objectReference: {fileID: 1558768702}
+    - target: {fileID: 1652585130734626943, guid: a1190497243929e4097763d090a0e50c, type: 3}
+      propertyPath: isFrozen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2290132184065898250, guid: a1190497243929e4097763d090a0e50c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -6045,13 +6038,17 @@ PrefabInstance:
       propertyPath: enemyLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1609271029009076803, guid: a1190497243929e4097763d090a0e50c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2290132184065898250, guid: a1190497243929e4097763d090a0e50c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1427845246}
+    - targetCorrespondingSourceObject: {fileID: 2290132184065898250, guid: a1190497243929e4097763d090a0e50c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1427845253}
   m_SourcePrefab: {fileID: 100100000, guid: a1190497243929e4097763d090a0e50c, type: 3}
 --- !u!1001 &5666415243735314526
 PrefabInstance:
