@@ -6,12 +6,21 @@ public class EnemyStatus : MonoBehaviour
 {
     [Header("基础属性")]
     public int hp = 20; // 敌人血量，可按需改
+    public float currentHp;
+    [Tooltip("输入敌人名字")]
+    public string enemyName = "敌人";
+
     [Header("Debuff默认配置")]
     public int debuffPerSecDamage = 1; // 每秒Debuff伤害（默认1点）
     public float debuffDuration = 4f; // Debuff持续时间（默认4s）
 
     private int currentDebuffLayer; // 当前Debuff层数
     private float debuffTimer; // Debuff计时（每层独立，取最大值）
+
+    private void Start()
+    {
+        currentHp = hp;
+    }
 
     void Update()
     {
@@ -30,11 +39,17 @@ public class EnemyStatus : MonoBehaviour
     // 接收伤害（整数/浮点型兼容）
     public void TakeDamage(float damage)
     {
-        hp -= Mathf.RoundToInt(damage);
+      
+        float lastHp = currentHp;
+        float finalDamage = damage;
         if (hp <= 0)
         {
             Die();
         }
+        //扣血
+        currentHp -= finalDamage;
+        currentHp = Mathf.Max(currentHp, 0);
+        Debug.Log($"【{enemyName} - 受到伤害】受击{finalDamage:F1}点 | 血量变化：{lastHp:F1} → {currentHp:F1} | 剩余：{currentHp:F1}/{hp:F1}");
     }
 
     // 添加Debuff（叠加层数，重置计时）
