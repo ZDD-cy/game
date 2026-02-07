@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
@@ -37,6 +37,7 @@ public class EnemyTakeDamage : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
     // 辅助方法：显示伤害数字
     private void ShowDamagePopup(float damage)
     {

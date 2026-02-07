@@ -16,8 +16,6 @@ GameObject:
   - component: {fileID: 7403297627799283369}
   - component: {fileID: 6063544426881154820}
   - component: {fileID: 1652585130734626943}
-  - component: {fileID: 5335048231080871043}
-  - component: {fileID: 9145970530383988815}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -140,16 +138,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde54e3e58d21f5479aad86b708f23d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 5
-  damagePerSecond: 20
-  attackKey: 323
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  attackPoint: {fileID: 3614734535510980040, guid: b42a85f080f95b4428638d2da2b71cf5, type: 3}
+  isRightClickSelect: 0
+  isAutoFindNearest: 1
+  autoFindRange: 10
+  attackInterval: 2
+  dashLineColor: {r: 1, g: 1, b: 1, a: 1}
+  solidLineColor: {r: 1, g: 0, b: 0, a: 1}
+  lineWidth: 0.1
+  dashLineGap: 0.2
 --- !u!50 &7518779027024191820
 Rigidbody2D:
   serializedVersion: 4
@@ -314,42 +310,6 @@ MonoBehaviour:
   currentHealth: 100
   rb: {fileID: 0}
   movement: {x: 0, y: 0}
---- !u!114 &5335048231080871043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2290132184065898250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d6a0249c37373541b2ccab668801ecb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDelay: 2
-  debuffDamagePerSec: 1
-  debuffDuration: 4
-  attackKey: 106
-  attackLine: {fileID: 0}
-  dashedLineMaterial: {fileID: 0}
-  solidLineMaterial: {fileID: 0}
---- !u!114 &9145970530383988815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2290132184065898250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecfe541ee81e3274b9219330e12b35b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockRange: 5
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  switchTargetKey: 9
 --- !u!1 &7531868848054813056
 GameObject:
   m_ObjectHideFlags: 0

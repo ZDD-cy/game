@@ -821,42 +821,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frostDuration: 5
---- !u!114 &1427845247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 871973024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d6a0249c37373541b2ccab668801ecb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDelay: 2
-  debuffDamagePerSec: 1
-  debuffDuration: 4
-  attackKey: 106
-  attackLine: {fileID: 0}
-  dashedLineMaterial: {fileID: 0}
-  solidLineMaterial: {fileID: 0}
---- !u!114 &1427845248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 871973024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecfe541ee81e3274b9219330e12b35b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockRange: 5
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  switchTargetKey: 9
 --- !u!1 &1533771387
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,7 +887,10 @@ GameObject:
   - component: {fileID: 1558768703}
   - component: {fileID: 1558768705}
   - component: {fileID: 1558768706}
-  m_Layer: 8
+  - component: {fileID: 1558768708}
+  - component: {fileID: 1558768707}
+  - component: {fileID: 1558768709}
+  m_Layer: 0
   m_Name: BOSS-Ice
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1134,6 +1101,54 @@ CircleCollider2D:
   m_Offset: {x: 0.00999999, y: 0.39499998}
   serializedVersion: 2
   m_Radius: 0.375
+--- !u!114 &1558768707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558768697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e29e966ec48ebf42a08e0a22009f59b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageText: {fileID: 0}
+  moveSpeed: 2
+  lifetime: 1
+  rotateSpeed: 360
+--- !u!114 &1558768708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558768697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79278d6775a0312459b6646a76d9749a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 500
+  currentHp: 500
+  enemyName: boss-ice
+  defense: 0
+  damagePopupPrefab: {fileID: 0}
+--- !u!114 &1558768709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558768697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 500
+  debuffPerSecDamage: 1
+  debuffDuration: 4
 --- !u!1 &1562015446
 GameObject:
   m_ObjectHideFlags: 0
@@ -4943,6 +4958,54 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &2023025324
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2023025326}
+  - component: {fileID: 2023025325}
+  m_Layer: 0
+  m_Name: Damage Popup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2023025325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023025324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e29e966ec48ebf42a08e0a22009f59b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageText: {fileID: 0}
+  moveSpeed: 2
+  lifetime: 1
+  rotateSpeed: 360
+--- !u!4 &2023025326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023025324}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 81.52942, y: 1.4309272, z: -0.09709483}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2053357618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5838,6 +5901,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1609271029009076803, guid: a1190497243929e4097763d090a0e50c, type: 3}
+      propertyPath: isAutoFindNearest
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609271029009076803, guid: a1190497243929e4097763d090a0e50c, type: 3}
+      propertyPath: isRightClickSelect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1652585130734626943, guid: a1190497243929e4097763d090a0e50c, type: 3}
       propertyPath: rb
       value: 
@@ -5981,12 +6052,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2290132184065898250, guid: a1190497243929e4097763d090a0e50c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1427845246}
-    - targetCorrespondingSourceObject: {fileID: 2290132184065898250, guid: a1190497243929e4097763d090a0e50c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1427845248}
-    - targetCorrespondingSourceObject: {fileID: 2290132184065898250, guid: a1190497243929e4097763d090a0e50c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1427845247}
   m_SourcePrefab: {fileID: 100100000, guid: a1190497243929e4097763d090a0e50c, type: 3}
 --- !u!1001 &5666415243735314526
 PrefabInstance:
@@ -6068,3 +6133,4 @@ SceneRoots:
   - {fileID: 2053357618}
   - {fileID: 11498245}
   - {fileID: 1533771389}
+  - {fileID: 2023025326}

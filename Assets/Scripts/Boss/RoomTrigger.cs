@@ -1,21 +1,20 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomTrigger : MonoBehaviour
 {
-    // ÒıÓÃÄãµÄ FightActive ½Å±¾
+    // å¼•ç”¨ä½ çš„ FightActive è„šæœ¬
     public FightActive fightActive;
-
-    // µ±Íæ¼Ò½øÈë´¥·¢Æ÷Ê±
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("player") && fightActive != null)
         {
-            // µ÷ÓÃ FightActive ÀïµÄ StartFight() ·½·¨
+            // å¯åŠ¨æˆ˜æ–—
             fightActive.StartFight();
-            // ´¥·¢Ò»´Îºó¾Í½ûÓÃ´¥·¢Æ÷£¬·ÀÖ¹ÖØ¸´´¥·¢
+            // å…³é—­è§¦å‘å™¨é˜²æ­¢é‡å¤è§¦å‘
             GetComponent<Collider2D>().enabled = false;
         }
     }
+
 }
