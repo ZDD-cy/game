@@ -296,6 +296,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 6103041402814176385, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
+      propertyPath: m_TagString
+      value: player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -3141,7 +3145,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355920637}
-  m_BodyType: 1
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -3431,6 +3435,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3396068323301747401, guid: 8bf766c98ca7c844c982a238ac108876, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396068323301747401, guid: 8bf766c98ca7c844c982a238ac108876, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6504852920445273967, guid: 8bf766c98ca7c844c982a238ac108876, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35.41
@@ -3473,15 +3485,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8512823807184163872, guid: 8bf766c98ca7c844c982a238ac108876, type: 3}
       propertyPath: m_Color.b
-      value: 0.91194963
+      value: 0.9229263
       objectReference: {fileID: 0}
     - target: {fileID: 8512823807184163872, guid: 8bf766c98ca7c844c982a238ac108876, type: 3}
       propertyPath: m_Color.g
-      value: 0.89413095
+      value: 0.9229263
       objectReference: {fileID: 0}
     - target: {fileID: 8512823807184163872, guid: 8bf766c98ca7c844c982a238ac108876, type: 3}
       propertyPath: m_Color.r
-      value: 0.37567732
+      value: 0.9622642
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
