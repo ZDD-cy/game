@@ -10,11 +10,9 @@ public class SnowFlakeBullet : MonoBehaviour
 
     [Header("视觉效果设置")]
     public float rotateSpeed = 90f;
-    public float minScale = 0.8f;
-    public float maxScale = 1.2f;
+    public float minScale = 250f;
+    public float maxScale = 400f;
     public float scaleSpeed = 1f;
-    public float fadeOutTime = 2f;
-    public float fadeDuration = 1f;
 
     [Header("伤害设置")]
     public int damage = 10;
@@ -24,117 +22,103 @@ public class SnowFlakeBullet : MonoBehaviour
     private Vector2 moveDir;
     private float travelDistance;
     private float scaleOffset;
-    private float timer;
 
-    
-
-    void OnDestroy()
+    // 初始化只执行一次
+    void Awake()
     {
-        Debug.Log($"子弹 {gameObject.name} 被销毁，当前场景时间: {Time.time}");
-    }
-
-    void Start()
-    {
-        // 初始化组件
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        if (rb == null) rb = gameObject.AddComponent<Rigidbody2D>();
-        rb.gravityScale = 0;
 
-        // 随机缩放偏移，让每个雪花效果不同
-        scaleOffset = Random.Range(0f, Mathf.PI * 2f);
-        timer = 0;
-        travelDistance = 0;
-
-        // 超时自动回收
-        StartCoroutine(RecoverAfterTime(5f));
-        // 新增超时回收协程
-        IEnumerator RecoverAfterTime(float delay)
+        // 强制可见，解决看不见子弹
+        if (sr != null)
         {
-            yield return new WaitForSeconds(delay);
-            // 超时后执行回收
-            travelDistance = 0;
-            gameObject.SetActive(false);
+            sr.enabled = true;
+            sr.sortingOrder = 30;
+            Color c = sr.color;
+            c.a = 1;
+            sr.color = c;
         }
+
+        // 物理固定
+        if (rb != null)
+        {
+            rb.gravityScale = 0;
+            rb.bodyType = RigidbodyType2D.Dynamic;
+        }
+
+        // 碰撞体
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+        {
+            col.isTrigger = true;
+        }
+    }
+
+    // 每次从对象池激活时重置状态
+    void OnEnable()
+    {
+        // 重置位置Z轴，保证可见
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        transform.localScale = Vector3.one;
+        travelDistance = 0;
+        scaleOffset = Random.Range(0, Mathf.PI * 2);
+
+        // 强制开启渲染与碰撞
+        if (sr != null) sr.enabled = true;
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = true;
     }
 
     void Update()
     {
-        // 飞行逻辑
-        Vector2 moveStep = moveDir * moveSpeed * Time.deltaTime;
-        rb.velocity = moveStep;
-        travelDistance += moveStep.magnitude;
+        // 未激活不运行
+        if (!gameObject.activeSelf) return;
 
-        // 超出射程回收
+        // 飞行
+        rb.velocity = moveDir * moveSpeed;
+        travelDistance += rb.velocity.magnitude * Time.deltaTime;
+
+        // 超出射程 → 回收，不销毁
         if (travelDistance >= maxRange)
-        {
-            travelDistance = 0;
-            gameObject.SetActive(false);    
-        }
+            RecycleBullet();
 
-        // 旋转效果
+        // 旋转
         transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
 
-        // 呼吸式缩放
+        // 呼吸缩放
         float scale = Mathf.Lerp(minScale, maxScale, Mathf.Sin(Time.time * scaleSpeed + scaleOffset) * 0.5f + 0.5f);
-        transform.localScale = Vector3.one * scale;
-
-        // 透明度渐变
-        timer += Time.deltaTime;
-        if (timer >= fadeOutTime && sr != null)
-        {
-            float alpha = Mathf.Lerp(1f, 0f, (timer - fadeOutTime) / fadeDuration);
-            Color color = sr.color;
-            color.a = alpha;
-            sr.color = color;
-
-            if (alpha <= 0)
-            {
-
-                //  改为隐藏，以便对象池复用
-                gameObject.SetActive(false);
-
-                // 重置透明度，下次激活时能正常显示
-                if (sr != null)
-                {
-                    color = sr.color;
-                    color.a = 1f;
-                    sr.color = color;
-                }
-                // 重置计时器
-                timer = 0f;
-            }
-        }
+        transform.localScale = new Vector3(scale, scale, 1);
     }
 
-    // 设置弹幕飞行方向
+    // 【你要的：回收，不销毁！】
+    void RecycleBullet()
+    {
+        rb.velocity = Vector2.zero;
+        gameObject.SetActive(false);
+    }
+
+    // 适配你BOSS的2个参数调用，完全兼容，不报参数错
     public void SetDirection(Vector2 dir, float snowFlakeRange)
     {
-
-        // 重置飞行距离
-        travelDistance = 0;
-        moveDir = dir;
-
-        // 恢复碰撞体和渲染
-        Collider2D collider = GetComponent<Collider2D>();
-        if (collider != null)
-            collider.enabled = true;
-
-        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-        if (renderer != null)
-            renderer.enabled = true; Debug.Log($"子弹 {gameObject.name} 开始飞行，方向: {dir}，射程: {maxRange}");
         moveDir = dir.normalized;
         maxRange = snowFlakeRange;
+        travelDistance = 0;
     }
 
-    // 碰撞玩家
-    void OnTriggerEnter2D(Collider2D other)
+    // 碰撞命中 → 回收，不销毁
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!gameObject.activeSelf) return;
+
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<Player>()?.TakeDamage(damage);
-            travelDistance = 0;
-            gameObject.SetActive(false);
+            Player p = other.GetComponent<Player>();
+            if (p != null)
+                p.TakeDamage(damage);
+
+            // 命中也回收，不销毁
+            RecycleBullet();
         }
     }
 }
+

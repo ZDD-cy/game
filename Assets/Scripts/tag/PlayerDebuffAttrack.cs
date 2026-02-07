@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,10 +38,7 @@ public class PlayerDebuffAttack : MonoBehaviour
             attackLine.positionCount = 2;
             attackLine.enabled = false;
         }
-        else
-        {
-            Debug.LogError("请在 Inspector 中指定 LineRenderer！", this);
-        }
+        
     }
 
     void Update()
