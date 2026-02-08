@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -22,7 +21,7 @@ public class Player : MonoBehaviour
     }
 
     // 减速协程
-    public IEnumerator SlowCoroutine(float slowAmount, float duration)
+    private IEnumerator SlowCoroutine(float slowAmount, float duration)
     {
         currentSpeed = moveSpeed * (1 - slowAmount);
         yield return new WaitForSeconds(duration);
@@ -36,7 +35,7 @@ public class Player : MonoBehaviour
     }
 
     // 燃烧协程
-    public IEnumerator BurnCoroutine(float damagePerSecond, float duration)
+    private IEnumerator BurnCoroutine(float damagePerSecond, float duration)
     {
         float timer = 0f;
         while (timer < duration)
@@ -46,11 +45,6 @@ public class Player : MonoBehaviour
             yield return null;
         }
     }
-
-
-
-
-
 
     [Header("移动设置")]
     [SerializeField] public float moveSpeed = 3f;
@@ -71,6 +65,9 @@ public class Player : MonoBehaviour
         // 初始化血量
         currentHealth = maxHealth;
         Debug.Log("玩家初始化完成，生命值: " + currentHealth + "/" + maxHealth);
+        
+        // 初始化速度
+        ResetSpeed();
     }
 
     void Update()
@@ -89,7 +86,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         // 应用移动
-        rb.MovePosition(rb.position + movement * currentSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * (currentSpeed * Time.fixedDeltaTime));
     }
 
     // 受伤
@@ -104,7 +101,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Die()
+    private void Die()
     {
         Debug.Log("玩家死亡！");
         gameObject.SetActive(false);
