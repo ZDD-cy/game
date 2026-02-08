@@ -84,8 +84,8 @@ public class EnemyStatus : MonoBehaviour
         if (damagePopupPrefab != null)
         {
             GameObject popup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
-            popup.GetComponent<DamagePopup>().SetDamage(Mathf.RoundToInt(damage));
-            //Destroy(popup, 1f);
+            popup.transform.SetParent(gameObject.transform);
+            popup.GetComponent<DamagePopup>().SetDamage(damage);
         }
     }
 }

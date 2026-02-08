@@ -9,33 +9,51 @@ public class DamagePopup : MonoBehaviour
     [SerializeField] private TextMeshPro damageText;
 
     [Tooltip("伤害数字弹出后上升的速度")]
-    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float moveSpeed = 3f;
 
     [Tooltip("伤害数字存在的时间（秒）")]
-    [SerializeField] private float lifetime = 1f;
-
-    [Tooltip("伤害数字上升时的旋转角度（度/秒）")]
-    [SerializeField] private float rotateSpeed = 360f;
+    [SerializeField] private float lifetime = 3f;
 
     private float timer;
 
+    void Start()
+    {
+        float randomAngle = Random.Range(-20, 20);
+        float randomX = Random.Range(-3, 3)*0.1f;
+        var vector3 = transform.position;
+        vector3.x += randomX;
+        vector3.y += 1;
+        transform.position = vector3;
+        transform.Rotate(0, 0, randomAngle);
+    }
+
     void Update()
     {
-        // 让伤害数字向上移动
-        transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
-        // 让伤害数字旋转
-        transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
-
-        // 计时，时间到了就销毁
-        timer += Time.deltaTime;
-        if (timer >= lifetime)
+        if (timer < lifetime)
         {
-            Destroy(gameObject);
+            // 计算时间比例
+            float t = timer / lifetime;
+        
+            // 使用缓出函数
+            float easedT = 1 - Mathf.Pow(1 - t, 2);
+        
+            // 计算当前帧的移动速度（随时间递减）
+            float currentSpeed = moveSpeed * (1 - easedT);
+        
+            // 插值到目标位置
+            transform.Translate(Vector2.up * (currentSpeed * Time.deltaTime));
+        
+            // 计时，时间到了就销毁
+            timer += Time.deltaTime;
+            if (timer >= lifetime)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
     // 设置要显示的伤害值
-    public void SetDamage(int damage)
+    public void SetDamage(float damage)
     {
         string formatted = damage.ToString("0.00"); 
         damageText.text = formatted;
