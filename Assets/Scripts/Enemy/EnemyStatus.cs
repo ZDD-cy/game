@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyStatus : MonoBehaviour
 {
@@ -14,8 +12,13 @@ public class EnemyStatus : MonoBehaviour
     public int debuffPerSecDamage = 1; // 每秒Debuff伤害（默认1点）
     public float debuffDuration = 4f; // Debuff持续时间（默认4s）
 
+    [Tooltip("伤害数字每多少秒出现一次")]
+    [SerializeField] private float popupfreq = 0.5f;
+    
     private int currentDebuffLayer; // 当前Debuff层数
     private float debuffTimer; // Debuff计时（每层独立，取最大值）
+    private float popuptimer;
+    private float deltadamage;
 
     public GameObject damagePopupPrefab;      //声明伤害预制体
     
@@ -30,6 +33,12 @@ public class EnemyStatus : MonoBehaviour
         if (debuffTimer > 0)
         {
             debuffTimer -= Time.deltaTime;
+            popuptimer += Time.deltaTime;
+            if (popuptimer >= popupfreq) {
+                ShowDamagePopup(deltadamage);
+                popuptimer = 0.0f;
+                deltadamage = 0.0f;
+            }
             TakeDamage(debuffPerSecDamage * Time.deltaTime); // 每秒掉血，浮点型避免帧跳
         }
         else
@@ -49,9 +58,9 @@ public class EnemyStatus : MonoBehaviour
             Die();
         }
         //扣血
-        ShowDamagePopup(finalDamage);
+        deltadamage += finalDamage;
         currentHp -= finalDamage;
-        currentHp = Mathf.Max(currentHp, 0);
+        //currentHp = Mathf.Max(currentHp, 0); 减少不必要的计算量
         Debug.Log($"【{enemyName} - 受到伤害】受击{finalDamage:F1}点 | 血量变化：{lastHp:F1} → {currentHp:F1} | 剩余：{currentHp:F1}/{hp:F1}");
     }
 
