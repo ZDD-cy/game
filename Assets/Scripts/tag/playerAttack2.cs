@@ -301,8 +301,8 @@ public class PlayerTargetAttack : MonoBehaviour
             Vector2.Distance(transform.position, currentTarget.position) > autoFindRange * 1.5f ||
             targetStatus.currentHp <= 0)
         {
-            ClearTarget();
             Debug.Log($"[目标失效] {currentTarget.name} 已死亡/超出范围，清空目标");
+            ClearTarget();
         }
     }
 

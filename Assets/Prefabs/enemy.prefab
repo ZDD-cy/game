@@ -109,7 +109,7 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
-  damagePopupPrefab: {fileID: 0}
+  damagePopupPrefab: {fileID: 4937998890138807307, guid: a715d07ca71ac9946bb9a9413ac71c2d, type: 3}
 --- !u!114 &6462946467899611673
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4425216122359742707}
   - component: {fileID: 7868501588340862552}
   - component: {fileID: 1588443850675245422}
+  - component: {fileID: 2104032925202907731}
   m_Layer: 0
   m_Name: DamagePopup
   m_TagString: Untagged
@@ -99,7 +100,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: test
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cc07cf13b9cee8b4a8856238beb57c98, type: 2}
   m_sharedMaterial: {fileID: -5506522700053702118, guid: cc07cf13b9cee8b4a8856238beb57c98, type: 2}
@@ -171,3 +172,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 7868501588340862552}
   m_maskType: 0
+--- !u!114 &2104032925202907731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4937998890138807307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e29e966ec48ebf42a08e0a22009f59b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageText: {fileID: 1588443850675245422}
+  moveSpeed: 2
+  lifetime: 1
+  rotateSpeed: 360

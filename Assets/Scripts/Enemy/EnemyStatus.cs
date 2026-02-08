@@ -66,11 +66,11 @@ public class EnemyStatus : MonoBehaviour
     // 敌人死亡逻辑（清空目标、销毁/回收）
     private void Die()
     {
-        // 通知玩家脚本清空目标（避免空引用）
-        FindObjectOfType<PlayerTargetAttack>().ClearTarget();
         // 敌人死亡：销毁/回收，按需选择
         // Destroy(gameObject); 
         gameObject.SetActive(false);
+        // 通知玩家脚本清空目标（避免空引用）
+        FindObjectOfType<PlayerTargetAttack>().ClearTarget();
     }
 
     // 获取当前是否有Debuff
@@ -85,7 +85,7 @@ public class EnemyStatus : MonoBehaviour
         {
             GameObject popup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
             popup.GetComponent<DamagePopup>().SetDamage(Mathf.RoundToInt(damage));
-            Destroy(popup, 1f);
+            //Destroy(popup, 1f);
         }
     }
 }

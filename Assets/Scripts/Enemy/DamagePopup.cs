@@ -37,6 +37,7 @@ public class DamagePopup : MonoBehaviour
     // 设置要显示的伤害值
     public void SetDamage(int damage)
     {
-        damageText.text = damage.ToString();
+        string formatted = damage.ToString("0.00"); 
+        damageText.text = formatted;
     }
 }
