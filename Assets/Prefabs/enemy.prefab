@@ -10,15 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 9115158576419096362}
   - component: {fileID: 5915985038480905317}
-  - component: {fileID: 1546130924583234768}
-  - component: {fileID: 6462946467899611673}
   - component: {fileID: 800285102788979340}
   - component: {fileID: 6289597180744624390}
   - component: {fileID: 239766306191963602}
   - component: {fileID: 8748519092553848723}
+  - component: {fileID: 2892612501161207078}
   - component: {fileID: 5685010868885255250}
-  - component: {fileID: 4352199116189061382}
-  m_Layer: 3
+  - component: {fileID: 4987073456373794031}
+  m_Layer: 8
   m_Name: enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -80,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -960248618445064866, guid: 011782d7a7cf4f444b4f8053e6c9b01f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -229,42 +228,7 @@ MonoBehaviour:
   patrolAngle: 120
   patrolDuration: 4
   stayDuration: 2
---- !u!58 &5685010868885255250
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954939301359306071}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.05, y: 0.9}
-  serializedVersion: 2
-  m_Radius: 0.74
---- !u!120 &4352199116189061382
+--- !u!120 &2892612501161207078
 LineRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
@@ -311,7 +275,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.05
+    widthMultiplier: 1
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -368,3 +332,55 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!58 &5685010868885255250
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954939301359306071}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.05, y: 0.9}
+  serializedVersion: 2
+  m_Radius: 0.74
+--- !u!114 &4987073456373794031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954939301359306071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
