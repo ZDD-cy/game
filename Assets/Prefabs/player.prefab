@@ -14,9 +14,7 @@ GameObject:
   - component: {fileID: 2234507738633100131}
   - component: {fileID: 2094664474070058322}
   - component: {fileID: -4579930708068039314}
-  - component: {fileID: -297398213937551345}
   - component: {fileID: -7503542601337049075}
-  - component: {fileID: 2089428114345452693}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -279,28 +277,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &-297398213937551345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6103041402814176385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fde54e3e58d21f5479aad86b708f23d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isRightClickSelect: 0
-  isAutoFindNearest: 1
-  autoFindRange: 10
-  attackInterval: 2
-  dashLineColor: {r: 1, g: 1, b: 1, a: 1}
-  solidLineColor: {r: 1, g: 0, b: 0, a: 1}
-  lineWidth: 0.1
-  dashLineGap: 0.2
-  rayDamage: 5
-  rayRange: 15
 --- !u!114 &-7503542601337049075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,15 +298,3 @@ MonoBehaviour:
   currentHealth: 0
   rb: {fileID: 0}
   movement: {x: 0, y: 0}
---- !u!114 &2089428114345452693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6103041402814176385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3daf80e92c1f4f941815e66ae83f2fe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

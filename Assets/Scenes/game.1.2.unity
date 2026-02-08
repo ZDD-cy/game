@@ -177,8 +177,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 14524730}
   m_SourcePrefab: {fileID: 100100000, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+--- !u!1 &14524729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+  m_PrefabInstance: {fileID: 14524728}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &14524730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14524729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &110850405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -234,8 +261,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 110850407}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &110850406 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 110850405}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &110850407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110850406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &153190073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -291,8 +345,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 153190075}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &153190074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 153190073}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &153190075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153190074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &189784042
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -348,8 +429,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 189784044}
   m_SourcePrefab: {fileID: 100100000, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+--- !u!1 &189784043 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+  m_PrefabInstance: {fileID: 189784042}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &189784044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189784043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &198725274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -405,8 +513,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 198725276}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &198725275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 198725274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &198725276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198725275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &218566846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -462,8 +597,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 218566848}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &218566847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 218566846}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &218566848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218566847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &235210213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -519,8 +681,57 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 235210216}
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 235210215}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &235210214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 235210213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &235210215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235210214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
+--- !u!114 &235210216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235210214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!4 &339250551 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1334785714647791731, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
@@ -581,8 +792,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 578535645}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &578535644 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 578535643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &578535645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578535644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &599364774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -638,8 +876,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 599364776}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &599364775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 599364774}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &599364776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599364775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &696555869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -695,8 +960,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 696555871}
   m_SourcePrefab: {fileID: 100100000, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+--- !u!1 &696555870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+  m_PrefabInstance: {fileID: 696555869}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &696555871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696555870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &706726952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -752,8 +1044,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 706726954}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &706726953 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 706726952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &706726954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706726953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &728547399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -809,8 +1128,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 728547401}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &728547400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 728547399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &728547401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728547400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &843424752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -866,8 +1212,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 843424754}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &843424753 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 843424752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &843424754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843424753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &883539713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -923,8 +1296,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 883539715}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &883539714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 883539713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &883539715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883539714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &918497123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -980,8 +1380,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 918497125}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &918497124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 918497123}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &918497125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918497124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1 &976074149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,8 +1510,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1006237359}
   m_SourcePrefab: {fileID: 100100000, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+--- !u!1 &1006237358 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+  m_PrefabInstance: {fileID: 1006237357}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1006237359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006237358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1052986181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1140,8 +1594,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1052986183}
   m_SourcePrefab: {fileID: 100100000, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+--- !u!1 &1052986182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+  m_PrefabInstance: {fileID: 1052986181}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1052986183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052986182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1069850822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1197,8 +1678,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1069850824}
   m_SourcePrefab: {fileID: 100100000, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+--- !u!1 &1069850823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+  m_PrefabInstance: {fileID: 1069850822}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1069850824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069850823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1100095592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1254,8 +1762,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1100095594}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &1100095593 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 1100095592}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1100095594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100095593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1112320578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1311,8 +1846,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1112320580}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &1112320579 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 1112320578}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1112320580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112320579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1136937503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1368,8 +1930,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1136937505}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &1136937504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 1136937503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1136937505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136937504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1187974632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1425,8 +2014,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1187974634}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &1187974633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 1187974632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1187974634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187974633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1189892488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1482,8 +2098,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1189892490}
   m_SourcePrefab: {fileID: 100100000, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+--- !u!1 &1189892489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+  m_PrefabInstance: {fileID: 1189892488}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1189892490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189892489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1340638013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1607,8 +2250,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1425125397}
   m_SourcePrefab: {fileID: 100100000, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+--- !u!1 &1425125396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+  m_PrefabInstance: {fileID: 1425125395}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1425125397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425125396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1447053628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1664,8 +2334,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1447053630}
   m_SourcePrefab: {fileID: 100100000, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+--- !u!1 &1447053629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+  m_PrefabInstance: {fileID: 1447053628}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1447053630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447053629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1480647689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1721,8 +2418,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1480647691}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &1480647690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 1480647689}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1480647691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480647690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1564233310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1778,8 +2502,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1564233312}
   m_SourcePrefab: {fileID: 100100000, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+--- !u!1 &1564233311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+  m_PrefabInstance: {fileID: 1564233310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1564233312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564233311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1635168713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1835,8 +2586,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1635168715}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &1635168714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 1635168713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1635168715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635168714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1649518825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1892,8 +2670,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1649518827}
   m_SourcePrefab: {fileID: 100100000, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+--- !u!1 &1649518826 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+  m_PrefabInstance: {fileID: 1649518825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1649518827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649518826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1653987733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1949,8 +2754,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1653987735}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &1653987734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 1653987733}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1653987735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653987734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1 &1657702598
 GameObject:
   m_ObjectHideFlags: 0
@@ -14421,8 +15253,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1798107075}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &1798107074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 1798107073}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1798107075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798107074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1817240033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14478,8 +15337,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1817240035}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &1817240034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 1817240033}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1817240035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817240034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1 &1846550562
 GameObject:
   m_ObjectHideFlags: 0
@@ -16398,8 +17284,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1903473595}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &1903473594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 1903473593}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1903473595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903473594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1929231685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16455,8 +17368,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1929231687}
   m_SourcePrefab: {fileID: 100100000, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+--- !u!1 &1929231686 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+  m_PrefabInstance: {fileID: 1929231685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1929231687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929231686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1937273305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16512,8 +17452,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1937273307}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &1937273306 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 1937273305}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1937273307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937273306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1973425614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16569,8 +17536,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1973425616}
   m_SourcePrefab: {fileID: 100100000, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+--- !u!1 &1973425615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3822493444322999272, guid: ebc07870e013de24b85f1caf86a346af, type: 3}
+  m_PrefabInstance: {fileID: 1973425614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1973425616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973425615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &1990302742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16626,8 +17620,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1990302744}
   m_SourcePrefab: {fileID: 100100000, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+--- !u!1 &1990302743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+  m_PrefabInstance: {fileID: 1990302742}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1990302744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990302743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1001 &2111387251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16683,8 +17704,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2111387253}
   m_SourcePrefab: {fileID: 100100000, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+--- !u!1 &2111387252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5865845527219973007, guid: e0f3985fe50418e449829d964798fc26, type: 3}
+  m_PrefabInstance: {fileID: 2111387251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2111387253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111387252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

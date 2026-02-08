@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4352028469225820234}
   - component: {fileID: 6101068310492378461}
   - component: {fileID: 2713764070085946164}
-  - component: {fileID: 2837195739738265429}
   - component: {fileID: 3264199435198620609}
   - component: {fileID: 6484499087597049477}
   - component: {fileID: -775932754525327993}
@@ -136,21 +135,6 @@ MonoBehaviour:
   patrolAngle: 120
   patrolDuration: 4
   stayDuration: 2
---- !u!114 &2837195739738265429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3822493444322999272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3065889244c864d488687fb851766017, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  chaseRadius: 8
-  moveSpeed: 3
 --- !u!114 &3264199435198620609
 MonoBehaviour:
   m_ObjectHideFlags: 0
