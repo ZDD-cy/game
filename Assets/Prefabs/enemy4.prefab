@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 2124010257865558902}
   - component: {fileID: 8512323506353995177}
   - component: {fileID: 3807793552139647641}
+  - component: {fileID: 3363086864507011982}
+  - component: {fileID: 844817126514935254}
+  - component: {fileID: 8933159337947721104}
   m_Layer: 0
   m_Name: enemy4
   m_TagString: Untagged
@@ -169,3 +172,62 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &3363086864507011982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5865845527219973007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a674b0ab5df6d4abfa2d0757f1e2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalHitEffect: {fileID: 0}
+  burnEffect: {fileID: 0}
+  freezeEffect: {fileID: 0}
+  knockbackEffect: {fileID: 0}
+  rockHitEffect: {fileID: 0}
+  hitClip: {fileID: 0}
+  burnClip: {fileID: 0}
+  freezeClip: {fileID: 0}
+  knockbackClip: {fileID: 0}
+  rockHitClip: {fileID: 0}
+  hitStunTime: 0.2
+  rockKnockupForce: 6
+  burnEffectInterval: 0.5
+--- !u!114 &844817126514935254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5865845527219973007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+--- !u!114 &8933159337947721104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5865845527219973007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79278d6775a0312459b6646a76d9749a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 50
+  currentHp: 0
+  enemyName: "\u666E\u901A\u654C\u4EBA"
+  defense: 2
+  damagePopupPrefab: {fileID: 0}
