@@ -17,6 +17,8 @@ public class EnemyStatus : MonoBehaviour
     private int currentDebuffLayer; // 当前Debuff层数
     private float debuffTimer; // Debuff计时（每层独立，取最大值）
 
+    public GameObject damagePopupPrefab;      //声明伤害预制体
+    
     private void Start()
     {
         currentHp = hp;
@@ -47,6 +49,7 @@ public class EnemyStatus : MonoBehaviour
             Die();
         }
         //扣血
+        ShowDamagePopup(finalDamage);
         currentHp -= finalDamage;
         currentHp = Mathf.Max(currentHp, 0);
         Debug.Log($"【{enemyName} - 受到伤害】受击{finalDamage:F1}点 | 血量变化：{lastHp:F1} → {currentHp:F1} | 剩余：{currentHp:F1}/{hp:F1}");
@@ -74,5 +77,15 @@ public class EnemyStatus : MonoBehaviour
     public bool HasDebuff()
     {
         return currentDebuffLayer > 0 && debuffTimer > 0;
+    }
+    
+    private void ShowDamagePopup(float damage)
+    {
+        if (damagePopupPrefab != null)
+        {
+            GameObject popup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
+            popup.GetComponent<DamagePopup>().SetDamage(Mathf.RoundToInt(damage));
+            Destroy(popup, 1f);
+        }
     }
 }

@@ -69,11 +69,12 @@ public class PlayerTargetAttack : MonoBehaviour
         // 修复：实时更新虚实线位置（玩家→目标，实体化跟随）
         if (currentTarget != null && targetLine != null)
         {
-            targetLine.SetPositions(new Vector3[] { transform.position, currentTarget.position });
+            targetLine.SetPositions(new[] { transform.position, currentTarget.position });
         }
         // 新增：锁定目标时，每帧发射射线造成直接伤害
         if (currentTarget != null)
         {
+            Debug.Log("Take damage");
             RayDirectDamage();
         }
         // 目标失焦检测（死亡/超出范围/销毁，自动清空）
@@ -88,39 +89,43 @@ public class PlayerTargetAttack : MonoBehaviour
         {
             // 修复：鼠标坐标转换（2D游戏必须设置Z轴，否则射线检测失效）
             Vector3 mouseScreenPos = Input.mousePosition;
-            mouseScreenPos.z = -Camera.main.transform.position.z; // 适配2D相机距离
-            Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
-
-            // 修复：射线检测参数（方向设为Vector2.down，长度设为0，精准点击判定）
-            RaycastHit2D hit = Physics2D.Raycast(
-                mouseWorldPos,
-                Vector2.down, // 2D点击检测常用方向，避免穿透
-                0.1f, // 极短距离，确保只命中点击的物体
-                1 << LayerMask.NameToLayer("Enemy") // 仅检测Enemy层，排除其他物体
-            );
-
-            // 调试日志：查看射线是否命中
-            if (hit)
+            if (Camera.main != null)
             {
-                Debug.Log($"[右键选敌] 命中物体：{hit.collider.name} | 图层：{LayerMask.LayerToName(hit.collider.gameObject.layer)} | 标签：{hit.collider.tag}");
+                mouseScreenPos.z = -Camera.main.transform.position.z; // 适配2D相机距离
+                Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
 
-                Collider2D col = hit.collider;
-                // 双重验证：确保是Enemy标签+EnemyStatus组件
-                if (col != null && col.CompareTag("Enemy") && col.GetComponent<EnemyStatus>() != null)
+                // 修复：射线检测参数（方向设为Vector2.down，长度设为0，精准点击判定）
+                RaycastHit2D hit = Physics2D.Raycast(
+                    mouseWorldPos,
+                    Vector2.down, // 2D点击检测常用方向，避免穿透
+                    0.1f, // 极短距离，确保只命中点击的物体
+                    1 << LayerMask.NameToLayer("Enemy") // 仅检测Enemy层，排除其他物体
+                );
+
+                // 调试日志：查看射线是否命中
+                if (hit)
                 {
-                    SetTarget(col.transform);
-                    Debug.Log($"[右键选敌成功] 锁定目标：{col.name}");
+                    Debug.Log(
+                        $"[右键选敌] 命中物体：{hit.collider.name} | 图层：{LayerMask.LayerToName(hit.collider.gameObject.layer)} | 标签：{hit.collider.tag}");
+
+                    Collider2D col = hit.collider;
+                    // 双重验证：确保是Enemy标签+EnemyStatus组件
+                    if (col != null && col.CompareTag("Enemy") && col.GetComponent<EnemyStatus>() != null)
+                    {
+                        SetTarget(col.transform);
+                        Debug.Log($"[右键选敌成功] 锁定目标：{col.name}");
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"[右键选敌失败] 命中物体不是有效敌人（缺少Enemy标签或EnemyStatus组件）");
+                        ClearTarget(); // 清空无效目标
+                    }
                 }
                 else
                 {
-                    Debug.LogWarning($"[右键选敌失败] 命中物体不是有效敌人（缺少Enemy标签或EnemyStatus组件）");
-                    ClearTarget(); // 清空无效目标
+                    Debug.LogWarning($"[右键选敌失败] 未命中任何Enemy层物体");
+                    ClearTarget(); // 未命中时清空目标
                 }
-            }
-            else
-            {
-                Debug.LogWarning($"[右键选敌失败] 未命中任何Enemy层物体");
-                ClearTarget(); // 未命中时清空目标
             }
         }
     }
@@ -232,7 +237,7 @@ public class PlayerTargetAttack : MonoBehaviour
         lineMaterial.mainTextureScale = new Vector2(1 / dashLineGap, 1);
 
         // 更新线条位置
-        targetLine.SetPositions(new Vector3[] { transform.position, currentTarget != null ? currentTarget.position : transform.position });
+        targetLine.SetPositions(new[] { transform.position, currentTarget != null ? currentTarget.position : transform.position });
     }
 
     // 设置为实线（已确认目标，Debuff生效）

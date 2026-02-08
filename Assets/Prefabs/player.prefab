@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 1334785714647791731}
   - component: {fileID: 5976942948075903674}
   - component: {fileID: 871228540587033388}
+  - component: {fileID: -7503542601337049075}
   - component: {fileID: 2234507738633100131}
   - component: {fileID: 2094664474070058322}
   - component: {fileID: -4579930708068039314}
-  - component: {fileID: -297398213937551345}
-  - component: {fileID: -7503542601337049075}
   - component: {fileID: 2089428114345452693}
   m_Layer: 0
   m_Name: player
@@ -126,6 +125,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.9}
   serializedVersion: 2
   m_Radius: 0.8
+--- !u!114 &-7503542601337049075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6103041402814176385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8ec0cd300d73874198a3606a05e5d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSpeed: 0
+  hp: 0
+  isFrozen: 0
+  isInIceTrap: 0
+  moveSpeed: 5
+  maxHealth: 20
+  currentHealth: 0
+  rb: {fileID: 0}
+  movement: {x: 0, y: 0}
 --- !u!114 &2234507738633100131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,16 +158,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde54e3e58d21f5479aad86b708f23d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 10
-  damagePerSecond: 20
-  attackKey: 323
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  attackPoint: {fileID: 3614734535510980040, guid: b42a85f080f95b4428638d2da2b71cf5, type: 3}
+  isRightClickSelect: 0
+  isAutoFindNearest: 1
+  autoFindRange: 10
+  attackInterval: 2
+  dashLineColor: {r: 1, g: 1, b: 1, a: 1}
+  solidLineColor: {r: 1, g: 0, b: 0, a: 1}
+  lineWidth: 0.1
+  dashLineGap: 0.2
+  rayDamage: 5
+  rayRange: 15
 --- !u!50 &2094664474070058322
 Rigidbody2D:
   serializedVersion: 4
@@ -279,49 +299,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &-297398213937551345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6103041402814176385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fde54e3e58d21f5479aad86b708f23d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRange: 10
-  damagePerSecond: 20
-  attackKey: 323
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  attackPoint: {fileID: 0}
---- !u!114 &-7503542601337049075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6103041402814176385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8ec0cd300d73874198a3606a05e5d03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentSpeed: 0
-  hp: 0
-  isFrozen: 0
-  isInIceTrap: 0
-  moveSpeed: 5
-  maxHealth: 20
-  currentHealth: 0
-  rb: {fileID: 0}
-  movement: {x: 0, y: 0}
 --- !u!114 &2089428114345452693
 MonoBehaviour:
   m_ObjectHideFlags: 0
