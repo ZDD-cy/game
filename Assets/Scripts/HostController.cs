@@ -47,7 +47,7 @@ public class HostController : MonoBehaviour
         // 设置初始颜色
         UpdateVisualState();
         
-        Debug.Log($"{gameObject.name} 初始化完成，生命值: {currentHealth}/{maxHealth}");
+        //Debug.Log($"{gameObject.name} 初始化完成，生命值: {currentHealth}/{maxHealth}");
     }
 
     // ========== 核心接口方法 ==========
