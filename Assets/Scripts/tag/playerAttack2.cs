@@ -74,7 +74,6 @@ public class PlayerTargetAttack : MonoBehaviour
         // 新增：锁定目标时，每帧发射射线造成直接伤害
         if (currentTarget != null)
         {
-            Debug.Log("Take damage");
             RayDirectDamage();
         }
         // 目标失焦检测（死亡/超出范围/销毁，自动清空）

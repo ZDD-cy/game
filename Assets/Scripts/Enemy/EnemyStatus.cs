@@ -26,7 +26,7 @@ public class EnemyStatus : MonoBehaviour
     {
         currentHp = hp;
     }
-
+//
     void Update()
     {
         // Debuff持续计时，大于0则持续掉血
@@ -53,14 +53,14 @@ public class EnemyStatus : MonoBehaviour
       
         float lastHp = currentHp;
         float finalDamage = damage;
-        if (hp <= 0)
+        if (currentHp <= 0)
         {
+            currentHp = Mathf.Max(currentHp, 0);
             Die();
         }
         //扣血
         deltadamage += finalDamage;
         currentHp -= finalDamage;
-        //currentHp = Mathf.Max(currentHp, 0); 减少不必要的计算量
         Debug.Log($"【{enemyName} - 受到伤害】受击{finalDamage:F1}点 | 血量变化：{lastHp:F1} → {currentHp:F1} | 剩余：{currentHp:F1}/{hp:F1}");
     }
 
