@@ -694,6 +694,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 615332257}
     m_Modifications:
+    - target: {fileID: 800285102788979340, guid: 26b42c521e1e6ee4c96af160aa797779, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 800285102788979340, guid: 26b42c521e1e6ee4c96af160aa797779, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 954939301359306071, guid: 26b42c521e1e6ee4c96af160aa797779, type: 3}
       propertyPath: m_Name
       value: enemy (1)
@@ -4456,27 +4464,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6103041402814176385, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
   m_PrefabInstance: {fileID: 2514164955757678212}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1131362067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1131362066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8ec0cd300d73874198a3606a05e5d03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentSpeed: 0
-  hp: 0
-  isFrozen: 0
-  isInIceTrap: 0
-  moveSpeed: 5
-  maxHealth: 100
-  currentHealth: 0
-  rb: {fileID: 0}
-  movement: {x: 0, y: 0}
 --- !u!50 &1131362071
 Rigidbody2D:
   serializedVersion: 4
@@ -5859,6 +5846,7 @@ GameObject:
   - component: {fileID: 1464257225}
   - component: {fileID: 1464257224}
   - component: {fileID: 1464257226}
+  - component: {fileID: 1464257227}
   m_Layer: 9
   m_Name: Tilemap
   m_TagString: Wall
@@ -14916,6 +14904,33 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!50 &1464257227
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464257222}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1481272729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24461,10 +24476,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0db3f2b23fb4364a99b9d3fedaa8d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockTime: 1
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
-  lineRenderer: {fileID: 2092572187}
 --- !u!114 &2092572186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25063,6 +25074,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5976942948075903674, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976942948075903674, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6103041402814176385, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
       propertyPath: m_Name
       value: player
@@ -25078,9 +25097,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 556834551}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6103041402814176385, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1131362067}
     - targetCorrespondingSourceObject: {fileID: 6103041402814176385, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1131362071}
