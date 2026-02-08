@@ -10,14 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 9115158576419096362}
   - component: {fileID: 5915985038480905317}
-  - component: {fileID: 6462946467899611673}
   - component: {fileID: 800285102788979340}
   - component: {fileID: 6289597180744624390}
   - component: {fileID: 239766306191963602}
   - component: {fileID: 8748519092553848723}
-  - component: {fileID: 622719031405476665}
   - component: {fileID: 2892612501161207078}
   - component: {fileID: 5685010868885255250}
+  - component: {fileID: 4987073456373794031}
   m_Layer: 8
   m_Name: enemy
   m_TagString: Enemy
@@ -80,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -960248618445064866, guid: 011782d7a7cf4f444b4f8053e6c9b01f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -92,30 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6462946467899611673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954939301359306071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d246e7edad5fc1740871fc226677e479, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  isAlive: 1
-  hostType: 0
-  warningThreshold: 0.7
-  criticalThreshold: 0.3
-  hostSprite: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
-  warningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  criticalColor: {r: 1, g: 0, b: 0, a: 1}
-  computePowerReward: 10
-  dataFragmentReward: 5
 --- !u!50 &800285102788979340
 Rigidbody2D:
   serializedVersion: 4
@@ -211,22 +186,6 @@ MonoBehaviour:
   patrolAngle: 120
   patrolDuration: 4
   stayDuration: 2
---- !u!114 &622719031405476665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954939301359306071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0db3f2b23fb4364a99b9d3fedaa8d31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockTime: 1
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
-  lineRenderer: {fileID: 4110248383761623374, guid: b42a85f080f95b4428638d2da2b71cf5, type: 3}
 --- !u!120 &2892612501161207078
 LineRenderer:
   serializedVersion: 2
@@ -366,3 +325,20 @@ CircleCollider2D:
   m_Offset: {x: -0.05, y: 0.9}
   serializedVersion: 2
   m_Radius: 0.74
+--- !u!114 &4987073456373794031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954939301359306071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
