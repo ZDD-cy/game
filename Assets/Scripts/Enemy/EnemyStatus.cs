@@ -13,7 +13,7 @@ public class EnemyStatus : MonoBehaviour
     public float debuffDuration = 4f; // Debuff持续时间（默认4s）
 
     [Tooltip("伤害数字每多少秒出现一次")]
-    [SerializeField] private float popupfreq = 0.5f;
+    [SerializeField] private float popupfreq = 0.2f;
     
     private int currentDebuffLayer; // 当前Debuff层数
     private float debuffTimer; // Debuff计时（每层独立，取最大值）

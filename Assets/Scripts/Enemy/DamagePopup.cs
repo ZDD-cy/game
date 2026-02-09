@@ -13,6 +13,8 @@ public class DamagePopup : MonoBehaviour
 
     [Tooltip("伤害数字存在的时间（秒）")]
     [SerializeField] private float lifetime = 3f;
+    
+    [SerializeField] private float fadeDuration = 1f;
 
     private float timer;
 
@@ -42,12 +44,11 @@ public class DamagePopup : MonoBehaviour
         
             // 插值到目标位置
             transform.Translate(Vector2.up * (currentSpeed * Time.deltaTime));
-        
-            // 计时，时间到了就销毁
+            
             timer += Time.deltaTime;
             if (timer >= lifetime)
             {
-                Destroy(gameObject);
+                StartCoroutine(FadeOutCoroutine());
             }
         }
     }
@@ -57,5 +58,24 @@ public class DamagePopup : MonoBehaviour
     {
         string formatted = damage.ToString("0.00"); 
         damageText.text = formatted;
+    }
+
+    private IEnumerator FadeOutCoroutine()
+    {
+        float elapsedTime = 0f;
+        Color startColor = damageText.color;
+        
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
+            
+            damageText.color = new Color(startColor.r, startColor.g, startColor.b, alpha);
+            yield return null;
+        }
+        
+        Destroy(gameObject);
+        // 可选：禁用文本
+        //textToFade.gameObject.SetActive(false);
     }
 }
