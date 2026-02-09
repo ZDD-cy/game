@@ -4958,54 +4958,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &2023025324
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2023025326}
-  - component: {fileID: 2023025325}
-  m_Layer: 0
-  m_Name: Damage Popup
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2023025325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023025324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e29e966ec48ebf42a08e0a22009f59b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageText: {fileID: 0}
-  moveSpeed: 2
-  lifetime: 1
-  fadeDuration: 1
---- !u!4 &2023025326
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023025324}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 81.52942, y: 1.4309272, z: -0.09709483}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2053357618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6152,5 +6104,4 @@ SceneRoots:
   - {fileID: 2053357618}
   - {fileID: 11498245}
   - {fileID: 1533771389}
-  - {fileID: 2023025326}
   - {fileID: 997365102}
