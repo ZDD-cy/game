@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 // 挂在每个场景的「切换区」上
 public class Sceneswitcher : MonoBehaviour
 {
+    private static readonly int Fadestart = Animator.StringToHash("Fadestart");
+    public Animator transition;
     [Header("目标场景名字（和文件名一致）")]
     public string Targetscene = "game.2.1";
     public float switchlatency;
@@ -14,13 +16,18 @@ public class Sceneswitcher : MonoBehaviour
     {
         if (other.CompareTag("player"))
         {
-            Invoke("Sceneloader", switchlatency);
+            StartCoroutine(Loadlevel());
         }
     }
-
-    void Sceneloader()
+    
+    public void MessageSwitch() {
+        StartCoroutine(Loadlevel());
+    }
+    
+    IEnumerator Loadlevel()
     {
-        // 直接按名字加载，不需要Build Settings
+        transition.SetTrigger(Fadestart);
+        yield return new WaitForSeconds(switchlatency);
         SceneManager.LoadScene(Targetscene);
     }
 }
