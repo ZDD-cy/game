@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,5 +31,14 @@ public class Sceneswitcher : MonoBehaviour
         transition.SetTrigger(Fadestart);
         yield return new WaitForSeconds(switchlatency);
         SceneManager.LoadScene(Targetscene);
+    }
+
+    public void QuitApplication()
+    {
+    #if UNITY_EDITOR
+        EditorApplication.isPlaying = false; // 停止播放并退出编辑器(测试用，打包时可以删除if else只保留quit)
+    #else
+        Application.Quit();
+    #endif
     }
 }
