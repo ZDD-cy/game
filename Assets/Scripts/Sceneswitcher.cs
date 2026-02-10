@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +8,7 @@ public class Sceneswitcher : MonoBehaviour
     private static readonly int Fadestart = Animator.StringToHash("Fadestart");
     public Animator transition;
     [Header("目标场景名字（和文件名一致）")]
-    public string Targetscene = "game.2.1";
+    public string Targetscene;
     public float switchlatency;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -20,7 +19,9 @@ public class Sceneswitcher : MonoBehaviour
         }
     }
     
-    public void MessageSwitch() {
+    public void MessageSwitch(string scenename)
+    {
+        Targetscene = scenename;
         StartCoroutine(Loadlevel());
     }
     

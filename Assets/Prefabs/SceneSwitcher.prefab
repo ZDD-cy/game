@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6928848447445543823}
   - component: {fileID: 4793320712483382021}
   m_Layer: 0
-  m_Name: "\u5207\u6362"
+  m_Name: SceneSwitcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

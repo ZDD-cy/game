@@ -282,11 +282,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &623215255 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1398014974400741543, guid: aae14eb7e8482ca41aaa287895e6f3ab, type: 3}
-  m_PrefabInstance: {fileID: 886457080}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &886457080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -295,10 +290,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6928848447445543823, guid: aae14eb7e8482ca41aaa287895e6f3ab, type: 3}
-      propertyPath: transition
-      value: 
-      objectReference: {fileID: 623215255}
     - target: {fileID: 7839738517420623114, guid: aae14eb7e8482ca41aaa287895e6f3ab, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -341,7 +332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9007606358706317166, guid: aae14eb7e8482ca41aaa287895e6f3ab, type: 3}
       propertyPath: m_Name
-      value: "\u5207\u6362"
+      value: SceneSwitcher
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -432,15 +423,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1658368733}
-        m_TargetAssemblyTypeName: UnityEngine.Component, UnityEngine
-        m_MethodName: SendMessage
+        m_TargetAssemblyTypeName: Sceneswitcher, Assembly-CSharp
+        m_MethodName: MessageSwitch
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MessageSwitch
+          m_StringArgument: game.0.0
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &1193509679
