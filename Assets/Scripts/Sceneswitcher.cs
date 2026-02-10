@@ -1,26 +1,44 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 // 挂在每个场景的「切换区」上
 public class Sceneswitcher : MonoBehaviour
 {
+    private static readonly int Fadestart = Animator.StringToHash("Fadestart");
+    public Animator transition;
     [Header("目标场景名字（和文件名一致）")]
-    public string Targetscene = "game.2.1";
+    public string Targetscene;
     public float switchlatency;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("player"))
         {
-            Invoke("Sceneloader", switchlatency);
+            StartCoroutine(Loadlevel());
         }
     }
-
-    void Sceneloader()
+    
+    public void MessageSwitch(string scenename)
     {
-        // 直接按名字加载，不需要Build Settings
+        Targetscene = scenename;
+        StartCoroutine(Loadlevel());
+    }
+    
+    IEnumerator Loadlevel()
+    {
+        transition.SetTrigger(Fadestart);
+        yield return new WaitForSeconds(switchlatency);
         SceneManager.LoadScene(Targetscene);
+    }
+
+    public void QuitApplication()
+    {
+    #if UNITY_EDITOR
+        EditorApplication.isPlaying = false; // 停止播放并退出编辑器(测试用，打包时可以删除if else只保留quit)
+    #else
+        Application.Quit();
+    #endif
     }
 }
