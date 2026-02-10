@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 3822493444322999272}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.73, y: -4.07, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 13.2333, y: -4.5936, z: 0}
+  m_LocalScale: {x: 0.61194915, y: 0.5910078, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.7798742, g: 0.27222013, b: 0.73981285, a: 1}
+  m_Sprite: {fileID: 21300000, guid: b297b54c88b6ec64ea32212d5d89b534, type: 3}
+  m_Color: {r: 0.9718365, g: 0.99371064, b: 0.98042905, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -104,7 +104,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -130,11 +130,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   hp: 100
+  chaseSpeed: 7
+  attackRange: 2
+  attackCooldown: 1.5
   currentState: 0
   patrolRadius: 8
   patrolAngle: 120
   patrolDuration: 4
   stayDuration: 2
+  damagePopupPrefab: {fileID: 0}
 --- !u!114 &3264199435198620609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +213,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.1, y: -0.2}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.9
