@@ -10,15 +10,18 @@ GameObject:
   m_Component:
   - component: {fileID: 6504852920445273967}
   - component: {fileID: 8512823807184163872}
-  - component: {fileID: 9046204120634546780}
   - component: {fileID: 4454670407522563113}
   - component: {fileID: 3396068323301747401}
-  - component: {fileID: 8319079136258271555}
-  - component: {fileID: 3215071517906910076}
   - component: {fileID: 6793007119030262067}
-  - component: {fileID: 8365644855160170493}
-  - component: {fileID: 3315193415589038098}
-  m_Layer: 8
+  - component: {fileID: 5343281306116823515}
+  - component: {fileID: 3000581674444717317}
+  - component: {fileID: 7725528754364514564}
+  - component: {fileID: 8751522385477654467}
+  - component: {fileID: 2960152641879919011}
+  - component: {fileID: 4868609409656628634}
+  - component: {fileID: 1478734807860122106}
+  - component: {fileID: 8273226225920396868}
+  m_Layer: 0
   m_Name: enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -92,30 +95,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9046204120634546780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2988926797657769234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d246e7edad5fc1740871fc226677e479, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  isAlive: 1
-  hostType: 0
-  warningThreshold: 0.7
-  criticalThreshold: 0.3
-  hostSprite: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
-  warningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  criticalColor: {r: 1, g: 0, b: 0, a: 1}
-  computePowerReward: 10
-  dataFragmentReward: 5
 --- !u!61 &4454670407522563113
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,14 +148,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2988926797657769234}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -187,47 +166,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &8319079136258271555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2988926797657769234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f61498088f261394fa79757e986d2362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coin:
-    itemPrefab: {fileID: 0}
-    itemName: 
-    minCount: 1
-    maxCount: 3
-  bead:
-    itemPrefab: {fileID: 0}
-    itemName: 
-    minCount: 1
-    maxCount: 3
-  dropRadius: 1
-  dropForce: 2
---- !u!114 &3215071517906910076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2988926797657769234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0db3f2b23fb4364a99b9d3fedaa8d31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lockTime: 1
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
-  lineRenderer: {fileID: 4110248383761623374, guid: b42a85f080f95b4428638d2da2b71cf5, type: 3}
+  m_Constraints: 4
 --- !u!120 &6793007119030262067
 LineRenderer:
   serializedVersion: 2
@@ -332,7 +271,131 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &8365644855160170493
+--- !u!114 &5343281306116823515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2988926797657769234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  currentHp: 0
+  enemyName: "\u654C\u4EBA"
+  debuffPerSecDamage: 1
+  debuffDuration: 4
+  popupfreq: 0.5
+  damagePopupPrefab: {fileID: 0}
+--- !u!114 &3000581674444717317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2988926797657769234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79278d6775a0312459b6646a76d9749a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  currentHp: 100
+  enemyName: "\u666E\u901A\u654C\u4EBA"
+  defense: 2
+  damagePopupPrefab: {fileID: 0}
+--- !u!114 &7725528754364514564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2988926797657769234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d246e7edad5fc1740871fc226677e479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  isAlive: 1
+  hostType: 0
+  warningThreshold: 0.7
+  criticalThreshold: 0.3
+  hostSprite: {fileID: 0}
+  normalColor: {r: 0, g: 1, b: 1, a: 1}
+  warningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  criticalColor: {r: 1, g: 0, b: 0, a: 1}
+  computePowerReward: 10
+  dataFragmentReward: 5
+--- !u!114 &8751522385477654467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2988926797657769234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e29e966ec48ebf42a08e0a22009f59b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageText: {fileID: 0}
+  moveSpeed: 3
+  lifetime: 3
+--- !u!114 &2960152641879919011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2988926797657769234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46da7ba85801b3c44ae03c26d8394dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+--- !u!114 &4868609409656628634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2988926797657769234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6f8d21279082264fb6f9a7463f9d0a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectRange: 8
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  playerTag: player
+  alwaysLock: 1
+  onlyLockInRange: 1
+  currentTarget: {fileID: 0}
+  checkInterval: 0.2
+--- !u!114 &1478734807860122106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2988926797657769234}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e29e966ec48ebf42a08e0a22009f59b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageText: {fileID: 0}
+  moveSpeed: 3
+  lifetime: 3
+--- !u!114 &8273226225920396868
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -346,25 +409,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   hp: 100
+  chaseSpeed: 7
+  attackRange: 2
+  attackCooldown: 1.5
   currentState: 0
   patrolRadius: 8
   patrolAngle: 120
   patrolDuration: 4
   stayDuration: 2
---- !u!114 &3315193415589038098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2988926797657769234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79278d6775a0312459b6646a76d9749a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHp: 50
-  currentHp: 0
-  enemyName: "\u666E\u901A\u654C\u4EBA"
-  defense: 2
-  damagePopupPrefab: {fileID: 4937998890138807307, guid: a715d07ca71ac9946bb9a9413ac71c2d, type: 3}
+  damagePopupPrefab: {fileID: 0}
