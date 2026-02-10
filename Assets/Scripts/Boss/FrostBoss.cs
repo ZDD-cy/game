@@ -7,9 +7,9 @@ using System.Collections.Generic;
 [System.Serializable]
 public class FrostBuffData
 {
-    public int currentLayer = 0;       // 当前Buff层数
+    public int currentLayer;       // 当前Buff层数
     public float buffDuration = 8f;    // 每层持续时间
-    public float buffTimer = 0f;       // Buff倒计时
+    public float buffTimer;       // Buff倒计时
     public float normalDissipateSpeed = 1f; // 正常消散速度
     public float trapDissipateSpeed = 2f;   // 机关激活后消散速度（一倍加速）
     public float currentDissipateSpeed;     // 当前实际消散速度
@@ -22,8 +22,8 @@ public class FrostBuffData
     public float dotInterval = 1f;     //持续伤害间隔
 
     // Buff效果标记
-    public bool isDashForbidden = false; //是否封禁冲刺
-    public bool isMaxLayer = false;      //是否达到7层（满层）
+    public bool isDashForbidden; //是否封禁冲刺
+    public bool isMaxLayer;      //是否达到7层（满层）
 
     
 }
@@ -67,11 +67,6 @@ public class FrostBoss : MonoBehaviour
     private Rigidbody2D rb;
     private Coroutine dotCoroutine;            // 7层持续伤害协程
     private int currentPathIndex = 0;          // 当前移动路径索引
-
-
-    
-    
-        
     
     void Start()
     {
@@ -144,7 +139,7 @@ public class FrostBoss : MonoBehaviour
         }
 
         #region 路径移动+冰霜陷阱生成
-        // 沿路径移动，每到一个点生成冰霜陷阱（路径一次性）
+        /*// 沿路径移动，每到一个点生成冰霜陷阱（路径一次性）
         IEnumerator MoveAlongPathAndCreateTrap()
         {
             if (movePathPoints == null || movePathPoints.Count == 0) yield break;
@@ -164,7 +159,7 @@ public class FrostBoss : MonoBehaviour
             }
             // 路径走完后，转向追击玩家
             yield return null;
-        }
+        }*/
         #endregion
 
         #region 冰霜Buff核心逻辑（叠加/刷新/消散/分层效果）
@@ -196,7 +191,7 @@ public class FrostBoss : MonoBehaviour
         }
     }
     // 叠加Buff（BOSS每次攻击调用，刷新时长+层数+1）
-    public void AddFrostBuffLayer()
+    private void AddFrostBuffLayer()
     {
         frostBuff.currentLayer = Mathf.Min(frostBuff.currentLayer + 1, 7); // 最多7层
         frostBuff.buffTimer = frostBuff.buffDuration; // 刷新持续时间
@@ -211,11 +206,11 @@ public class FrostBoss : MonoBehaviour
         frostBuff.isMaxLayer = false;
         StopDOTCoroutine();
 
-        if (frostBuff.currentLayer >= 1 && frostBuff.currentLayer <= 3)
+        if (frostBuff.currentLayer is >= 1 and <= 3)
         {
             // 1-3层：每层15%减速，无其他效果
         }
-        else if (frostBuff.currentLayer >= 4 && frostBuff.currentLayer <= 6)
+        else if (frostBuff.currentLayer is >= 4 and <= 6)
         {
             // 4-6层：减速+每层15%全属性削减+封禁冲刺
             frostBuff.isDashForbidden = true;
@@ -255,10 +250,7 @@ public class FrostBoss : MonoBehaviour
     #region 7层持续伤害（DOT）
     void StartDOTCoroutine()
     {
-        if (dotCoroutine == null)
-        {
-            dotCoroutine = StartCoroutine(DOTCoroutine());
-        }
+        dotCoroutine ??= StartCoroutine(DOTCoroutine());
     }
 
     void StopDOTCoroutine()
@@ -375,7 +367,7 @@ public class FrostBoss : MonoBehaviour
                 Debug.LogError("子弹生成失败");
             }
         }
-             AddFrostBuffLayer();
+        AddFrostBuffLayer();
     }
 
     // 3.脉冲：全屏打击 → 0伤害 → 强制叠Buff
@@ -406,14 +398,7 @@ public class FrostBoss : MonoBehaviour
     // 机关激活/关闭时调用（传入true=激活，false=关闭）
     public void OnTrapStateChange(bool isActive)
     {
-        if (isActive)
-        {
-            activeTrapCount = Mathf.Min(activeTrapCount + 1, 4);
-        }
-        else
-        {
-            activeTrapCount = Mathf.Max(activeTrapCount - 1, 0);
-        }
+        activeTrapCount = isActive ? Mathf.Min(activeTrapCount + 1, 4) : Mathf.Max(activeTrapCount - 1, 0);
         // 只要有一个机关激活，就开启加速消散
         isAnyTrapActive = activeTrapCount > 0;
     }
