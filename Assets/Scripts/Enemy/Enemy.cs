@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         currentHp = hp;
-        player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        player = GameObject.FindGameObjectWithTag("player")?.transform;
 
         // 初始状态设为巡逻，并生成第一个巡逻点
         currentState = EnemyState.Patrol;
