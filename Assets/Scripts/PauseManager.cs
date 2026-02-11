@@ -61,7 +61,7 @@ public class PauseManager : MonoBehaviour
     
     public void DisplaySettings()
     {
-        PauseCanvas.enabled = false;
-        SettingsCanvas.enabled = true;
+        if(!isMainMenu)PauseCanvas.enabled = !PauseCanvas.enabled;
+        SettingsCanvas.enabled = !SettingsCanvas.enabled;
     }
 }
