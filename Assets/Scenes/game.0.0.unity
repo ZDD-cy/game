@@ -4236,8 +4236,6 @@ PrefabInstance:
     - target: {fileID: 5919194785260916446, guid: 07a6f80d351ca95468b3a85218db34f9, type: 3}
       propertyPath: m_SortingOrder
       value: 101
-      propertyPath: m_VertexColorAlwaysGammaSpace
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8849967132123086423, guid: 07a6f80d351ca95468b3a85218db34f9, type: 3}
       propertyPath: m_Name
@@ -4824,10 +4822,6 @@ PrefabInstance:
       propertyPath: currentTarget
       value: 
       objectReference: {fileID: 379660420}
-    - target: {fileID: 7322109866198812591, guid: 26b42c521e1e6ee4c96af160aa797779, type: 3}
-      propertyPath: playerLayer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: 7817183086173686452, guid: 26b42c521e1e6ee4c96af160aa797779, type: 3}
       propertyPath: playerTag
       value: player

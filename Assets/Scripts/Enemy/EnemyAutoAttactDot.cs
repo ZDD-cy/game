@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 // 敌人自动索敌、锁定玩家脚本 2D版
 public class EnemyAutoTarget : MonoBehaviour
@@ -8,7 +6,7 @@ public class EnemyAutoTarget : MonoBehaviour
     [Header("索敌设置")]
     public float detectRange = 8f; // 索敌半径
     public LayerMask playerLayer; // 玩家层（选Player）
-    public string playerTag = "player"; // 玩家标签
+    public string playerTag = "Player"; // 玩家标签
 
     [Header("锁定设置")]
     public bool alwaysLock = true; // 一旦锁定就一直跟随
@@ -72,7 +70,6 @@ public class EnemyAutoTarget : MonoBehaviour
 
     
     /// 自动搜索玩家目标
-    /// </summary>
     public void FindplayerTarget()
     {
         GameObject player = GameObject.FindGameObjectWithTag(playerTag);
@@ -82,7 +79,7 @@ public class EnemyAutoTarget : MonoBehaviour
             Debug.Log($"找到玩家: {player.name}", player);
             Transform playerTrans = player.transform;
             float distance = Vector2.Distance(transform.position, playerTrans.position);
-            Debug.Log($"与玩家距离: {distance}, 索敌范围: {detectRange}");
+            //Debug.Log($"与玩家距离: {distance}, 索敌范围: {detectRange}"); 刷屏日志过于频繁，暂时禁用
 
             if (distance <= detectRange)
             {
