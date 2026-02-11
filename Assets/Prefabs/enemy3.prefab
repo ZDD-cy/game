@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4964118609009913395}
   - component: {fileID: 4352028469225820234}
   - component: {fileID: 6101068310492378461}
+  - component: {fileID: 2265328307121667624}
   - component: {fileID: 2713764070085946164}
   - component: {fileID: 3264199435198620609}
   - component: {fileID: 6484499087597049477}
@@ -116,6 +117,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2265328307121667624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3822493444322999272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6f8d21279082264fb6f9a7463f9d0a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectRange: 8
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  playerTag: Player
+  alwaysLock: 1
+  onlyLockInRange: 1
+  currentTarget: {fileID: 0}
+  checkInterval: 0.2
 --- !u!114 &2713764070085946164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +160,6 @@ MonoBehaviour:
   patrolAngle: 120
   patrolDuration: 4
   stayDuration: 2
-  damagePopupPrefab: {fileID: 0}
 --- !u!114 &3264199435198620609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +201,7 @@ MonoBehaviour:
   currentHp: 0
   enemyName: "\u666E\u901A\u654C\u4EBA"
   defense: 2
-  damagePopupPrefab: {fileID: 0}
+  damagePopupPrefab: {fileID: 4937998890138807307, guid: a715d07ca71ac9946bb9a9413ac71c2d, type: 3}
 --- !u!58 &-775932754525327993
 CircleCollider2D:
   m_ObjectHideFlags: 0

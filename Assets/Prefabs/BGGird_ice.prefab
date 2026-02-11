@@ -872,7 +872,7 @@ GameObject:
   - component: {fileID: 6565075063750982017}
   - component: {fileID: 3165740582861210980}
   m_Layer: 0
-  m_Name: BGGird
+  m_Name: BGGird_ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

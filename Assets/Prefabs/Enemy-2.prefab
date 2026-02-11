@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4339590845184566102}
   - component: {fileID: 7935748970188429679}
   - component: {fileID: 785590660116769681}
-  - component: {fileID: 3724382928270135767}
+  - component: {fileID: 6053960250659659036}
   - component: {fileID: -3729662790416224626}
   m_Layer: 0
   m_Name: Enemy-2
@@ -107,7 +107,7 @@ MonoBehaviour:
   rageSpeedMultiplier: 1.5
   isUnstoppableWhenEnraged: 1
   dropSystem: {fileID: 0}
---- !u!114 &3724382928270135767
+--- !u!114 &6053960250659659036
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,13 +116,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 5841809098308339903}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0db3f2b23fb4364a99b9d3fedaa8d31, type: 3}
+  m_Script: {fileID: 11500000, guid: f6f8d21279082264fb6f9a7463f9d0a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockTime: 1
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
-  lineRenderer: {fileID: -3729662790416224626}
+  detectRange: 8
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  playerTag: Player
+  alwaysLock: 1
+  onlyLockInRange: 1
+  currentTarget: {fileID: 0}
+  checkInterval: 0.2
 --- !u!120 &-3729662790416224626
 LineRenderer:
   serializedVersion: 2

@@ -1,9 +1,5 @@
-﻿
-using System.Collections;
-using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
-using UnityEngine;
-using static firetrap;
+﻿using UnityEngine;
+
 public enum EnemyState
 {
     Patrol, // 巡逻
@@ -34,31 +30,15 @@ public class Enemy : MonoBehaviour
     public float stayDuration = 2f;    // 停留持续时长（到时间切换巡逻）
     private float stateTimer;          // 状态计时器
     private Vector2 patrolTarget;      // 巡逻目标点
-    public DamagePopup damagePopupPrefab;
 
     // ============== 组件引用 ==============
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Transform player;
-    private DamagePopup damagePopup;
     private EnemyAutoTarget autoTarget;  
-
-    void ShowDamagePopup(float damage)
-    {
-      
-            if (damagePopupPrefab == null) return;
-            DamagePopup popup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
-
-            // 直接调用组件方法，无需 GetComponent
-            popup.SetDamage(Mathf.RoundToInt(damage));
-
-        // 销毁整个游戏对象
-        Destroy(popup.gameObject, 1f);
-    }
-
+    
     void Start()
     {
-        damagePopup = GetComponent<DamagePopup>();
         // 初始化
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
