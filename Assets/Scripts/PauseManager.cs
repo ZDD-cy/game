@@ -4,6 +4,7 @@ using UnityEngine;
 public class PauseManager : MonoBehaviour
 {
     public Canvas PauseCanvas;
+    public Canvas SettingsCanvas;
     public bool isPaused;
     void Start()
     {
@@ -15,15 +16,11 @@ public class PauseManager : MonoBehaviour
     {
         if (!isPaused && Input.GetKeyDown(KeyCode.Escape))
         {
-            isPaused = !isPaused;
-            PauseCanvas.enabled = isPaused;
-            Time.timeScale = 0f;
+            SwitchPause(0f);
         }
-        else if (isPaused && Input.GetKeyDown(KeyCode.Escape))
+        else if ((isPaused && Input.GetKeyDown(KeyCode.Escape)))
         {
-            isPaused = !isPaused;
-            PauseCanvas.enabled = isPaused;
-            Time.timeScale = 1f;
+            SwitchPause(1f);
         }
     }
     public void QuitApplication()
@@ -33,5 +30,18 @@ public class PauseManager : MonoBehaviour
     #else
         Application.Quit();
     #endif
+    }
+
+    public void SwitchPause(float timescale)
+    {
+        isPaused = !isPaused;
+        PauseCanvas.enabled = isPaused;
+        Time.timeScale = timescale;
+    }
+    
+    public void DisplaySettings()
+    {
+        PauseCanvas.enabled = false;
+        SettingsCanvas.enabled = true;
     }
 }

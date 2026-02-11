@@ -70,10 +70,8 @@ public class EnemyAutoTarget : MonoBehaviour
         }
     }
 
-
-    /// <summary>
+    
     /// 自动搜索玩家目标
-    /// </summary>
     public void FindPlayerTarget()
     {
         GameObject player = GameObject.FindGameObjectWithTag(playerTag);

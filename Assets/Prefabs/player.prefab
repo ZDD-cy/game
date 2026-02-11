@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpeed: 5
-  hp: 0
+  hp: 100
   isFrozen: 0
   isInIceTrap: 0
   moveSpeed: 5
