@@ -1,11 +1,31 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
     public Canvas PauseCanvas;
     public Canvas SettingsCanvas;
     public bool isPaused;
+    public bool isMainMenu = true;
+
+    public static PauseManager Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void LeaveMainMenu()
+    {
+        isMainMenu = false;
+    }
     void Start()
     {
         PauseCanvas.enabled = isPaused;
@@ -14,11 +34,11 @@ public class PauseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isPaused && Input.GetKeyDown(KeyCode.Escape))
+        if (!isMainMenu && !isPaused && Input.GetKeyDown(KeyCode.Escape))
         {
             SwitchPause(0f);
         }
-        else if ((isPaused && Input.GetKeyDown(KeyCode.Escape)))
+        else if (!isMainMenu && isPaused && Input.GetKeyDown(KeyCode.Escape))
         {
             SwitchPause(1f);
         }

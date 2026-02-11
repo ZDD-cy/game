@@ -430,6 +430,7 @@ GameObject:
   - component: {fileID: 5919194785260916446}
   - component: {fileID: 5694589505018190705}
   - component: {fileID: 3979539255919588697}
+  - component: {fileID: 5983790689549488360}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -523,3 +524,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5983790689549488360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8849967132123086423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17caa58671e71d4439e079cb8e48f569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 43ef405e189913e488e1f6404dc53f0a, type: 2}
+  defaultMaster: 1
+  defaultBgm: 1
+  defaultSfx: 1
+  defaultResolutionIndex: 0
+  defaultDisplayMode: 0
+  defaultFrameRateLimit: 60
+  defaultVSync: 1
