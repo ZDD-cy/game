@@ -350,6 +350,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7503542601337049075, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
+      propertyPath: hp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -7503542601337049075, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1670292191}
+    - target: {fileID: -7503542601337049075, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -7503542601337049075, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
+      propertyPath: currentHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1334785714647791731, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.33
@@ -395,6 +411,10 @@ PrefabInstance:
       value: player
       objectReference: {fileID: 0}
     - target: {fileID: 6103041402814176385, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6103041402814176385, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -422,7 +442,7 @@ GameObject:
   - component: {fileID: 551838290}
   - component: {fileID: 551838292}
   - component: {fileID: 551838291}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -4081,7 +4101,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -4112,6 +4132,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!50 &1670292191 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2094664474070058322, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
+  m_PrefabInstance: {fileID: 379660419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1674443260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4211,6 +4236,8 @@ PrefabInstance:
     - target: {fileID: 5919194785260916446, guid: 07a6f80d351ca95468b3a85218db34f9, type: 3}
       propertyPath: m_SortingOrder
       value: 101
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8849967132123086423, guid: 07a6f80d351ca95468b3a85218db34f9, type: 3}
       propertyPath: m_Name
@@ -4788,6 +4815,30 @@ PrefabInstance:
     - target: {fileID: 954939301359306071, guid: 26b42c521e1e6ee4c96af160aa797779, type: 3}
       propertyPath: m_Name
       value: enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752594775433380165, guid: 26b42c521e1e6ee4c96af160aa797779, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 379660420}
+    - target: {fileID: 7322109866198812591, guid: 26b42c521e1e6ee4c96af160aa797779, type: 3}
+      propertyPath: currentTarget
+      value: 
+      objectReference: {fileID: 379660420}
+    - target: {fileID: 7322109866198812591, guid: 26b42c521e1e6ee4c96af160aa797779, type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817183086173686452, guid: 26b42c521e1e6ee4c96af160aa797779, type: 3}
+      propertyPath: playerTag
+      value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817183086173686452, guid: 26b42c521e1e6ee4c96af160aa797779, type: 3}
+      propertyPath: currentTarget
+      value: 
+      objectReference: {fileID: 379660420}
+    - target: {fileID: 7817183086173686452, guid: 26b42c521e1e6ee4c96af160aa797779, type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 9115158576419096362, guid: 26b42c521e1e6ee4c96af160aa797779, type: 3}
       propertyPath: m_LocalPosition.x

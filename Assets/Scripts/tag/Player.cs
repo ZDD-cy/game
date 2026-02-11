@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
     [SerializeField] public float moveSpeed = 3f;
 
     [Header("属性设置")]
-    [SerializeField] public int maxHealth = 20;
+    [SerializeField] public int maxHealth = 100;
     public int currentHealth;
 
     // 组件引用

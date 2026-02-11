@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 5915985038480905317}
   - component: {fileID: 800285102788979340}
   - component: {fileID: 7817183086173686452}
-  - component: {fileID: 6289597180744624390}
-  - component: {fileID: 239766306191963602}
   - component: {fileID: 8748519092553848723}
   - component: {fileID: 2892612501161207078}
   - component: {fileID: 5685010868885255250}
   - component: {fileID: 1546130924583234768}
   - component: {fileID: 6462946467899611673}
+  - component: {fileID: 1752594775433380165}
+  - component: {fileID: 7322109866198812591}
   m_Layer: 3
   m_Name: enemy
   m_TagString: Enemy
@@ -132,64 +132,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f8d21279082264fb6f9a7463f9d0a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectRange: 8
+  detectRange: 5
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   playerTag: Player
   alwaysLock: 1
   onlyLockInRange: 1
   currentTarget: {fileID: 0}
   checkInterval: 0.2
---- !u!114 &6289597180744624390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954939301359306071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f61498088f261394fa79757e986d2362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coin:
-    itemPrefab: {fileID: 0}
-    itemName: 
-    minCount: 1
-    maxCount: 3
-  bead:
-    itemPrefab: {fileID: 0}
-    itemName: 
-    minCount: 1
-    maxCount: 3
-  dropRadius: 1
-  dropForce: 2
---- !u!114 &239766306191963602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954939301359306071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76a674b0ab5df6d4abfa2d0757f1e2d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  normalHitEffect: {fileID: 0}
-  burnEffect: {fileID: 0}
-  freezeEffect: {fileID: 0}
-  knockbackEffect: {fileID: 0}
-  rockHitEffect: {fileID: 0}
-  hitClip: {fileID: 0}
-  burnClip: {fileID: 0}
-  freezeClip: {fileID: 0}
-  knockbackClip: {fileID: 0}
-  rockHitClip: {fileID: 0}
-  hitStunTime: 0.2
-  rockKnockupForce: 6
-  burnEffectInterval: 0.5
 --- !u!114 &8748519092553848723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,8 +314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1829a6d86b2be7c4c8ff4f7b5654c089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 20
-  currentHp: 0
+  hp: 100
+  currentHp: 100
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
@@ -377,7 +328,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954939301359306071}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d246e7edad5fc1740871fc226677e479, type: 3}
   m_Name: 
@@ -394,3 +345,37 @@ MonoBehaviour:
   criticalColor: {r: 1, g: 0, b: 0, a: 1}
   computePowerReward: 10
   dataFragmentReward: 5
+--- !u!114 &1752594775433380165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954939301359306071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46da7ba85801b3c44ae03c26d8394dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+--- !u!114 &7322109866198812591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954939301359306071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6f8d21279082264fb6f9a7463f9d0a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectRange: 8
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  playerTag: Player
+  alwaysLock: 1
+  onlyLockInRange: 1
+  currentTarget: {fileID: 0}
+  checkInterval: 0.2

@@ -8,7 +8,7 @@ public class EnemyAutoTarget : MonoBehaviour
     [Header("索敌设置")]
     public float detectRange = 8f; // 索敌半径
     public LayerMask playerLayer; // 玩家层（选Player）
-    public string playerTag = "Player"; // 玩家标签
+    public string playerTag = "player"; // 玩家标签
 
     [Header("锁定设置")]
     public bool alwaysLock = true; // 一旦锁定就一直跟随
@@ -28,7 +28,7 @@ public class EnemyAutoTarget : MonoBehaviour
         // 获取你身上的DOT攻击脚本
         enemyAttackDOT = GetComponent<EnemyAttackDOT>();
         // 初始搜索一次玩家
-        FindPlayerTarget();
+        FindplayerTarget();
     }
 
     private void Update()
@@ -46,7 +46,7 @@ public class EnemyAutoTarget : MonoBehaviour
     {
         if (currentTarget == null)
         {
-            FindPlayerTarget();
+            FindplayerTarget();
             return;
         }
 
@@ -72,7 +72,8 @@ public class EnemyAutoTarget : MonoBehaviour
 
     
     /// 自动搜索玩家目标
-    public void FindPlayerTarget()
+    /// </summary>
+    public void FindplayerTarget()
     {
         GameObject player = GameObject.FindGameObjectWithTag(playerTag);
 
