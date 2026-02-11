@@ -34,7 +34,11 @@ public class PauseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isMainMenu && !isPaused && Input.GetKeyDown(KeyCode.Escape))
+        if (SettingsCanvas.enabled && Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(!isMainMenu){DisplaySettings();}
+            else{SettingsCanvas.enabled = !SettingsCanvas.enabled;}
+        }else if (!isMainMenu && !isPaused && Input.GetKeyDown(KeyCode.Escape))
         {
             SwitchPause(0f);
         }
