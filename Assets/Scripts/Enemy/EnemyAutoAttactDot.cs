@@ -6,7 +6,7 @@ public class EnemyAutoTarget : MonoBehaviour
     [Header("索敌设置")]
     public float detectRange = 8f; // 索敌半径
     public LayerMask playerLayer; // 玩家层（选Player）
-    public string playerTag = "Player"; // 玩家标签
+    public string playerTag = "player"; // 玩家标签
 
     [Header("锁定设置")]
     public bool alwaysLock = true; // 一旦锁定就一直跟随
