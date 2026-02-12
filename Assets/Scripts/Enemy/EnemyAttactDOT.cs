@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyAttackDOT : MonoBehaviour
 {
@@ -41,7 +39,7 @@ public class EnemyAttackDOT : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // 检测到玩家进入攻击范围
-        if (other.CompareTag("player"))
+        if (other.CompareTag("Player"))
         {
             // 找到玩家脚本并赋值
             targetPlayer = other.GetComponent<Player>();
@@ -57,7 +55,7 @@ public class EnemyAttackDOT : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         // 玩家离开攻击范围，停止DOT
-        if (other.CompareTag("player"))
+        if (other.CompareTag("Player"))
         {
             isDoingT = false;
             targetPlayer = null;

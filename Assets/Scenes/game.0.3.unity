@@ -412,12 +412,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6928848447445543823, guid: aae14eb7e8482ca41aaa287895e6f3ab, type: 3}
+      propertyPath: Targetscene
+      value: game.1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6928848447445543823, guid: aae14eb7e8482ca41aaa287895e6f3ab, type: 3}
       propertyPath: "\u76EE\u6807\u573A\u666F\u540D"
       value: "\u7B2C\u4E8C\u5C42\u7B2C\u4E00\u5173"
       objectReference: {fileID: 0}
     - target: {fileID: 7839738517420623114, guid: aae14eb7e8482ca41aaa287895e6f3ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 7839738517420623114, guid: aae14eb7e8482ca41aaa287895e6f3ab, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5875,7 +5879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2290132184065898250, guid: a1190497243929e4097763d090a0e50c, type: 3}
       propertyPath: m_TagString
-      value: player
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4176466831303200863, guid: a1190497243929e4097763d090a0e50c, type: 3}
       propertyPath: m_Radius
@@ -5905,6 +5909,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 5854671787345212599, guid: 030b277b31e569543a16b19266c6dc40, type: 3}
+    - target: {fileID: 4871675353791484466, guid: a1190497243929e4097763d090a0e50c, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871675353791484466, guid: a1190497243929e4097763d090a0e50c, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -728175545
+      objectReference: {fileID: 0}
     - target: {fileID: 4871675353791484466, guid: a1190497243929e4097763d090a0e50c, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

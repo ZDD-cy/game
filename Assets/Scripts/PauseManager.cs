@@ -1,16 +1,20 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
     public Canvas PauseCanvas;
     public Canvas SettingsCanvas;
+    public Camera cam;
     public bool isPaused;
     public bool isMainMenu = true;
 
     public static PauseManager Instance { get; private set; }
     private void Awake()
     {
+        
+        UpdateCam();
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -66,5 +70,43 @@ public class PauseManager : MonoBehaviour
     {
         if(!isMainMenu)PauseCanvas.enabled = !PauseCanvas.enabled;
         SettingsCanvas.enabled = !SettingsCanvas.enabled;
+    }
+
+    public void UpdateCam()
+    {
+        GameObject RenderCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        if (RenderCamera != null)
+        {
+            cam = RenderCamera.GetComponent<Camera>();
+        }
+        else
+        {
+            Debug.LogError("No Main Camera!");
+        }
+        PauseCanvas.worldCamera = cam;
+        SettingsCanvas.worldCamera = cam;
+    }
+    
+    private void OnEnable()
+    {
+        // 注册场景加载完成事件
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    
+    // 场景加载完成时的回调
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("场景 " + scene.name + " 已加载，现在执行相关操作");
+        ExecuteAfterSceneLoad();
+    }
+    
+    private void ExecuteAfterSceneLoad()
+    {
+        UpdateCam();
     }
 }

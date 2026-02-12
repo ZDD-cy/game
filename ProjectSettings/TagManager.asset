@@ -54,3 +54,9 @@ TagManager:
   - name: Attract
     uniqueID: 1887484971
     locked: 0
+  - name: Player
+    uniqueID: 3566791751
+    locked: 0
+  - name: UI
+    uniqueID: 1857503965
+    locked: 0
