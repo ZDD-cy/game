@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class IceTrap : MonoBehaviour
@@ -28,7 +26,7 @@ public class IceTrap : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("陷阱触发检测：进入 OnTriggerEnter2D 方法");
-        if (other.CompareTag("player") && _isTrapActive)
+        if (other.CompareTag("Player") && _isTrapActive)
         {
             Debug.Log("陷阱触发：检测到 Player 标签，且陷阱处于激活状态");
             Player player = other.GetComponent<Player>();
