@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 284720634}
   m_Layer: 0
   m_Name: Fire wall
-  m_TagString: Untagged
+  m_TagString: Firewall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8428,6 +8428,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6103041402814176385, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
       propertyPath: m_Name
+      value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6103041402814176385, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
+      propertyPath: m_TagString
       value: player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
