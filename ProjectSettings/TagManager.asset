@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Wall
   - Trap
+  - player
+  - Firewall
   layers:
   - Default
   - TransparentFX
