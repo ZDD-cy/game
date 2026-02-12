@@ -294,14 +294,6 @@ public class PlayerTargetAttack : MonoBehaviour
             return;
         }
 
-        // 目标失活/超出自动寻敌范围/死亡，清空
-        if (!currentTarget.gameObject.activeSelf ||
-            Vector2.Distance(transform.position, currentTarget.position) > autoFindRange * 1.5f ||
-            targetStatus.currentHp <= 0)
-        {
-            Debug.Log($"[目标失效] {currentTarget.name} 已死亡/超出范围，清空目标");
-            ClearTarget();
-        }
     }
 
     // 清空当前目标（隐藏线、停止计时、重置状态）
