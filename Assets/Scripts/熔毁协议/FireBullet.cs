@@ -1,34 +1,44 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 
 public class FireBullet : MonoBehaviour
 {
     public float speed;
     public Vector2 direction;
-    public Action onHit; // 命中回调
+    public Action onHit;
     public int damage = 1;
     private Rigidbody2D rb;
 
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
+        
+    }
+
+    public void Shoot(Vector2 dir, float spd)
+    {
+        direction = dir;
+        speed = spd;
         rb.velocity = direction * speed;
-        Destroy(gameObject, 5f); // 保底销毁
+        gameObject.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("player"))
+        if (other.CompareTag("Enemy"))
+            return;
+        if (other.CompareTag("player") || other.CompareTag("Wall") || other.CompareTag("Firewall"))
         {
-            other.GetComponent<PlayerController>().TakeDamage(damage);
-            onHit?.Invoke(); // 触发命中回调（生成地砖）
-        }
-        else if (other.CompareTag("Wall") || other.CompareTag("Firewall"))
-        {
+            if (other.CompareTag("player"))
+            {
+                PlayerController p = other.GetComponent<PlayerController>();
+                if (p != null)
+                    p.TakeDamage(damage);
+            }
+
             onHit?.Invoke();
+            gameObject.SetActive(false);
         }
     }
 }
