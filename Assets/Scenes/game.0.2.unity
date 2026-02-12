@@ -7344,7 +7344,7 @@ PrefabInstance:
     - target: {fileID: 3165740582861210980, guid: 44b524a77b187a5468b33e07b1567ee0, type: 3}
       propertyPath: cam
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2104488794}
     - target: {fileID: 3451964941578406410, guid: 44b524a77b187a5468b33e07b1567ee0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -9149,6 +9149,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2104488801}
   m_SourcePrefab: {fileID: 100100000, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
+--- !u!4 &2104488794 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4019636501377560949, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
+  m_PrefabInstance: {fileID: 2104488793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2104488801
 MonoBehaviour:
   m_ObjectHideFlags: 0

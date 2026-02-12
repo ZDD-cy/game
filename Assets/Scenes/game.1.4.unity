@@ -2411,7 +2411,7 @@ PrefabInstance:
     - target: {fileID: 3165740582861210980, guid: d26ca45e550b34f428fc4c9492986e89, type: 3}
       propertyPath: cam
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1910050294}
     - target: {fileID: 3451964941578406410, guid: d26ca45e550b34f428fc4c9492986e89, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8465,6 +8465,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBurning: 0
+--- !u!4 &1910050294 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4019636501377560949, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
+  m_PrefabInstance: {fileID: 1910050290}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
