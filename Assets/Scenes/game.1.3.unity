@@ -8190,7 +8190,7 @@ MonoBehaviour:
   debuffPerSecDamage: 1
   debuffDuration: 4
   popupfreq: 0.5
-  damagePopupPrefab: {fileID: 670971905}
+  damagePopupPrefab: {fileID: 4937998890138807307, guid: a715d07ca71ac9946bb9a9413ac71c2d, type: 3}
 --- !u!114 &1290045787
 MonoBehaviour:
   m_ObjectHideFlags: 0
