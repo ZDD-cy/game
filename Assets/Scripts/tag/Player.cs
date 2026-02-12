@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
     public float hp;
     public bool isFrozen;
     public bool isInIceTrap;
-      public void ResetSpeed()
+    public GameObject damagePopupPrefab;      //声明伤害预制体
+    public void ResetSpeed()
     {
         currentSpeed = moveSpeed;
     }
@@ -105,5 +106,15 @@ public class Player : MonoBehaviour
     {
         Debug.Log("玩家死亡！");
         gameObject.SetActive(false);
+    }
+
+    private void ShowDamagePopup(float damage)
+    {
+        if (damagePopupPrefab != null)
+        {
+            GameObject popup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
+            popup.transform.SetParent(gameObject.transform);
+            popup.GetComponent<DamagePopup>().SetDamage(damage);
+        }
     }
 }

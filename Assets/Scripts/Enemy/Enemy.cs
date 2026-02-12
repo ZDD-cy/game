@@ -35,8 +35,8 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Transform player;
-    private EnemyAutoTarget autoTarget;  
-    
+    private EnemyAutoTarget autoTarget;
+
     void Start()
     {
         // 初始化

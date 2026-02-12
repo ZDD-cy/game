@@ -2,72 +2,71 @@
 
 public class EnemyAttackDOT : MonoBehaviour
 {
-    private float damagePerSecond;
-    private float duration;
-    private float timer;
-    private bool isDoingT;
-    private Player targetPlayer; // 要攻击的玩家对象
-    public Transform target;      // 从 EnemyAutoTarget 来的目标
-    private EnemyAutoTarget autoTarget;
+    [Header("DOT 设置")]
+    public float damagePerSecond = 2f;
+    public float dotDuration = 5f;
+
+    // 这个字段是给 EnemyAutoTarget 用来设置目标的
+    public Transform target;
+
+    private float _timer;
+    private bool _isDoT;
+    private Player _targetPlayer;
+    private EnemyAutoTarget _autoTarget;
 
     private void Start()
     {
-        autoTarget = GetComponent<EnemyAutoTarget>();
+        _autoTarget = GetComponent<EnemyAutoTarget>();
     }
 
     private void Update()
     {
-        // 只有锁定了目标，才允许攻击
-        if (autoTarget != null && autoTarget.currentTarget != null)
-        // 如果正在DOT效果中，就持续扣血
-        if (isDoingT && targetPlayer != null)
+        // DOT 伤害逻辑
+        if (_isDoT && _targetPlayer != null)
         {
-            if (timer < duration)
+            if (_timer < dotDuration)
             {
-                timer += Time.deltaTime;
-                targetPlayer.hp -= damagePerSecond * Time.deltaTime;
-                // Debug.Log($"对玩家造成 {damagePerSecond * Time.deltaTime} 点伤害");
+                _timer += Time.deltaTime;
+                _targetPlayer.hp -= damagePerSecond * Time.deltaTime;
+                 Debug.Log($"对玩家造成 {damagePerSecond * Time.deltaTime} 点伤害");
             }
             else
             {
-                isDoingT = false;
-                // Debug.Log("DOT效果结束");
+                _isDoT = false;
+                 Debug.Log("DOT效果结束");
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // 检测到玩家进入攻击范围
-        if (other.CompareTag("Player"))
+        // 只对当前锁定的目标触发DOT
+        if (other.CompareTag("Player") && other.transform == target)
         {
-            // 找到玩家脚本并赋值
-            targetPlayer = other.GetComponent<Player>();
-            if (targetPlayer != null)
+            _targetPlayer = other.GetComponent<Player>();
+            if (_targetPlayer != null)
             {
-                // 启动DOT，例如：每秒2点伤害，持续5秒
-                ApplyDOT(2f, 5f);
-                Debug.Log("玩家进入攻击范围，DOT启动");
+                ApplyDOT(damagePerSecond, dotDuration);
+                Debug.Log("DOT启动，对锁定目标造成伤害");
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        // 玩家离开攻击范围，停止DOT
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && other.transform == target)
         {
-            isDoingT = false;
-            targetPlayer = null;
-            Debug.Log("玩家离开攻击范围，DOT停止");
+            _isDoT = false;
+            _targetPlayer = null;
+            Debug.Log("目标离开，DOT停止");
         }
     }
 
     public void ApplyDOT(float damage, float time)
     {
         damagePerSecond = damage;
-        duration = time;
-        timer = 0;
-        isDoingT = true;
+        dotDuration = time;
+        _timer = 0f;
+        _isDoT = true;
     }
 }
