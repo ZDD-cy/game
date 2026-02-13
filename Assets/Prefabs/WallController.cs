@@ -20,6 +20,7 @@ public class WallController : MonoBehaviour
     {
         // 一开始墙是降下的
         transform.position = loweredPosition;
+        
     }
 
     private void Update()
@@ -46,6 +47,7 @@ public class WallController : MonoBehaviour
     public void RaiseWall()
     {
         isWallActive = true;
+        Debug.Log("wall shou be ring now!");
     }
 
     // 敌人清完，降下墙

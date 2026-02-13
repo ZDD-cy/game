@@ -300,6 +300,7 @@ MonoBehaviour:
   debuffDuration: 4
   popupfreq: 0.2
   damagePopupPrefab: {fileID: 4937998890138807307, guid: a715d07ca71ac9946bb9a9413ac71c2d, type: 3}
+  isDead: 0
 --- !u!114 &6462946467899611673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,8 +337,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46da7ba85801b3c44ae03c26d8394dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 10
+  damagePerSecond: 100
   dotDuration: 5
+  damageInterval: 0.2
   target: {fileID: 0}
 --- !u!114 &7322109866198812591
 MonoBehaviour:

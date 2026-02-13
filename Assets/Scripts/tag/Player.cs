@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -11,7 +12,6 @@ public class Player : MonoBehaviour
     public GameObject damagePopupPrefab;
     public bool InBossScene;
     public BossfightOverlayManager BOM;
-    
     public void ResetSpeed()
     {
         currentSpeed = moveSpeed;
@@ -103,7 +103,33 @@ public class Player : MonoBehaviour
         {
             Die();
         }
+        if (damagePopupPrefab != null)
+        {
+            Debug.Log("准备生成伤害数字");
+            // 在玩家头顶生成伤害弹窗
+            Vector3 spawnPos = transform.position + new Vector3(0, 1.5f, 0);
+            GameObject popup = Instantiate(damagePopupPrefab, spawnPos, Quaternion.identity);
+
+            // 调用预制体上的脚本设置伤害值
+            if (popup.TryGetComponent<DamagePopup>(out var dp))
+            {
+                dp.SetDamage((int)damage); // 传入伤害值
+            }
+            else
+            {
+                Debug.LogError("DamagePopup 预制体上缺少 DamagePopup 脚本！", this);
+            }
+        }
+        else
+        {
+            Debug.LogError("DamagePopup 预制体引用丢失！", this);
+        }
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
+
 
     private void Die()
     {
