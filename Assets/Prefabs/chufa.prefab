@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1303768253204630326}
   - component: {fileID: 5617076516622057515}
   m_Layer: 0
-  m_Name: "\u89E6\u53D1"
+  m_Name: chufa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
