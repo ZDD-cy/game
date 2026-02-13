@@ -5311,6 +5311,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 546452598836842933, guid: 34b8319b6f6b73542b404b1f2237408f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.64
+      objectReference: {fileID: 0}
     - target: {fileID: 2483327578399010062, guid: 34b8319b6f6b73542b404b1f2237408f, type: 3}
       propertyPath: m_Name
       value: "\u4E00\u6392\u5899 (1)"
@@ -19482,11 +19486,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2234507738633100131, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
       propertyPath: isAutoFindNearest
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2234507738633100131, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
       propertyPath: isRightClickSelect
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5976942948075903674, guid: 7ff3b9e8257f54c49b42e6ff929be4f4, type: 3}
       propertyPath: m_SortingOrder
