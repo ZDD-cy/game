@@ -3,105 +3,137 @@
 public class EnemyStatus : MonoBehaviour
 {
     [Header("基础属性")]
-    public int hp = 20; // 敌人血量，可按需改
+    public int hp = 20;
     public float currentHp;
-    [Tooltip("输入敌人名字")]
     public string enemyName = "敌人";
 
     [Header("Debuff默认配置")]
-    public int debuffPerSecDamage = 1; // 每秒Debuff伤害（默认1点）
-    public float debuffDuration = 4f; // Debuff持续时间（默认4s）
+    public int debuffPerSecDamage = 1;
+    public float debuffDuration = 4f;
+    public float popuptimer;
+    private float debuffDamageThisSecond = 0f;
 
     [Tooltip("伤害数字每多少秒出现一次")]
-    [SerializeField] private float popupfreq = 0.2f;
-    
-    private int currentDebuffLayer; // 当前Debuff层数
-    private float debuffTimer; // Debuff计时（每层独立，取最大值）
-    private float popuptimer;
-    private float deltadamage;
+    [SerializeField] private float popupfreq = 1f;
+    private float damageAccumulatedForDisplay = 0f; // 累计待显示的伤害
+    public float damageThresholdForDisplay = 20f;   // 每累计满20点才显示一次
 
-    public GameObject damagePopupPrefab;      //声明伤害预制体
+
+    private int currentDebuffLayer;
+    private float debuffTimer;
+
+    public GameObject damagePopupPrefab;
     public bool isDead = false;
-    
+
     private void Start()
     {
         currentHp = hp;
     }
-//
-    void Update()
-    {
-        // Debuff持续计时，大于0则持续掉血
-        if (debuffTimer > 0)
-        {
-            debuffTimer -= Time.deltaTime;
-            popuptimer += Time.deltaTime;
-            if (popuptimer >= popupfreq) {
-                ShowDamagePopup(deltadamage);
-                popuptimer = 0.0f;
-                deltadamage = 0.0f;
-            }
-            TakeDamage(debuffPerSecDamage * Time.deltaTime, GetLastHp()); // 每秒掉血，浮点型避免帧跳
-        }
-        else
-        {
-            currentDebuffLayer = 0; // 计时结束，层数清零
-        }
-    }
-
     public float GetLastHp()
     {
         return currentHp;
     }
-
-    // 接收伤害（整数/浮点型兼容）
-    public void TakeDamage(float damage, float lastHp)
+    void Update()
     {
-        float finalDamage = damage;
-        if (currentHp <= 0)
+        if (debuffTimer > 0)
         {
-            currentHp = Mathf.Max(currentHp, 0);
-            Die();
+            debuffTimer -= Time.deltaTime;
+
+            // 每帧计算这一帧的 Debuff 伤害
+            float damageThisFrame = debuffPerSecDamage * Time.deltaTime;
+
+            // 直接扣血
+            currentHp = Mathf.Max(currentHp - damageThisFrame, 0);
+
+            // 把这一帧的伤害加到“待显示累计值”里
+            damageAccumulatedForDisplay += damageThisFrame;
+
+            // 当累计伤害 >= 阈值时，一次性显示
+            if (damageAccumulatedForDisplay >= damageThresholdForDisplay)
+            {
+                int displayDamage = Mathf.RoundToInt(damageAccumulatedForDisplay);
+                ShowDamagePopup(displayDamage);
+                damageAccumulatedForDisplay = 0f; // 重置累计
+            }
+
+            // 检查是否死亡
+            if (currentHp <= 0 && !isDead)
+            {
+                Die();
+            }
+
+            // Debuff 结束时，把剩余的累计伤害也显示出来
+            if (debuffTimer <= 0)
+            {
+                currentDebuffLayer = 0;
+                if (damageAccumulatedForDisplay > 0)
+                {
+                    int displayDamage = Mathf.RoundToInt(damageAccumulatedForDisplay);
+                    ShowDamagePopup(displayDamage);
+                    damageAccumulatedForDisplay = 0f;
+                }
+            }
         }
-        //扣血
-        deltadamage += finalDamage;
-        currentHp -= finalDamage;
-        //Debug.Log($"【{enemyName} - 受到伤害】受击{finalDamage:F1}点 | 血量变化：{lastHp:F1} → {currentHp:F1} | 剩余：{currentHp:F1}/{hp:F1}");
     }
 
-    // 添加Debuff（叠加层数，重置计时）
+
+
+
+    // 保留你原来的双参数方法
+    public void TakeDamage(float damage, float lastHp)
+    {
+        if (isDead) return;
+
+        float finalDamage = damage;
+        currentHp = Mathf.Max(currentHp - finalDamage, 0);
+
+        // 把伤害累计起来
+        damageAccumulatedForDisplay += finalDamage;
+
+        // 当累计伤害 >= 阈值时，一次性显示
+        if (damageAccumulatedForDisplay >= damageThresholdForDisplay)
+        {
+            int displayDamage = Mathf.RoundToInt(damageAccumulatedForDisplay);
+            ShowDamagePopup(displayDamage);
+            damageAccumulatedForDisplay = 0f; // 重置累计
+        }
+
+        if (currentHp <= 0)
+        {
+            Die();
+        }
+    }
+
     public void AddDebuff()
     {
         currentDebuffLayer++;
-        debuffTimer = debuffDuration; // 每次叠加重置持续时间（也可改为叠加时长，按需注释）
-        // 若要叠加时长，替换上面一行：debuffTimer += debuffDuration;
+        debuffTimer = debuffDuration;
     }
 
-    // 敌人死亡逻辑（清空目标、销毁/回收）
     private void Die()
     {
         isDead = true;
-        // 敌人死亡：销毁/回收，按需选择
-        // Destroy(gameObject); 
         gameObject.SetActive(false);
-        // 通知玩家脚本清空目标（避免空引用）
         FindObjectOfType<PlayerTargetAttack>().ClearTarget();
         FindObjectOfType<WallController>().CheckAllEnemiesDead();
-
     }
 
-    // 获取当前是否有Debuff
     public bool HasDebuff()
     {
         return currentDebuffLayer > 0 && debuffTimer > 0;
     }
-    
+
     private void ShowDamagePopup(float damage)
     {
         if (damagePopupPrefab != null)
         {
-            GameObject popup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
-            popup.transform.SetParent(gameObject.transform);
-            popup.GetComponent<DamagePopup>().SetDamage(damage);
+            Vector3 popupPosition = transform.position + new Vector3(0, 1f, 0);
+            GameObject popup = Instantiate(damagePopupPrefab, popupPosition, Quaternion.identity);
+            DamagePopup popupScript = popup.GetComponent<DamagePopup>();
+            if (popupScript != null)
+            {
+                popupScript.SetDamage(damage);
+            }
         }
     }
 }
