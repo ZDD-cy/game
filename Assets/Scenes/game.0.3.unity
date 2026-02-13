@@ -753,11 +753,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: cf8ed281e29624d4189da076a45cae63, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 113.1
+      value: 98.71
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: cf8ed281e29624d4189da076a45cae63, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.73
+      value: -9.08
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: cf8ed281e29624d4189da076a45cae63, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1573,7 +1573,7 @@ Transform:
   m_GameObject: {fileID: 1558768697}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 79.9, y: -1, z: 0}
+  m_LocalPosition: {x: 79.95, y: -1.94, z: 0}
   m_LocalScale: {x: 6.777571, y: 7.469422, z: 6.777571}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7844,7 +7844,7 @@ PrefabInstance:
       objectReference: {fileID: 1163214704}
     - target: {fileID: 1652585130734626943, guid: a1190497243929e4097763d090a0e50c, type: 3}
       propertyPath: isFrozen
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1652585130734626943, guid: a1190497243929e4097763d090a0e50c, type: 3}
       propertyPath: InBossScene
