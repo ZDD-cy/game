@@ -158,8 +158,7 @@ public class Enemy : MonoBehaviour
     // ============== 攻击玩家方法 ==============
     private void AttackPlayer()
     {
-        EnemyAttackDOT attackDOT = GetComponent<EnemyAttackDOT>();
-        if (attackDOT != null)
+        if (TryGetComponent<EnemyAttackDOT>(out var attackDOT))
         {
             attackDOT.ApplyDOT(5f, 2f); // 示例：每秒5点伤害，持续2秒
             Debug.Log("敌人发动攻击！");
