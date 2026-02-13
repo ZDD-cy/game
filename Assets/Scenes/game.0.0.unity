@@ -195,6 +195,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 551838290}
+    - target: {fileID: 3165740582861210980, guid: 44b524a77b187a5468b33e07b1567ee0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3451964941578406410, guid: 44b524a77b187a5468b33e07b1567ee0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3198,9 +3202,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8403778440194109506, guid: aae14eb7e8482ca41aaa287895e6f3ab, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 9007606358706317166, guid: aae14eb7e8482ca41aaa287895e6f3ab, type: 3}
       propertyPath: m_Name
       value: SceneSwitcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007606358706317166, guid: aae14eb7e8482ca41aaa287895e6f3ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
