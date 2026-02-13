@@ -18,8 +18,6 @@ public class EnemyAutoTarget : MonoBehaviour
     public float checkInterval = 0.2f; // 每0.2秒检测一次目标
 
     private EnemyAttackDOT enemyAttackDOT;
-    
-
 
     private void Start()
     {
@@ -38,7 +36,6 @@ public class EnemyAutoTarget : MonoBehaviour
             CheckTargetValid();
         }
     }
-
 
     private void CheckTargetValid()
     {
@@ -68,7 +65,6 @@ public class EnemyAutoTarget : MonoBehaviour
         }
     }
 
-    
     /// 自动搜索玩家目标
     public void FindplayerTarget()
     {
@@ -79,7 +75,6 @@ public class EnemyAutoTarget : MonoBehaviour
             Debug.Log($"找到玩家: {player.name}", player);
             Transform playerTrans = player.transform;
             float distance = Vector2.Distance(transform.position, playerTrans.position);
-            //Debug.Log($"与玩家距离: {distance}, 索敌范围: {detectRange}"); 刷屏日志过于频繁，暂时禁用
 
             if (distance <= detectRange)
             {
@@ -102,8 +97,7 @@ public class EnemyAutoTarget : MonoBehaviour
         }
     }
 
-
-    //  Scene 视图绘制索敌范围，方便调试
+    // Scene 视图绘制索敌范围，方便调试
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

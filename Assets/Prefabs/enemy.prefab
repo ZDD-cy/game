@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6462946467899611673}
   - component: {fileID: 1752594775433380165}
   - component: {fileID: 7322109866198812591}
+  - component: {fileID: 2756789623281729009}
   m_Layer: 3
   m_Name: enemy
   m_TagString: Enemy
@@ -133,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   hp: 100
-  chaseSpeed: 7
+  chaseSpeed: 4
   attackRange: 2
   attackCooldown: 1.5
   currentState: 0
@@ -335,6 +336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46da7ba85801b3c44ae03c26d8394dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagePerSecond: 10
+  dotDuration: 5
   target: {fileID: 0}
 --- !u!114 &7322109866198812591
 MonoBehaviour:
@@ -357,3 +360,48 @@ MonoBehaviour:
   onlyLockInRange: 1
   currentTarget: {fileID: 0}
   checkInterval: 0.2
+--- !u!61 &2756789623281729009
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954939301359306071}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0625, y: 1.0625}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.46296296, y: -0.0862069}
+    oldSize: {x: 1.6875, y: 1.8125}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6875, y: 1.8125}
+  m_EdgeRadius: 0

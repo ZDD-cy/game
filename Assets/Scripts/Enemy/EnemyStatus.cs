@@ -21,6 +21,7 @@ public class EnemyStatus : MonoBehaviour
     private float deltadamage;
 
     public GameObject damagePopupPrefab;      //声明伤害预制体
+    public bool isDead = false;
     
     private void Start()
     {
@@ -39,7 +40,7 @@ public class EnemyStatus : MonoBehaviour
                 popuptimer = 0.0f;
                 deltadamage = 0.0f;
             }
-            TakeDamage(debuffPerSecDamage * Time.deltaTime); // 每秒掉血，浮点型避免帧跳
+            TakeDamage(debuffPerSecDamage * Time.deltaTime, GetLastHp()); // 每秒掉血，浮点型避免帧跳
         }
         else
         {
@@ -47,11 +48,14 @@ public class EnemyStatus : MonoBehaviour
         }
     }
 
-    // 接收伤害（整数/浮点型兼容）
-    public void TakeDamage(float damage)
+    public float GetLastHp()
     {
-      
-        float lastHp = currentHp;
+        return currentHp;
+    }
+
+    // 接收伤害（整数/浮点型兼容）
+    public void TakeDamage(float damage, float lastHp)
+    {
         float finalDamage = damage;
         if (currentHp <= 0)
         {
@@ -75,11 +79,14 @@ public class EnemyStatus : MonoBehaviour
     // 敌人死亡逻辑（清空目标、销毁/回收）
     private void Die()
     {
+        isDead = true;
         // 敌人死亡：销毁/回收，按需选择
         // Destroy(gameObject); 
         gameObject.SetActive(false);
         // 通知玩家脚本清空目标（避免空引用）
         FindObjectOfType<PlayerTargetAttack>().ClearTarget();
+        FindObjectOfType<WallController>().CheckAllEnemiesDead();
+
     }
 
     // 获取当前是否有Debuff
