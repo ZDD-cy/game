@@ -1,4 +1,4 @@
-%YAML 1.1
+﻿%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
 OcclusionCullingSettings:
@@ -3001,10 +3001,8 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
-<<<<<<< HEAD
+ HEAD
 --- !u!1001 &879970872
-=======
---- !u!1001 &675675867
 >>>>>>> 4a98cdf4bc948c0a9ce4fcc9bbc258cecfc48739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3013,7 +3011,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-<<<<<<< HEAD
+ HEAD
     - target: {fileID: 6063951401788617792, guid: b1234eeb7bac5794e9e639c2847fd628, type: 3}
       propertyPath: m_LocalPosition.x
       value: 30.47
@@ -3058,59 +3056,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u4E00\u9762\u5899"
       objectReference: {fileID: 0}
-=======
-    - target: {fileID: 305374283831298190, guid: 60e7a8d066a542e4f82e6ae3e6ad35b0, type: 3}
-      propertyPath: m_Name
-      value: "\u5E26\u9501\u7684\u5899"
-      objectReference: {fileID: 0}
-    - target: {fileID: 707367252064362731, guid: 60e7a8d066a542e4f82e6ae3e6ad35b0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 13.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 707367252064362731, guid: 60e7a8d066a542e4f82e6ae3e6ad35b0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 707367252064362731, guid: 60e7a8d066a542e4f82e6ae3e6ad35b0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 707367252064362731, guid: 60e7a8d066a542e4f82e6ae3e6ad35b0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 707367252064362731, guid: 60e7a8d066a542e4f82e6ae3e6ad35b0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 707367252064362731, guid: 60e7a8d066a542e4f82e6ae3e6ad35b0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 707367252064362731, guid: 60e7a8d066a542e4f82e6ae3e6ad35b0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 707367252064362731, guid: 60e7a8d066a542e4f82e6ae3e6ad35b0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 707367252064362731, guid: 60e7a8d066a542e4f82e6ae3e6ad35b0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 707367252064362731, guid: 60e7a8d066a542e4f82e6ae3e6ad35b0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
->>>>>>> 4a98cdf4bc948c0a9ce4fcc9bbc258cecfc48739
+
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-<<<<<<< HEAD
-  m_SourcePrefab: {fileID: 100100000, guid: b1234eeb7bac5794e9e639c2847fd628, type: 3}
-=======
+ HEAD
   m_SourcePrefab: {fileID: 100100000, guid: 60e7a8d066a542e4f82e6ae3e6ad35b0, type: 3}
 --- !u!114 &675675868 stripped
 MonoBehaviour:
@@ -3123,7 +3074,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> 4a98cdf4bc948c0a9ce4fcc9bbc258cecfc48739
 --- !u!1001 &972973640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3977,11 +3927,6 @@ SceneRoots:
   - {fileID: 1766490412}
   - {fileID: 977427448}
   - {fileID: 972973640}
-<<<<<<< HEAD
-  - {fileID: 879970872}
-  - {fileID: 2019827369}
-=======
   - {fileID: 675675867}
   - {fileID: 44111149}
   - {fileID: 1428046972}
->>>>>>> 4a98cdf4bc948c0a9ce4fcc9bbc258cecfc48739
