@@ -115,7 +115,11 @@ public class EnemyStatus : MonoBehaviour
         isDead = true;
         gameObject.SetActive(false);
         FindObjectOfType<PlayerTargetAttack>().ClearTarget();
-        FindObjectOfType<WallController>().CheckAllEnemiesDead();
+        WallController[] allWalls = FindObjectsOfType<WallController>();
+        foreach (WallController wall in allWalls)
+        {
+            wall.CheckAllEnemiesDead();
+        }
     }
 
     public bool HasDebuff()

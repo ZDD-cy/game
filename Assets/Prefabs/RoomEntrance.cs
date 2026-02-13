@@ -4,17 +4,31 @@ using UnityEngine;
 
 public class RoomEntrance : MonoBehaviour
 {
-    public WallController wall;
+    public List<WallController> walls = new List<WallController>();
 
     private bool alreadyTriggered = false;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log($"碰到了: {other.gameObject.name}, Tag: {other.tag}"); // 先看有没有碰到任何东西
+
         if (alreadyTriggered) return;
 
         if (other.CompareTag("Player"))
         {
-            wall.RaiseWall();
+            Debug.Log("触发成功墙出现");
+            foreach (var wall in walls)
+            {
+                if (wall != null)
+                {
+                    Debug.Log($"正在升起墙: {wall.gameObject.name}");
+                    wall.RaiseWall();
+                }
+                else
+                {
+                    Debug.LogError("列表中有一个空的墙引用！");
+                }
+            }
             alreadyTriggered = true;
         }
     }
