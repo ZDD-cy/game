@@ -8,7 +8,7 @@ public class RoomTrigger : MonoBehaviour
     public FightActive fightActive;
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("player") && fightActive != null)
+        if (other.CompareTag("Player") && fightActive != null)
         {
             // 启动战斗
             fightActive.StartFight();
