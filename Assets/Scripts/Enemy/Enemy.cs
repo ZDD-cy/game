@@ -160,7 +160,7 @@ public class Enemy : MonoBehaviour
     {
         if (TryGetComponent<EnemyAttackDOT>(out var attackDOT))
         {
-            attackDOT.ApplyDOT(5f, 2f); // 示例：每秒5点伤害，持续2秒
+            attackDOT.ApplyDOT(5f, 2f); 
             Debug.Log("敌人发动攻击！");
         }
     }
