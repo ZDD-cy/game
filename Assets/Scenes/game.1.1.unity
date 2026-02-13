@@ -179,6 +179,83 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+--- !u!114 &45127676 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4770650241571529106, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 45127675}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &45127677 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3431172815848640044, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 45127675}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &45127678 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7415259215549940469, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 45127675}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &45127679 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7667855900658670032, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 45127675}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &45127680 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7464944955105324468, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 45127675}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &45127681 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3759905628029723190, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 45127675}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &45127682 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3946788715114393820, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 45127675}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &51842946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -261,7 +338,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &51842949 stripped
@@ -354,7 +433,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!114 &67559690
@@ -374,7 +455,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &67559691 stripped
@@ -464,7 +547,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &151589334 stripped
@@ -554,7 +639,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &179357274 stripped
@@ -644,7 +731,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &268348178 stripped
@@ -709,6 +798,83 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+--- !u!114 &317000674 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4770650241571529106, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 317000673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &317000675 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3431172815848640044, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 317000673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &317000676 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7415259215549940469, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 317000673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &317000677 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7667855900658670032, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 317000673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &317000678 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7464944955105324468, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 317000673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &317000679 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3759905628029723190, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 317000673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &317000680 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3946788715114393820, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 317000673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &333059440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -766,6 +932,61 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34b8319b6f6b73542b404b1f2237408f, type: 3}
+--- !u!114 &333059441 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4858375877408652996, guid: 34b8319b6f6b73542b404b1f2237408f, type: 3}
+  m_PrefabInstance: {fileID: 333059440}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &333059442 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3406859176105701014, guid: 34b8319b6f6b73542b404b1f2237408f, type: 3}
+  m_PrefabInstance: {fileID: 333059440}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &333059443 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4798781096339113582, guid: 34b8319b6f6b73542b404b1f2237408f, type: 3}
+  m_PrefabInstance: {fileID: 333059440}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &333059444 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5112142307528754138, guid: 34b8319b6f6b73542b404b1f2237408f, type: 3}
+  m_PrefabInstance: {fileID: 333059440}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &333059445 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4319962734806964431, guid: 34b8319b6f6b73542b404b1f2237408f, type: 3}
+  m_PrefabInstance: {fileID: 333059440}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &400703893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -916,7 +1137,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &427759155 stripped
@@ -1068,7 +1291,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &487607317 stripped
@@ -1158,7 +1383,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &490616209 stripped
@@ -1251,7 +1478,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!114 &507669646
@@ -1271,7 +1500,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &507669647 stripped
@@ -1418,7 +1649,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &593235359 stripped
@@ -2762,7 +2995,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &666329339 stripped
@@ -2852,7 +3087,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &691851161 stripped
@@ -2942,7 +3179,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &714897175 stripped
@@ -3156,7 +3395,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &854331944 stripped
@@ -3176,13 +3417,57 @@ PrefabInstance:
       propertyPath: wall
       value: 
       objectReference: {fileID: 400703894}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[0]
+      value: 
+      objectReference: {fileID: 333059441}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[1]
+      value: 
+      objectReference: {fileID: 333059445}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[2]
+      value: 
+      objectReference: {fileID: 333059444}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[3]
+      value: 
+      objectReference: {fileID: 333059443}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[4]
+      value: 
+      objectReference: {fileID: 333059442}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[5]
+      value: 
+      objectReference: {fileID: 1682374214}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[6]
+      value: 
+      objectReference: {fileID: 1682374218}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[7]
+      value: 
+      objectReference: {fileID: 1682374217}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[8]
+      value: 
+      objectReference: {fileID: 1682374216}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[9]
+      value: 
+      objectReference: {fileID: 1682374215}
     - target: {fileID: 3264593021694630360, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
       propertyPath: m_LocalScale.x
       value: 33.83245
       objectReference: {fileID: 0}
     - target: {fileID: 3264593021694630360, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 17.08014
+      value: 14.535973
       objectReference: {fileID: 0}
     - target: {fileID: 3264593021694630360, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3315,7 +3600,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &1075509452 stripped
@@ -11508,6 +11795,66 @@ PrefabInstance:
       propertyPath: wall
       value: 
       objectReference: {fileID: 400703894}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[0]
+      value: 
+      objectReference: {fileID: 45127676}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[1]
+      value: 
+      objectReference: {fileID: 45127682}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[2]
+      value: 
+      objectReference: {fileID: 45127681}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[3]
+      value: 
+      objectReference: {fileID: 45127679}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[4]
+      value: 
+      objectReference: {fileID: 45127680}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[5]
+      value: 
+      objectReference: {fileID: 45127678}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[6]
+      value: 
+      objectReference: {fileID: 45127677}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[7]
+      value: 
+      objectReference: {fileID: 1314660594}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[8]
+      value: 
+      objectReference: {fileID: 1314660600}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[9]
+      value: 
+      objectReference: {fileID: 1314660599}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[10]
+      value: 
+      objectReference: {fileID: 1314660598}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[11]
+      value: 
+      objectReference: {fileID: 1314660597}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[12]
+      value: 
+      objectReference: {fileID: 1314660596}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[13]
+      value: 
+      objectReference: {fileID: 1314660595}
     - target: {fileID: 3264593021694630360, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
       propertyPath: m_LocalScale.x
       value: 33.22854
@@ -11647,7 +11994,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &1284341746 stripped
@@ -11777,6 +12126,83 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+--- !u!114 &1314660594 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4770650241571529106, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 1314660593}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1314660595 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3431172815848640044, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 1314660593}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1314660596 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7415259215549940469, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 1314660593}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1314660597 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7667855900658670032, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 1314660593}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1314660598 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7464944955105324468, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 1314660593}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1314660599 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3759905628029723190, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 1314660593}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1314660600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3946788715114393820, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 1314660593}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1345051984
 GameObject:
   m_ObjectHideFlags: 0
@@ -11905,7 +12331,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &1371035906 stripped
@@ -11970,6 +12398,83 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+--- !u!114 &1373107519 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4770650241571529106, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 1373107518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1373107520 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3431172815848640044, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 1373107518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1373107521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7415259215549940469, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 1373107518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1373107522 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7667855900658670032, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 1373107518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1373107523 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7464944955105324468, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 1373107518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1373107524 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3759905628029723190, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 1373107518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1373107525 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3946788715114393820, guid: f9f0f4ce8b301494c8948a3caf333eee, type: 3}
+  m_PrefabInstance: {fileID: 1373107518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1387335729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12052,7 +12557,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &1387335732 stripped
@@ -12137,9 +12644,69 @@ PrefabInstance:
       propertyPath: wall
       value: 
       objectReference: {fileID: 400703894}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[0]
+      value: 
+      objectReference: {fileID: 317000674}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[1]
+      value: 
+      objectReference: {fileID: 317000680}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[2]
+      value: 
+      objectReference: {fileID: 317000678}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[3]
+      value: 
+      objectReference: {fileID: 317000679}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[4]
+      value: 
+      objectReference: {fileID: 317000677}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[5]
+      value: 
+      objectReference: {fileID: 317000676}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[6]
+      value: 
+      objectReference: {fileID: 317000675}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[7]
+      value: 
+      objectReference: {fileID: 1373107519}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[8]
+      value: 
+      objectReference: {fileID: 1373107525}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[9]
+      value: 
+      objectReference: {fileID: 1373107524}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[10]
+      value: 
+      objectReference: {fileID: 1373107523}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[11]
+      value: 
+      objectReference: {fileID: 1373107522}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[12]
+      value: 
+      objectReference: {fileID: 1373107521}
+    - target: {fileID: 1303768253204630326, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
+      propertyPath: walls.Array.data[13]
+      value: 
+      objectReference: {fileID: 1373107520}
     - target: {fileID: 3264593021694630360, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 27.840242
+      value: 25.520315
       objectReference: {fileID: 0}
     - target: {fileID: 3264593021694630360, guid: 35f5a3aba48474a4ba144bc340d9345b, type: 3}
       propertyPath: m_LocalScale.y
@@ -12276,7 +12843,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &1398841385 stripped
@@ -12366,7 +12935,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &1407375712 stripped
@@ -12456,7 +13027,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &1539009336 stripped
@@ -12546,7 +13119,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &1580404229 stripped
@@ -12636,7 +13211,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &1584462234 stripped
@@ -12726,7 +13303,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &1586680758 stripped
@@ -12816,7 +13395,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &1609318028 stripped
@@ -12942,6 +13523,61 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34b8319b6f6b73542b404b1f2237408f, type: 3}
+--- !u!114 &1682374214 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4858375877408652996, guid: 34b8319b6f6b73542b404b1f2237408f, type: 3}
+  m_PrefabInstance: {fileID: 1682374213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1682374215 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3406859176105701014, guid: 34b8319b6f6b73542b404b1f2237408f, type: 3}
+  m_PrefabInstance: {fileID: 1682374213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1682374216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4798781096339113582, guid: 34b8319b6f6b73542b404b1f2237408f, type: 3}
+  m_PrefabInstance: {fileID: 1682374213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1682374217 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5112142307528754138, guid: 34b8319b6f6b73542b404b1f2237408f, type: 3}
+  m_PrefabInstance: {fileID: 1682374213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1682374218 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4319962734806964431, guid: 34b8319b6f6b73542b404b1f2237408f, type: 3}
+  m_PrefabInstance: {fileID: 1682374213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c342ca14e3be945a226df672eea990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1753655196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13024,7 +13660,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &1753655199 stripped
@@ -13114,7 +13752,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &1755731044 stripped
@@ -13204,7 +13844,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &1809474616 stripped
@@ -13294,7 +13936,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &1949682507 stripped
@@ -13384,7 +14028,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &2068481114 stripped
@@ -13474,7 +14120,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &2127578008 stripped
@@ -13576,7 +14224,9 @@ MonoBehaviour:
   enemyName: "\u654C\u4EBA"
   debuffPerSecDamage: 1
   debuffDuration: 4
+  popuptimer: 0
   popupfreq: 0.5
+  damageThresholdForDisplay: 20
   damagePopupPrefab: {fileID: 0}
   isDead: 0
 --- !u!4 &4214558954571683547 stripped

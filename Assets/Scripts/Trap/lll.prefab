@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4528284008838294019}
   - component: {fileID: 5734535831217440071}
   - component: {fileID: 2355776553867387692}
-  - component: {fileID: 3551645482257190124}
   m_Layer: 0
   m_Name: lll
   m_TagString: Untagged
@@ -782,22 +781,6 @@ TilemapCollider2D:
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
 --- !u!114 &2355776553867387692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6947001007675058893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b20b5bb4d77a23c49ac97b80b43449b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slowDownRate: 0.5
-  effectDuration: 3
-  trapCooldown: 5
-  damagePerSecond: 1
---- !u!114 &3551645482257190124
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
