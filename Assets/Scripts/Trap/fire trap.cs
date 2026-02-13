@@ -48,7 +48,7 @@ void Update()
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("player") && _isTrapActive)
+        if (other.CompareTag("Player") && _isTrapActive)
         {
             Player player = other.GetComponent<Player>();
             if (player != null)
@@ -69,7 +69,7 @@ void Update()
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, aoeRange);
         foreach (Collider2D col in colliders)
         {
-            if (col.CompareTag("player"))
+            if (col.CompareTag("Player"))
             {
                 Player player = col.GetComponent<Player>();
                 if (player != null)

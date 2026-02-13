@@ -24,7 +24,6 @@ public class FrostBuffData
     // Buff效果标记
     public bool isDashForbidden; //是否封禁冲刺
     public bool isMaxLayer;      //是否达到7层（满层）
-
     
 }
 
@@ -67,6 +66,7 @@ public class FrostBoss : MonoBehaviour
     private Rigidbody2D rb;
     private Coroutine dotCoroutine;            // 7层持续伤害协程
     private int currentPathIndex = 0;          // 当前移动路径索引
+    public BossfightOverlayManager BOM;
     
     void Start()
     {
@@ -435,5 +435,9 @@ public class FrostBoss : MonoBehaviour
                 Gizmos.DrawLine(prevPos, pos);
             }
         }
+    }
+    void OnDisable()
+    {
+        if(BOM!=null)BOM.PassFight();
     }
 }

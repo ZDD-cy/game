@@ -8,7 +8,10 @@ public class Player : MonoBehaviour
     public float hp;
     public bool isFrozen;
     public bool isInIceTrap;
-    public GameObject damagePopupPrefab;      //声明伤害预制体
+    public GameObject damagePopupPrefab;
+    public bool InBossScene;
+    public BossfightOverlayManager BOM;
+    
     public void ResetSpeed()
     {
         currentSpeed = moveSpeed;
@@ -105,7 +108,8 @@ public class Player : MonoBehaviour
     private void Die()
     {
         Debug.Log("玩家死亡！");
-        gameObject.SetActive(false);
+        if(InBossScene){BOM.FailFight();}
+        else{gameObject.SetActive(false);}
     }
 
     private void ShowDamagePopup(float damage)

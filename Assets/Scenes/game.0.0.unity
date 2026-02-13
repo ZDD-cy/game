@@ -3387,54 +3387,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &1428046970
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1428046972}
-  - component: {fileID: 1428046971}
-  m_Layer: 0
-  m_Name: "\u5207\u6362"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1428046971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428046970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9de308a42bdc06146820830f31c2d639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLevelName: game.0.1
-  useFadeTransition: 1
-  fadeDuration: 1
-  triggerOnce: 1
---- !u!4 &1428046972
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428046970}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 76.29, y: 0.2, z: -0.063917585}
-  m_LocalScale: {x: 1.2004526, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1766490412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3501,7 +3453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9007606358706317166, guid: aae14eb7e8482ca41aaa287895e6f3ab, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3924,4 +3876,4 @@ SceneRoots:
   - {fileID: 972973640}
   - {fileID: 675675867}
   - {fileID: 44111149}
-  - {fileID: 1428046972}
+  - {fileID: 2019827369}

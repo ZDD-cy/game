@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DamageZone : MonoBehaviour
 {
@@ -10,7 +8,7 @@ public class DamageZone : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("player"))
+        if (other.CompareTag("Player"))
         {
             damageTimer += Time.deltaTime;
             if (damageTimer >= damageInterval)
@@ -23,6 +21,6 @@ public class DamageZone : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("player")) damageTimer = 0;
+        if (other.CompareTag("Player")) damageTimer = 0;
     }
 }

@@ -76,6 +76,8 @@ public class BossMeltdownProtocol : MonoBehaviour
     private float skillCheckTimer;
     #endregion
 
+    public BossfightOverlayManager BOM;
+    
     private void Start()
     {
         currentHP = maxHP;
@@ -159,9 +161,13 @@ public class BossMeltdownProtocol : MonoBehaviour
         skillCheckTimer = 0;
 
         if (firewallCDTimer <= 0 && !isFirewallActive)
+        {
             CastFirewall();
+        }
         else if (fireSeedCDTimer <= 0)
+        {
             CastFireSeed();
+        }
     }
     #endregion
 
@@ -178,7 +184,7 @@ public class BossMeltdownProtocol : MonoBehaviour
         {
             if (currentFirewall == null)
             {
-                currentFirewall = Instantiate(firewallPrefab, transform.position, Quaternion.identity);
+                currentFirewall = Instantiate(firewallPrefab, transform.position, Quaternion.identity,  transform);
             }
             else
             {
@@ -301,6 +307,10 @@ public class BossMeltdownProtocol : MonoBehaviour
 
         Debug.Log("BOSS 已被击败！");
         Destroy(gameObject);
+    }
+    void OnDisable()
+    {
+        if(BOM!=null)BOM.PassFight();
     }
 }
 

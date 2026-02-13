@@ -28,11 +28,11 @@ public class FireBullet : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
             return;
-        if (other.CompareTag("player") || other.CompareTag("Wall") || other.CompareTag("Firewall"))
+        if (other.CompareTag("Player") || other.CompareTag("Wall") || other.CompareTag("Firewall"))
         {
-            if (other.CompareTag("player"))
+            if (other.CompareTag("Player"))
             {
-                PlayerController p = other.GetComponent<PlayerController>();
+                Player p = other.GetComponent<Player>();
                 if (p != null)
                     p.TakeDamage(damage);
             }
