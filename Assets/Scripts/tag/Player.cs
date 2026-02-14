@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Player : MonoBehaviour
     public GameObject damagePopupPrefab;
     public bool InBossScene;
     public BossfightOverlayManager BOM;
+    public Slider healthBar;
+    public Camera cam;
     public void ResetSpeed()
     {
         currentSpeed = moveSpeed;
@@ -85,6 +88,7 @@ public class Player : MonoBehaviour
         {
             movement.Normalize();
         }
+        healthBar.value = currentHealth / maxHealth;
     }
 
     void FixedUpdate()

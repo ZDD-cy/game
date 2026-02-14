@@ -63,9 +63,25 @@ public class SettingsManager : MonoBehaviour
     }
 
     public Resolution[] GetResolutions() => resolutions;
+
+    public void SetResolutionIndex(int index)
+    {
+        PlayerPrefs.SetInt(SettingsKeys.ResolutionIndex, index); PlayerPrefs.Save(); ApplyVideo();
+    }
+
+    public void SetDisplayMode(int mode)
+    {
+        PlayerPrefs.SetInt(SettingsKeys.DisplayMode, mode); PlayerPrefs.Save(); ApplyVideo();
+    }
+
+    public void SetFrameRateLimit(int fps)
+    {
+        PlayerPrefs.SetInt(SettingsKeys.FrameRateLimit, fps); PlayerPrefs.Save(); ApplyVideo();
+    }
+
+    public void SetVSync(bool on)
+    {
+        PlayerPrefs.SetInt(SettingsKeys.VSync, on ? 1 : 0); PlayerPrefs.Save(); ApplyVideo();
+    }
     
-    public void SetResolutionIndex(int index) { PlayerPrefs.SetInt(SettingsKeys.ResolutionIndex, index); PlayerPrefs.Save(); ApplyVideo(); }
-    public void SetDisplayMode(int mode) { PlayerPrefs.SetInt(SettingsKeys.DisplayMode, mode); PlayerPrefs.Save(); ApplyVideo(); }
-    public void SetFrameRateLimit(int fps) { PlayerPrefs.SetInt(SettingsKeys.FrameRateLimit, fps); PlayerPrefs.Save(); ApplyVideo(); }
-    public void SetVSync(bool on) { PlayerPrefs.SetInt(SettingsKeys.VSync, on ? 1 : 0); PlayerPrefs.Save(); ApplyVideo(); }
 }

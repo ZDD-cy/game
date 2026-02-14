@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyStatus : MonoBehaviour
 {
@@ -22,10 +23,24 @@ public class EnemyStatus : MonoBehaviour
 
     public GameObject damagePopupPrefab;
     public bool isDead = false;
+    public Slider healthBar;
+    public Canvas Rendercanvas;
+    public Camera cam;
 
     private void Start()
     {
         currentHp = hp;
+        healthBar.value = currentHp;
+        GameObject RenderCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        if (RenderCamera != null)
+        {
+            cam = RenderCamera.GetComponent<Camera>();
+        }
+        else
+        {
+            Debug.LogError("No Main Camera!");
+        }
+        Rendercanvas.worldCamera = cam;
     }
     public float GetLastHp()
     {
@@ -93,6 +108,7 @@ public class EnemyStatus : MonoBehaviour
         {
             int displayDamage = Mathf.RoundToInt(damageAccumulatedForDisplay);
             ShowDamagePopup(displayDamage);
+            healthBar.value = currentHp / hp;
             damageAccumulatedForDisplay = 0f; // 重置累计
         }
 
