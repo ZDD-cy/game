@@ -101,12 +101,7 @@ public class PauseManager : MonoBehaviour
     // 场景加载完成时的回调
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("场景 " + scene.name + " 已加载，现在执行相关操作");
-        ExecuteAfterSceneLoad();
-    }
-    
-    private void ExecuteAfterSceneLoad()
-    {
+        CustomAudio.PlaySoundOnSceneLoaded(scene.name);
         UpdateCam();
     }
 }

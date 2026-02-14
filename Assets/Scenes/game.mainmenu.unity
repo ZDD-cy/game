@@ -737,6 +737,8 @@ MonoBehaviour:
   sfxEntries: []
   sfxPoolSize: 12
   bgmEntries:
+  - {fileID: 11400000, guid: 70c2099ff110899498ce2cb89f099705, type: 2}
+  - {fileID: 11400000, guid: f601b45a66881cf4a9dd318329aa4a86, type: 2}
   - {fileID: 11400000, guid: ad1537e69e2fb31499d33248b3700c34, type: 2}
   defaultBGMFadeDuration: 1.5
   defaultMasterVolume: 1
