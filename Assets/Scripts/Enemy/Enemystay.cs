@@ -6,19 +6,26 @@ public class EnemyStayInBounds2D : MonoBehaviour
 {
     public Transform boundsObject;
     private Collider2D boundsColl;
+    private Rigidbody2D rb; // 缓存 Rigidbody2D 组件
 
     void Start()
     {
         boundsColl = boundsObject.GetComponent<Collider2D>();
+        rb = GetComponent<Rigidbody2D>(); // 获取 Rigidbody2D
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
-        Vector2 pos = transform.position;
-        pos.x = Mathf.Clamp(pos.x, boundsColl.bounds.min.x, boundsColl.bounds.max.x);
-        pos.y = Mathf.Clamp(pos.y, boundsColl.bounds.min.y, boundsColl.bounds.max.y);
+        if (boundsColl == null) return;
 
-        transform.position = pos;
+        Vector2 currentPos = transform.position;
+        float clampedX = Mathf.Clamp(currentPos.x, boundsColl.bounds.min.x, boundsColl.bounds.max.x);
+        float clampedY = Mathf.Clamp(currentPos.y, boundsColl.bounds.min.y, boundsColl.bounds.max.y);
+        Vector2 clampedPos = new Vector2(clampedX, clampedY);
+
+        // 添加调试日志
+        Debug.Log($"当前位置: {currentPos}, 限制后位置: {clampedPos}, 边界Min: {boundsColl.bounds.min}, 边界Max: {boundsColl.bounds.max}");
+
+        // ... 其余代码 ...
     }
 }
-

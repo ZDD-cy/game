@@ -5,6 +5,20 @@ using UnityEngine;
 
 public class EnemyBounds : MonoBehaviour
 {
+    [Header("边界设置")]
+    public Color boundsColor = Color.red;
+   
+
+    private Collider2D _collider;
+
+    void Awake()
+    {
+        _collider = GetComponent<Collider2D>();
+        if (_collider == null)
+        {
+            Debug.LogError("EnemyBounds 需要挂载一个 Collider2D 组件（如 BoxCollider2D）！", this);
+        }
+    }
     // 边框颜色，可在 Inspector 里调整
     public Color gizmoColor = Color.red;
     // 是否只在选中时显示边框
