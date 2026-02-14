@@ -1835,12 +1835,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3370419751023330265, guid: 798b0eb03caa8404dad8c5055a8c3afe, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7046227
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370419751023330265, guid: 798b0eb03caa8404dad8c5055a8c3afe, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6658062
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370419751023330265, guid: 798b0eb03caa8404dad8c5055a8c3afe, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6658062
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370419751023330265, guid: 798b0eb03caa8404dad8c5055a8c3afe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 169.7
+      value: 177.44
       objectReference: {fileID: 0}
     - target: {fileID: 3370419751023330265, guid: 798b0eb03caa8404dad8c5055a8c3afe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.6
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 3370419751023330265, guid: 798b0eb03caa8404dad8c5055a8c3afe, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1874,6 +1886,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6063510788423015678, guid: 798b0eb03caa8404dad8c5055a8c3afe, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82c8127330d17b840bd18c619653fbb5, type: 3}
     - target: {fileID: 6149347535951502209, guid: 798b0eb03caa8404dad8c5055a8c3afe, type: 3}
       propertyPath: Targetscene
       value: game.1.3
