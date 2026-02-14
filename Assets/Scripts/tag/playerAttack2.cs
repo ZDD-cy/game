@@ -278,7 +278,7 @@ public class PlayerTargetAttack : MonoBehaviour
         if (hit.collider != null && hit.transform == currentTarget)
         {
             targetStatus.TakeDamage(rayDamage * Time.deltaTime, targetStatus.GetLastHp()); // 帧平滑伤害
-            Debug.Log($"[射线伤害] 对 {currentTarget.name} 造成 {rayDamage * Time.deltaTime:F2} 点伤害");
+            //Debug.Log($"[射线伤害] 对 {currentTarget.name} 造成 {rayDamage * Time.deltaTime:F2} 点伤害");
         }
     }
 
