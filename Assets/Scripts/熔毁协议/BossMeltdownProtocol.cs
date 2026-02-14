@@ -11,8 +11,6 @@ public class BossMeltdownProtocol : MonoBehaviour
     private Rigidbody2D rb;
     public Transform player;
 
-    private bool isKilledByMe = false;
-
     private bool isDead = false;
     #endregion
 

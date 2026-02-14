@@ -65,7 +65,6 @@ public class FrostBoss : MonoBehaviour
     private Transform player;
     private Rigidbody2D rb;
     private Coroutine dotCoroutine;            // 7层持续伤害协程
-    private int currentPathIndex = 0;          // 当前移动路径索引
     public BossfightOverlayManager BOM;
     
     void Start()

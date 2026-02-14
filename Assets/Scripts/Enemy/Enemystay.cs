@@ -24,7 +24,7 @@ public class EnemyStayInBounds2D : MonoBehaviour
         Vector2 clampedPos = new Vector2(clampedX, clampedY);
 
         // 添加调试日志
-        Debug.Log($"当前位置: {currentPos}, 限制后位置: {clampedPos}, 边界Min: {boundsColl.bounds.min}, 边界Max: {boundsColl.bounds.max}");
+        //Debug.Log($"当前位置: {currentPos}, 限制后位置: {clampedPos}, 边界Min: {boundsColl.bounds.min}, 边界Max: {boundsColl.bounds.max}");
 
         // ... 其余代码 ...
     }

@@ -11,10 +11,8 @@ public class EnemyStatus : MonoBehaviour
     public int debuffPerSecDamage = 1;
     public float debuffDuration = 4f;
     public float popuptimer;
-    private float debuffDamageThisSecond = 0f;
 
     [Tooltip("伤害数字每多少秒出现一次")]
-    [SerializeField] private float popupfreq = 1f;
     private float damageAccumulatedForDisplay = 0f; // 累计待显示的伤害
     public float damageThresholdForDisplay = 20f;   // 每累计满20点才显示一次
 
