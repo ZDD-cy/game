@@ -14,8 +14,8 @@ public class EnemyAutoTarget : MonoBehaviour
 
     // 外部获取当前锁定目标
     public Transform currentTarget;
-    private float targetCheckTimer;
-    public float checkInterval = 0.2f; // 每0.2秒检测一次目标
+    public float targetCheckTimer;
+    public float checkInterval = 2f; // 每2秒检测一次目标
 
     private EnemyAttackDOT enemyAttackDOT;
 

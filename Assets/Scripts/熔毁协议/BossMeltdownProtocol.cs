@@ -11,7 +11,8 @@ public class BossMeltdownProtocol : MonoBehaviour
     private Rigidbody2D rb;
     public Transform player;
 
-    private bool isDead = false;
+    private bool isDead;
+    private bool isfreeze = true;
     #endregion
 
     #region 被动-安全检测（热量槽核心）
@@ -98,21 +99,27 @@ public class BossMeltdownProtocol : MonoBehaviour
         isHeatZero = false;
     }
 
+    public void OnEnterRoom()
+    {
+        isfreeze = false;
+    }
     private void Update()
     {
-        if (isDead || player == null) return;
-
-        UpdateHeatSystem();
-        UpdateSkillCD();
-        UpdateAIskillLogic();
-        CheckEmberTrigger();
-
-        if (isFirewallActive && currentFirewall != null)
+        if (!isfreeze)
         {
-            firewallActiveTimer += Time.deltaTime;
-            if (firewallActiveTimer >= firewallDuration)
+            if (isDead || player == null) return;
+            UpdateHeatSystem();
+            UpdateSkillCD();
+            UpdateAIskillLogic();
+            CheckEmberTrigger();
+
+            if (isFirewallActive && currentFirewall != null)
             {
-                CloseFirewall();
+                firewallActiveTimer += Time.deltaTime;
+                if (firewallActiveTimer >= firewallDuration)
+                {
+                    CloseFirewall();
+                }
             }
         }
     }
@@ -311,15 +318,3 @@ public class BossMeltdownProtocol : MonoBehaviour
         if(BOM!=null)BOM.PassFight();
     }
 }
-
-    //private void OnDestroy()
-    //{
-    //    if (!isKilledByMe)
-    //    {
-    //        // 打印调用栈，定位是谁在销毁 Boss
-    //        Debug.LogError("⚠️ 警告：Boss 被非法销毁！调用栈：\n" + StackTraceUtility.ExtractStackTrace());
-    //        #endregion
-
-
-    //    }
-    //}

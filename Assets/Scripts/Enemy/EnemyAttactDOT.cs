@@ -54,11 +54,10 @@ public class EnemyAttackDOT : MonoBehaviour
             if (_dotCoroutine != null)
                 StopCoroutine(_dotCoroutine);
             _dotCoroutine = StartCoroutine(DOTCoroutine());
-            Debug.Log($"✅ 应用DOT: 每秒{damagePerSecond}点伤害，持续{duration}秒，目标: {_targetPlayer.name}");
         }
         else
         {
-            Debug.LogWarning("❌ ApplyDOT 失败: 当前没有锁定的玩家目标");
+            Debug.LogWarning("ApplyDOT 失败: 当前没有锁定的玩家目标");
         }
     }
 
@@ -74,11 +73,7 @@ public class EnemyAttackDOT : MonoBehaviour
             {
                 float damage = damagePerSecond * damageInterval;
                 _targetPlayer.TakeDamage(damage);
-                Debug.Log($"💥 对玩家造成 {damage:F2} 点伤害");
-            }
-            else
-            {
-                Debug.LogWarning("⚠️ DOT协程中目标丢失，但继续执行...");
+                
             }
 
             yield return new WaitForSeconds(damageInterval);
@@ -86,10 +81,5 @@ public class EnemyAttackDOT : MonoBehaviour
         }
 
         _dotCoroutine = null;
-        Debug.Log("🔚 DOT结束");
     }
-
-    // 清空之前的触发器逻辑，不再使用
-    private void OnTriggerEnter2D(Collider2D other) { }
-    private void OnTriggerExit2D(Collider2D other) { }
 }

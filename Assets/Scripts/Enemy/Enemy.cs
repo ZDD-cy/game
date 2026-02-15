@@ -4,7 +4,8 @@ public enum EnemyState
 {
     Patrol, // 巡逻
     Stay,    // 停留原地
-    Chase    //追逐
+    Chase,    //追逐
+    Freeze    //仅用于进入房间之前的情况
 }
 
 [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
@@ -13,8 +14,6 @@ public class Enemy : MonoBehaviour
     // ============== 基础配置 ==============
     [Header("基础属性")]
     public float moveSpeed = 5f;       // 移速
-    public float hp = 100f;         // 血量
-    private float currentHp;
     [Header("追击设置")]
     public float chaseSpeed = 7f; // 追击速度
     public float attackRange = 2f; // 攻击范围
@@ -37,26 +36,36 @@ public class Enemy : MonoBehaviour
     private Transform player;
     private EnemyAutoTarget autoTarget;
 
+    public int RoomIndex;
+
     void Start()
     {
         // 初始化
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        currentHp = hp;
-        player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
-        // 初始状态设为巡逻，并生成第一个巡逻点
-        currentState = EnemyState.Patrol;
-        GenerateSectorPatrolTarget();
+        currentState = EnemyState.Freeze;
         stateTimer = 0;
-        Debug.Log("敌人初始状态：巡逻");
-        autoTarget = GetComponent<EnemyAutoTarget>(); // 获取索敌脚本
-        if (autoTarget == null)
-        {
-            Debug.LogError("未找到 EnemyAutoTarget 脚本！", this);
-        }
     }
 
+    public void OnEnterRoom(int EnterRoomIndex)
+    {
+        if (RoomIndex == EnterRoomIndex)
+        {
+            currentState = EnemyState.Patrol;
+            GenerateSectorPatrolTarget();
+                    stateTimer = 0;
+                    autoTarget = GetComponent<EnemyAutoTarget>();
+                    if (autoTarget == null)
+                    {
+                        Debug.LogError("未找到 EnemyAutoTarget 脚本！", this);
+                    }
+        }
+        else
+        {
+            Debug.LogError("RoomIndex无效！", this);
+        }
+    }
 
     void FixedUpdate()
     {
@@ -77,6 +86,9 @@ public class Enemy : MonoBehaviour
                 break;
             case EnemyState.Stay:
                 RunStayLogic();
+                break;
+            case EnemyState.Freeze:
+                RunFreezeLogic();
                 break;
         }
     }
@@ -114,8 +126,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-
-
+    private void RunFreezeLogic()
+    {
+        rb.velocity = Vector2.zero;
+    }
+    
     // ============== 追击状态逻辑 ==============
     private void RunChaseLogic()
     {
@@ -201,8 +216,7 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-
-
+    
     //修复
     void MoveTowards(Vector2 targetPos, float speed)
     {

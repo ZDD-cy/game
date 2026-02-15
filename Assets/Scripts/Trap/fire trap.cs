@@ -1,84 +1,98 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
-using static firetrap;
 
-
-public class firetrap : MonoBehaviour
+public class FireTrap : MonoBehaviour
 {
-    [Header("火焰陷阱配置")]
-    public int triggerDamage = 2;
-    public int burnDamage = 1;          
-    public float burnDuration = 3f;     
-    public float trapCD = 1.5f;         
-    public bool hasAOE = false;         
-    public float aoeRange = 2f;         
-    public float aoeDamage = 3;         
+    [Header("陷阱设置")]
+    [Tooltip("减速比例（0~1，0.5表示减速50%）")]
+    public float slowDownRate = 0.5f; // 默认减速50%
 
-    private float _cdTimer;
+    [Tooltip("减速与伤害持续时间（秒）")]
+    public float effectDuration = 3f;
+
+    [Tooltip("陷阱冷却时间（秒，0表示一次性陷阱）")]
+    public float trapCooldown = 5f;
+
+    [Tooltip("每秒造成的伤害值")]
+    public float damagePerSecond = 2f;
+
     private bool _isTrapActive = true;
-   
-    //接口
-    public interface IDamageable
 
-{
-    // 所有可被攻击的对象都必须实现这个方法
-    void TakeDamage(float damage);
-
-    // 所有可以被燃烧的对象都必须实现这个方法
-    void ApplyBurn(float burnDamage, float burnDuration);
-
-    // 所有可以被减速的对象都必须实现这个方法
-    void ApplySlow(float slowAmount, float slowDuration);
-}
-
-void Update()
+    void Start()
     {
-
-        if (!_isTrapActive)
-        {
-            _cdTimer += Time.deltaTime;
-            if (_cdTimer >= trapCD)
-            {
-                _isTrapActive = true;
-                _cdTimer = 0;
-            }
-        }
+        _isTrapActive = true;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("陷阱触发检测：进入 OnTriggerEnter2D 方法");
         if (other.CompareTag("Player") && _isTrapActive)
         {
+            Debug.Log("陷阱触发：检测到 Player 标签，且陷阱处于激活状态");
             Player player = other.GetComponent<Player>();
-            if (player != null)
+            if (player != null && !player.isBurning)
             {
-                player.TakeDamage(triggerDamage);
-                player.ApplyBurn(burnDamage, burnDuration);
-                if (hasAOE)
+                Debug.Log("陷阱触发：成功获取 Player 组件，开始施加燃烧效果");
+                // 标记玩家状态
+                player.isInFireTrap = true;
+                player.isBurning = true;
+                player.ApplySlow(slowDownRate,effectDuration);
+               
+                // 启动持续伤害协程
+                StartCoroutine(PlayerTakeDamage(player));
+                AudioManager.Instance.PlaySFX("1");
+                if (player.currentHealth > 0)
                 {
-                    ApplyAOEDamage();
+                    player.isInFireTrap = false;
+                    player.isBurning = false;
                 }
-                _isTrapActive = false;
+
+            }
+            else
+            {
+                if (player == null)
+                {
+                    Debug.LogWarning("陷阱触发：未找到 Player 组件！");
+                }
+                else if (player.isBurning)
+                {
+                    Debug.Log("陷阱触发：玩家已处于燃烧状态，跳过");
+                }
             }
         }
     }
+    
 
-    void ApplyAOEDamage()
+    IEnumerator PlayerTakeDamage(Player player)
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, aoeRange);
-        foreach (Collider2D col in colliders)
+        float elapsedTime = 0f;
+
+        // 持续整个效果时间，并且只在玩家存活时执行
+        while (elapsedTime < effectDuration && player.currentHealth > 0)
         {
-            if (col.CompareTag("Player"))
-            {
-                Player player = col.GetComponent<Player>();
-                if (player != null)
-                {
-                    player.TakeDamage((int)aoeDamage);
-                    player.ApplyBurn(burnDamage, burnDuration);
-                }
-            }
+            // 每秒造成1点伤害
+            player.TakeDamage(damagePerSecond);
+            Debug.Log($"受到 2 点伤害！当前生命值: {player.currentHealth}");
+
+            // 等待1秒，再进行下一次伤害
+            yield return new WaitForSeconds(1f);
+            elapsedTime += 1f;
+        }
+
+        // 效果结束后，恢复玩家状态（仅当玩家存活时）
+        if (player.currentHealth > 0)
+        {
+            player.isInFireTrap = false;
+            player.isBurning = false;
+        }
+
+        // 陷阱可以重复使用重置
+        if (trapCooldown > 0)
+        {
+            yield return new WaitForSeconds(trapCooldown);
+            _isTrapActive = true;
+            gameObject.SetActive(true);
         }
     }
 }
-
+    

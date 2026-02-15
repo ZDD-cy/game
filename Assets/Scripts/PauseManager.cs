@@ -44,10 +44,12 @@ public class PauseManager : MonoBehaviour
         }else if (!isMainMenu && !isPaused && Input.GetKeyDown(KeyCode.Escape))
         {
             SwitchPause(0f);
+            AudioManager.Instance.PauseAll();
         }
         else if (!isMainMenu && isPaused && Input.GetKeyDown(KeyCode.Escape))
         {
             SwitchPause(1f);
+            AudioManager.Instance.ResumeAll();
         }
     }
     public void QuitApplication()

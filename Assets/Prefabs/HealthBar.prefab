@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 8754932328824238800}
   - component: {fileID: 4806382004911311534}
   - component: {fileID: 6795235027267243818}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &6795235027267243818
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,14 +25,14 @@ public class IceTrap : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("陷阱触发检测：进入 OnTriggerEnter2D 方法");
+        //Debug.Log("陷阱触发检测：进入 OnTriggerEnter2D 方法");
         if (other.CompareTag("Player") && _isTrapActive)
         {
-            Debug.Log("陷阱触发：检测到 Player 标签，且陷阱处于激活状态");
+            //Debug.Log("陷阱触发：检测到 Player 标签，且陷阱处于激活状态");
             Player player = other.GetComponent<Player>();
             if (player != null && !player.isFrozen)
             {
-                Debug.Log("陷阱触发：成功获取 Player 组件，开始施加冰冻效果");
+                //Debug.Log("陷阱触发：成功获取 Player 组件，开始施加冰冻效果");
                 // 标记玩家状态
                 player.isInIceTrap = true;
                 player.isFrozen = true;
@@ -40,6 +40,7 @@ public class IceTrap : MonoBehaviour
                
                 // 启动持续伤害协程
                 StartCoroutine(PlayerTakeDamage(player));
+                AudioManager.Instance.PlaySFX("0");
                 if (player.currentHealth > 0)
                 {
                     player.isInIceTrap = false;
@@ -51,11 +52,11 @@ public class IceTrap : MonoBehaviour
             {
                 if (player == null)
                 {
-                    Debug.LogWarning("陷阱触发：未找到 Player 组件！");
+                    //Debug.LogWarning("陷阱触发：未找到 Player 组件！");
                 }
                 else if (player.isFrozen)
                 {
-                    Debug.Log("陷阱触发：玩家已处于冰冻状态，跳过");
+                    //Debug.Log("陷阱触发：玩家已处于冰冻状态，跳过");
                 }
             }
         }
@@ -71,7 +72,7 @@ public class IceTrap : MonoBehaviour
         {
             // 每秒造成1点伤害
             player.TakeDamage(1f);
-            Debug.Log($"受到 1 点伤害！当前生命值: {player.currentHealth}");
+            //Debug.Log($"受到 1 点伤害！当前生命值: {player.currentHealth}");
 
             // 等待1秒，再进行下一次伤害
             yield return new WaitForSeconds(1f);

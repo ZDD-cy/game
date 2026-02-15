@@ -26,6 +26,7 @@ public class EnemyStatus : MonoBehaviour
     public Slider healthBar;
     public Canvas Rendercanvas;
     public Camera cam;
+    public RoomEntrance Entrance;
 
     private void Start()
     {
@@ -129,11 +130,7 @@ public class EnemyStatus : MonoBehaviour
         isDead = true;
         gameObject.SetActive(false);
         FindObjectOfType<PlayerTargetAttack>().ClearTarget();
-        WallController[] allWalls = FindObjectsOfType<WallController>();
-        foreach (WallController wall in allWalls)
-        {
-            wall.CheckAllEnemiesDead();
-        }
+        Entrance.CheckAllEnemiesDead();
     }
 
     public bool HasDebuff()

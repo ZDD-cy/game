@@ -37,7 +37,8 @@ public class FrostBoss : MonoBehaviour
     public Transform frostTrapPrefab;          // 冰霜陷阱预制体（路径残留）
     public LayerMask playerLayer;              // 玩家图层
     public float playerCheckRange = 10f;       // 检测玩家范围
-
+    public float attackRange = 4f;
+    
     [Header("冰霜Buff配置")]
     public FrostBuffData frostBuff;            // 冰霜Buff数据
 
@@ -48,6 +49,7 @@ public class FrostBoss : MonoBehaviour
     private float iceBlastTimer;
     private float snowFlakeTimer;
     private float pulseTimer;
+    private float CollisionTimer;
 
 
     [Header("技能范围配置")]
@@ -69,9 +71,6 @@ public class FrostBoss : MonoBehaviour
     
     void Start()
     {
-       //添加携程
-        StartCoroutine(CastSnowFlake());
-        StartCoroutine(MoveAlongPathAndCreateTrap());
         // 初始化组件
         rb = GetComponent<Rigidbody2D>();
         if (rb == null) rb = gameObject.AddComponent<Rigidbody2D>();
@@ -91,7 +90,7 @@ public class FrostBoss : MonoBehaviour
         player = FindFirstObjectByType<Player>()?.transform;
 
         // 开始沿路径移动并生成冰霜陷阱
-        StartCoroutine(MoveAlongPathAndCreateTrap());
+        //StartCoroutine(MoveAlongPathAndCreateTrap());
     }
 
 
@@ -104,7 +103,6 @@ public class FrostBoss : MonoBehaviour
         // 1. 玩家在检测范围内，且在最大追踪距离内 → 开始追逐
         if (distanceToPlayer <= playerCheckRange && distanceToPlayer <= playerCheckRange)
         {
-            Debug.Log("检测到玩家，开始追逐");
             if (fightActive != null)
             {
                 fightActive.isFightActive = true;
@@ -113,6 +111,13 @@ public class FrostBoss : MonoBehaviour
             // 计算方向并移动
             Vector2 direction = (player.position - transform.position).normalized;
             rb.velocity = direction * moveSpeed;
+            float distance = Vector2.Distance(transform.position, player.position);
+            CollisionTimer += Time.deltaTime;
+            if (distance <= attackRange && CollisionTimer >= 0.5f)
+            {
+                player.GetComponent<Player>()?.TakeDamage((int)frostBuff.dotDamage);
+                CollisionTimer = 0f;
+            }
         }
         // 2. 玩家超出了最大追踪距离，或者不在检测范围内 → 停止追逐
         else
@@ -383,7 +388,7 @@ public class FrostBoss : MonoBehaviour
     IEnumerator MoveAlongPathAndCreateTrap()
     {
         // 在这里编写沿路径移动并生成陷阱的逻辑
-        Debug.Log("开始沿路径移动并生成陷阱");
+        //Debug.Log("开始沿路径移动并生成陷阱");
 
         // 示例逻辑：等待2秒
         yield return new WaitForSeconds(2f);

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4352028469225820234}
   - component: {fileID: 6101068310492378461}
   - component: {fileID: 2265328307121667624}
+  - component: {fileID: 9218977255310875039}
   - component: {fileID: 2713764070085946164}
   - component: {fileID: 1041258510258135094}
-  - component: {fileID: 3264199435198620609}
   - component: {fileID: -775932754525327993}
   m_Layer: 3
   m_Name: enemy3
@@ -138,7 +138,24 @@ MonoBehaviour:
   alwaysLock: 1
   onlyLockInRange: 1
   currentTarget: {fileID: 0}
-  checkInterval: 0.2
+  targetCheckTimer: 0
+  checkInterval: 2
+--- !u!114 &9218977255310875039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3822493444322999272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46da7ba85801b3c44ae03c26d8394dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerSecond: 20
+  dotDuration: 3
+  damageInterval: 0.5
+  target: {fileID: 0}
 --- !u!114 &2713764070085946164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  hp: 100
   chaseSpeed: 7
   attackRange: 2
   attackCooldown: 1.5
@@ -161,6 +177,7 @@ MonoBehaviour:
   patrolAngle: 120
   patrolDuration: 4
   stayDuration: 2
+  RoomIndex: 0
 --- !u!114 &1041258510258135094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,31 +202,7 @@ MonoBehaviour:
   healthBar: {fileID: 8184220316179670499}
   Rendercanvas: {fileID: 2010211993554150967}
   cam: {fileID: 0}
---- !u!114 &3264199435198620609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3822493444322999272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76a674b0ab5df6d4abfa2d0757f1e2d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  normalHitEffect: {fileID: 0}
-  burnEffect: {fileID: 0}
-  freezeEffect: {fileID: 0}
-  knockbackEffect: {fileID: 0}
-  rockHitEffect: {fileID: 0}
-  hitClip: {fileID: 0}
-  burnClip: {fileID: 0}
-  freezeClip: {fileID: 0}
-  knockbackClip: {fileID: 0}
-  rockHitClip: {fileID: 0}
-  hitStunTime: 0.2
-  rockKnockupForce: 6
-  burnEffectInterval: 0.5
+  Entrance: {fileID: 0}
 --- !u!58 &-775932754525327993
 CircleCollider2D:
   m_ObjectHideFlags: 0

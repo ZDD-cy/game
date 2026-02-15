@@ -637,7 +637,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMixer: {fileID: 24100000, guid: 43ef405e189913e488e1f6404dc53f0a, type: 2}
-  sfxEntries: []
+  sfxEntries:
+  - {fileID: 11400000, guid: aa8a4d320b1c9444a9049875a449104e, type: 2}
+  - {fileID: 11400000, guid: ea94afc3eec5b6640869e120bc8b1adc, type: 2}
+  - {fileID: 11400000, guid: e8df24eb712161d45a1d42b2c80f0cc6, type: 2}
   sfxPoolSize: 12
   bgmEntries:
   - {fileID: 11400000, guid: 70c2099ff110899498ce2cb89f099705, type: 2}

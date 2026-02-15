@@ -9,7 +9,9 @@ public class Player : MonoBehaviour
     public float currentSpeed;
     public float hp;
     public bool isFrozen;
+    public bool isBurning;
     public bool isInIceTrap;
+    public bool isInFireTrap;
     public GameObject damagePopupPrefab;
     public bool InBossScene;
     public BossfightOverlayManager BOM;
@@ -58,7 +60,7 @@ public class Player : MonoBehaviour
 
     [Header("属性设置")]
     [SerializeField] public int maxHealth = 100;
-    public int currentHealth;
+    public float currentHealth;
 
     // 组件引用
     public Rigidbody2D rb;
@@ -75,6 +77,7 @@ public class Player : MonoBehaviour
         
         // 初始化速度
         ResetSpeed();
+        healthBar.value = currentHealth;
     }
 
     void Update()
@@ -101,7 +104,6 @@ public class Player : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth = (int)Mathf.Max(0, currentHealth - damage);
-        //Debug.Log("受到 " + damage + " 点伤害！当前生命值: " + currentHealth + "/" + maxHealth);
 
         if (currentHealth <= 0)
         {
@@ -109,7 +111,6 @@ public class Player : MonoBehaviour
         }
         if (damagePopupPrefab != null)
         {
-            Debug.Log("准备生成伤害数字");
             // 在玩家头顶生成伤害弹窗
             Vector3 spawnPos = transform.position + new Vector3(0, 1.5f, 0);
             GameObject popup = Instantiate(damagePopupPrefab, spawnPos, Quaternion.identity);
@@ -119,14 +120,6 @@ public class Player : MonoBehaviour
             {
                 dp.SetDamage((int)damage); // 传入伤害值
             }
-            else
-            {
-                Debug.LogError("DamagePopup 预制体上缺少 DamagePopup 脚本！", this);
-            }
-        }
-        else
-        {
-            Debug.LogError("DamagePopup 预制体引用丢失！", this);
         }
         if (currentHealth <= 0)
         {
@@ -138,8 +131,7 @@ public class Player : MonoBehaviour
     private void Die()
     {
         Debug.Log("玩家死亡！");
-        if(InBossScene){BOM.FailFight();}
-        else{gameObject.SetActive(false);}
+        BOM.FailFight();
     }
 
     private void ShowDamagePopup(float damage)

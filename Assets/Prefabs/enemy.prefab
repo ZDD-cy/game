@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 9115158576419096362}
   - component: {fileID: 5915985038480905317}
   - component: {fileID: 800285102788979340}
-  - component: {fileID: 8748519092553848723}
   - component: {fileID: 2892612501161207078}
   - component: {fileID: 5685010868885255250}
+  - component: {fileID: 8748519092553848723}
   - component: {fileID: 1546130924583234768}
-  - component: {fileID: 6462946467899611673}
   - component: {fileID: 1752594775433380165}
   - component: {fileID: 7322109866198812591}
   - component: {fileID: 2756789623281729009}
@@ -121,28 +120,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8748519092553848723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954939301359306071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdf8eff9a38d5d46ad68e49251a112f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  hp: 100
-  chaseSpeed: 4
-  attackRange: 2
-  attackCooldown: 1.5
-  currentState: 0
-  patrolRadius: 8
-  patrolAngle: 120
-  patrolDuration: 4
-  stayDuration: 2
 --- !u!120 &2892612501161207078
 LineRenderer:
   serializedVersion: 2
@@ -282,6 +259,28 @@ CircleCollider2D:
   m_Offset: {x: -0.05, y: 0.9}
   serializedVersion: 2
   m_Radius: 0.75
+--- !u!114 &8748519092553848723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954939301359306071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cdf8eff9a38d5d46ad68e49251a112f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  chaseSpeed: 4
+  attackRange: 2
+  attackCooldown: 1.5
+  currentState: 0
+  patrolRadius: 8
+  patrolAngle: 120
+  patrolDuration: 4
+  stayDuration: 2
+  RoomIndex: 0
 --- !u!114 &1546130924583234768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,30 +305,7 @@ MonoBehaviour:
   healthBar: {fileID: 8281786076127193899}
   Rendercanvas: {fileID: 1774229836848212223}
   cam: {fileID: 0}
---- !u!114 &6462946467899611673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954939301359306071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d246e7edad5fc1740871fc226677e479, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  isAlive: 1
-  hostType: 0
-  warningThreshold: 0.7
-  criticalThreshold: 0.3
-  hostSprite: {fileID: 0}
-  normalColor: {r: 0, g: 1, b: 1, a: 1}
-  warningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  criticalColor: {r: 1, g: 0, b: 0, a: 1}
-  computePowerReward: 10
-  dataFragmentReward: 5
+  Entrance: {fileID: 0}
 --- !u!114 &1752594775433380165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,7 +342,8 @@ MonoBehaviour:
   alwaysLock: 1
   onlyLockInRange: 1
   currentTarget: {fileID: 0}
-  checkInterval: 0.2
+  targetCheckTimer: 0
+  checkInterval: 2
 --- !u!61 &2756789623281729009
 BoxCollider2D:
   m_ObjectHideFlags: 0

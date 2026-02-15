@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using Object = UnityEngine.Object;
 
 public class FireBullet : MonoBehaviour
 {
@@ -8,20 +9,22 @@ public class FireBullet : MonoBehaviour
     public Action onHit;
     public int damage = 1;
     private Rigidbody2D rb;
+    private float timer;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
-        
     }
 
-    public void Shoot(Vector2 dir, float spd)
+    public void Update()
     {
-        direction = dir;
-        speed = spd;
-        rb.velocity = direction * speed;
-        gameObject.SetActive(true);
+        timer += Time.deltaTime;
+        if (timer >= 10f)
+        {
+            gameObject.SetActive(false);
+            timer = 0;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

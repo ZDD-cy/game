@@ -128,7 +128,8 @@ MonoBehaviour:
   alwaysLock: 1
   onlyLockInRange: 1
   currentTarget: {fileID: 0}
-  checkInterval: 0.2
+  targetCheckTimer: 0
+  checkInterval: 1
 --- !u!120 &-3729662790416224626
 LineRenderer:
   serializedVersion: 2

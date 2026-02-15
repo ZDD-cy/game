@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 9157353382085588046}
   - component: {fileID: 8195997570759707446}
   - component: {fileID: 2124010257865558902}
+  - component: {fileID: 3793287860249652490}
   - component: {fileID: 5441653646793689922}
-  - component: {fileID: 8512323506353995177}
+  - component: {fileID: 3800908831326932805}
   - component: {fileID: 3807793552139647641}
-  - component: {fileID: 3363086864507011982}
   - component: {fileID: 844817126514935254}
   m_Layer: 0
   m_Name: enemy4
@@ -118,6 +118,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3793287860249652490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5865845527219973007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46da7ba85801b3c44ae03c26d8394dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerSecond: 20
+  dotDuration: 3
+  damageInterval: 0.5
+  target: {fileID: 0}
 --- !u!114 &5441653646793689922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,8 +154,9 @@ MonoBehaviour:
   alwaysLock: 1
   onlyLockInRange: 1
   currentTarget: {fileID: 0}
-  checkInterval: 0.2
---- !u!114 &8512323506353995177
+  targetCheckTimer: 0
+  checkInterval: 1
+--- !u!114 &3800908831326932805
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,17 +165,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5865845527219973007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b130c09e421b91a4a9efb9da9d35810c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5cdf8eff9a38d5d46ad68e49251a112f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  currentSpeed: 3
-  dropMultiplierRange: {x: 3, y: 5}
-  rageThreshold: 0.3
-  originalSpeed: 0
-  rageSpeedMultiplier: 1.5
-  isUnstoppableWhenEnraged: 1
-  dropSystem: {fileID: 0}
+  moveSpeed: 10
+  chaseSpeed: 14
+  attackRange: 4
+  attackCooldown: 1
+  currentState: 0
+  patrolRadius: 8
+  patrolAngle: 120
+  patrolDuration: 4
+  stayDuration: 2
+  RoomIndex: 0
 --- !u!58 &3807793552139647641
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -194,31 +213,6 @@ CircleCollider2D:
   m_Offset: {x: -0.12, y: -0.1}
   serializedVersion: 2
   m_Radius: 1.08
---- !u!114 &3363086864507011982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5865845527219973007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76a674b0ab5df6d4abfa2d0757f1e2d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  normalHitEffect: {fileID: 0}
-  burnEffect: {fileID: 0}
-  freezeEffect: {fileID: 0}
-  knockbackEffect: {fileID: 0}
-  rockHitEffect: {fileID: 0}
-  hitClip: {fileID: 0}
-  burnClip: {fileID: 0}
-  freezeClip: {fileID: 0}
-  knockbackClip: {fileID: 0}
-  rockHitClip: {fileID: 0}
-  hitStunTime: 0.2
-  rockKnockupForce: 6
-  burnEffectInterval: 0.5
 --- !u!114 &844817126514935254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +237,7 @@ MonoBehaviour:
   healthBar: {fileID: 9107742090003845848}
   Rendercanvas: {fileID: 1446982596807840012}
   cam: {fileID: 0}
+  Entrance: {fileID: 0}
 --- !u!1001 &7884522635403568092
 PrefabInstance:
   m_ObjectHideFlags: 0

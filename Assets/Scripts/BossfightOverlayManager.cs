@@ -12,13 +12,13 @@ public class BossfightOverlayManager : MonoBehaviour
 
     void Start()
     {
-        PassCanvas.enabled = false;
+        if(PassCanvas != null)PassCanvas.enabled = false;
         FailCanvas.enabled = false;
     }
 
     public void PassFight()
     {
-        StartCoroutine(PassIEnu());
+        if(PassCanvas != null)StartCoroutine(PassIEnu());
     }
 
     public void FailFight()

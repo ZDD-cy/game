@@ -1,16 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomEntrance : MonoBehaviour
 {
     public List<WallController> walls = new List<WallController>();
-
+    public int RoomIndex;
+    public GameObject[] Enemies;
     private bool alreadyTriggered = false;
+    public bool IsAllDead;
+    public bool IsBoss;
+    public bool IsFireBoss;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log($"碰到了: {other.gameObject.name}, Tag: {other.tag}"); // 先看有没有碰到任何东西
+        //Debug.Log($"碰到了: {other.gameObject.name}, Tag: {other.tag}"); // 先看有没有碰到任何东西
 
         if (alreadyTriggered) return;
 
@@ -23,6 +26,7 @@ public class RoomEntrance : MonoBehaviour
                 {
                     Debug.Log($"正在升起墙: {wall.gameObject.name}");
                     wall.RaiseWall();
+                    AudioManager.Instance.PlaySFX("2");
                 }
                 else
                 {
@@ -30,6 +34,12 @@ public class RoomEntrance : MonoBehaviour
                 }
             }
             alreadyTriggered = true;
+            for (int i = 0; i < Enemies.Length; i++)
+            {
+                GameObject obj = Enemies[i];
+                if(!IsBoss)obj.GetComponent<Enemy>().OnEnterRoom(RoomIndex);
+                else if (IsFireBoss) obj.GetComponent<BossMeltdownProtocol>().OnEnterRoom();
+            }
         }
     }
 
@@ -76,6 +86,28 @@ public class RoomEntrance : MonoBehaviour
         }
         // 可以继续添加对 MeshCollider 等的支持
     }
+    public void CheckAllEnemiesDead()
+    {
+        IsAllDead = true;
+        for (int i = 0; i < Enemies.Length; i++)
+        {
+            GameObject obj = Enemies[i];
+            if (obj.activeInHierarchy)
+            {
+                IsAllDead = false;
+            }
+        }
+
+        if (IsAllDead)
+        {
+            foreach (var wall in walls)
+            {
+                wall.LowerWall();
+                AudioManager.Instance.PlaySFX("2");
+            }
+        }
+    }
+    
 }
 
 
