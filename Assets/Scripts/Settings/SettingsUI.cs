@@ -20,7 +20,7 @@ public class SettingsUI : MonoBehaviour
         InitAudioSlider();
         InitResolutionDropdown();
 
-        displayModeDropdown.value = PlayerPrefs.GetInt(SettingsKeys.DisplayMode, 0);
+        displayModeDropdown.value = PlayerPrefs.GetInt(SettingsKeys.DisplayMode, 2);
 
         int fps = PlayerPrefs.GetInt(SettingsKeys.FrameRateLimit, 60);
         frameRateDropdown.value = fps switch
@@ -48,7 +48,7 @@ public class SettingsUI : MonoBehaviour
         resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
 
-        for (int i = res.Length - 1; i >= 0 ; i--)
+        for (int i = 0; i < res.Length ; i++)
         {
             Resolution r = res[i];
             string label = $"{r.width} x {r.height} @ {r.refreshRateRatio.value:F0}Hz";

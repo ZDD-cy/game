@@ -3,9 +3,8 @@ using UnityEngine;
 public class SettingsManager : MonoBehaviour
 {
     [Header("Defaults")]
-
-    public int defaultResolutionIndex = 0;
-    public int defaultDisplayMode = 0; // 0 Fullscreen,1 Windowed,2 Borderless
+    
+    public int defaultDisplayMode = 2; // 0 Fullscreen,1 Windowed,2 Borderless
     public int defaultFrameRateLimit = 60;
     public int defaultVSync = 1;
 
@@ -29,7 +28,7 @@ public class SettingsManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt(SettingsKeys.Initialized, 0) == 1) return;
 
-        PlayerPrefs.SetInt(SettingsKeys.ResolutionIndex, Mathf.Clamp(defaultResolutionIndex, 0, resolutions.Length - 1));
+        PlayerPrefs.SetInt(SettingsKeys.ResolutionIndex, Mathf.Clamp(resolutions.Length - 1, 0, resolutions.Length - 1));
         PlayerPrefs.SetInt(SettingsKeys.DisplayMode, defaultDisplayMode);
         PlayerPrefs.SetInt(SettingsKeys.FrameRateLimit, defaultFrameRateLimit);
         PlayerPrefs.SetInt(SettingsKeys.VSync, defaultVSync);
@@ -50,7 +49,7 @@ public class SettingsManager : MonoBehaviour
             0 => FullScreenMode.ExclusiveFullScreen,
             1 => FullScreenMode.Windowed,
             2 => FullScreenMode.FullScreenWindow,
-            _ => FullScreenMode.ExclusiveFullScreen
+            _ => FullScreenMode.FullScreenWindow
         };
 
         Screen.SetResolution(r.width, r.height, fsMode, r.refreshRateRatio);
